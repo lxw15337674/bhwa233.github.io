@@ -1,0 +1,31 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>All Posts - 我的全新 Hugo 网站</title>
+        <link>http://example.org/posts/</link>
+        <description>All Posts | 我的全新 Hugo 网站</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 27 Jun 2022 19:06:25 &#43;0800</lastBuildDate><atom:link href="http://example.org/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>My First Post</title>
+    <link>http://example.org/posts/my-first-post/</link>
+    <pubDate>Mon, 27 Jun 2022 19:06:25 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://example.org/posts/my-first-post/</guid>
+    <description><![CDATA[123123]]></description>
+</item>
+<item>
+    <title>Test</title>
+    <link>http://example.org/posts/test/</link>
+    <pubDate>Mon, 27 Jun 2022 19:05:27 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://example.org/posts/test/</guid>
+    <description><![CDATA[1231]]></description>
+</item>
+<item>
+    <title>First_post</title>
+    <link>http://example.org/posts/first_post/</link>
+    <pubDate>Mon, 27 Jun 2022 18:48:26 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://example.org/posts/first_post/</guid>
+    <description><![CDATA[123123]]></description>
+</item>
+</channel>
+</rss>
