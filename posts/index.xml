@@ -9,7 +9,7 @@
     <pubDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</pubDate>
     <author>xxxx</author>
     <guid>/posts/first_post/</guid>
-    <description><![CDATA[first]]></description>
+    <description><![CDATA[解决github pull/push 超时问题 查看全局代理端口 修改git配置 git config &ndash;global http.proxy http://127.0.0.1:端口号 git config &ndash;global https.proxy https://127.0.]]></description>
 </item>
 </channel>
 </rss>
