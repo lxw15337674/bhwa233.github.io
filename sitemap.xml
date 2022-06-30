@@ -2,10 +2,13 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/</loc><lastmod>2022-06-30T20:08:22&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-06-30T20:11:35&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-06-30T20:11:35&#43;08:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2022-06-30T20:11:35&#43;08:00</lastmod></url><url>
+            <loc>/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc><lastmod>2022-06-30T20:11:35&#43;08:00</lastmod></url><url>
+            <loc>/posts/cloudcomputing/</loc><lastmod>2022-06-30T20:11:35&#43;08:00</lastmod></url><url>
+            <loc>/tags/%E7%90%86%E8%AE%BA/</loc><lastmod>2022-06-30T20:11:35&#43;08:00</lastmod></url><url>
             <loc>/posts/node-sass/</loc><lastmod>2022-06-30T20:08:22&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-06-30T20:08:22&#43;08:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2022-06-30T20:08:22&#43;08:00</lastmod></url><url>
             <loc>/tags/%E7%8E%AF%E5%A2%83/</loc><lastmod>2022-06-30T20:08:22&#43;08:00</lastmod></url><url>
             <loc>/tags/todo/</loc><lastmod>2022-06-30T20:06:35&#43;08:00</lastmod></url><url>
             <loc>/posts/aboutproject/</loc><lastmod>2022-06-30T20:06:35&#43;08:00</lastmod></url><url>

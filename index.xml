@@ -3,9 +3,17 @@
         <title></title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 30 Jun 2022 20:08:22 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>云计算</title>
+    <link>/posts/cloudcomputing/</link>
+    <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/cloudcomputing/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>node-sass报错解决</title>
     <link>/posts/node-sass/</link>
     <pubDate>Thu, 30 Jun 2022 20:08:22 &#43;0800</pubDate>

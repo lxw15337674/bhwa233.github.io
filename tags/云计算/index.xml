@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>云计算 - Tag - </title>
+        <link>/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</link>
+        <description>云计算 - Tag - </description>
+        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</lastBuildDate><atom:link href="/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/" rel="self" type="application/rss+xml" /><item>
+    <title>云计算</title>
+    <link>/posts/cloudcomputing/</link>
+    <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/cloudcomputing/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
+</rss>
