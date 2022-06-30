@@ -1,10 +1,14 @@
 ---
-title: "First_post"
-subTitle: "副标题"
+title: "解决github pull/push 超时问题"
 date: 2022-06-27T19:13:52+08:00
 draft: false
+resources:
+- name: "featured-image"
+  src: "featured-image.jpg"
+tags: ["emoji"]
+categories: ["翻墙","github"]
+
 ---
-# 解决github pull/push 超时问题
 1. 查看全局代理端口
 2. 修改git配置
 
