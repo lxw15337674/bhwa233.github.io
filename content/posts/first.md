@@ -2,9 +2,6 @@
 title: "解决github pull/push 超时问题"
 date: 2022-06-27T19:13:52+08:00
 draft: false
-resources:
-- name: "featured-image"
-  src: "featured-image.jpg"
 tags: ["翻墙"]
 categories: ["环境配置"]
 typora-root-url: ..\..\static

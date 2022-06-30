@@ -1,6 +1,9 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
-draft: true
+draft: false
+tags: [""]
+categories: [""]
+typora-root-url: ..\..\static
 ---
 
