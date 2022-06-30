@@ -1,25 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>slate.js - Tag - </title>
+        <title>slate.js - Tag - blog</title>
         <link>/tags/slate.js/</link>
-        <description>slate.js - Tag - </description>
-        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</lastBuildDate><atom:link href="/tags/slate.js/" rel="self" type="application/rss+xml" /><item>
+        <description>slate.js - Tag - blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</lastBuildDate><atom:link href="/tags/slate.js/" rel="self" type="application/rss+xml" /><item>
     <title>slate.js踩坑记录</title>
     <link>/posts/slate.js/</link>
     <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/slate.js/</guid>
-    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。
-解决方法
-参考slate的Demo代码和[slate-yjs](https://github.com/BitPhinix/slate-yjs)的源码 value值限制 value中必须有text或children，否则报错。
-解决方法：
-插入一个空的line node。
-const initialValue: Descendant[] = [ { type: &#39;line&#39;, children: [ { text: &#39;&#39; }, { type: &#39;SelectType&#39;, items: [], text: &#39;&#39;,//必须存在 }, ], }, ]; 不能设置lineheight 必须被节点填充，否则点击会出现报错，认为是不可识别的node。
-比如设置lineheight，width，height等都会报错
-element类型 props.element的默认类型没有type，其实是有的。
-const renderElement = useCallback((props: RenderElementProps) =&gt; { switch ((props.element as any).type) { default: return &lt;DefaultElement {...props} /&gt;; } }, []); 解决方法
-自行declare
-declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; Element: CustomElement; Text: CustomText; } } 默认值报错 value的默认值不能为空数组，否则会报错]]></description>
+    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
 </item>
 </channel>
 </rss>

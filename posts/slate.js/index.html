@@ -1,39 +1,19 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>slate.js踩坑记录 - </title><meta name="Description" content="This is my cool site"><meta property="og:title" content="slate.js踩坑记录" />
-<meta property="og:description" content="基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。
-解决方法
-参考slate的Demo代码和[slate-yjs](https://github.com/BitPhinix/slate-yjs)的源码 value值限制 value中必须有text或children，否则报错。
-解决方法：
-插入一个空的line node。
-const initialValue: Descendant[] = [ { type: &#39;line&#39;, children: [ { text: &#39;&#39; }, { type: &#39;SelectType&#39;, items: [], text: &#39;&#39;,//必须存在 }, ], }, ]; 不能设置lineheight 必须被节点填充，否则点击会出现报错，认为是不可识别的node。
-比如设置lineheight，width，height等都会报错
-element类型 props.element的默认类型没有type，其实是有的。
-const renderElement = useCallback((props: RenderElementProps) =&gt; { switch ((props.element as any).type) { default: return &lt;DefaultElement {...props} /&gt;; } }, []); 解决方法
-自行declare
-declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; Element: CustomElement; Text: CustomText; } } 默认值报错 value的默认值不能为空数组，否则会报错" />
+        <title>slate.js踩坑记录 - blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="slate.js踩坑记录" />
+<meta property="og:description" content="基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/slate.js/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-30T19:58:01+08:00" />
-<meta property="article:modified_time" content="2022-06-30T19:58:01+08:00" /><meta property="og:site_name" content="Bhwa233" />
+<meta property="article:modified_time" content="2022-06-30T19:58:01+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="slate.js踩坑记录"/>
-<meta name="twitter:description" content="基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。
-解决方法
-参考slate的Demo代码和[slate-yjs](https://github.com/BitPhinix/slate-yjs)的源码 value值限制 value中必须有text或children，否则报错。
-解决方法：
-插入一个空的line node。
-const initialValue: Descendant[] = [ { type: &#39;line&#39;, children: [ { text: &#39;&#39; }, { type: &#39;SelectType&#39;, items: [], text: &#39;&#39;,//必须存在 }, ], }, ]; 不能设置lineheight 必须被节点填充，否则点击会出现报错，认为是不可识别的node。
-比如设置lineheight，width，height等都会报错
-element类型 props.element的默认类型没有type，其实是有的。
-const renderElement = useCallback((props: RenderElementProps) =&gt; { switch ((props.element as any).type) { default: return &lt;DefaultElement {...props} /&gt;; } }, []); 解决方法
-自行declare
-declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; Element: CustomElement; Text: CustomText; } } 默认值报错 value的默认值不能为空数组，否则会报错"/>
+<meta name="twitter:description" content="基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
@@ -44,11 +24,11 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
         "@context": "http://schema.org",
         "@type": "BlogPosting",
         "headline": "slate.js踩坑记录",
-        "inLanguage": "",
+        "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/slate.js\/"
-        },"genre": "posts","keywords": "富文本, slate.js","wordcount":  134 ,
+        },"genre": "posts","keywords": "富文本, slate.js","wordcount":  553 ,
         "url": "\/posts\/slate.js\/","datePublished": "2022-06-30T19:58:01+08:00","dateModified": "2022-06-30T19:58:01+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -62,7 +42,7 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="../../" title="">My cool site</a>
+            <a href="../../" title="blog">My cool site</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="../../posts/"> 文章 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -86,7 +66,7 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="../../" title="">My cool site</a>
+                <a href="../../" title="blog">My cool site</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -123,8 +103,8 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">slate.js踩坑记录</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-30">2022-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;134 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-30">2022-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;553 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -136,7 +116,7 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
       <ul>
         <li><a href="#基本没有实践文档">基本没有实践文档</a></li>
         <li><a href="#value值限制">value值限制</a></li>
-        <li><a href="#editable不能设置lineheight"><Editable>不能设置lineheight</a></li>
+        <li><a href="#editable不能设置lineheight"><!-- raw HTML omitted -->不能设置lineheight</a></li>
         <li><a href="#element类型">element类型</a></li>
         <li><a href="#默认值报错">默认值报错</a></li>
         <li><a href="#单选在最后没有光标">单选在最后没有光标</a></li>
@@ -179,9 +159,9 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">];</span>
-</span></span></code></pre></div><h3 id="editable不能设置lineheight"><Editable>不能设置lineheight</h3>
-<p><Editable>必须被节点填充，否则点击会出现报错，认为是不可识别的node。</p>
-<p>比如<Editable>设置lineheight，width，height等都会报错</p>
+</span></span></code></pre></div><h3 id="editable不能设置lineheight"><!-- raw HTML omitted -->不能设置lineheight</h3>
+<p><!-- raw HTML omitted -->必须被节点填充，否则点击会出现报错，认为是不可识别的node。</p>
+<p>比如<!-- raw HTML omitted -->设置lineheight，width，height等都会报错</p>
 <h3 id="element类型">element类型</h3>
 <p>props.element的默认类型没有type，其实是有的。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-TypeScript" data-lang="TypeScript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">renderElement</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">((</span><span class="nx">props</span>: <span class="kt">RenderElementProps</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>

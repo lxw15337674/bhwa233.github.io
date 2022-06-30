@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - </title>
+        <title>All Posts - blog</title>
         <link>/posts/</link>
-        <description>All Posts | </description>
-        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <description>All Posts | blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>云计算</title>
     <link>/posts/cloudcomputing/</link>
     <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
@@ -17,9 +17,7 @@
     <pubDate>Thu, 30 Jun 2022 20:08:22 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/node-sass/</guid>
-    <description><![CDATA[node-sass不仅下载编译慢，在window环境下总会报错。
-解决办法 使用dart-sass替代node-sass npm install node-sass@npm:dart-sass 这样会写到lock文件中，后面不再需要安装node-sass。
-使用sass代替 npm install node-sass@npm:sass ]]></description>
+    <description><![CDATA[node-sass不仅下载编译慢，在window环境下总会报错。 解决办法 使用dart-sass替代node-sass npm install node-sass@npm:dart-sass 这样会写到lock]]></description>
 </item>
 <item>
     <title>关于清单表格项目反思</title>
@@ -27,16 +25,7 @@
     <pubDate>Thu, 30 Jun 2022 20:06:35 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/aboutproject/</guid>
-    <description><![CDATA[前言 看了下gitlab的提交记录，从11月加入璇玑清单组开始，到现在已经4个月的时间，到昨天 （2022/3/11）我疲于应付发布前的bug，当全部搞完上线到beta后在下班的路上我猛然警醒，这个项目已经处于很难维护的程度，不管是开发新功能还是修bug，都已经举步维艰，每加一个新功能都因为前面的技术债造成不可预料的bug，每修一个bug都可能产生其他的bug。明明开发、测试人员都好像很负责，可为什么会造成现在的情况呢，我总结如下：
-主要原因： 低估项目的复杂性，缺少dev Design，直接代码一把梭哈，留下大量的技术债 没有高复杂项目的经验 前端 技术选型问题 sotre 使用简单的useContext+useReduce，在开发后期就发现该方案最致命的缺点：缺少衍生属性，造成的问题：
-store存入大量衍生属性，使得store非常臃肿，每次更新单个属性，就必须要把依赖的衍生属性全部更新。 举个例子，选中单元格：
-{ &#34;role&#34;: &#34;cell&#34;, // cell：代表当前选中的哪一种类型，cell:高亮单元格,row：高亮整行，col：高亮整列 &#34;current&#34;: [9, 1], //当前选中的高亮单元格行、列位置 &#34;cellBaseInfo&#34;: { &#34;width&#34;: 159, &#34;height&#34;: 23 },//当前选中单元格的宽、高。 &#34;selectNum&#34;: 10, //批量选中单元格的数量 &#34;shift&#34;: [[9,1],[13,2]]//批量高亮单元格矩形中左上角和右下角的行、列位置。 } 那这些属性是否都具备原子性呢。其实只有shift （当然shift也存在问题，正确的应该是保存id，后面会讲）具备，其他的属性都属于衍生属性：
-{ &#34;role&#34;: &#34;cell&#34;, // shift与表格行、列的length比对获得。 &#34;current&#34;: [9, 1], // shift[0]获得 &#34;cellBaseInfo&#34;: { &#34;width&#34;: 159, &#34;height&#34;: 23 },// shift[0]与表格行列属性比对获得 &#34;selectNum&#34;: 10, //shift计算获得。 &#34;shift&#34;: [[9,1],[13,2]]//批量高亮单元格矩形中左上角和右下角的行、列位置。 } 但是当我需要更新属性时，就必须要把这些衍生属性计算后一起更新到store里。
-表格 当时的技术选型，结论是在公司的table组件上做。可现在来看值得商榷，只用到最基本的table元素，里面的表头、列都进行了重写，且对后面的性能埋下隐患。
-也许可以使用：
-每个单元格用div浮动显示。 优势：
-性能优化。
-canvas实现。 功能函数缺乏封装 表格里一个功能有很多入口，而现在很多功能都没有进行封装，而是把相同的代码遍布在每个需要使用的地方。]]></description>
+    <description><![CDATA[前言 看了下gitlab的提交记录，从11月加入璇玑清单组开始，到现在已经4个月的时间，到昨天 （2022/3/11）我疲于应付发布前的bug，]]></description>
 </item>
 <item>
     <title>slate.js踩坑记录</title>
@@ -44,17 +33,7 @@ canvas实现。 功能函数缺乏封装 表格里一个功能有很多入口，
     <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/slate.js/</guid>
-    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。
-解决方法
-参考slate的Demo代码和[slate-yjs](https://github.com/BitPhinix/slate-yjs)的源码 value值限制 value中必须有text或children，否则报错。
-解决方法：
-插入一个空的line node。
-const initialValue: Descendant[] = [ { type: &#39;line&#39;, children: [ { text: &#39;&#39; }, { type: &#39;SelectType&#39;, items: [], text: &#39;&#39;,//必须存在 }, ], }, ]; 不能设置lineheight 必须被节点填充，否则点击会出现报错，认为是不可识别的node。
-比如设置lineheight，width，height等都会报错
-element类型 props.element的默认类型没有type，其实是有的。
-const renderElement = useCallback((props: RenderElementProps) =&gt; { switch ((props.element as any).type) { default: return &lt;DefaultElement {...props} /&gt;; } }, []); 解决方法
-自行declare
-declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; Element: CustomElement; Text: CustomText; } } 默认值报错 value的默认值不能为空数组，否则会报错]]></description>
+    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
 </item>
 <item>
     <title>draft.js 组件 Dev Design</title>
@@ -62,36 +41,7 @@ declare module &#39;slate&#39; { interface CustomTypes { Editor: ReactEditor; El
     <pubDate>Thu, 30 Jun 2022 19:49:45 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/draft.js/</guid>
-    <description><![CDATA[一、Overview 富文本输入框，支持插入属性组，先选择属性，再选择属性组。
-clash截图 二、实现特性 富文本的属性组组件 三、详细设计 关于框架 基于Draft.js进行扩展
-数据结构 后端会通过json的形式进行保存。
-则识别属性组组件方式：
-HTML 缺点：
-不能同步属性组配置变化 自行实现html2draft 数据结构：
-格式化：自己实现convertoHtmL 转为html保存
-反格式化：通过draft.js的convertFromHTML转为draft.js
-一个ContextBlock 数据结构： 通过特定的数据格式保存：
-有属性值的属性：[#keyId:valueId] 没有属性值的属性：[#keyId:] [匹配的正则](https://jex.im/regulex/#!flags=g&re=[[0-9a-zA-Z]%2B%3A[0-9a-zA-Z]*])
-优点：可以通过输入特定格式直接识别
-缺点：多种组件类型会出现输入问题。
-踩坑：
-可以通过正则转换为单选，但是光标处于单选组件都无法输入，无法删除，无法空格。
-解决思路：
-判断光标要移动到组件时，跳过组件。 判断光标要删除组件时，手动删除组件的text。 光标处于单选组件前一位、后一位时不会显示光标。
-解决思路：在组件前后增加空格文本，但因为选中时会显示出空文本，可能会覆盖掉。
-必要要用span元素来重写选择组件。
-需要onChange时判断光标。
-通过设置属性组组件contentEditable 可以跳过光标。
-当属性组在最后一个时，输入报错。
-解决方法：需要在自定义组件的根元素上加上key。 多个ContextBlock 数据结构 文本与属性组组件分离到不同的contextBlock保存。
-踩坑
-contentBlock会强制换行，没法作为行内组件。
-可以通过正则转换为单选，但是光标处于单选组件后无法输入，无法删除，无法空格。
-需要注意的点 配置项的修改删除，对应单元格的属性组也要同步变化。
-需要在读取数据时，将被删除的属性剔除掉。
-四、相关文档 https://zhuanlan.zhihu.com/p/24951621
-https://segmentfault.com/a/1190000019833834
-https://github.com/dreamFlyingCat/draft.js/blob/master/README.md]]></description>
+    <description><![CDATA[一、Overview 富文本输入框，支持插入属性组，先选择属性，再选择属性组。 clash截图 二、实现特性 富文本的属性组组件 三、详细设计 关于框架]]></description>
 </item>
 <item>
     <title>解决github pull/push 超时问题</title>
@@ -99,8 +49,7 @@ https://github.com/dreamFlyingCat/draft.js/blob/master/README.md]]></description
     <pubDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/first/</guid>
-    <description><![CDATA[步骤:
-查看翻墙软件的代理端口 clash截图 修改git配置 全局 git config --global http.proxy http://127.0.0.1:端口号 git config --global https.proxy https://127.0.0.1:端口号 单个项目 git config --local http.proxy http://127.0.0.1:端口号 git config --local https.proxy https://127.0.0.1:端口号 ]]></description>
+    <description><![CDATA[步骤: 查看翻墙软件的代理端口 clash截图 修改git配置 全局 git config --global http.proxy http://127.0.0.1:端口号 git config --global https.proxy https://127.]]></description>
 </item>
 </channel>
 </rss>
