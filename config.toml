@@ -2,7 +2,8 @@ baseURL = ""
 relativeURLs = "True"
 # 更改使用 Hugo 构建网站时使用的默认主题
 theme = "LoveIt"
-
+[params]
+  author = 'Bhwa233'
 # 网站标题
 title = "Bhwa233"
 
@@ -15,7 +16,7 @@ hasCJKLanguage = true
 
 # 作者配置
 [author]
-  name = "xxxx"
+  name = "Bhwa233"
   email = ""
   link = ""
 
@@ -76,3 +77,6 @@ hasCJKLanguage = true
     index = ""
     appID = ""
     searchKey = ""
+[markup.goldmark]
+    [markup.goldmark.renderer]
+        unsafe = true
