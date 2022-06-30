@@ -3,5 +3,21 @@
         <title>Categories - Category - Bhwa233</title>
         <link>/categories/</link>
         <description>Categories - Category - Bhwa233</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="/categories/" rel="self" type="application/rss+xml" /></channel>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>github</title>
+    <link>/categories/github/</link>
+    <pubDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>/categories/github/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>翻墙</title>
+    <link>/categories/%E7%BF%BB%E5%A2%99/</link>
+    <pubDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>/categories/%E7%BF%BB%E5%A2%99/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
