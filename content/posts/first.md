@@ -7,12 +7,13 @@ resources:
   src: "featured-image.jpg"
 tags: ["翻墙"]
 categories: ["环境配置"]
+typora-root-url: ..\..\static
 ---
 
 步骤:
 
 1. 查看翻墙软件的代理端口
-![clash截图](/assets/images/vpn.jpg "clash截图")
+![clash截图](/images/vpn.jpg "clash截图")
 1. 修改git配置
 
 ### 全局
