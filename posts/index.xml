@@ -4,7 +4,7 @@
         <link>/posts/</link>
         <description>All Posts | blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 07 Jul 2022 15:25:23 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Node_modules发展史</title>
+    <title>包管理发展史</title>
     <link>/posts/node_modules/</link>
     <pubDate>Thu, 07 Jul 2022 15:25:23 &#43;0800</pubDate>
     <author>Bhwa233</author>
