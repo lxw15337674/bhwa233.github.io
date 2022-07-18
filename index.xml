@@ -3,9 +3,17 @@
         <title>blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 07 Jul 2022 15:25:23 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 15 Jul 2022 17:13:53 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>外部文章</title>
+    <link>/posts/external/</link>
+    <pubDate>Fri, 15 Jul 2022 17:13:53 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/external/</guid>
+    <description><![CDATA[技术文章： https://wowd7vt38j.feishu.cn/base/bascnXAFltxSaViRUx4OnO1NbCe]]></description>
+</item>
+<item>
     <title>包管理发展史</title>
     <link>/posts/node_modules/</link>
     <pubDate>Thu, 07 Jul 2022 15:25:23 &#43;0800</pubDate>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/aboutproject/</guid>
     <description><![CDATA[前言 看了下gitlab的提交记录，从11月加入璇玑清单组开始，到现在已经4个月的时间，到昨天 （2022/3/11）我疲于应付发布前的bug，]]></description>
-</item>
-<item>
-    <title>slate.js踩坑记录</title>
-    <link>/posts/slate.js/</link>
-    <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/slate.js/</guid>
-    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
 </item>
 </channel>
 </rss>
