@@ -13,7 +13,7 @@ typora-root-url: ..\..\static
 
 **解决方法** 
 
-- #### 参考slate的Demo代码和[[slate-yjs](https://github.com/BitPhinix/slate-yjs)](https://github.com/BitPhinix/slate-yjs)的源码
+- #### 参考slate的Demo代码和[slate-yjs](https://github.com/BitPhinix/slate-yjs)的源码
 
 ### value值限制
 
