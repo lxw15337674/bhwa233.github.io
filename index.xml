@@ -3,15 +3,23 @@
         <title>blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 19 Jul 2022 09:45:56 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 19 Jul 2022 19:39:22 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Test</title>
-    <link>/posts/test/</link>
+    <title>GetDataType</title>
+    <link>/posts/getdatatype/</link>
+    <pubDate>Tue, 19 Jul 2022 19:39:22 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/getdatatype/</guid>
+    <description><![CDATA[判断数据类型 总结 Object.prototype.toString.call(obj)最准确。 typeof 只能检测基本数据类型。 利用 typeof 来判断numbe]]></description>
+</item>
+<item>
+    <title>javscript数据类型</title>
+    <link>/posts/datatype/</link>
     <pubDate>Tue, 19 Jul 2022 09:45:56 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/test/</guid>
-    <description><![CDATA[]]></description>
+    <guid>/posts/datatype/</guid>
+    <description><![CDATA[基本数据类型 7种： Undefined Null Boolean String Number BigInt(主要用的大数据。number最大值2的53次方，超过只能使用BigInt) Symbol NaN 属于 number 类型，并且 NaN 不]]></description>
 </item>
 <item>
     <title>外部文章</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/aboutproject/</guid>
     <description><![CDATA[前言 看了下gitlab的提交记录，从11月加入璇玑清单组开始，到现在已经4个月的时间，到昨天 （2022/3/11）我疲于应付发布前的bug，]]></description>
-</item>
-<item>
-    <title>slate.js踩坑记录</title>
-    <link>/posts/slate.js/</link>
-    <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/slate.js/</guid>
-    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
 </item>
 </channel>
 </rss>
