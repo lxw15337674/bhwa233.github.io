@@ -3,7 +3,15 @@
         <title>All Posts - blog</title>
         <link>/posts/</link>
         <description>All Posts | blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 15 Jul 2022 17:13:53 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 19 Jul 2022 09:45:56 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Test</title>
+    <link>/posts/test/</link>
+    <pubDate>Tue, 19 Jul 2022 09:45:56 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/test/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>外部文章</title>
     <link>/posts/external/</link>
     <pubDate>Fri, 15 Jul 2022 17:13:53 &#43;0800</pubDate>
@@ -44,22 +52,6 @@
     <description><![CDATA[record&lt;K,T&gt; 以 typeof 格式快速创建一个类型，此类型包含一组指定的属性且都是必填。 type Coord = Record&lt;&#39;x&#39; | &#39;y&#39;, number&gt;; //等同于 type Coord = { x: number; y: number; } Required 让属性都变成必选 type A = {a?:number, b?:string} type A1 =]]></description>
 </item>
 <item>
-    <title>UseStore</title>
-    <link>/posts/usestore/</link>
-    <pubDate>Fri, 01 Jul 2022 15:11:19 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/usestore/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>LifeIsNotShort</title>
-    <link>/posts/lifeisnotshort/</link>
-    <pubDate>Fri, 01 Jul 2022 11:38:11 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/lifeisnotshort/</guid>
-    <description><![CDATA[原文链接 最不可思议的事情是你不会让任何一个人偷走你的财产，却总让人偷走你无比宝贵的时间。 如果你想要学习如何过上好日子，没有比塞內卡更好的案例]]></description>
-</item>
-<item>
     <title>云计算</title>
     <link>/posts/cloudcomputing/</link>
     <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
@@ -82,6 +74,14 @@
     <author>Bhwa233</author>
     <guid>/posts/aboutproject/</guid>
     <description><![CDATA[前言 看了下gitlab的提交记录，从11月加入璇玑清单组开始，到现在已经4个月的时间，到昨天 （2022/3/11）我疲于应付发布前的bug，]]></description>
+</item>
+<item>
+    <title>slate.js踩坑记录</title>
+    <link>/posts/slate.js/</link>
+    <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/slate.js/</guid>
+    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
 </item>
 </channel>
 </rss>
