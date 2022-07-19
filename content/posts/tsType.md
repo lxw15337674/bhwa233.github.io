@@ -15,7 +15,7 @@ typora-root-url: ..\..\static
 type Coord = Record<'x' | 'y', number>;
 //等同于
 type Coord = {
-	x: number;
+	x: number; 
 	y: number;
 }
 ```
