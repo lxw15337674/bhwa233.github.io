@@ -3,7 +3,15 @@
         <title>All Posts - blog</title>
         <link>/posts/</link>
         <description>All Posts | blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 19 Jul 2022 19:39:22 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Jul 2022 00:13:35 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Debounce</title>
+    <link>/posts/debounce/</link>
+    <pubDate>Fri, 22 Jul 2022 00:13:35 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/debounce/</guid>
+    <description><![CDATA[防抖(debounce) 作用：触发多次事件，只执行最后一次。 原理：通过setTimeout延迟执行事件，每次触发函数判断定时器是否存在，存在]]></description>
+</item>
+<item>
     <title>GetDataType</title>
     <link>/posts/getdatatype/</link>
     <pubDate>Tue, 19 Jul 2022 19:39:22 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <author>Bhwa233</author>
     <guid>/posts/node-sass/</guid>
     <description><![CDATA[node-sass不仅下载编译慢，在window环境下总会报错。 解决办法 使用dart-sass替代node-sass npm install node-sass@npm:dart-sass 这样会写到lock]]></description>
-</item>
-<item>
-    <title>关于清单表格项目反思</title>
-    <link>/posts/aboutproject/</link>
-    <pubDate>Thu, 30 Jun 2022 20:06:35 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/aboutproject/</guid>
-    <description><![CDATA[前言 看了下gitlab的提交记录，从11月加入璇玑清单组开始，到现在已经4个月的时间，到昨天 （2022/3/11）我疲于应付发布前的bug，]]></description>
 </item>
 </channel>
 </rss>
