@@ -3,7 +3,15 @@
         <title>All Posts - blog</title>
         <link>/posts/</link>
         <description>All Posts | blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 22 Jul 2022 00:13:35 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>关于元素隐藏</title>
+    <link>/posts/display/</link>
+    <pubDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/display/</guid>
+    <description><![CDATA[常用的隐藏方法： opacity ：0 display :none visibility :hidden 设置 fixed 并设置足够大负距离的 left top 使其“隐藏” 用层叠关系 z-index 把元素叠在最底下使其“隐藏”。 前三种方法的一些区别 opacity: 0 visibility:]]></description>
+</item>
+<item>
     <title>Debounce</title>
     <link>/posts/debounce/</link>
     <pubDate>Fri, 22 Jul 2022 00:13:35 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <author>Bhwa233</author>
     <guid>/posts/cloudcomputing/</guid>
     <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>node-sass报错解决</title>
-    <link>/posts/node-sass/</link>
-    <pubDate>Thu, 30 Jun 2022 20:08:22 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/node-sass/</guid>
-    <description><![CDATA[node-sass不仅下载编译慢，在window环境下总会报错。 解决办法 使用dart-sass替代node-sass npm install node-sass@npm:dart-sass 这样会写到lock]]></description>
 </item>
 </channel>
 </rss>
