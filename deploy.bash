@@ -19,3 +19,6 @@ fi
 git commit -m "$msg"
 
 git push
+
+hugo-algolia -A
+hugo-algolia -s
