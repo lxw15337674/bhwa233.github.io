@@ -1,13 +1,11 @@
 ---
-title: "GetDataType"
+title: "判断数据类型"
 date: 2022-07-19T19:39:22+08:00
 draft: false
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
 ---
-
-# 判断数据类型
 
 ## 总结
 

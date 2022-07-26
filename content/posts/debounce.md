@@ -1,5 +1,5 @@
 ---
-title: "Debounce"
+title: "防抖节流"
 date: 2022-07-22T00:13:35+08:00
 draft: false
 tags: [""]
@@ -16,7 +16,7 @@ typora-root-url: ..\..\static
 应用场景：
 
 1. 输入校验。
-2. 拖动对话框。
+2. 联想
 
 ## 节流(throttle)
 
