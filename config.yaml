@@ -1,0 +1,12 @@
+---
+baseurl: "/"
+DefaultContentLanguage: "zh-cn"
+hasCJKLanguage: true
+languageCode: "zh-cn"
+title: "myblog"
+theme: "LoveIt"
+algolia:
+  index: "myblog"
+  key: "9de2de9b605aa1e0aeadefbc549c14fe"
+  appID: "3PD6QAJMYD"
+---
