@@ -3,7 +3,63 @@
         <title>All Posts - blog</title>
         <link>/posts/</link>
         <description>All Posts | blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 26 Jul 2022 23:44:47 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>发布订阅模式</title>
+    <link>/posts/designmode/subscribe/</link>
+    <pubDate>Tue, 26 Jul 2022 23:44:47 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/designmode/subscribe/</guid>
+    <description><![CDATA[概念 发布-订阅模式其实是一种对象间一对多的依赖关系，当一个对象的状态发送改变时，所有依赖于它的对象都将得到状态改变的通知。 订阅者（Subsc]]></description>
+</item>
+<item>
+    <title>重绘和回流（Repaint &amp; Reflow）</title>
+    <link>/posts/repaintandreflow/</link>
+    <pubDate>Tue, 26 Jul 2022 23:29:34 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/repaintandreflow/</guid>
+    <description><![CDATA[重绘 DOM样式发生了变化，而不会影响布局时会触发重绘，而不会触发回流。重绘由于DOM位置信息不需要更新，省去了布局过程，因而性能上优于回流 回]]></description>
+</item>
+<item>
+    <title>npm install过程</title>
+    <link>/posts/npm_install/</link>
+    <pubDate>Tue, 26 Jul 2022 23:27:27 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/npm_install/</guid>
+    <description><![CDATA[模块安装过程 查找此模块是否已经在node_modules中安装过，然后再.npm 缓存中查看是否有同版本缓存 如果有缓存，直接使用缓存 没有缓存去]]></description>
+</item>
+<item>
+    <title>三次握手、四次挥手</title>
+    <link>/posts/tcp/</link>
+    <pubDate>Tue, 26 Jul 2022 23:20:18 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/tcp/</guid>
+    <description><![CDATA[一图总结 基本概念 消息类型 描述 ACK acknowledge确认标志，为1表示确认号有效，为0表示报文中不包含确认信息，忽略确认号字段。帮助对方确认]]></description>
+</item>
+<item>
+    <title>Http</title>
+    <link>/posts/http/</link>
+    <pubDate>Tue, 26 Jul 2022 23:10:17 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/http/</guid>
+    <description><![CDATA[概念 HTTP是一种超文本传输协议（Hypertext Transfer Protocol)，HTTP是一个基于TCP实现的应用层协议。一个两点之间传输数据的约]]></description>
+</item>
+<item>
+    <title>js的异步</title>
+    <link>/posts/async/</link>
+    <pubDate>Tue, 26 Jul 2022 22:26:21 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/async/</guid>
+    <description><![CDATA[js是单线程语言，一次只能进行一个任务。js通过事件循环来解决异步任务。 1. 回调函数（callback） setTimeout(() =&gt; { callback() }, 1000) 缺点：回调地狱，不能用 try catch]]></description>
+</item>
+<item>
+    <title> Event Loop（js的事件循环机制）</title>
+    <link>/posts/eventloop/</link>
+    <pubDate>Tue, 26 Jul 2022 22:12:59 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/eventloop/</guid>
+    <description><![CDATA[作用 解决单线程的js对异步任务的问题。 机制 js中的事件触发器维护宏任务和微任务两个队列，微任务的优先级高于宏任务。 每次宏任务执行完后都会执行]]></description>
+</item>
+<item>
     <title>关于元素隐藏</title>
     <link>/posts/display/</link>
     <pubDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</pubDate>
@@ -12,7 +68,7 @@
     <description><![CDATA[常用的隐藏方法： opacity ：0 display :none visibility :hidden 设置 fixed 并设置足够大负距离的 left top 使其“隐藏” 用层叠关系 z-index 把元素叠在最底下使其“隐藏”。 前三种方法的一些区别 opacity: 0 visibility:]]></description>
 </item>
 <item>
-    <title>Debounce</title>
+    <title>防抖节流</title>
     <link>/posts/debounce/</link>
     <pubDate>Fri, 22 Jul 2022 00:13:35 &#43;0800</pubDate>
     <author>Bhwa233</author>
@@ -20,68 +76,12 @@
     <description><![CDATA[防抖(debounce) 作用：触发多次事件，只执行最后一次。 原理：通过setTimeout延迟执行事件，每次触发函数判断定时器是否存在，存在]]></description>
 </item>
 <item>
-    <title>GetDataType</title>
+    <title>判断数据类型</title>
     <link>/posts/getdatatype/</link>
     <pubDate>Tue, 19 Jul 2022 19:39:22 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/getdatatype/</guid>
-    <description><![CDATA[判断数据类型 总结 Object.prototype.toString.call(obj)最准确。 typeof 只能检测基本数据类型。 利用 typeof 来判断numbe]]></description>
-</item>
-<item>
-    <title>javscript数据类型</title>
-    <link>/posts/datatype/</link>
-    <pubDate>Tue, 19 Jul 2022 09:45:56 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/datatype/</guid>
-    <description><![CDATA[基本数据类型 7种： Undefined Null Boolean String Number BigInt(主要用的大数据。number最大值2的53次方，超过只能使用BigInt) Symbol NaN 属于 number 类型，并且 NaN 不]]></description>
-</item>
-<item>
-    <title>外部文章</title>
-    <link>/posts/external/</link>
-    <pubDate>Fri, 15 Jul 2022 17:13:53 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/external/</guid>
-    <description><![CDATA[技术文章： https://wowd7vt38j.feishu.cn/base/bascnXAFltxSaViRUx4OnO1NbCe]]></description>
-</item>
-<item>
-    <title>包管理发展史</title>
-    <link>/posts/node_modules/</link>
-    <pubDate>Thu, 07 Jul 2022 15:25:23 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/node_modules/</guid>
-    <description><![CDATA[npm 2010年npm发布。 嵌套结构 主依赖在 node_modules 下，子依赖嵌套在主依赖的 node_modules 中。但会造成依赖地狱。 npm最开始的 node_modules 采用嵌套结构。比如项目依赖了 A 和 C]]></description>
-</item>
-<item>
-    <title>pnpm</title>
-    <link>/posts/pnpm/</link>
-    <pubDate>Thu, 07 Jul 2022 11:35:22 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/pnpm/</guid>
-    <description><![CDATA[为什么使用pnpm？ 解决两个问题： 相同依赖多次保存，占用磁盘空间安装慢。 多个项目依赖一个相同的包，例如react@17.0.13 ，用npm或]]></description>
-</item>
-<item>
-    <title>语法化版本</title>
-    <link>/posts/aboutversion/</link>
-    <pubDate>Wed, 06 Jul 2022 15:29:43 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/aboutversion/</guid>
-    <description><![CDATA[版本一般被分解major.minor.patch，例如3.14.1, 0.42.0, 2.7.18。 major主版本号：做了不兼容的 API 修改。 minor次版本]]></description>
-</item>
-<item>
-    <title>Typescript关键字及工具函数</title>
-    <link>/posts/tstype/</link>
-    <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/tstype/</guid>
-    <description><![CDATA[record&lt;K,T&gt; 以 typeof 格式快速创建一个类型，此类型包含一组指定的属性且都是必填。 type Coord = Record&lt;&#39;x&#39; | &#39;y&#39;, number&gt;; //等同于 type Coord = { x: number; y: number; } Required 让属性都变成必选 type A = {a?:number, b?:string} type A1 =]]></description>
-</item>
-<item>
-    <title>云计算</title>
-    <link>/posts/cloudcomputing/</link>
-    <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/cloudcomputing/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[总结 Object.prototype.toString.call(obj)最准确。 typeof 只能检测基本数据类型。 利用 typeof 来判断number, string, object, boolean, function,]]></description>
 </item>
 </channel>
 </rss>
