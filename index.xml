@@ -3,9 +3,33 @@
         <title>blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 26 Jul 2022 23:44:47 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 28 Jul 2022 23:28:42 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>深入理解浏览器的缓存机制(引用)</title>
+    <link>/posts/browercache/</link>
+    <pubDate>Thu, 28 Jul 2022 23:28:42 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/browercache/</guid>
+    <description><![CDATA[原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk]]></description>
+</item>
+<item>
+    <title>CookieAndToken</title>
+    <link>/posts/cookieandtoken/</link>
+    <pubDate>Thu, 28 Jul 2022 22:43:24 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/cookieandtoken/</guid>
+    <description><![CDATA[cookie 登陆后后端生成一个sessionid放在cookie中返回给客户端，并且服务端一直记录着这个sessionid，客户端以后每次请求都会带上]]></description>
+</item>
+<item>
+    <title>前端模块化输出</title>
+    <link>/posts/module/</link>
+    <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/module/</guid>
+    <description><![CDATA[模块化主要是用来抽离公共代码，隔离作用域，避免变量冲突等。 无模块化 CommonJS规范 AMD规范 CMD规范 ES6模块化 适用 服务端 浏览器端 浏览]]></description>
+</item>
+<item>
     <title>发布订阅模式</title>
     <link>/posts/designmode/subscribe/</link>
     <pubDate>Tue, 26 Jul 2022 23:44:47 &#43;0800</pubDate>
@@ -60,30 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/eventloop/</guid>
     <description><![CDATA[作用 解决单线程的js对异步任务的问题。 机制 js中的事件触发器维护宏任务和微任务两个队列，微任务的优先级高于宏任务。 每次宏任务执行完后都会执行]]></description>
-</item>
-<item>
-    <title>关于元素隐藏</title>
-    <link>/posts/display/</link>
-    <pubDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/display/</guid>
-    <description><![CDATA[常用的隐藏方法： opacity ：0 display :none visibility :hidden 设置 fixed 并设置足够大负距离的 left top 使其“隐藏” 用层叠关系 z-index 把元素叠在最底下使其“隐藏”。 前三种方法的一些区别 opacity: 0 visibility:]]></description>
-</item>
-<item>
-    <title>防抖节流</title>
-    <link>/posts/debounce/</link>
-    <pubDate>Fri, 22 Jul 2022 00:13:35 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/debounce/</guid>
-    <description><![CDATA[防抖(debounce) 作用：触发多次事件，只执行最后一次。 原理：通过setTimeout延迟执行事件，每次触发函数判断定时器是否存在，存在]]></description>
-</item>
-<item>
-    <title>判断数据类型</title>
-    <link>/posts/getdatatype/</link>
-    <pubDate>Tue, 19 Jul 2022 19:39:22 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/getdatatype/</guid>
-    <description><![CDATA[总结 Object.prototype.toString.call(obj)最准确。 typeof 只能检测基本数据类型。 利用 typeof 来判断number, string, object, boolean, function,]]></description>
 </item>
 </channel>
 </rss>

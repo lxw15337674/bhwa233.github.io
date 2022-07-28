@@ -2,8 +2,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/</loc><lastmod>2022-07-26T23:44:47&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-07-26T23:44:47&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-07-28T23:28:42&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-07-28T23:28:42&#43;08:00</lastmod></url><url>
+            <loc>/posts/browercache/</loc><lastmod>2022-07-28T23:28:42&#43;08:00</lastmod></url><url>
+            <loc>/posts/cookieandtoken/</loc><lastmod>2022-07-28T22:43:24&#43;08:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
+            <loc>/tags/js/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
+            <loc>/categories/js/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
+            <loc>/posts/module/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
             <loc>/posts/designmode/subscribe/</loc><lastmod>2022-07-26T23:44:47&#43;08:00</lastmod></url><url>
             <loc>/posts/repaintandreflow/</loc><lastmod>2022-07-26T23:29:34&#43;08:00</lastmod></url><url>
             <loc>/posts/npm_install/</loc><lastmod>2022-07-26T23:27:27&#43;08:00</lastmod></url><url>
@@ -12,7 +19,6 @@
             <loc>/posts/async/</loc><lastmod>2022-07-26T22:26:21&#43;08:00</lastmod></url><url>
             <loc>/posts/eventloop/</loc><lastmod>2022-07-26T22:12:59&#43;08:00</lastmod></url><url>
             <loc>/tags/css/</loc><lastmod>2022-07-25T23:56:58&#43;08:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2022-07-25T23:56:58&#43;08:00</lastmod></url><url>
             <loc>/posts/display/</loc><lastmod>2022-07-25T23:56:58&#43;08:00</lastmod></url><url>
             <loc>/posts/debounce/</loc><lastmod>2022-07-22T00:13:35&#43;08:00</lastmod></url><url>
             <loc>/posts/getdatatype/</loc><lastmod>2022-07-19T19:39:22&#43;08:00</lastmod></url><url>
@@ -33,7 +39,6 @@
             <loc>/posts/slate.js/</loc><lastmod>2022-06-30T19:58:01&#43;08:00</lastmod></url><url>
             <loc>/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/</loc><lastmod>2022-06-30T19:58:01&#43;08:00</lastmod></url><url>
             <loc>/posts/draft.js/</loc><lastmod>2022-06-30T19:49:45&#43;08:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2022-06-27T19:13:52&#43;08:00</lastmod></url><url>
             <loc>/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc><lastmod>2022-06-27T19:13:52&#43;08:00</lastmod></url><url>
             <loc>/tags/%E7%BF%BB%E5%A2%99/</loc><lastmod>2022-06-27T19:13:52&#43;08:00</lastmod></url><url>
             <loc>/posts/first/</loc><lastmod>2022-06-27T19:13:52&#43;08:00</lastmod></url></urlset>

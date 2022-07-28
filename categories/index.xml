@@ -3,7 +3,15 @@
         <title>Categories - Category - blog</title>
         <link>/categories/</link>
         <description>Categories - Category - blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>js</title>
+    <link>/categories/js/</link>
+    <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/categories/js/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>环境配置</title>
     <link>/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
     <pubDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</pubDate>

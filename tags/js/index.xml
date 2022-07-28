@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>js - Tag - blog</title>
+        <link>/tags/js/</link>
+        <description>js - Tag - blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</lastBuildDate><atom:link href="/tags/js/" rel="self" type="application/rss+xml" /><item>
+    <title>前端模块化输出</title>
+    <link>/posts/module/</link>
+    <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/module/</guid>
+    <description><![CDATA[模块化主要是用来抽离公共代码，隔离作用域，避免变量冲突等。 无模块化 CommonJS规范 AMD规范 CMD规范 ES6模块化 适用 服务端 浏览器端 浏览]]></description>
+</item>
+</channel>
+</rss>
