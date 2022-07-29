@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title> Event Loop（js的事件循环机制） - blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content=" Event Loop（js的事件循环机制）" />
-<meta property="og:description" content="作用 解决单线程的js对异步任务的问题。 机制 js中的事件触发器维护宏任务和微任务两个队列，微任务的优先级高于宏任务。 每次宏任务执行完后都会执行" />
+        <title>Communication - blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Communication" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/eventloop/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-07-26T22:12:59+08:00" />
-<meta property="article:modified_time" content="2022-07-26T22:12:59+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="og:url" content="/posts/communication/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-26T09:28:52+08:00" />
+<meta property="article:modified_time" content="2022-07-26T09:28:52+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=" Event Loop（js的事件循环机制）"/>
-<meta name="twitter:description" content="作用 解决单线程的js对异步任务的问题。 机制 js中的事件触发器维护宏任务和微任务两个队列，微任务的优先级高于宏任务。 每次宏任务执行完后都会执行"/>
+<meta name="twitter:title" content="Communication"/>
+<meta name="twitter:description" content=""/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="../../posts/eventloop/" /><link rel="prev" href="../../posts/communication/" /><link rel="next" href="../../posts/async/" /><link rel="stylesheet" href="../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="../../posts/communication/" /><link rel="prev" href="../../posts/display/" /><link rel="next" href="../../posts/eventloop/" /><link rel="stylesheet" href="../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": " Event Loop（js的事件循环机制）",
+        "headline": "Communication",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/eventloop\/"
-        },"genre": "posts","keywords": "","wordcount":  319 ,
-        "url": "\/posts\/eventloop\/","datePublished": "2022-07-26T22:12:59+08:00","dateModified": "2022-07-26T22:12:59+08:00","publisher": {
+            "@id": "\/posts\/communication\/"
+        },"genre": "posts","keywords": "","wordcount":  0 ,
+        "url": "\/posts\/communication\/","datePublished": "2022-07-26T09:28:52+08:00","dateModified": "2022-07-26T09:28:52+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,65 +101,17 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX"> Event Loop（js的事件循环机制）</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Communication</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../../" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-26">2022-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;319 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-26">2022-07-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;0 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;0 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#作用">作用</a></li>
-    <li><a href="#机制">机制</a></li>
-    <li><a href="#常见宏任务macrotask">常见宏任务（macrotask）</a></li>
-    <li><a href="#常见微任务microtask">常见微任务（microtask）</a></li>
-    <li><a href="#关于processnexttick的一点说明">关于process.nextTick的一点说明</a></li>
-    <li><a href="#引用">引用</a></li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><h2 id="作用">作用</h2>
-<p>解决单线程的js对异步任务的问题。</p>
-<p><img
-        class="lazyload"
-        src="../../svg/loading.min.svg"
-        data-src="../../images/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30322f30382f356335643661353238626461662e6a7067"
-        data-srcset="../../images/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30322f30382f356335643661353238626461662e6a7067, ../../images/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30322f30382f356335643661353238626461662e6a7067 1.5x, ../../images/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30322f30382f356335643661353238626461662e6a7067 2x"
-        data-sizes="auto"
-        alt="/images/68747470733a2f2f692e6c6f6c692e6e65742f323031392f30322f30382f356335643661353238626461662e6a7067"
-        title="mark" /></p>
-<h2 id="机制">机制</h2>
-<p>js中的<strong>事件触发器</strong>维护宏任务和微任务两个队列，微任务的优先级高于宏任务。
-每次宏任务执行完后都会执行所有微任务，然后再执行下一个宏任务。</p>
-<h2 id="常见宏任务macrotask">常见宏任务（macrotask）</h2>
-<ul>
-<li>script(整体代码)</li>
-<li>setTimeout / setInterval</li>
-<li>setImmediate(Node.js 环境)</li>
-<li>I/O</li>
-<li>UI render</li>
-<li>postMessage</li>
-<li>MessageChannel</li>
-</ul>
-<h2 id="常见微任务microtask">常见微任务（microtask）</h2>
-<ul>
-<li>process.nextTick(Node.js 环境)</li>
-<li>Promise</li>
-<li>Async/Await</li>
-<li>MutationObserver（监视对DOM树所做更改）</li>
-</ul>
-<h2 id="关于processnexttick的一点说明">关于process.nextTick的一点说明</h2>
-<p>process.nextTick 是一个独立于 eventLoop 的任务队列。</p>
-<p>在每一个 eventLoop 阶段完成后会去检查这个队列，如果里面有任务，会让这部分任务优先于微任务执行。</p>
-<h2 id="引用">引用</h2>
-<ul>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/7" target="_blank" rel="noopener noreffer ">从一道题浅说 JavaScript 的事件循环</a></li>
-<li><a href="https://github.com/ljianshu/Blog/issues/54" target="_blank" rel="noopener noreffer ">浏览器与Node的事件循环(Event Loop)有何区别</a></li>
-<li><a href="https://juejin.im/post/6844903657264136200" target="_blank" rel="noopener noreffer ">微任务、宏任务与Event-Loop</a></li>
-</ul>
-</div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -168,7 +120,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../posts/eventloop/" data-title=" Event Loop（js的事件循环机制）" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../posts/eventloop/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../posts/eventloop/" data-title=" Event Loop（js的事件循环机制）"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../posts/eventloop/" data-title=" Event Loop（js的事件循环机制）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../posts/eventloop/" data-title=" Event Loop（js的事件循环机制）"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../posts/communication/" data-title="Communication" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../posts/communication/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../posts/communication/" data-title="Communication"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../posts/communication/" data-title="Communication"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../posts/communication/" data-title="Communication"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -180,8 +132,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../posts/communication/" class="prev" rel="prev" title="Communication"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Communication</a>
-            <a href="../../posts/async/" class="next" rel="next" title="js的异步">js的异步<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../posts/display/" class="prev" rel="prev" title="关于元素隐藏"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>关于元素隐藏</a>
+            <a href="../../posts/eventloop/" class="next" rel="next" title=" Event Loop（js的事件循环机制）"> Event Loop（js的事件循环机制）<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
