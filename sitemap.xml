@@ -2,14 +2,27 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/</loc><lastmod>2022-07-28T23:28:42&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-07-28T23:28:42&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-07-31T16:08:26&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-07-31T16:08:26&#43;08:00</lastmod></url><url>
+            <loc>/posts/js/event/</loc><lastmod>2022-07-31T16:08:26&#43;08:00</lastmod></url><url>
+            <loc>/posts/hmr/</loc><lastmod>2022-07-31T15:57:49&#43;08:00</lastmod></url><url>
+            <loc>/posts/arrowfunction/</loc><lastmod>2022-07-31T15:45:06&#43;08:00</lastmod></url><url>
+            <loc>/posts/callapplybind/</loc><lastmod>2022-07-31T15:31:55&#43;08:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2022-07-31T15:31:55&#43;08:00</lastmod></url><url>
+            <loc>/tags/javascript/</loc><lastmod>2022-07-31T15:31:55&#43;08:00</lastmod></url><url>
+            <loc>/categories/javascript/</loc><lastmod>2022-07-31T15:31:55&#43;08:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2022-07-31T15:31:55&#43;08:00</lastmod></url><url>
+            <loc>/posts/http/https/</loc><lastmod>2022-07-31T15:22:32&#43;08:00</lastmod></url><url>
+            <loc>/posts/css/bfc/</loc><lastmod>2022-07-31T14:53:23&#43;08:00</lastmod></url><url>
+            <loc>/tags/react/</loc><lastmod>2022-07-31T14:36:15&#43;08:00</lastmod></url><url>
+            <loc>/posts/react/scheduler/</loc><lastmod>2022-07-31T14:36:15&#43;08:00</lastmod></url><url>
+            <loc>/posts/react/diff/</loc><lastmod>2022-07-31T14:11:32&#43;08:00</lastmod></url><url>
+            <loc>/posts/react/structure/</loc><lastmod>2022-07-31T14:04:31&#43;08:00</lastmod></url><url>
+            <loc>/posts/react/fiber/</loc><lastmod>2022-07-31T13:35:09&#43;08:00</lastmod></url><url>
             <loc>/posts/browercache/</loc><lastmod>2022-07-28T23:28:42&#43;08:00</lastmod></url><url>
             <loc>/posts/cookieandtoken/</loc><lastmod>2022-07-28T22:43:24&#43;08:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
             <loc>/tags/js/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
             <loc>/categories/js/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
             <loc>/posts/module/</loc><lastmod>2022-07-28T21:17:45&#43;08:00</lastmod></url><url>
             <loc>/posts/designmode/subscribe/</loc><lastmod>2022-07-26T23:44:47&#43;08:00</lastmod></url><url>
             <loc>/posts/repaintandreflow/</loc><lastmod>2022-07-26T23:29:34&#43;08:00</lastmod></url><url>

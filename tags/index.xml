@@ -3,7 +3,23 @@
         <title>Tags - Tag - blog</title>
         <link>/tags/</link>
         <description>Tags - Tag - blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 15:31:55 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>javascript</title>
+    <link>/tags/javascript/</link>
+    <pubDate>Sun, 31 Jul 2022 15:31:55 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/javascript/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>react</title>
+    <link>/tags/react/</link>
+    <pubDate>Sun, 31 Jul 2022 14:36:15 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/react/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>js</title>
     <link>/tags/js/</link>
     <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
@@ -65,14 +81,6 @@
     <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>翻墙</title>
-    <link>/tags/%E7%BF%BB%E5%A2%99/</link>
-    <pubDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/%E7%BF%BB%E5%A2%99/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

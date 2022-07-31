@@ -3,87 +3,87 @@
         <title>blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 28 Jul 2022 23:28:42 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>深入理解浏览器的缓存机制(引用)</title>
-    <link>/posts/browercache/</link>
-    <pubDate>Thu, 28 Jul 2022 23:28:42 &#43;0800</pubDate>
+    <title>键盘事件</title>
+    <link>/posts/js/event/</link>
+    <pubDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/browercache/</guid>
-    <description><![CDATA[原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk]]></description>
+    <guid>/posts/js/event/</guid>
+    <description><![CDATA[由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件]]></description>
 </item>
 <item>
-    <title>CookieAndToken</title>
-    <link>/posts/cookieandtoken/</link>
-    <pubDate>Thu, 28 Jul 2022 22:43:24 &#43;0800</pubDate>
+    <title>HMR</title>
+    <link>/posts/hmr/</link>
+    <pubDate>Sun, 31 Jul 2022 15:57:49 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/cookieandtoken/</guid>
-    <description><![CDATA[cookie 登陆后后端生成一个sessionid放在cookie中返回给客户端，并且服务端一直记录着这个sessionid，客户端以后每次请求都会带上]]></description>
+    <guid>/posts/hmr/</guid>
+    <description><![CDATA[详解 https://juejin.im/post/5df36ffd518825124d6c1765 https://juejin.im/post/5d8db37051882530d438535c https://juejin.im/post/5c86ec276fb9a04a10301f5b https://zhuanlan.zhihu.com/p/30669007 概念 Hot Module Replacement（以下简称 HMR） 当你对代码进行修改并保存后，webpack 将对代码重新打包，并将新的模块发送到浏]]></description>
 </item>
 <item>
-    <title>前端模块化输出</title>
-    <link>/posts/module/</link>
-    <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
+    <title>箭头函数</title>
+    <link>/posts/arrowfunction/</link>
+    <pubDate>Sun, 31 Jul 2022 15:45:06 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/module/</guid>
-    <description><![CDATA[模块化主要是用来抽离公共代码，隔离作用域，避免变量冲突等。 无模块化 CommonJS规范 AMD规范 CMD规范 ES6模块化 适用 服务端 浏览器端 浏览]]></description>
+    <guid>/posts/arrowfunction/</guid>
+    <description><![CDATA[箭头函数跟普通函数的区别 箭头函数没有 this。 函数不会创建自己的 this，它只会从自己的作用域链的上一层继承 this 通过 call 或 apply 调用不会改变 this 指向。]]></description>
 </item>
 <item>
-    <title>发布订阅模式</title>
-    <link>/posts/designmode/subscribe/</link>
-    <pubDate>Tue, 26 Jul 2022 23:44:47 &#43;0800</pubDate>
+    <title>Call、apply、bind</title>
+    <link>/posts/callapplybind/</link>
+    <pubDate>Sun, 31 Jul 2022 15:31:55 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/designmode/subscribe/</guid>
-    <description><![CDATA[概念 发布-订阅模式其实是一种对象间一对多的依赖关系，当一个对象的状态发送改变时，所有依赖于它的对象都将得到状态改变的通知。 订阅者（Subsc]]></description>
+    <guid>/posts/callapplybind/</guid>
+    <description><![CDATA[call 更改 this 指向，第一个参数作为函数的 this 指向，其余参数作为函数的参数，执行参数。 object.call(obj,arg1,arg2,...) 基本思路 将函数作为对象的属性 执行函数 删除函数 实现 在线：http]]></description>
 </item>
 <item>
-    <title>重绘和回流（Repaint &amp; Reflow）</title>
-    <link>/posts/repaintandreflow/</link>
-    <pubDate>Tue, 26 Jul 2022 23:29:34 &#43;0800</pubDate>
+    <title>Https</title>
+    <link>/posts/http/https/</link>
+    <pubDate>Sun, 31 Jul 2022 15:22:32 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/repaintandreflow/</guid>
-    <description><![CDATA[重绘 DOM样式发生了变化，而不会影响布局时会触发重绘，而不会触发回流。重绘由于DOM位置信息不需要更新，省去了布局过程，因而性能上优于回流 回]]></description>
+    <guid>/posts/http/https/</guid>
+    <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
 </item>
 <item>
-    <title>npm install过程</title>
-    <link>/posts/npm_install/</link>
-    <pubDate>Tue, 26 Jul 2022 23:27:27 &#43;0800</pubDate>
+    <title>BFC</title>
+    <link>/posts/css/bfc/</link>
+    <pubDate>Sun, 31 Jul 2022 14:53:23 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/npm_install/</guid>
-    <description><![CDATA[模块安装过程 查找此模块是否已经在node_modules中安装过，然后再.npm 缓存中查看是否有同版本缓存 如果有缓存，直接使用缓存 没有缓存去]]></description>
+    <guid>/posts/css/bfc/</guid>
+    <description><![CDATA[一句话总结 BFC 就相当于一个隔离的独立容器，内部的元素与外界的元素互不干扰。 前置知识 常见定位方案 普通流 (normal flow) 在普通流中，元素按照其在 HTML 中的先后位置]]></description>
 </item>
 <item>
-    <title>三次握手、四次挥手</title>
-    <link>/posts/tcp/</link>
-    <pubDate>Tue, 26 Jul 2022 23:20:18 &#43;0800</pubDate>
+    <title>Scheduler</title>
+    <link>/posts/react/scheduler/</link>
+    <pubDate>Sun, 31 Jul 2022 14:36:15 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/tcp/</guid>
-    <description><![CDATA[一图总结 基本概念 消息类型 描述 ACK acknowledge确认标志，为1表示确认号有效，为0表示报文中不包含确认信息，忽略确认号字段。帮助对方确认]]></description>
+    <guid>/posts/react/scheduler/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>Http</title>
-    <link>/posts/http/</link>
-    <pubDate>Tue, 26 Jul 2022 23:10:17 &#43;0800</pubDate>
+    <title>Diff算法</title>
+    <link>/posts/react/diff/</link>
+    <pubDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/http/</guid>
-    <description><![CDATA[概念 HTTP是一种超文本传输协议（Hypertext Transfer Protocol)，HTTP是一个基于TCP实现的应用层协议。一个两点之间传输数据的约]]></description>
+    <guid>/posts/react/diff/</guid>
+    <description><![CDATA[本质 diff本身就是上一帧的元素树与当前帧的元素树进行比对。 正常两棵树完全比对的算法复杂度是O(n 3 )。这个开销太过高昂。为了降低算法复杂度]]></description>
 </item>
 <item>
-    <title>js的异步</title>
-    <link>/posts/async/</link>
-    <pubDate>Tue, 26 Jul 2022 22:26:21 &#43;0800</pubDate>
+    <title>架构</title>
+    <link>/posts/react/structure/</link>
+    <pubDate>Sun, 31 Jul 2022 14:04:31 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/async/</guid>
-    <description><![CDATA[js是单线程语言，一次只能进行一个任务。js通过事件循环来解决异步任务。 1. 回调函数（callback） setTimeout(() =&gt; { callback() }, 1000) 缺点：回调地狱，不能用 try catch]]></description>
+    <guid>/posts/react/structure/</guid>
+    <description><![CDATA[架构 Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入Reconciler Reconciler（协调器）—— 负责找出变化的组]]></description>
 </item>
 <item>
-    <title> Event Loop（js的事件循环机制）</title>
-    <link>/posts/eventloop/</link>
-    <pubDate>Tue, 26 Jul 2022 22:12:59 &#43;0800</pubDate>
+    <title>Fiber</title>
+    <link>/posts/react/fiber/</link>
+    <pubDate>Sun, 31 Jul 2022 13:35:09 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/eventloop/</guid>
-    <description><![CDATA[作用 解决单线程的js对异步任务的问题。 机制 js中的事件触发器维护宏任务和微任务两个队列，微任务的优先级高于宏任务。 每次宏任务执行完后都会执行]]></description>
+    <guid>/posts/react/fiber/</guid>
+    <description><![CDATA[React内部实现的一套状态更新机制。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。 一句话总结 React内部实现的一套]]></description>
 </item>
 </channel>
 </rss>
