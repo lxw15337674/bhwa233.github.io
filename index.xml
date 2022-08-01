@@ -3,9 +3,33 @@
         <title>blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 01 Aug 2022 19:52:09 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 01 Aug 2022 23:21:15 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Flex</title>
+    <link>/posts/css/flex/</link>
+    <pubDate>Mon, 01 Aug 2022 23:21:15 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/flex/</guid>
+    <description><![CDATA[三个参数分别对应的是 flex-grow, flex-shrink 和 flex-basis，默认值为0 1 auto。 1.flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余]]></description>
+</item>
+<item>
+    <title>webpack 中 loader 和 plugin</title>
+    <link>/posts/webpack/loaderplugin/</link>
+    <pubDate>Mon, 01 Aug 2022 23:17:54 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/webpack/loaderplugin/</guid>
+    <description><![CDATA[loader webpack自身只支持js和json这两种格式的文件，对于其他文件需要通过loader将其转换为commonJS规范的文件后，webpa]]></description>
+</item>
+<item>
+    <title>Http</title>
+    <link>/posts/http/http/</link>
+    <pubDate>Mon, 01 Aug 2022 23:01:14 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/http/http/</guid>
+    <description><![CDATA[1.0 1.1 2.0 长连接 需要使用keep-alive 参数来告知服务端建立一个长连接 默认支持 默认支持 HOST域 ✘ ✔️ ✔️ 多路复用 ✘ - ✔️ 数据压缩 ✘ ✘ 使用H]]></description>
+</item>
+<item>
     <title>Curry</title>
     <link>/posts/js/curry/</link>
     <pubDate>Mon, 01 Aug 2022 19:52:09 &#43;0800</pubDate>
@@ -60,30 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/http/https/</guid>
     <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
-</item>
-<item>
-    <title>BFC</title>
-    <link>/posts/css/bfc/</link>
-    <pubDate>Sun, 31 Jul 2022 14:53:23 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/bfc/</guid>
-    <description><![CDATA[一句话总结 BFC 就相当于一个隔离的独立容器，内部的元素与外界的元素互不干扰。 前置知识 常见定位方案 普通流 (normal flow) 在普通流中，元素按照其在 HTML 中的先后位置]]></description>
-</item>
-<item>
-    <title>Scheduler</title>
-    <link>/posts/react/scheduler/</link>
-    <pubDate>Sun, 31 Jul 2022 14:36:15 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/scheduler/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Diff算法</title>
-    <link>/posts/react/diff/</link>
-    <pubDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/diff/</guid>
-    <description><![CDATA[本质 diff本身就是上一帧的元素树与当前帧的元素树进行比对。 正常两棵树完全比对的算法复杂度是O(n 3 )。这个开销太过高昂。为了降低算法复杂度]]></description>
 </item>
 </channel>
 </rss>
