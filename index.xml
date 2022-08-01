@@ -3,9 +3,25 @@
         <title>blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 01 Aug 2022 19:52:09 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Curry</title>
+    <link>/posts/js/curry/</link>
+    <pubDate>Mon, 01 Aug 2022 19:52:09 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/curry/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>let、const和var的区别</title>
+    <link>/posts/js/letconstvar/</link>
+    <pubDate>Mon, 01 Aug 2022 18:51:19 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/letconstvar/</guid>
+    <description><![CDATA[变量提升 变量提升： 所有的声明都会提升到作用域的最顶上去。 函数声明的优先级高于变量声明的优先级，并且函数声明和函数定义的部分一起被提升。 一个变]]></description>
+</item>
+<item>
     <title>键盘事件</title>
     <link>/posts/js/event/</link>
     <pubDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</pubDate>
@@ -68,22 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/react/diff/</guid>
     <description><![CDATA[本质 diff本身就是上一帧的元素树与当前帧的元素树进行比对。 正常两棵树完全比对的算法复杂度是O(n 3 )。这个开销太过高昂。为了降低算法复杂度]]></description>
-</item>
-<item>
-    <title>架构</title>
-    <link>/posts/react/structure/</link>
-    <pubDate>Sun, 31 Jul 2022 14:04:31 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/structure/</guid>
-    <description><![CDATA[架构 Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入Reconciler Reconciler（协调器）—— 负责找出变化的组]]></description>
-</item>
-<item>
-    <title>Fiber</title>
-    <link>/posts/react/fiber/</link>
-    <pubDate>Sun, 31 Jul 2022 13:35:09 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/fiber/</guid>
-    <description><![CDATA[React内部实现的一套状态更新机制。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。 一句话总结 React内部实现的一套]]></description>
 </item>
 </channel>
 </rss>
