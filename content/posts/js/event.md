@@ -3,7 +3,7 @@ title: "键盘事件"
 date: 2022-07-31T16:08:26+08:00
 draft: false
 tags: [""]
-categories: [""]
+categories: ["笔记"]
 typora-root-url: ..\..\static
 ---
 
@@ -44,8 +44,6 @@ typora-root-url: ..\..\static
 | `compositionupdate` | 使用中文输入法，输入更新时 | 不用输入法不会触发 |
 | `input`             | 当输入时                   |                    |
 | `change`            | 当值变化时                 |                    |
-
-
 
 
 
