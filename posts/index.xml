@@ -3,7 +3,15 @@
         <title>All Posts - blog</title>
         <link>/posts/</link>
         <description>All Posts | blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 01 Aug 2022 23:21:15 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Aug 2022 23:47:44 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>闭包</title>
+    <link>/posts/js/closure/</link>
+    <pubDate>Tue, 02 Aug 2022 23:47:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/closure/</guid>
+    <description><![CDATA[概念 闭包是指可以访问另外一个函数作用域的变量的函数。 形成条件 函数嵌套 内部函数引用外部函数的局部变量 产生原因 在ES5中只存在两种作用域————]]></description>
+</item>
+<item>
     <title>Flex</title>
     <link>/posts/css/flex/</link>
     <pubDate>Mon, 01 Aug 2022 23:21:15 &#43;0800</pubDate>
@@ -74,14 +82,6 @@
     <author>Bhwa233</author>
     <guid>/posts/callapplybind/</guid>
     <description><![CDATA[call 更改 this 指向，第一个参数作为函数的 this 指向，其余参数作为函数的参数，执行参数。 object.call(obj,arg1,arg2,...) 基本思路 将函数作为对象的属性 执行函数 删除函数 实现 在线：http]]></description>
-</item>
-<item>
-    <title>Https</title>
-    <link>/posts/http/https/</link>
-    <pubDate>Sun, 31 Jul 2022 15:22:32 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/http/https/</guid>
-    <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
 </item>
 </channel>
 </rss>

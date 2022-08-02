@@ -2,9 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/</loc><lastmod>2022-08-01T23:21:15&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-08-02T23:47:44&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-08-02T23:47:44&#43;08:00</lastmod></url><url>
+            <loc>/posts/js/closure/</loc><lastmod>2022-08-02T23:47:44&#43;08:00</lastmod></url><url>
             <loc>/posts/css/flex/</loc><lastmod>2022-08-01T23:21:15&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-08-01T23:21:15&#43;08:00</lastmod></url><url>
             <loc>/posts/webpack/loaderplugin/</loc><lastmod>2022-08-01T23:17:54&#43;08:00</lastmod></url><url>
             <loc>/posts/http/http/</loc><lastmod>2022-08-01T23:01:14&#43;08:00</lastmod></url><url>
             <loc>/posts/js/curry/</loc><lastmod>2022-08-01T19:52:09&#43;08:00</lastmod></url><url>
