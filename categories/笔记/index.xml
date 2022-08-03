@@ -3,7 +3,15 @@
         <title>笔记 - Category - blog</title>
         <link>/categories/%E7%AC%94%E8%AE%B0/</link>
         <description>笔记 - Category - blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</lastBuildDate><atom:link href="/categories/%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</lastBuildDate><atom:link href="/categories/%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>解析器</title>
+    <link>/posts/analysis/</link>
+    <pubDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/analysis/</guid>
+    <description><![CDATA[词法分析 词法分析阶段是编译过程的第一个阶段。 这个阶段的任务是从左到右一个字符一个字符地读入源程序，然后根据构词规则识别单词(也就是token]]></description>
+</item>
+<item>
     <title>键盘事件</title>
     <link>/posts/js/event/</link>
     <pubDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</pubDate>
