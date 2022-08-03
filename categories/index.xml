@@ -1,12 +1,12 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - blog</title>
+        <title>Categories - Category - Bhwa233 blog</title>
         <link>/categories/</link>
-        <description>Categories - Category - blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+        <description>Categories - Category - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 17:25:59 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
     <title>笔记</title>
     <link>/categories/%E7%AC%94%E8%AE%B0/</link>
-    <pubDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</pubDate>
+    <pubDate>Wed, 03 Aug 2022 17:25:59 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/categories/%E7%AC%94%E8%AE%B0/</guid>
     <description><![CDATA[]]></description>

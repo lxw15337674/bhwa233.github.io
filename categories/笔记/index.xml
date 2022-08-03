@@ -1,9 +1,33 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>笔记 - Category - blog</title>
+        <title>笔记 - Category - Bhwa233 blog</title>
         <link>/categories/%E7%AC%94%E8%AE%B0/</link>
-        <description>笔记 - Category - blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</lastBuildDate><atom:link href="/categories/%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+        <description>笔记 - Category - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 17:25:59 &#43;0800</lastBuildDate><atom:link href="/categories/%E7%AC%94%E8%AE%B0/" rel="self" type="application/rss+xml" /><item>
+    <title>搞懂各种依赖</title>
+    <link>/posts/packages/deps/</link>
+    <pubDate>Wed, 03 Aug 2022 17:25:59 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/packages/deps/</guid>
+    <description><![CDATA[dependencies 运行时依赖，生产环境需要的依赖，会被打包的依赖。 devDependencies 开发时依赖，开发环境需要安装的依赖，不会被打包。 peerDependencies 宿主依赖，指定了当前模块在使用前需要安]]></description>
+</item>
+<item>
+    <title>monorepo总结</title>
+    <link>/posts/monorepo/base/</link>
+    <pubDate>Wed, 03 Aug 2022 16:36:02 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/monorepo/base/</guid>
+    <description><![CDATA[基本概念 monorepo是一种项目管理方式， 就是将多个项目放在一个仓库里。相反的是MultiRepo模式，即每个项目对应一个单独的仓库。 MultiRepo 缺]]></description>
+</item>
+<item>
+    <title>Pnpm关于monorepo相关命令</title>
+    <link>/posts/monorepo/pnpmcommand/</link>
+    <pubDate>Wed, 03 Aug 2022 16:03:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/monorepo/pnpmcommand/</guid>
+    <description><![CDATA[安装全局依赖 pnpm i lodash -w #安装lodash到根目录 # -w(--workspace-root) 要安装到根目录 # -D 安装公共开发环境依赖 安装局部依赖 pnpm add axios --filter @monorepo/http # 安装axios依赖到@mon]]></description>
+</item>
+<item>
     <title>解析器</title>
     <link>/posts/analysis/</link>
     <pubDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</pubDate>

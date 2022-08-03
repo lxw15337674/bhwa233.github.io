@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>理论 - Tag - blog</title>
+        <title>理论 - Tag - Bhwa233 blog</title>
         <link>/tags/%E7%90%86%E8%AE%BA/</link>
-        <description>理论 - Tag - blog</description>
+        <description>理论 - Tag - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</lastBuildDate><atom:link href="/tags/%E7%90%86%E8%AE%BA/" rel="self" type="application/rss+xml" /><item>
     <title>云计算</title>
     <link>/posts/cloudcomputing/</link>

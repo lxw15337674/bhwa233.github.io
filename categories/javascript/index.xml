@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>javascript - Category - blog</title>
+        <title>javascript - Category - Bhwa233 blog</title>
         <link>/categories/javascript/</link>
-        <description>javascript - Category - blog</description>
+        <description>javascript - Category - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 15:31:55 &#43;0800</lastBuildDate><atom:link href="/categories/javascript/" rel="self" type="application/rss+xml" /><item>
     <title>Call、apply、bind</title>
     <link>/posts/callapplybind/</link>

@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>环境配置 - Category - blog</title>
+        <title>环境配置 - Category - Bhwa233 blog</title>
         <link>/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
-        <description>环境配置 - Category - blog</description>
+        <description>环境配置 - Category - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 27 Jun 2022 19:13:52 &#43;0800</lastBuildDate><atom:link href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="self" type="application/rss+xml" /><item>
     <title>解决github pull/push 超时问题</title>
     <link>/posts/first/</link>
