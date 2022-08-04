@@ -29,8 +29,6 @@ pnpm add axios --filter @monorepo/http  # 安装axios依赖到@monorepo/http子�
 pnpm add @monorepo/http@* --filter @monorepo/web # 安装@monorepo/http到@monorepo/web子项目
 ```
 
-
-
 ### 取消依赖
 
 ```bash

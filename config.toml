@@ -4,6 +4,7 @@ relativeURLs = "True"
 theme = "LoveIt"
 # 网站标题
 title = "Bhwa233 blog"
+description = ""
 
 # 网站语言, 仅在这里 CN 大写 ["en", "zh-CN", "fr", "pl", ...]
 languageCode = "zh-CN"
