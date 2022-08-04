@@ -118,7 +118,7 @@ enableEmoji = true
     maxResultLength = 10
     snippetLength = 50
     highlightTag = "em"
-    absoluteURL = false
+    absoluteURL = true
   [params.search.algolia]
     index = "myblog"
     appID = "3PD6QAJMYD"

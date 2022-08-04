@@ -1,0 +1,8 @@
+{
+	"scripts": {
+		"algolia": " hugo-algolia -s"
+	},
+	"devDependencies": {
+		"hugo-algolia": "^1.2.14"
+	}
+}
