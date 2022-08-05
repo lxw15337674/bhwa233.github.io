@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>搞懂各种依赖 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="搞懂各种依赖" />
-<meta property="og:description" content="dependencies 运行时依赖，生产环境需要的依赖，会被打包的依赖。 devDependencies 开发时依赖，开发环境需要安装的依赖，不会被打包。 peerDependencies 宿主依赖，指定了当前模块在使用前需要安" />
+        <title>keyof typeof - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="keyof typeof" />
+<meta property="og:description" content="前置概念 字面量类型（literal types） 更具体的string、number、boolean类型就是字面量类型。例如： type foo = &#34;Hello&#34; // foo 的类型" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/packages/deps/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-03T17:25:59+08:00" />
-<meta property="article:modified_time" content="2022-08-03T18:52:31+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="og:url" content="/posts/typescript/teyoftypeof/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-05T10:54:07+08:00" />
+<meta property="article:modified_time" content="2022-08-05T17:33:03+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="搞懂各种依赖"/>
-<meta name="twitter:description" content="dependencies 运行时依赖，生产环境需要的依赖，会被打包的依赖。 devDependencies 开发时依赖，开发环境需要安装的依赖，不会被打包。 peerDependencies 宿主依赖，指定了当前模块在使用前需要安"/>
+<meta name="twitter:title" content="keyof typeof"/>
+<meta name="twitter:description" content="前置概念 字面量类型（literal types） 更具体的string、number、boolean类型就是字面量类型。例如： type foo = &#34;Hello&#34; // foo 的类型"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/packages/deps/" /><link rel="prev" href="../../../posts/monorepo/base/" /><link rel="next" href="../../../posts/%E7%AE%80%E5%8E%86/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/typescript/teyoftypeof/" /><link rel="prev" href="../../../posts/%E7%AE%80%E5%8E%86/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "搞懂各种依赖",
+        "headline": "keyof typeof",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/packages\/deps\/"
-        },"genre": "posts","keywords": "","wordcount":  282 ,
-        "url": "\/posts\/packages\/deps\/","datePublished": "2022-08-03T17:25:59+08:00","dateModified": "2022-08-03T18:52:31+08:00","publisher": {
+            "@id": "\/posts\/typescript\/teyoftypeof\/"
+        },"genre": "posts","keywords": "","wordcount":  283 ,
+        "url": "\/posts\/typescript\/teyoftypeof\/","datePublished": "2022-08-05T10:54:07+08:00","dateModified": "2022-08-05T17:33:03+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,9 +101,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">搞懂各种依赖</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-03">2022-08-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;282 words&nbsp;
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">keyof typeof</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-05">2022-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;283 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -112,51 +112,55 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#dependencies">dependencies</a></li>
-    <li><a href="#devdependencies">devDependencies</a></li>
-    <li><a href="#peerdependencies">peerDependencies</a></li>
-    <li><a href="#resolutions">resolutions</a></li>
+    <li><a href="#前置概念">前置概念</a>
+      <ul>
+        <li><a href="#字面量类型literal-types">字面量类型（literal types）</a></li>
+      </ul>
+    </li>
+    <li><a href="#keyof">keyof</a></li>
+    <li><a href="#typeof">typeof</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="dependencies">dependencies</h2>
-<p><strong>运行时依赖</strong>，生产环境需要的依赖，会被打包的依赖。</p>
-<h2 id="devdependencies">devDependencies</h2>
-<p><strong>开发时依赖</strong>，开发环境需要安装的依赖，不会被打包。</p>
-<h2 id="peerdependencies">peerDependencies</h2>
-<p><strong>宿主依赖</strong>，指定了当前模块在使用前需要安装的依赖，可以避免依赖的核心依赖库被重复下载。</p>
-<p>一般用于插件开发时会用到，例如<code>html-webpack-plugin</code> 的开发依赖于 <code>webpack</code>，组件库依赖<code>react</code>等。</p>
-<h2 id="resolutions">resolutions</h2>
-<p>yarn 中特有，指定依赖的特定版本或者版本范围。我们希望指定工程直接依赖里的某个子依赖包的版本时，可以使用 <code>resolutions</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;project&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;dependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;left-pad&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;c&#34;</span><span class="p">:</span> <span class="s2">&#34;file:../c-1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;d2&#34;</span><span class="p">:</span> <span class="s2">&#34;file:../d2-1&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;resolutions&#34;</span><span class="p">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;d2/left-pad&#34;</span><span class="p">:</span> <span class="s2">&#34;1.1.1&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&#34;c/**/left-pad&#34;</span><span class="p">:</span> <span class="s2">&#34;1.1.2&#34;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+            </div><div class="content" id="content"><h2 id="前置概念">前置概念</h2>
+<h3 id="字面量类型literal-types">字面量类型（literal types）</h3>
+<p>更具体的<code>string</code>、<code>number</code>、<code>boolean</code>类型就是字面量类型。例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;Hello&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// foo 的类型就是&#34;hello&#34;,而不是string类型。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">foo</span> <span class="o">=</span><span class="s2">&#34;hello&#34;</span> <span class="c1">//ok
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">foo</span><span class="o">=</span><span class="s2">&#34;hi&#34;</span> <span class="c1">// Error: Type &#39;&#34;Hi&#34;&#39; is not assignable to type &#39;Hello&#39;
+</span></span></span></code></pre></div><p>通常用于和联合类型（union types）、类型别名（type aliases）、类型保护（type guards）。</p>
+<p>联合字面量类型的例子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Foo</span> <span class="o">=</span> <span class="s2">&#34;Hello&#34;</span> <span class="o">|</span> <span class="s2">&#34;Hi&#34;</span> 
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">foo</span>:<span class="kt">Foo</span> <span class="o">=</span> <span class="s2">&#34;hello&#34;</span> <span class="c1">//ok
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span> <span class="nx">foo</span>:<span class="kt">Foo</span><span class="o">=</span> <span class="s1">&#39;welcome&#39;</span> <span class="c1">//Error: Type &#39;&#34;welcome&#34;&#39; is not assignable to type &#39;Foo&#39; 
+</span></span></span></code></pre></div><h2 id="keyof">keyof</h2>
+<p>获取对象的键值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Person</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span>: <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span>: <span class="kt">number</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">location</span>: <span class="kt">string</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 直接指定依赖 d2 所依赖的 left-pad 版本为 1.1.1。
-</span></span></span></code></pre></div><blockquote>
-<p>扩展：</p>
-<p><a href="https://segmentfault.com/a/1190000022435060" target="_blank" rel="noopener noreffer ">一文搞懂peerDependencies</a></p>
-<p><a href="https://soonwang.cn/2021/08/01/yarn-resolutions/" target="_blank" rel="noopener noreffer ">Yarn resolutions</a></p>
-<p><a href="https://chore-update--yarnpkg.netlify.app/zh-Hans/docs/selective-version-resolutions" target="_blank" rel="noopener noreffer ">选择性依赖项解决</a></p>
-</blockquote>
-</div><div class="post-footer" id="post-footer">
+</span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">PesonKeys</span> <span class="o">=</span> <span class="k">keyof</span> <span class="nx">Person</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// PesonKeys =&#34;name&#34; | &#34;age&#34; | &#34;location&#34;
+</span></span></span></code></pre></div><h2 id="typeof">typeof</h2>
+<p>创建对象的类型，此类型包含一组指定的属性且都是必填</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Person</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">name</span>: <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">age</span>: <span class="kt">number</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">location</span>: <span class="kt">string</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">PesonKeys</span> <span class="o">=</span> <span class="k">keyof</span> <span class="nx">Person</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// PesonKeys =&#34;name&#34; | &#34;age&#34; | &#34;location&#34;
+</span></span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-03</span>
+                <span>Updated on 2022-08-05</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/packages/deps/" data-title="搞懂各种依赖" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/packages/deps/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/packages/deps/" data-title="搞懂各种依赖"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/packages/deps/" data-title="搞懂各种依赖"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/packages/deps/" data-title="搞懂各种依赖"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/typescript/teyoftypeof/" data-title="keyof typeof" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/typescript/teyoftypeof/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/typescript/teyoftypeof/" data-title="keyof typeof"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/typescript/teyoftypeof/" data-title="keyof typeof"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/typescript/teyoftypeof/" data-title="keyof typeof"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -168,8 +172,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/monorepo/base/" class="prev" rel="prev" title="monorepo总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>monorepo总结</a>
-            <a href="../../../posts/%E7%AE%80%E5%8E%86/" class="next" rel="next" title="简历">简历<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/%E7%AE%80%E5%8E%86/" class="prev" rel="prev" title="简历"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>简历</a></div>
 </div>
 </article></div>
             </main><footer class="footer">

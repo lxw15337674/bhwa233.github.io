@@ -3,21 +3,21 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 05 Aug 2022 10:54:07 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>keyof typeof</title>
+    <link>/posts/typescript/teyoftypeof/</link>
+    <pubDate>Fri, 05 Aug 2022 10:54:07 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/typescript/teyoftypeof/</guid>
+    <description><![CDATA[前置概念 字面量类型（literal types） 更具体的string、number、boolean类型就是字面量类型。例如： type foo = &#34;Hello&#34; // foo 的类型]]></description>
+</item>
+<item>
     <title>简历</title>
     <link>/posts/%E7%AE%80%E5%8E%86/</link>
     <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
     <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
-</item>
-<item>
-    <title>Algorithm</title>
-    <link>/posts/algorithm/</link>
-    <pubDate>Wed, 03 Aug 2022 21:31:57 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/algorithm/</guid>
-    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>搞懂各种依赖</title>
@@ -52,12 +52,12 @@
     <description><![CDATA[概念 闭包是指可以访问另外一个函数作用域的变量的函数。 形成条件 函数嵌套 内部函数引用外部函数的局部变量 产生原因 在ES5中只存在两种作用域————]]></description>
 </item>
 <item>
-    <title>CrossDomain</title>
+    <title>跨域</title>
     <link>/posts/browser/crossdomain/</link>
     <pubDate>Tue, 02 Aug 2022 19:22:25 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/browser/crossdomain/</guid>
-    <description><![CDATA[跨域 同源策略 所谓同源，指协议、域名、端口号相同。 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。 为什么限制跨域]]></description>
+    <description><![CDATA[同源策略 所谓同源，指协议、域名、端口号相同。 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。 为什么限制跨域访问]]></description>
 </item>
 <item>
     <title>解析器</title>

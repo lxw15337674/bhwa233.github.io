@@ -2,10 +2,10 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/</loc><lastmod>2022-08-04T09:43:40&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-08-04T09:43:40&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-08-05T17:33:03&#43;08:00</lastmod></url><url>
+            <loc>/posts/typescript/teyoftypeof/</loc><lastmod>2022-08-05T17:33:03&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-08-05T17:33:03&#43;08:00</lastmod></url><url>
             <loc>/posts/%E7%AE%80%E5%8E%86/</loc><lastmod>2022-08-03T21:47:49&#43;08:00</lastmod></url><url>
-            <loc>/posts/algorithm/</loc><lastmod>2022-08-04T01:07:12&#43;08:00</lastmod></url><url>
             <loc>/categories/</loc><lastmod>2022-08-04T09:43:40&#43;08:00</lastmod></url><url>
             <loc>/posts/packages/deps/</loc><lastmod>2022-08-03T18:52:31&#43;08:00</lastmod></url><url>
             <loc>/categories/%E7%AC%94%E8%AE%B0/</loc><lastmod>2022-08-04T09:43:40&#43;08:00</lastmod></url><url>
@@ -14,7 +14,7 @@
             <loc>/tags/</loc><lastmod>2022-08-03T18:52:31&#43;08:00</lastmod></url><url>
             <loc>/posts/monorepo/pnpmcommand/</loc><lastmod>2022-08-04T09:43:40&#43;08:00</lastmod></url><url>
             <loc>/posts/js/closure/</loc><lastmod>2022-08-03T00:01:58&#43;08:00</lastmod></url><url>
-            <loc>/posts/browser/crossdomain/</loc><lastmod>2022-08-02T19:34:56&#43;08:00</lastmod></url><url>
+            <loc>/posts/browser/crossdomain/</loc><lastmod>2022-08-05T17:33:03&#43;08:00</lastmod></url><url>
             <loc>/posts/analysis/</loc><lastmod>2022-08-02T19:34:56&#43;08:00</lastmod></url><url>
             <loc>/posts/browser/urltorender/</loc><lastmod>2022-08-02T19:34:56&#43;08:00</lastmod></url><url>
             <loc>/posts/browser/browser/</loc><lastmod>2022-08-02T19:34:56&#43;08:00</lastmod></url><url>
@@ -59,6 +59,7 @@
             <loc>/posts/pnpm/</loc><lastmod>2022-07-07T18:16:39&#43;08:00</lastmod></url><url>
             <loc>/posts/aboutversion/</loc><lastmod>2022-07-07T18:16:39&#43;08:00</lastmod></url><url>
             <loc>/posts/tstype/</loc><lastmod>2022-07-19T09:33:33&#43;08:00</lastmod></url><url>
+            <loc>/posts/typescript/tstype/</loc><lastmod>2022-08-05T17:33:03&#43;08:00</lastmod></url><url>
             <loc>/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc><lastmod>2022-06-30T20:13:20&#43;08:00</lastmod></url><url>
             <loc>/posts/cloudcomputing/</loc><lastmod>2022-06-30T20:13:20&#43;08:00</lastmod></url><url>
             <loc>/tags/%E7%90%86%E8%AE%BA/</loc><lastmod>2022-06-30T20:13:20&#43;08:00</lastmod></url><url>
