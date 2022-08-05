@@ -5,5 +5,6 @@ draft: false
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
+draft: true
 ---
 

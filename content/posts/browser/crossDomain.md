@@ -1,5 +1,5 @@
 ---
-title: "CrossDomain"
+title: "跨域"
 date: 2022-08-02T19:22:25+08:00
 draft: false
 tags: [""]
@@ -7,7 +7,6 @@ categories: [""]
 typora-root-url: ..\..\static
 ---
 
-# 跨域
 ## 同源策略
 所谓同源，指协议、域名、端口号相同。
 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。
