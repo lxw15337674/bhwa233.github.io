@@ -3,7 +3,23 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Aug 2022 19:52:55 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>TEST</title>
+    <link>/posts/TEST/</link>
+    <pubDate>Sat, 06 Aug 2022 19:52:55 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/TEST/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Hugo lovelt的搜索坑</title>
+    <link>/posts/hugo/</link>
+    <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/hugo/</guid>
+    <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
+</item>
+<item>
     <title>简历</title>
     <link>/posts/%E7%AE%80%E5%8E%86/</link>
     <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
@@ -29,10 +45,10 @@
 </item>
 <item>
     <title>Pnpm关于monorepo相关命令</title>
-    <link>/posts/monorepo/pnpmcommand/</link>
+    <link>/posts/monorepo/pnpmCommand/</link>
     <pubDate>Wed, 03 Aug 2022 16:03:44 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/monorepo/pnpmcommand/</guid>
+    <guid>/posts/monorepo/pnpmCommand/</guid>
     <description><![CDATA[安装全局依赖 pnpm i lodash -w #安装lodash到根目录 # -w(--workspace-root) 要安装到根目录 # -D 安装公共开发环境依赖 安装局部依赖 pnpm add axios --filter @monorepo/http # 安装axios依赖到@mon]]></description>
 </item>
 <item>
@@ -45,10 +61,10 @@
 </item>
 <item>
     <title>跨域</title>
-    <link>/posts/browser/crossdomain/</link>
+    <link>/posts/browser/crossDomain/</link>
     <pubDate>Tue, 02 Aug 2022 19:22:25 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/browser/crossdomain/</guid>
+    <guid>/posts/browser/crossDomain/</guid>
     <description><![CDATA[同源策略 所谓同源，指协议、域名、端口号相同。 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。 为什么限制跨域访问]]></description>
 </item>
 <item>
@@ -125,18 +141,18 @@
 </item>
 <item>
     <title>HMR</title>
-    <link>/posts/hmr/</link>
+    <link>/posts/HMR/</link>
     <pubDate>Sun, 31 Jul 2022 15:57:49 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/hmr/</guid>
+    <guid>/posts/HMR/</guid>
     <description><![CDATA[详解 https://juejin.im/post/5df36ffd518825124d6c1765 https://juejin.im/post/5d8db37051882530d438535c https://juejin.im/post/5c86ec276fb9a04a10301f5b https://zhuanlan.zhihu.com/p/30669007 概念 Hot Module Replacement（以下简称 HMR） 当你对代码进行修改并保存后，webpack 将对代码重新打包，并将新的模块发送到浏]]></description>
 </item>
 <item>
     <title>箭头函数</title>
-    <link>/posts/arrowfunction/</link>
+    <link>/posts/arrowFunction/</link>
     <pubDate>Sun, 31 Jul 2022 15:45:06 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/arrowfunction/</guid>
+    <guid>/posts/arrowFunction/</guid>
     <description><![CDATA[箭头函数跟普通函数的区别 箭头函数没有 this。 函数不会创建自己的 this，它只会从自己的作用域链的上一层继承 this 通过 call 或 apply 调用不会改变 this 指向。]]></description>
 </item>
 <item>
@@ -146,22 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/callapplybind/</guid>
     <description><![CDATA[call 更改 this 指向，第一个参数作为函数的 this 指向，其余参数作为函数的参数，执行参数。 object.call(obj,arg1,arg2,...) 基本思路 将函数作为对象的属性 执行函数 删除函数 实现 在线：http]]></description>
-</item>
-<item>
-    <title>Https</title>
-    <link>/posts/http/https/</link>
-    <pubDate>Sun, 31 Jul 2022 15:22:32 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/http/https/</guid>
-    <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
-</item>
-<item>
-    <title>BFC</title>
-    <link>/posts/css/bfc/</link>
-    <pubDate>Sun, 31 Jul 2022 14:53:23 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/bfc/</guid>
-    <description><![CDATA[一句话总结 BFC 就相当于一个隔离的独立容器，内部的元素与外界的元素互不干扰。 前置知识 常见定位方案 普通流 (normal flow) 在普通流中，元素按照其在 HTML 中的先后位置]]></description>
 </item>
 </channel>
 </rss>

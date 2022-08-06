@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>hugo - Tag - Bhwa233 blog</title>
+        <link>/tags/hugo/</link>
+        <description>hugo - Tag - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</lastBuildDate><atom:link href="/tags/hugo/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo lovelt的搜索坑</title>
+    <link>/posts/hugo/</link>
+    <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/hugo/</guid>
+    <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
+</item>
+</channel>
+</rss>

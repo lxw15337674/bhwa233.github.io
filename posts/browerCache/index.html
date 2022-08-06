@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>深入理解浏览器的缓存机制(引用) - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="深入理解浏览器的缓存机制(引用)" />
+<meta property="og:description" content="原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/browerCache/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-28T23:28:42+08:00" />
+<meta property="article:modified_time" content="2022-07-28T23:51:07+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深入理解浏览器的缓存机制(引用)"/>
+<meta name="twitter:description" content="原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="../../posts/browerCache/" /><link rel="prev" href="../../posts/cookieAndToken/" /><link rel="next" href="../../posts/react/fiber/" /><link rel="stylesheet" href="../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "深入理解浏览器的缓存机制(引用)",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/browerCache\/"
+        },"genre": "posts","keywords": "","wordcount":  6192 ,
+        "url": "\/posts\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2022-07-28T23:51:07+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Bhwa233"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../posts/"> 文章 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="../../posts/" title="">文章</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">深入理解浏览器的缓存机制(引用)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6192 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;13 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#memory-cache">Memory Cache</a></li>
+    <li><a href="#service-worker">Service Worker</a></li>
+    <li><a href="#disk-cache">Disk Cache</a></li>
+    <li><a href="#push-cache">Push Cache</a></li>
+    <li><a href="#三缓存过程分析">三、缓存过程分析</a></li>
+    <li><a href="#四强缓存">四、强缓存</a>
+      <ul>
+        <li><a href="#1expires">1.Expires</a></li>
+        <li><a href="#2cache-control">2.Cache-Control</a></li>
+        <li><a href="#3expires和cache-control两者对比">3.Expires和Cache-Control两者对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#五协商缓存">五、协商缓存</a>
+      <ul>
+        <li><a href="#1last-modified和if-modified-since">1.Last-Modified和If-Modified-Since</a></li>
+        <li><a href="#2etag和if-none-match">2.ETag和If-None-Match</a></li>
+        <li><a href="#3两者之间对比">3.两者之间对比：</a></li>
+      </ul>
+    </li>
+    <li><a href="#六缓存机制">六、缓存机制</a></li>
+    <li><a href="#七实际场景应用缓存策略">七、实际场景应用缓存策略</a>
+      <ul>
+        <li><a href="#1频繁变动的资源">1.频繁变动的资源</a></li>
+        <li><a href="#2不常变化的资源">2.不常变化的资源</a></li>
+      </ul>
+    </li>
+    <li><a href="#八用户行为对浏览器缓存的影响">八、用户行为对浏览器缓存的影响</a></li>
+    <li><a href="#参考文章">参考文章</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>原文：https://www.jianshu.com/p/54cc04190252</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>优先级</th>
+<th>持久化</th>
+<th>命中规则</th>
+<th>作用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory Cache</td>
+<td>1</td>
+<td>No</td>
+<td>URL</td>
+<td>Navigation</td>
+</tr>
+<tr>
+<td>Service Worker</td>
+<td>2</td>
+<td>Yes</td>
+<td>自定义</td>
+<td>Host</td>
+</tr>
+<tr>
+<td>Disk Cache</td>
+<td>3</td>
+<td>Yes</td>
+<td>HTTP语义</td>
+<td>Cros Sessions and Sites</td>
+</tr>
+<tr>
+<td>PUSH Cache</td>
+<td>4</td>
+<td>No</td>
+<td>HTTP语义</td>
+<td>HTTP/2 session</td>
+</tr>
+</tbody>
+</table>
+<h2 id="memory-cache">Memory Cache</h2>
+<p>Memory Cache 也就是内存中的缓存，主要包含的是当前中页面中已经抓取到的资源,例如页面上已经下载的样式、脚本、图片等。读取内存中的数据肯定比磁盘快,内存缓存虽然读取高效，可是缓存持续性很短，会随着进程的释放而释放。 <strong>一旦我们关闭 Tab 页面，内存中的缓存也就被释放了</strong>。</p>
+<p>**那么既然内存缓存这么高效，我们是不是能让数据都存放在内存中呢？**这是不可能的。计算机中的内存一定比硬盘容量小得多，操作系统需要精打细算内存的使用，所以能让我们使用的内存必然不多。</p>
+<p>当我们访问过页面以后，再次刷新页面，可以发现很多数据都来自于内存缓存</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="../../images/image-20220728233834772.png"
+        data-srcset="../../images/image-20220728233834772.png, ../../images/image-20220728233834772.png 1.5x, ../../images/image-20220728233834772.png 2x"
+        data-sizes="auto"
+        alt="/images/image-20220728233834772.png"
+        title="image-20220728233834772" /></p>
+<p>内存缓存中有一块重要的缓存资源是preloader相关指令（例如<code>&lt;link rel=&quot;prefetch&quot;&gt;</code>）下载的资源。总所周知preloader的相关指令已经是页面优化的常见手段之一，它可以一边解析js/css文件，一边网络请求下一个资源。</p>
+<p>需要注意的事情是，<strong>内存缓存在缓存资源时并不关心返回资源的HTTP缓存头Cache-Control是什么值，同时资源的匹配也并非仅仅是对URL做匹配，还可能会对Content-Type，CORS等其他特征做校验</strong>。</p>
+<h2 id="service-worker">Service Worker</h2>
+<p>Service Worker 是运行在浏览器背后的独立线程，一般可以用来实现缓存功能。使用 Service Worker的话，传输协议必须为 HTTPS。因为 Service Worker 中涉及到请求拦截，所以必须使用 HTTPS 协议来保障安全。<strong>Service Worker 的缓存与浏览器其他内建的缓存机制不同，它可以让我们自由控制缓存哪些文件、如何匹配缓存、如何读取缓存，并且缓存是持续性的</strong>。</p>
+<p>Service Worker 实现缓存功能一般分为三个步骤：首先需要先注册 Service Worker，然后监听到 install 事件以后就可以缓存需要的文件，那么在下次用户访问的时候就可以通过拦截请求的方式查询是否存在缓存，存在缓存的话就可以直接读取缓存文件，否则就去请求数据。</p>
+<p>当 Service Worker 没有命中缓存的时候，我们需要去调用 fetch 函数获取数据。也就是说，如果我们没有在 Service Worker 命中缓存的话，会根据缓存查找优先级去查找数据。但是不管我们是从 Memory Cache 中还是从网络请求中获取的数据，浏览器都会显示我们是从 Service Worker 中获取的内容。</p>
+<h2 id="disk-cache">Disk Cache</h2>
+<p>Disk Cache 也就是存储在硬盘中的缓存，读取速度慢点，但是什么都能存储到磁盘中，<strong>比之 Memory Cache 胜在容量和存储时效性上</strong>。</p>
+<p>在所有浏览器缓存中，Disk Cache 覆盖面基本是最大的。它会根据 HTTP Herder 中的字段判断哪些资源需要缓存，哪些资源可以不请求直接使用，哪些资源已经过期需要重新请求。并且即使在跨站点的情况下，相同地址的资源一旦被硬盘缓存下来，就不会再次去请求数据。绝大部分的缓存都来自 Disk Cache，关于 HTTP 的协议头中的缓存字段，我们会在下文进行详细介绍。</p>
+<p><strong>浏览器会把哪些文件丢进内存中？哪些丢进硬盘中？</strong>
+关于这点，网上说法不一，不过以下观点比较靠得住：</p>
+<ul>
+<li>对于大文件来说，大概率是不存储在内存中的，反之优先</li>
+<li>当前系统内存使用率高的话，文件优先存储进硬盘</li>
+</ul>
+<h2 id="push-cache">Push Cache</h2>
+<p>Push Cache（推送缓存）是 HTTP/2 中的内容，当以上三种缓存都没有命中时，它才会被使用。<strong>它只在会话（Session）中存在，一旦会话结束就被释放，并且缓存时间也很短暂</strong>，在Chrome浏览器中只有5分钟左右，同时它也并非严格执行HTTP头中的缓存指令。</p>
+<p>Push Cache 在国内能够查到的资料很少，也是因为 HTTP/2 在国内不够普及。这里推荐阅读<code>Jake Archibald</code>的 <a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjakearchibald.com%2F2017%2Fh2-push-tougher-than-i-thought%2F" target="_blank" rel="noopener noreffer ">HTTP/2 push is tougher than I thought</a> 这篇文章，文章中的几个结论：</p>
+<ul>
+<li>所有的资源都能被推送，并且能够被缓存,但是 Edge 和 Safari 浏览器支持相对比较差</li>
+<li>可以推送 no-cache 和 no-store 的资源</li>
+<li>一旦连接被关闭，Push Cache 就被释放</li>
+<li>多个页面可以使用同一个HTTP/2的连接，也就可以使用同一个Push Cache。这主要还是依赖浏览器的实现而定，出于对性能的考虑，有的浏览器会对相同域名但不同的tab标签使用同一个HTTP连接。</li>
+<li>Push Cache 中的缓存只能被使用一次</li>
+<li>浏览器可以拒绝接受已经存在的资源推送</li>
+<li>你可以给其他域名推送资源</li>
+</ul>
+<p>如果以上四种缓存都没有命中的话，那么只能发起请求来获取资源了。</p>
+<p>那么为了性能上的考虑，大部分的接口都应该选择好缓存策略，<strong>通常浏览器缓存策略分为两种：强缓存和协商缓存，并且缓存策略都是通过设置 HTTP Header 来实现的</strong>。</p>
+<h2 id="三缓存过程分析">三、缓存过程分析</h2>
+<p>浏览器与服务器通信的方式为应答模式，即是：浏览器发起HTTP请求 – 服务器响应该请求，<strong>那么浏览器怎么确定一个资源该不该缓存，如何去缓存呢</strong>？浏览器第一次向服务器发起该请求后拿到请求结果后，将请求结果和缓存标识存入浏览器缓存，<strong>浏览器对于缓存的处理是根据第一次请求资源时返回的响应头来确定的</strong>。具体过程如下图：</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-de3d6e025582103a?imageMogr2/auto-orient/strip%7cimageView2/2/w/670/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-de3d6e025582103a?imageMogr2/auto-orient/strip%7cimageView2/2/w/670/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-de3d6e025582103a?imageMogr2/auto-orient/strip%7cimageView2/2/w/670/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-de3d6e025582103a?imageMogr2/auto-orient/strip%7cimageView2/2/w/670/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-de3d6e025582103a?imageMogr2/auto-orient/strip|imageView2/2/w/670/format/webp"
+        title="img" /></p>
+<p>第一次发起HTTP请求</p>
+<p>由上图我们可以知道：</p>
+<ul>
+<li>浏览器每次发起请求，都会先在浏览器缓存中查找该请求的结果以及缓存标识</li>
+<li>浏览器每次拿到返回的请求结果都会将该结果和缓存标识存入浏览器缓存中</li>
+</ul>
+<p>以上两点结论就是浏览器缓存机制的关键，它确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了，本文也将围绕着这点进行详细分析。为了方便大家理解，这里我们根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是强缓存和协商缓存。</p>
+<h2 id="四强缓存">四、强缓存</h2>
+<p><strong>强缓存：不会向服务器发送请求，直接从缓存中读取资源，在chrome控制台的Network选项中可以看到该请求返回200的状态码，并且Size显示from disk cache或from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。</strong></p>
+<h3 id="1expires">1.Expires</h3>
+<p><strong>缓存过期时间，用来指定资源到期的时间，是服务器端的具体的时间点</strong>。也就是说，Expires=max-age + 请求时间，需要和Last-modified结合使用。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。</p>
+<p><strong>Expires 是 HTTP/1 的产物，受限于本地时间，如果修改了本地时间，可能会造成缓存失效</strong>。<code>Expires: Wed, 22 Oct 2018 08:41:00 GMT</code>表示资源会在 Wed, 22 Oct 2018 08:41:00 GMT 后过期，需要再次请求。</p>
+<h3 id="2cache-control">2.Cache-Control</h3>
+<p>在HTTP/1.1中，Cache-Control是最重要的规则，主要用于控制网页缓存。比如当<code>Cache-Control:max-age=300</code>时，则代表在这个请求正确返回时间（浏览器也会记录下来）的5分钟内再次加载资源，就会命中强缓存。</p>
+<p>Cache-Control 可以在请求头或者响应头中设置，并且可以组合使用多种指令：</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-8ff981603cdfded0?imageMogr2/auto-orient/strip%7cimageView2/2/w/562/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-8ff981603cdfded0?imageMogr2/auto-orient/strip%7cimageView2/2/w/562/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-8ff981603cdfded0?imageMogr2/auto-orient/strip%7cimageView2/2/w/562/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-8ff981603cdfded0?imageMogr2/auto-orient/strip%7cimageView2/2/w/562/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-8ff981603cdfded0?imageMogr2/auto-orient/strip|imageView2/2/w/562/format/webp"
+        title="img" /></p>
+<p><strong>public</strong>：<strong>所有内容都将被缓存（客户端和代理服务器都可缓存）</strong>。具体来说响应可被任何中间节点缓存，如 Browser &lt;&ndash; proxy1 &lt;&ndash;  proxy2 &lt;&ndash; Server，中间的proxy可以缓存资源，比如下次再请求同一资源proxy1直接把自己缓存的东西给 Browser 而不再向proxy2要。</p>
+<p><strong>private</strong>：<strong>所有内容只有客户端可以缓存</strong>，Cache-Control的默认取值。具体来说，表示中间节点不允许缓存，对于Browser &lt;&ndash; proxy1 &lt;&ndash;  proxy2 &lt;&ndash; Server，proxy 会老老实实把Server 返回的数据发送给proxy1,自己不缓存任何数据。当下次Browser再次请求时proxy会做好请求转发而不是自作主张给自己缓存的数据。</p>
+<p><strong>no-cache</strong>：客户端缓存内容，是否使用缓存则需要经过协商缓存来验证决定。表示不使用 Cache-Control的缓存控制方式做前置验证，而是使用 Etag 或者Last-Modified字段来控制缓存。<strong>需要注意的是，no-cache这个名字有一点误导。设置了no-cache之后，并不是说浏览器就不再缓存数据，只是浏览器在使用缓存数据时，需要先确认一下数据是否还跟服务器保持一致。</strong></p>
+<p><strong>no-store</strong>：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存</p>
+<p><strong>max-age</strong>：max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效</p>
+<p><strong>s-maxage</strong>（单位为s)：同max-age作用一样，只在代理服务器中生效（比如CDN缓存）。比如当s-maxage=60时，在这60秒中，即使更新了CDN的内容，浏览器也不会进行请求。max-age用于普通缓存，而s-maxage用于代理缓存。<strong>s-maxage的优先级高于max-age</strong>。如果存在s-maxage，则会覆盖掉max-age和Expires header。</p>
+<p><strong>max-stale</strong>：能容忍的最大过期时间。max-stale指令标示了客户端愿意接收一个已经过期了的响应。如果指定了max-stale的值，则最大容忍时间为对应的秒数。如果没有指定，那么说明浏览器愿意接收任何age的响应（age表示响应由源站生成或确认的时间与当前时间的差值）。</p>
+<p><strong>min-fresh</strong>：能够容忍的最小新鲜度。min-fresh标示了客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-3fa81f5e9efac5af?imageMogr2/auto-orient/strip%7cimageView2/2/w/820/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-3fa81f5e9efac5af?imageMogr2/auto-orient/strip%7cimageView2/2/w/820/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-3fa81f5e9efac5af?imageMogr2/auto-orient/strip%7cimageView2/2/w/820/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-3fa81f5e9efac5af?imageMogr2/auto-orient/strip%7cimageView2/2/w/820/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-3fa81f5e9efac5af?imageMogr2/auto-orient/strip|imageView2/2/w/820/format/webp"
+        title="img" /></p>
+<p>从图中我们可以看到，我们可以将多个指令配合起来一起使用，达到多个目的。比如说我们希望资源能被缓存下来，并且是客户端和代理服务器都能缓存，还能设置缓存失效时间等等。</p>
+<h3 id="3expires和cache-control两者对比">3.Expires和Cache-Control两者对比</h3>
+<p>其实这两者差别不大，区别就在于 Expires 是http1.0的产物，Cache-Control是http1.1的产物，<strong>两者同时存在的话，Cache-Control优先级高于Expires</strong>；在某些不支持HTTP1.1的环境下，Expires就会发挥用处。所以Expires其实是过时的产物，现阶段它的存在只是一种兼容性的写法。
+强缓存判断是否缓存的依据来自于是否超出某个时间或者某个时间段，而不关心服务器端文件是否已经更新，这可能会导致加载文件不是服务器端最新的内容，<strong>那我们如何获知服务器端内容是否已经发生了更新呢</strong>？此时我们需要用到协商缓存策略。</p>
+<h2 id="五协商缓存">五、协商缓存</h2>
+<p><strong>协商缓存就是强制缓存失效后，浏览器携带缓存标识向服务器发起请求，由服务器根据缓存标识决定是否使用缓存的过程，主要有以下两种情况</strong>：</p>
+<ul>
+<li>
+<p>协商缓存生效，返回304和Not Modified</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-660fd163329d080b?imageMogr2/auto-orient/strip%7cimageView2/2/w/709/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-660fd163329d080b?imageMogr2/auto-orient/strip%7cimageView2/2/w/709/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-660fd163329d080b?imageMogr2/auto-orient/strip%7cimageView2/2/w/709/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-660fd163329d080b?imageMogr2/auto-orient/strip%7cimageView2/2/w/709/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-660fd163329d080b?imageMogr2/auto-orient/strip|imageView2/2/w/709/format/webp"
+        title="img" /></p>
+<p>协商缓存生效</p>
+</li>
+<li>
+<p>协商缓存失效，返回200和请求结果</p>
+</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-24953079cfebf2bf?imageMogr2/auto-orient/strip%7cimageView2/2/w/666/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-24953079cfebf2bf?imageMogr2/auto-orient/strip%7cimageView2/2/w/666/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-24953079cfebf2bf?imageMogr2/auto-orient/strip%7cimageView2/2/w/666/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-24953079cfebf2bf?imageMogr2/auto-orient/strip%7cimageView2/2/w/666/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-24953079cfebf2bf?imageMogr2/auto-orient/strip|imageView2/2/w/666/format/webp"
+        title="img" /></p>
+<p>协商缓存失效</p>
+<p>协商缓存可以通过设置两种 HTTP Header 实现：Last-Modified 和 ETag 。</p>
+<h3 id="1last-modified和if-modified-since">1.Last-Modified和If-Modified-Since</h3>
+<p>浏览器在第一次访问资源时，服务器返回资源的同时，在response header中添加 Last-Modified的header，值是这个资源在服务器上的最后修改时间，浏览器接收后缓存文件和header；</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="nt">Last-Modified</span><span class="o">:</span> <span class="nt">Fri</span><span class="o">,</span> <span class="nt">22</span> <span class="nt">Jul</span> <span class="nt">2016</span> <span class="nt">01</span><span class="p">:</span><span class="nd">47</span><span class="p">:</span><span class="nd">00</span> <span class="nt">GMT</span>
+</span></span></code></pre></div><p>浏览器下一次请求这个资源，浏览器检测到有 Last-Modified这个header，于是添加If-Modified-Since这个header，值就是Last-Modified中的值；服务器再次收到这个资源请求，会根据 If-Modified-Since 中的值与服务器中这个资源的最后修改时间对比，如果没有变化，返回304和空的响应体，直接从缓存读取，如果If-Modified-Since的时间小于服务器中这个资源的最后修改时间，说明文件有更新，于是返回新的资源文件和200</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-bb7148a4431ccda1?imageMogr2/auto-orient/strip%7cimageView2/2/w/438/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-bb7148a4431ccda1?imageMogr2/auto-orient/strip%7cimageView2/2/w/438/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-bb7148a4431ccda1?imageMogr2/auto-orient/strip%7cimageView2/2/w/438/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-bb7148a4431ccda1?imageMogr2/auto-orient/strip%7cimageView2/2/w/438/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-bb7148a4431ccda1?imageMogr2/auto-orient/strip|imageView2/2/w/438/format/webp"
+        title="img" /></p>
+<p>image</p>
+<h4 id="但是-last-modified-存在一些弊端">但是 Last-Modified 存在一些弊端：</h4>
+<ul>
+<li>如果本地打开缓存文件，即使没有对文件进行修改，但还是会造成 Last-Modified 被修改，服务端不能命中缓存导致发送相同的资源</li>
+<li>因为 Last-Modified 只能以秒计时，如果在不可感知的时间内修改完成文件，那么服务端会认为资源还是命中了，不会返回正确的资源</li>
+</ul>
+<p>既然根据文件修改时间来决定是否缓存尚有不足，能否可以直接根据文件内容是否修改来决定缓存策略？所以在 HTTP / 1.1 出现了 <code>ETag</code> 和<code>If-None-Match</code></p>
+<h3 id="2etag和if-none-match">2.ETag和If-None-Match</h3>
+<p><strong>Etag是服务器响应请求时，返回当前资源文件的一个唯一标识(由服务器生成)，只要资源有变化，Etag就会重新生成</strong>。浏览器在下一次加载资源向服务器发送请求时，会将上一次返回的Etag值放到request header里的If-None-Match里，服务器只需要比较客户端传来的If-None-Match跟自己服务器上该资源的ETag是否一致，就能很好地判断资源相对客户端而言是否被修改过了。如果服务器发现ETag匹配不上，那么直接以常规GET 200回包形式将新的资源（当然也包括了新的ETag）发给客户端；如果ETag是一致的，则直接返回304知会客户端直接使用本地缓存即可。</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-2fd8f5306b4e6767?imageMogr2/auto-orient/strip%7cimageView2/2/w/546/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-2fd8f5306b4e6767?imageMogr2/auto-orient/strip%7cimageView2/2/w/546/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-2fd8f5306b4e6767?imageMogr2/auto-orient/strip%7cimageView2/2/w/546/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-2fd8f5306b4e6767?imageMogr2/auto-orient/strip%7cimageView2/2/w/546/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-2fd8f5306b4e6767?imageMogr2/auto-orient/strip|imageView2/2/w/546/format/webp"
+        title="img" /></p>
+<p>ETag和If-None-Match</p>
+<h3 id="3两者之间对比">3.两者之间对比：</h3>
+<ul>
+<li>首先在精确度上，Etag要优于Last-Modified。</li>
+</ul>
+<p>Last-Modified的时间单位是秒，如果某个文件在1秒内改变了多次，那么他们的Last-Modified其实并没有体现出来修改，但是Etag每次都会改变确保了精度；如果是负载均衡的服务器，各个服务器生成的Last-Modified也有可能不一致。</p>
+<ul>
+<li>第二在性能上，Etag要逊于Last-Modified，毕竟Last-Modified只需要记录时间，而Etag需要服务器通过算法来计算出一个hash值。</li>
+<li>第三在优先级上，服务器校验优先考虑Etag</li>
+</ul>
+<h2 id="六缓存机制">六、缓存机制</h2>
+<p><strong>强制缓存优先于协商缓存进行，若强制缓存(Expires和Cache-Control)生效则直接使用缓存，若不生效则进行协商缓存(Last-Modified / If-Modified-Since和Etag / If-None-Match)，协商缓存由服务器决定是否使用缓存，若协商缓存失效，那么代表该请求的缓存失效，返回200，重新返回资源和缓存标识，再存入浏览器缓存中；生效则返回304，继续使用缓存</strong>。具体流程图如下：</p>
+<p><img
+        class="lazyload"
+        src="../../svg/loading.min.svg"
+        data-src="https:////upload-images.jianshu.io/upload_images/3174701-9d9e8b52a18ed35a?imageMogr2/auto-orient/strip%7cimageView2/2/w/519/format/webp"
+        data-srcset="https:////upload-images.jianshu.io/upload_images/3174701-9d9e8b52a18ed35a?imageMogr2/auto-orient/strip%7cimageView2/2/w/519/format/webp, https:////upload-images.jianshu.io/upload_images/3174701-9d9e8b52a18ed35a?imageMogr2/auto-orient/strip%7cimageView2/2/w/519/format/webp 1.5x, https:////upload-images.jianshu.io/upload_images/3174701-9d9e8b52a18ed35a?imageMogr2/auto-orient/strip%7cimageView2/2/w/519/format/webp 2x"
+        data-sizes="auto"
+        alt="https:////upload-images.jianshu.io/upload_images/3174701-9d9e8b52a18ed35a?imageMogr2/auto-orient/strip|imageView2/2/w/519/format/webp"
+        title="img" /></p>
+<p>看到这里，不知道你是否存在这样一个疑问:<strong>如果什么缓存策略都没设置，那么浏览器会怎么处理？</strong></p>
+<p>对于这种情况，浏览器会采用一个启发式的算法，通常会取响应头中的 Date 减去 Last-Modified 值的 10% 作为缓存时间。</p>
+<h2 id="七实际场景应用缓存策略">七、实际场景应用缓存策略</h2>
+<h3 id="1频繁变动的资源">1.频繁变动的资源</h3>
+<blockquote>
+<p>Cache-Control: no-cache</p>
+</blockquote>
+<p>对于频繁变动的资源，首先需要使用<code>Cache-Control: no-cache</code> 使浏览器每次都请求服务器，然后配合 ETag 或者 Last-Modified 来验证资源是否有效。这样的做法虽然不能节省请求数量，但是能显著减少响应数据大小。</p>
+<h3 id="2不常变化的资源">2.不常变化的资源</h3>
+<blockquote>
+<p>Cache-Control: max-age=31536000</p>
+</blockquote>
+<p>通常在处理这类资源时，给它们的 Cache-Control 配置一个很大的 <code>max-age=31536000</code> (一年)，这样浏览器之后请求相同的 URL 会命中强制缓存。而为了解决更新的问题，就需要在文件名(或者路径)中添加 hash， 版本号等动态字符，之后更改动态字符，从而达到更改引用 URL 的目的，让之前的强制缓存失效 (其实并未立即失效，只是不再使用了而已)。
+在线提供的类库 (如 <code>jquery-3.3.1.min.js</code>, <code>lodash.min.js</code> 等) 均采用这个模式。</p>
+<h2 id="八用户行为对浏览器缓存的影响">八、用户行为对浏览器缓存的影响</h2>
+<p>所谓用户行为对浏览器缓存的影响，指的就是用户在浏览器如何操作时，会触发怎样的缓存策略。主要有 3 种：</p>
+<ul>
+<li>打开网页，地址栏输入地址： 查找 disk cache 中是否有匹配。如有则使用；如没有则发送网络请求。</li>
+<li>普通刷新 (F5)：因为 TAB 并没有关闭，因此 memory cache 是可用的，会被优先使用(如果匹配的话)。其次才是 disk cache。</li>
+<li>强制刷新 (Ctrl + F5)：浏览器不使用缓存，因此发送的请求头部均带有 <code>Cache-control: no-cache</code>(为了兼容，还带了 <code>Pragma: no-cache</code>),服务器直接返回 200 和最新内容。</li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<ul>
+<li><a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.alloyteam.com%2F2016%2F03%2Fdiscussion-on-web-caching%2F" target="_blank" rel="noopener noreffer ">浅谈web缓存</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fsweetamily.github.io%2F2018%2F11%2F06%2Fweb%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%2F" target="_blank" rel="noopener noreffer ">web缓存机制</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMjM5MTA1MjAxMQ%3D%3D%26mid%3D2651228395%26idx%3D1%26sn%3Ddcf7e3bd518f1e189ce17eaed94c27bb%26chksm%3Dbd49516f8a3ed879221bf28bf68ac00c4733a6048c54ea90e75a9e2315a262c2d66fb29a4a34%26mpshare%3D1%26scene%3D1%26srcid%3D0419jU32MPcOkcBWJJVdgj2J%23rd" target="_blank" rel="noopener noreffer ">彻底理解浏览器的缓存机制</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjuejin.im%2Fbook%2F5bdc715fe51d454e755f75ef%2Fsection%2F5c024ecbf265da616a476638" target="_blank" rel="noopener noreffer ">前端面试之道</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjuejin.im%2Fpost%2F5c22ee806fb9a049fb43b2c5%3Futm_source%3Dgold_browser_extension" target="_blank" rel="noopener noreffer ">一文读懂前端缓存</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fcalendar.perfplanet.com%2F2016%2Fa-tale-of-four-caches%2F" target="_blank" rel="noopener noreffer ">A Tale of Four Caches</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjakearchibald.com%2F2017%2Fh2-push-tougher-than-i-thought%2F" target="_blank" rel="noopener noreffer ">HTTP/2 push is tougher than I thought</a></li>
+<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F28113197" target="_blank" rel="noopener noreffer ">设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-07-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../posts/browerCache/" data-title="深入理解浏览器的缓存机制(引用)" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../posts/browerCache/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../posts/browerCache/" data-title="深入理解浏览器的缓存机制(引用)"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../posts/browerCache/" data-title="深入理解浏览器的缓存机制(引用)"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../posts/browerCache/" data-title="深入理解浏览器的缓存机制(引用)"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../tags/">Tags</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../posts/cookieAndToken/" class="prev" rel="prev" title="CookieAndToken"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>CookieAndToken</a>
+            <a href="../../posts/react/fiber/" class="next" rel="next" title="Fiber">Fiber<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+</html>

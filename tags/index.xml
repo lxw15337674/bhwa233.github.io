@@ -3,7 +3,15 @@
         <title>Tags - Tag - Bhwa233 blog</title>
         <link>/tags/</link>
         <description>Tags - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 16:36:02 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>hugo</title>
+    <link>/tags/hugo/</link>
+    <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/hugo/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>monorepo</title>
     <link>/tags/monorepo/</link>
     <pubDate>Wed, 03 Aug 2022 16:36:02 &#43;0800</pubDate>
@@ -73,14 +81,6 @@
     <pubDate>Thu, 30 Jun 2022 20:06:35 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/todo/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>slate.js</title>
-    <link>/tags/slate.js/</link>
-    <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/slate.js/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
