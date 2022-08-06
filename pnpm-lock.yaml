@@ -1,11 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  algolia: ^0.0.0
   hugo-algolia: ^1.2.14
-
-dependencies:
-  algolia: 0.0.0
 
 devDependencies:
   hugo-algolia: 1.2.14
@@ -16,11 +12,6 @@ packages:
     resolution: {integrity: sha512-TnB6ziK363p7lR8QpeLC8aMr8EGYBKZTpgzQLfqTs3bR0Oo5VbKdwKf8h0dSzsYrB7lSCgfJnMZKqShvlq5Oyg==}
     engines: {node: '>= 0.10.0'}
     dev: true
-
-  /algolia/0.0.0:
-    resolution: {integrity: sha512-RCZAbrF6MoR9+qH2SYZDW1A0Mk2k4xOO1Jq5c/lcrgPXsAUOzMZotBlPN5ZbJifPmmQLTCE5ZL27z6cuuBFSBQ==}
-    deprecated: use algoliasearch
-    dev: false
 
   /algoliasearch/3.35.1:
     resolution: {integrity: sha512-K4yKVhaHkXfJ/xcUnil04xiSrB8B8yHZoFEhWNpXg23eiCnqvTZw1tn/SqvdsANlYHLJlKl0qi3I/Q2Sqo7LwQ==}
