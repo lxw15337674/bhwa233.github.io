@@ -3,15 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 05 Aug 2022 10:54:07 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>keyof typeof</title>
-    <link>/posts/typescript/teyoftypeof/</link>
-    <pubDate>Fri, 05 Aug 2022 10:54:07 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/typescript/teyoftypeof/</guid>
-    <description><![CDATA[前置概念 字面量类型（literal types） 更具体的string、number、boolean类型就是字面量类型。例如： type foo = &#34;Hello&#34; // foo 的类型]]></description>
-</item>
-<item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>简历</title>
     <link>/posts/%E7%AE%80%E5%8E%86/</link>
     <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
@@ -162,6 +154,14 @@
     <author>Bhwa233</author>
     <guid>/posts/http/https/</guid>
     <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
+</item>
+<item>
+    <title>BFC</title>
+    <link>/posts/css/bfc/</link>
+    <pubDate>Sun, 31 Jul 2022 14:53:23 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/bfc/</guid>
+    <description><![CDATA[一句话总结 BFC 就相当于一个隔离的独立容器，内部的元素与外界的元素互不干扰。 前置知识 常见定位方案 普通流 (normal flow) 在普通流中，元素按照其在 HTML 中的先后位置]]></description>
 </item>
 </channel>
 </rss>

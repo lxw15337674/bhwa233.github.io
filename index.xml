@@ -3,17 +3,9 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 05 Aug 2022 10:54:07 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>keyof typeof</title>
-    <link>/posts/typescript/teyoftypeof/</link>
-    <pubDate>Fri, 05 Aug 2022 10:54:07 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/typescript/teyoftypeof/</guid>
-    <description><![CDATA[前置概念 字面量类型（literal types） 更具体的string、number、boolean类型就是字面量类型。例如： type foo = &#34;Hello&#34; // foo 的类型]]></description>
-</item>
-<item>
     <title>简历</title>
     <link>/posts/%E7%AE%80%E5%8E%86/</link>
     <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
@@ -84,6 +76,14 @@
     <author>Bhwa233</author>
     <guid>/posts/browser/browser/</guid>
     <description><![CDATA[一个浏览器是多进程，1 个浏览器（Browser）主进程、1 个 GPU 进程、1 个网络（NetWork Service）进程、多个渲染进程和多个插件进程]]></description>
+</item>
+<item>
+    <title>Flex</title>
+    <link>/posts/css/flex/</link>
+    <pubDate>Mon, 01 Aug 2022 23:21:15 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/flex/</guid>
+    <description><![CDATA[三个参数分别对应的是 flex-grow, flex-shrink 和 flex-basis，默认值为0 1 auto。 1.flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余]]></description>
 </item>
 </channel>
 </rss>
