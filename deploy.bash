@@ -20,4 +20,4 @@ git commit -m "$msg"
 
 git push
 
-hugo-algolia -s
+hugo-lovelt-algolia -s
