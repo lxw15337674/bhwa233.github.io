@@ -4,6 +4,7 @@ date: 2022-07-01T17:42:18+08:00
 draft: false
 tags: [""]
 categories: [""]
+uri: /typescript/tsType
 typora-root-url: ..\..\static
 ---
 
