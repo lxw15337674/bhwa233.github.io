@@ -1,8 +1,8 @@
 {
 	"scripts": {
-		"index": " hugo-algolia -s"
+		"index": "hugo-lovelt-algolia -s"
 	},
 	"devDependencies": {
-		"hugo-algolia": "^1.2.14"
+		"hugo-lovelt-algolia": "^1.0.6"
 	}
 }

@@ -1,10 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
-  hugo-algolia: ^1.2.14
+  hugo-lovelt-algolia: ^1.0.6
 
 devDependencies:
-  hugo-algolia: 1.2.14
+  hugo-lovelt-algolia: 1.0.6
 
 packages:
 
@@ -147,8 +147,8 @@ packages:
       strip-bom-string: 1.0.0
     dev: true
 
-  /hugo-algolia/1.2.14:
-    resolution: {integrity: sha512-VHDnKmvWZRQ/MGgWFFDlEGO+8arfL4X3kP6xWCY637/GHuc9Y1dlZ1F5GrFa+LAJ/5JiFo0e8E002SKXVv9CNQ==}
+  /hugo-lovelt-algolia/1.0.6:
+    resolution: {integrity: sha512-ckA4P3SnZ5Ry8TgaoH7IjyLRVD6Ex4QL2HquE4j48VL5iukJKmdrle4PmpeDqNTcX95B6euB0h8A81LiAdqt/g==}
     hasBin: true
     dependencies:
       algoliasearch: 3.35.1
