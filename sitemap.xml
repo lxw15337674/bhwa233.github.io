@@ -2,8 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>/</loc><lastmod>2022-08-07T16:13:08&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-08-07T16:13:08&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-08-07T16:14:47&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-08-07T16:14:47&#43;08:00</lastmod></url><url>
             <loc>/posts/typescript/webpack_config/</loc><lastmod>2022-08-07T16:13:08&#43;08:00</lastmod></url><url>
             <loc>/posts/typescript/generic/</loc><lastmod>2022-08-07T16:13:08&#43;08:00</lastmod></url><url>
             <loc>/categories/</loc><lastmod>2022-08-06T20:13:18&#43;08:00</lastmod></url><url>
@@ -61,7 +61,7 @@
             <loc>/posts/node_modules/</loc><lastmod>2022-07-18T20:05:54&#43;08:00</lastmod></url><url>
             <loc>/posts/pnpm/</loc><lastmod>2022-07-07T18:16:39&#43;08:00</lastmod></url><url>
             <loc>/posts/aboutVersion/</loc><lastmod>2022-07-07T18:16:39&#43;08:00</lastmod></url><url>
-            <loc>/posts/typescript/tool/</loc><lastmod>2022-08-07T16:13:08&#43;08:00</lastmod></url><url>
+            <loc>/posts/typescript/tool/</loc><lastmod>2022-08-07T16:14:47&#43;08:00</lastmod></url><url>
             <loc>/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</loc><lastmod>2022-06-30T20:13:20&#43;08:00</lastmod></url><url>
             <loc>/posts/cloudComputing/</loc><lastmod>2022-06-30T20:13:20&#43;08:00</lastmod></url><url>
             <loc>/tags/%E7%90%86%E8%AE%BA/</loc><lastmod>2022-06-30T20:13:20&#43;08:00</lastmod></url><url>
