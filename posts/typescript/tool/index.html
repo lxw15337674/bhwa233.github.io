@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/typescript/tool/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-01T17:42:18+08:00" />
-<meta property="article:modified_time" content="2022-08-07T16:14:47+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-07T16:16:12+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Typescript语法"/>
@@ -29,7 +29,7 @@
             "@type": "WebPage",
             "@id": "\/posts\/typescript\/tool\/"
         },"genre": "posts","keywords": "","wordcount":  1872 ,
-        "url": "\/posts\/typescript\/tool\/","datePublished": "2022-07-01T17:42:18+08:00","dateModified": "2022-08-07T16:14:47+08:00","publisher": {
+        "url": "\/posts\/typescript\/tool\/","datePublished": "2022-07-01T17:42:18+08:00","dateModified": "2022-08-07T16:16:12+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -128,17 +128,17 @@
         <li><a href="#is">is</a></li>
       </ul>
     </li>
-  </ul>
-
-  <ul>
-    <li><a href="#带有任意数量的其他属性">带有任意数量的其他属性</a></li>
-    <li><a href="#函数类型">函数类型</a></li>
     <li><a href="#工具类型">工具类型</a>
       <ul>
         <li><a href="#partial">Partial</a></li>
       </ul>
     </li>
     <li><a href="#关键字">关键字</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#接口">接口</a>
       <ul>
         <li></li>
       </ul>
@@ -221,19 +221,6 @@
 </span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">foo</span><span class="p">.</span><span class="nx">toExponential</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>  <span class="c1">// 编译不会出错，但是运行时出错
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="nx">example</span><span class="p">(</span><span class="s2">&#34;hello world&#34;</span><span class="p">);</span>
-</span></span></code></pre></div><h1 id="接口">接口</h1>
-<h2 id="带有任意数量的其他属性">带有任意数量的其他属性</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">SquareConfig</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">color?</span>: <span class="kt">string</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">width?</span>: <span class="kt">number</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">propName</span>: <span class="kt">string</span><span class="p">]</span><span class="o">:</span> <span class="kt">any</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="函数类型">函数类型</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">mySearch</span>: <span class="kt">SearchFunc</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">mySearch</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">source</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">subString</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">source</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">subString</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="nx">t</span>
 </span></span></code></pre></div><h2 id="工具类型">工具类型</h2>
 <h3 id="partial">Partial</h3>
 <p>将传入类型 T 的所有属性变为可选属性。</p>
@@ -373,7 +360,20 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">key</span> <span class="o">=</span> <span class="s1">&#39;vue&#39;</span> <span class="o">|</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">MappedType</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="nx">k</span> <span class="k">in</span> <span class="nx">key</span><span class="p">]</span><span class="o">:</span> <span class="kt">string</span> <span class="p">}</span> <span class="c1">// { vue: string; react: string; }
-</span></span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+</span></span></span></code></pre></div><h2 id="接口">接口</h2>
+<h4 id="带有任意数量的其他属性">带有任意数量的其他属性</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">SquareConfig</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">color?</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">width?</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">propName</span>: <span class="kt">string</span><span class="p">]</span><span class="o">:</span> <span class="kt">any</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="函数类型">函数类型</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">mySearch</span>: <span class="kt">SearchFunc</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">mySearch</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">source</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">subString</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">source</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">subString</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">result</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="nx">t</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
