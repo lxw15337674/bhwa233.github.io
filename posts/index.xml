@@ -3,15 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Aug 2022 19:52:55 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>TEST</title>
-    <link>/posts/TEST/</link>
-    <pubDate>Sat, 06 Aug 2022 19:52:55 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/TEST/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -162,6 +154,14 @@
     <author>Bhwa233</author>
     <guid>/posts/callapplybind/</guid>
     <description><![CDATA[call 更改 this 指向，第一个参数作为函数的 this 指向，其余参数作为函数的参数，执行参数。 object.call(obj,arg1,arg2,...) 基本思路 将函数作为对象的属性 执行函数 删除函数 实现 在线：http]]></description>
+</item>
+<item>
+    <title>Https</title>
+    <link>/posts/http/https/</link>
+    <pubDate>Sun, 31 Jul 2022 15:22:32 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/http/https/</guid>
+    <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
 </item>
 </channel>
 </rss>
