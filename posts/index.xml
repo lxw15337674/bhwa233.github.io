@@ -3,7 +3,23 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 07 Aug 2022 15:36:16 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>webpack配置</title>
+    <link>/posts/typescript/webpack_config/</link>
+    <pubDate>Sun, 07 Aug 2022 15:36:16 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/typescript/webpack_config/</guid>
+    <description><![CDATA[安装两个模块 npm i -D typescript ts-loader 添加ts的配置文件tsconfig.json，配置参考。 webpack设置文件后缀补全。 在ts文件中引入其他ts文件会]]></description>
+</item>
+<item>
+    <title>泛型</title>
+    <link>/posts/typescript/generic/</link>
+    <pubDate>Sun, 07 Aug 2022 14:50:37 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/typescript/generic/</guid>
+    <description><![CDATA[类型变量，用于传递类型。 写法 function identity&lt;Type&gt;(arg: Type): Type { return arg; } // 箭头函数的泛型必须有extends，否则语法无法识别。 const identity =&lt;T extends {}&gt;(arg: T): T =&gt; { return arg; }; 泛型约束 interface Length{ length:number }]]></description>
+</item>
+<item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -146,22 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/arrowFunction/</guid>
     <description><![CDATA[箭头函数跟普通函数的区别 箭头函数没有 this。 函数不会创建自己的 this，它只会从自己的作用域链的上一层继承 this 通过 call 或 apply 调用不会改变 this 指向。]]></description>
-</item>
-<item>
-    <title>Call、apply、bind</title>
-    <link>/posts/callapplybind/</link>
-    <pubDate>Sun, 31 Jul 2022 15:31:55 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/callapplybind/</guid>
-    <description><![CDATA[call 更改 this 指向，第一个参数作为函数的 this 指向，其余参数作为函数的参数，执行参数。 object.call(obj,arg1,arg2,...) 基本思路 将函数作为对象的属性 执行函数 删除函数 实现 在线：http]]></description>
-</item>
-<item>
-    <title>Https</title>
-    <link>/posts/http/https/</link>
-    <pubDate>Sun, 31 Jul 2022 15:22:32 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/http/https/</guid>
-    <description><![CDATA[https 概念 HTTPS（全称：Hyper Text Transfer Protocol over Secure Socket Layer），是以安全为目标的HTTP通道，简单讲是HTTP的安全版。即HTTP下加入TLS/]]></description>
 </item>
 </channel>
 </rss>
