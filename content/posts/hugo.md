@@ -2,7 +2,6 @@
 title: "Hugo lovelt的搜索坑"
 date: 2022-08-06T19:30:28+08:00
 draft: false
-uri: /posts/hugo
 tags: ["hugo"]
 categories: ["笔记"]
 typora-root-url: ..\..\static

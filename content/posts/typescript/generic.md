@@ -2,7 +2,6 @@
 title: "泛型"
 date: 2022-08-07T14:50:37+08:00
 draft: false
-uri: /posts/generic
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static

@@ -4,7 +4,6 @@ date: 2022-07-01T17:42:18+08:00
 draft: false
 tags: [""]
 categories: [""]
-uri: /posts/typescript/tool
 typora-root-url: ..\..\static
 
 ---

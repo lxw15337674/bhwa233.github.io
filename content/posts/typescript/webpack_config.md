@@ -2,7 +2,6 @@
 title: "webpack配置"
 date: 2022-08-07T15:36:16+08:00
 draft: false
-uri: /posts/webpack_config
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
