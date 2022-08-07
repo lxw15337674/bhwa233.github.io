@@ -1,5 +1,5 @@
 ---
-baseURL: '/'
+baseURL: './'
 algolia:
   index: "myblog"
   key: "9de2de9b605aa1e0aeadefbc549c14fe"

@@ -154,28 +154,6 @@ example("hello world");
 
 
 
-# 接口
-
-## 带有任意数量的其他属性
-
-```typescript
-interface SquareConfig {
-    color?: string;
-    width?: number;
-    [propName: string]: any;
-}
-```
-
-## 函数类型
-
-```typescript
-let mySearch: SearchFunc;
-mySearch = function(source: string, subString: string) {
-  let result = source.search(subString);
-  return result > -1;
-}t
-```
-
 
 
 ## 工具类型
@@ -428,3 +406,28 @@ type key = 'vue' | 'react';
 
 type MappedType = { [k in key]: string } // { vue: string; react: string; }
 ```
+
+
+
+## 接口
+
+####  带有任意数量的其他属性
+
+```typescript
+interface SquareConfig {
+    color?: string;
+    width?: number;
+    [propName: string]: any;
+}
+```
+
+#### 函数类型
+
+```typescript
+let mySearch: SearchFunc;
+mySearch = function(source: string, subString: string) {
+  let result = source.search(subString);
+  return result > -1;
+}t
+```
+
