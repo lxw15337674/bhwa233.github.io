@@ -3,9 +3,57 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 07 Aug 2022 15:36:16 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 07 Aug 2022 23:44:59 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Typescript语法</title>
+    <link>/posts/typescript/tool/</link>
+    <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/typescript/tool/</guid>
+    <description><![CDATA[高级类型 字面量类型（literal types） 值作为类型。 type foo = &#34;Hello&#34; // foo 的类型就是&#34;hello&#34;,而不是string类型。 foo =&#34;hello&#34;]]></description>
+</item>
+<item>
+    <title>简历</title>
+    <link>/posts/%E7%AE%80%E5%8E%86/</link>
+    <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
+    <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
+</item>
+<item>
+    <title>各种Worker</title>
+    <link>/posts/browser/worker/</link>
+    <pubDate>Sun, 07 Aug 2022 23:44:59 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/browser/worker/</guid>
+    <description><![CDATA[web worker JS是单线程没有多线程，当JS在页面中运行长耗时同步任务的时候就会导致页面假死。为了解决这个问题，HTML5提供了新的APIweb wor]]></description>
+</item>
+<item>
+    <title>前端跨页面通信总结</title>
+    <link>/posts/browser/communicates/</link>
+    <pubDate>Sun, 07 Aug 2022 23:04:49 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/browser/communicates/</guid>
+    <description><![CDATA[详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也]]></description>
+</item>
+<item>
+    <title>前端跨页面通信总结</title>
+    <link>/posts/communicates/</link>
+    <pubDate>Sun, 07 Aug 2022 23:04:49 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/communicates/</guid>
+    <description><![CDATA[详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也]]></description>
+</item>
+<item>
+    <title>服务端消息推送方案总结</title>
+    <link>/posts/browser/push/</link>
+    <pubDate>Sun, 07 Aug 2022 21:42:00 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/browser/push/</guid>
+    <description><![CDATA[HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是]]></description>
+</item>
+<item>
     <title>webpack配置</title>
     <link>/posts/typescript/webpack_config/</link>
     <pubDate>Sun, 07 Aug 2022 15:36:16 &#43;0800</pubDate>
@@ -30,60 +78,12 @@
     <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
 </item>
 <item>
-    <title>简历</title>
-    <link>/posts/%E7%AE%80%E5%8E%86/</link>
-    <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
-    <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
-</item>
-<item>
     <title>搞懂各种依赖</title>
     <link>/posts/packages/deps/</link>
     <pubDate>Wed, 03 Aug 2022 17:25:59 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/packages/deps/</guid>
     <description><![CDATA[dependencies 运行时依赖，生产环境需要的依赖，会被打包的依赖。 devDependencies 开发时依赖，开发环境需要安装的依赖，不会被打包。 peerDependencies 宿主依赖，指定了当前模块在使用前需要安]]></description>
-</item>
-<item>
-    <title>monorepo总结</title>
-    <link>/posts/monorepo/base/</link>
-    <pubDate>Wed, 03 Aug 2022 16:36:02 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/monorepo/base/</guid>
-    <description><![CDATA[基本概念 monorepo是一种项目管理方式， 就是将多个项目放在一个仓库里。相反的是MultiRepo模式，即每个项目对应一个单独的仓库。 MultiRepo 缺]]></description>
-</item>
-<item>
-    <title>Pnpm关于monorepo相关命令</title>
-    <link>/posts/monorepo/pnpmCommand/</link>
-    <pubDate>Wed, 03 Aug 2022 16:03:44 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/monorepo/pnpmCommand/</guid>
-    <description><![CDATA[安装全局依赖 pnpm i lodash -w #安装lodash到根目录 # -w(--workspace-root) 要安装到根目录 # -D 安装公共开发环境依赖 安装局部依赖 pnpm add axios --filter @monorepo/http # 安装axios依赖到@mon]]></description>
-</item>
-<item>
-    <title>闭包</title>
-    <link>/posts/js/closure/</link>
-    <pubDate>Tue, 02 Aug 2022 23:47:44 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/js/closure/</guid>
-    <description><![CDATA[概念 闭包是指可以访问另外一个函数作用域的变量的函数。 形成条件 函数嵌套 内部函数引用外部函数的局部变量 产生原因 在ES5中只存在两种作用域————]]></description>
-</item>
-<item>
-    <title>跨域</title>
-    <link>/posts/browser/crossDomain/</link>
-    <pubDate>Tue, 02 Aug 2022 19:22:25 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/browser/crossDomain/</guid>
-    <description><![CDATA[同源策略 所谓同源，指协议、域名、端口号相同。 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。 为什么限制跨域访问]]></description>
-</item>
-<item>
-    <title>解析器</title>
-    <link>/posts/analysis/</link>
-    <pubDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/analysis/</guid>
-    <description><![CDATA[词法分析 词法分析阶段是编译过程的第一个阶段。 这个阶段的任务是从左到右一个字符一个字符地读入源程序，然后根据构词规则识别单词(也就是token]]></description>
 </item>
 </channel>
 </rss>

@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>跨域 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="跨域" />
-<meta property="og:description" content="同源策略 所谓同源，指协议、域名、端口号相同。 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。 为什么限制跨域访问" />
+        <title>服务端消息推送方案总结 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="服务端消息推送方案总结" />
+<meta property="og:description" content="HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/browser/crossDomain/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-02T19:22:25+08:00" />
+<meta property="og:url" content="/posts/browser/push/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-07T21:42:00+08:00" />
 <meta property="article:modified_time" content="2022-08-08T00:18:16+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="跨域"/>
-<meta name="twitter:description" content="同源策略 所谓同源，指协议、域名、端口号相同。 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。 为什么限制跨域访问"/>
+<meta name="twitter:title" content="服务端消息推送方案总结"/>
+<meta name="twitter:description" content="HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/browser/crossDomain/" /><link rel="prev" href="../../../posts/analysis/" /><link rel="next" href="../../../posts/js/closure/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/browser/push/" /><link rel="prev" href="../../../posts/typescript/webpack_config/" /><link rel="next" href="../../../posts/communicates/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "跨域",
+        "headline": "服务端消息推送方案总结",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/browser\/crossDomain\/"
-        },"genre": "posts","keywords": "","wordcount":  945 ,
-        "url": "\/posts\/browser\/crossDomain\/","datePublished": "2022-08-02T19:22:25+08:00","dateModified": "2022-08-08T00:18:16+08:00","publisher": {
+            "@id": "\/posts\/browser\/push\/"
+        },"genre": "posts","keywords": "","wordcount":  1533 ,
+        "url": "\/posts\/browser\/push\/","datePublished": "2022-08-07T21:42:00+08:00","dateModified": "2022-08-08T00:18:16+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">跨域</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">服务端消息推送方案总结</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;945 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-07">2022-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1533 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -112,118 +112,128 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#同源策略">同源策略</a></li>
-    <li><a href="#为什么限制跨域访问">为什么限制跨域访问</a></li>
-    <li><a href="#跨域限制与不限制">跨域限制与不限制</a></li>
-    <li><a href="#解决方案">解决方案</a>
+    <li><a href="#短轮询">短轮询</a></li>
+    <li><a href="#长轮询">长轮询</a></li>
+    <li><a href="#websocket">WebSocket</a>
       <ul>
-        <li><a href="#1jsonp">1.JSONP</a></li>
-        <li><a href="#2cors跨域资源共享">2.CORS（跨域资源共享）</a></li>
-        <li><a href="#3postmessage">3.PostMessage</a></li>
-        <li><a href="#4websocket">4.webSocket</a></li>
-        <li><a href="#5服务器转发">5.服务器转发</a></li>
-        <li><a href="#6iframe">6.iframe</a></li>
+        <li><a href="#sse">SSE</a></li>
       </ul>
     </li>
-    <li><a href="#引用">引用</a></li>
+    <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="同源策略">同源策略</h2>
-<p>所谓同源，指协议、域名、端口号相同。
-浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。</p>
-<p><img
-        class="lazyload"
-        src="../../../svg/loading.min.svg"
-        data-src="../../../static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp"
-        data-srcset="../../../static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp, ../../../static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp 1.5x, ../../../static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp 2x"
-        data-sizes="auto"
-        alt="/static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp"
-        title="url的组成" /></p>
-<h2 id="为什么限制跨域访问">为什么限制跨域访问</h2>
-<p>防范XSS攻击，如果不限制跨域访问，你先登录支付宝，浏览器就会保留你的登录状态，避免你每次访问支付宝的页面都去输入用户名和密码。然后你又去访问另一个网站。如果这个网站有恶意代码的话，就会利用浏览器里保留的支付宝的登录状态，去访问支付宝的网站，获取你的信息。</p>
-<h2 id="跨域限制与不限制">跨域限制与不限制</h2>
+            </div><div class="content" id="content"><p>HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是有一些场景需要服务器通知客户端。可用的方案如下：</p>
 <ul>
-<li>Cookie , LocalStorage ,IndexedDB等存储性内容。</li>
-<li>DOM节点。</li>
-<li>AJAX请求发送后,非同源会被浏览器拦截。</li>
+<li>短轮询</li>
+<li>长轮询</li>
+<li>iframe</li>
+<li>websocket</li>
+<li>sse</li>
 </ul>
-<blockquote>
-<p>请求跨域了,那么到底发出去没有? 跨域并不是请求发不出去,请求能发出去,服务端能收到请求并正常返回结果,只是结果被浏览器拦截了
-允许跨域加载资源：</p>
-</blockquote>
+<h2 id="短轮询">短轮询</h2>
+<p>客户端每隔一段时间就向服务器发出<code>HTTP</code>请求，服务器端在收到请求后，不论是否有数据更新，都直接进行响应。</p>
+<p>优点：实现简单。</p>
+<p>缺点：</p>
 <ul>
-<li><code>&lt;img src=XXX&gt;</code></li>
-<li><code>&lt;link href=XXX&gt;</code></li>
-<li><code>&lt;script src=XXX&gt;</code></li>
+<li>轮询的间隔过长，会导致不能及时接收到更新数据。轮询的间隔过短，会导致查询请求过多，增加服务器端的负担。</li>
+<li>需要不断进行请求,浪费服务器端和客户端资源,加大服务器端压力。</li>
 </ul>
-<h2 id="解决方案">解决方案</h2>
-<h3 id="1jsonp">1.JSONP</h3>
-<p>原理：利用script标签没有跨域限制的特点。
-优点：兼容性好。
-缺点：需要后端配合，只能发送get请求，容易遭受XSS攻击。
-实现流程：将前端方法作为参数传递到服务器端，然后由服务器端注入参数之后再返回。
-<img
-        class="lazyload"
-        src="../../../svg/loading.min.svg"
-        data-src="https://segmentfault.com/img/remote/1460000012469724"
-        data-srcset="https://segmentfault.com/img/remote/1460000012469724, https://segmentfault.com/img/remote/1460000012469724 1.5x, https://segmentfault.com/img/remote/1460000012469724 2x"
-        data-sizes="auto"
-        alt="https://segmentfault.com/img/remote/1460000012469724"
-        title="image" /></p>
-<h3 id="2cors跨域资源共享">2.CORS（跨域资源共享）</h3>
-<p>详解：http://www.ruanyifeng.com/blog/2016/04/cors.html
-原理： 服务器设置Access-Control-Allow-Origin打开CORS。该属性表示哪些域名可以访问资源。
-副作用：发送请求会出现两种情况，分别为简单请求和复杂请求。</p>
-<blockquote>
-<p>简单请求:
-同时满足以下两个条件,就属于简单请求</p>
-<ol>
-<li>使用下列方法之一：
+<h2 id="长轮询">长轮询</h2>
+<p>首先由客户端向服务器发起请求，当服务器收到客户端发来的请求后，服务器端不会直接进行响应，而是先将 这个请求挂起，然后判断服务器端数据是否有更新。如果有更新则进行相应，如果一直没有数据，则到一定时间限制才返回。客户端处理返回的信息后，再次发出请求，重新建立连接。</p>
+<p>优点：</p>
 <ul>
-<li>GET</li>
-<li>POST</li>
-<li>HEAD</li>
+<li>相比短轮询，减少了很多不必要的 http 请求次数，节约带宽。</li>
+<li>有较好的时效性。</li>
 </ul>
-</li>
-<li>Content-Type的值只限于下列三者之一：
+<p>缺点：</p>
 <ul>
-<li>text/plain</li>
-<li>multipart/form-data</li>
-<li>application/x-www-form-urlencoded 请求中的任意 XMLHttpRequestUpload 对象均没有注册任何事件监听器;</li>
+<li>保持连接也会导致资源浪费。</li>
 </ul>
-</li>
-</ol>
-<p>复杂请求 :
-不符合条件的请求为复杂请求。在复杂请求正式通信前，会增加一次HTTP查询，成为预检请求，为option方法，通过该请求判断服务器是否允许跨域请求。</p>
-</blockquote>
-<h3 id="3postmessage">3.PostMessage</h3>
-<p>利用HTML5的API，postMessage()方法允许来自不同源的脚本采用异步方式进行有限的通信，可以实现跨文本档、多窗口、跨域消息传递。</p>
-<h3 id="4websocket">4.webSocket</h3>
-<p>WebSocket不受跨域限制。</p>
-<blockquote>
-<p>对应的库:socket.io,封装了websocket接口，也对不支持webSocket的浏览器提供了向下兼容。</p>
-</blockquote>
-<h3 id="5服务器转发">5.服务器转发</h3>
+<h2 id="websocket">WebSocket</h2>
+<p>WebSocket是一种在<code>TCP</code>连接上进行全双工通信的协议，建立客户端和服务器之间的通信渠道。浏览器和服务器仅需一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输。</p>
+<p>优点：</p>
+<ul>
+<li>全双工协议，支持双向通信，实时性更强。也就是通信双方是平等的，可以相互发送消息。</li>
+<li>支持跨域。</li>
+<li>减少通信量：只要建立起WebSocket连接，就希望一直保持连接状态。和HTTP相比，不但每次连接时的总开销减少，而且由于WebSocket的首部信息很小，通信量也相应减少了。<strong>在海量并发和客户端与服务器交互负载流量大的情况下，极大的节省了网络带宽资源的消耗，有明显的性能优势，且客户端发送和接受消息是在同一个持久连接上发起，实时性优势明显</strong>。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>WebSocket是一个新的协议，需要服务器端支持，服务器端配置比较复杂。</li>
+</ul>
+<h3 id="sse">SSE</h3>
+<p>服务器发送事件(<code>Server-sent events</code>)，简称<code>SSE</code>,可以实现服务器端到客户端(浏览器)的单项消息推送。</p>
+<p>SSE它是基于HTTP协议的，一般意义上的HTTP协议是无法做到服务端主动向客户端推送消息的，但SSE是个例外，它变换了一种思路。SSE在服务器和客户端之间打开一个单向通道，服务端响应的不再是一次性的数据包而是<code>text/event-stream</code>类型的数据流信息，在有数据变更时从服务器流式传输到客户端。</p>
+<p>优点：</p>
+<ul>
+<li>部署在 HTTP协议之上的，现有的服务器软件都支持。</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>网站需支持Http2.0。</li>
+<li>不支持跨域。</li>
+</ul>
+<p>与WebSocket区别：</p>
 <ul>
 <li>
-<p>利用nginx 反向代理</p>
+<p>SSE 是基于HTTP协议的，不需要额外的协议即可工作；<code>WebSocket</code>需要服务器配置支持。</p>
 </li>
 <li>
-<p>代理服务器</p>
-<blockquote>
-<p>例如:开发环境webpack的proxy</p>
-</blockquote>
+<p>SSE 单向通信，只能由服务端向客户端单向通信；webSocket双向通信，即通信的双方可以同时发送和接受信息。</p>
+</li>
+<li>
+<p>SSE 实现简单开发成本低，无需引入其他组件；WebSocket传输数据需做二次解析，开发门槛高一些。</p>
+</li>
+<li>
+<p>SSE 默认支持断线重连；WebSocket则需要自己实现。</p>
+</li>
+<li>
+<p>SSE 只能传送文本消息，二进制数据需要经过编码后传送；WebSocket默认支持传送二进制数据。</p>
 </li>
 </ul>
-<h3 id="6iframe">6.iframe</h3>
-<ul>
-<li>window.name</li>
-<li>location.hash</li>
-<li>document.domain</li>
-</ul>
-<h2 id="引用">引用</h2>
-<p><a href="https://juejin.im/post/5c23993de51d457b8c1f4ee1#comment" target="_blank" rel="noopener noreffer ">https://juejin.im/post/5c23993de51d457b8c1f4ee1#comment</a></p>
-<p>http://182.92.151.65/docs/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>类型</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>短轮询</td>
+<td>client→server</td>
+<td>实现简单。</td>
+<td>1. 浪费资源。<!-- raw HTML omitted -->2. 存在延迟。</td>
+<td>适于小型应用</td>
+</tr>
+<tr>
+<td>长轮询</td>
+<td>client→server</td>
+<td>实现简单。</td>
+<td>保持连接消耗资源。</td>
+<td>WebQQ、Hi网页版、Facebook IM</td>
+</tr>
+<tr>
+<td>WebSocket</td>
+<td>server⇌client</td>
+<td>1. 支持双向通信。<!-- raw HTML omitted -->2. 可发送二进制文件。<!-- raw HTML omitted -->3. 性能好</td>
+<td>开发成本高</td>
+<td>网络游戏、银行交互和支付等需要双向通信的场景。</td>
+</tr>
+<tr>
+<td>SSE</td>
+<td>server→client</td>
+<td>实现简单。</td>
+<td>需要网站支持。</td>
+<td>消息通知等只需要单向通信的场景</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料">参考资料</h2>
+<p><a href="https://juejin.cn/post/6844903618043183111#heading-6" target="_blank" rel="noopener noreffer ">各类“服务器推”技术原理与实例（Polling/COMET/SSE/WebSocket）</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -233,7 +243,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/browser/crossDomain/" data-title="跨域" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/browser/crossDomain/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/browser/crossDomain/" data-title="跨域"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/browser/crossDomain/" data-title="跨域"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/browser/crossDomain/" data-title="跨域"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/browser/push/" data-title="服务端消息推送方案总结" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/browser/push/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/browser/push/" data-title="服务端消息推送方案总结"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/browser/push/" data-title="服务端消息推送方案总结"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/browser/push/" data-title="服务端消息推送方案总结"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -245,8 +255,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/analysis/" class="prev" rel="prev" title="解析器"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>解析器</a>
-            <a href="../../../posts/js/closure/" class="next" rel="next" title="闭包">闭包<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/typescript/webpack_config/" class="prev" rel="prev" title="webpack配置"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>webpack配置</a>
+            <a href="../../../posts/communicates/" class="next" rel="next" title="前端跨页面通信总结">前端跨页面通信总结<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>webpack配置 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="webpack配置" />
-<meta property="og:description" content="安装两个模块 npm i -D typescript ts-loader 添加ts的配置文件tsconfig.json，配置参考。 webpack设置文件后缀补全。 在ts文件中引入其他ts文件会" />
+        <title>前端跨页面通信总结 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="前端跨页面通信总结" />
+<meta property="og:description" content="详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/typescript/webpack_config/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-07T15:36:16+08:00" />
-<meta property="article:modified_time" content="2022-08-07T16:19:48+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="og:url" content="/posts/browser/communicates/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-07T23:04:49+08:00" />
+<meta property="article:modified_time" content="2022-08-08T00:18:16+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="webpack配置"/>
-<meta name="twitter:description" content="安装两个模块 npm i -D typescript ts-loader 添加ts的配置文件tsconfig.json，配置参考。 webpack设置文件后缀补全。 在ts文件中引入其他ts文件会"/>
+<meta name="twitter:title" content="前端跨页面通信总结"/>
+<meta name="twitter:description" content="详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/typescript/webpack_config/" /><link rel="prev" href="../../../posts/typescript/generic/" /><link rel="next" href="../../../posts/browser/push/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/browser/communicates/" /><link rel="prev" href="../../../posts/communicates/" /><link rel="next" href="../../../posts/browser/worker/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "webpack配置",
+        "headline": "前端跨页面通信总结",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/typescript\/webpack_config\/"
-        },"genre": "posts","keywords": "","wordcount":  187 ,
-        "url": "\/posts\/typescript\/webpack_config\/","datePublished": "2022-08-07T15:36:16+08:00","dateModified": "2022-08-07T16:19:48+08:00","publisher": {
+            "@id": "\/posts\/browser\/communicates\/"
+        },"genre": "posts","keywords": "","wordcount":  462 ,
+        "url": "\/posts\/browser\/communicates\/","datePublished": "2022-08-07T23:04:49+08:00","dateModified": "2022-08-08T00:18:16+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,49 +101,78 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">webpack配置</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">前端跨页面通信总结</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-07">2022-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;187 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-07">2022-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;462 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
-            </div><div class="content" id="content"><ol>
-<li>
-<p>安装两个模块</p>
-<pre tabindex="0"><code>npm i -D typescript ts-loader 
-</code></pre></li>
-<li>
-<p>添加ts的配置文件<code>tsconfig.json</code>，<a href="https://juejin.cn/post/6844904109976322061" target="_blank" rel="noopener noreffer ">配置参考</a>。</p>
-</li>
-<li>
-<p>webpack设置文件后缀补全。</p>
-</li>
-</ol>
-<p>在ts文件中引入其他ts文件会提示不能以&rsquo;.ts&rsquo;扩展名结尾。</p>
-<blockquote>
-<p>TS2691: An import path cannot end with a &lsquo;.ts&rsquo; extension. Consider importing &lsquo;./math&rsquo; instead.</p>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#同源页面间的通信">同源页面间的通信</a>
+      <ul>
+        <li><a href="#广播模式">广播模式</a></li>
+        <li><a href="#共享存储长轮询方式">共享存储+长轮询方式</a></li>
+        <li><a href="#口口相传模式">口口相传模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#非同源页面之间的通信">非同源页面之间的通信</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><blockquote>
+<p>详解看<a href="https://juejin.cn/post/6844903811232825357" target="_blank" rel="noopener noreffer ">面试官：前端跨页面通信，你知道哪些方法？</a>，这里只做总结。</p>
 </blockquote>
-<p>但webpack默认不会补全ts文件，就会在浏览器报错。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// vue-cli默认补全后缀
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">[</span> <span class="s1">&#39;.mjs&#39;</span><span class="p">,</span><span class="s1">&#39;.js&#39;</span><span class="p">,</span>  <span class="s1">&#39;.jsx&#39;</span><span class="p">,</span><span class="s1">&#39;.vue&#39;</span><span class="p">,</span>  <span class="s1">&#39;.json&#39;</span><span class="p">,</span><span class="s1">&#39;.wasm&#39;</span><span class="p">]</span>
-</span></span></code></pre></div><p>解决办法：配置webpack的扩展名处理。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">resolve:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">   <span class="err">extensions:</span> <span class="err">[&#39;.ts&#39;,</span> <span class="err">&#39;.mjs&#39;,&#39;.js&#39;,</span>  <span class="err">&#39;.jsx&#39;,&#39;.vue&#39;,</span>  <span class="err">&#39;.json&#39;,&#39;.wasm&#39;]</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span><span class="err">,</span>  
-</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+<p>在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也不会在多个Tab页间共享。但有些场景，需要Tab间之间同步一些数据。</p>
+<h2 id="同源页面间的通信">同源页面间的通信</h2>
+<h3 id="广播模式">广播模式</h3>
+<p>即一个页面将消息通知给一个“中央站”，再由“中央站”通知给各个页面。</p>
+<ul>
+<li>
+<p>BroadCast Channel</p>
+<p>创建一个用于广播的通信频道。当所有页面都监听同一频道的消息，</p>
+</li>
+<li>
+<p>Service Worker</p>
+<p>多页面可以共享一个Service Worker ，将Service Worker作为消息的处理中心。</p>
+</li>
+<li>
+<p>LocalStorage</p>
+<p>消息写入到LocalStorage 中；然后在各个页面内，通过监听<code>storage</code>事件接收通知。</p>
+</li>
+</ul>
+<h3 id="共享存储长轮询方式">共享存储+长轮询方式</h3>
+<p>共享存储空间，但无法主动通知，需要通过轮询方式，获取最新数据。</p>
+<ul>
+<li>
+<p>Service Worker</p>
+</li>
+<li>
+<p>IndexedDB</p>
+</li>
+<li>
+<p>cookie</p>
+</li>
+</ul>
+<h3 id="口口相传模式">口口相传模式</h3>
+<p>使用<code>window.open</code>打开页面时，方法会返回一个被打开页面<code>window</code>的引用。而在未显示指定<code>noopener</code>时，被打开的页面可以通过<code>window.opener</code>获取到打开它的页面的引用</p>
+<ul>
+<li>window.open + window.opener</li>
+</ul>
+<h2 id="非同源页面之间的通信">非同源页面之间的通信</h2>
+<p>可以通过嵌入同源 iframe 作为“桥”，将非同源页面通信转换为同源页面通信</p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-07</span>
+                <span>Updated on 2022-08-08</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/typescript/webpack_config/" data-title="webpack配置" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/typescript/webpack_config/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/typescript/webpack_config/" data-title="webpack配置"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/typescript/webpack_config/" data-title="webpack配置"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/typescript/webpack_config/" data-title="webpack配置"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/browser/communicates/" data-title="前端跨页面通信总结" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/browser/communicates/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/browser/communicates/" data-title="前端跨页面通信总结"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/browser/communicates/" data-title="前端跨页面通信总结"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/browser/communicates/" data-title="前端跨页面通信总结"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -155,8 +184,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/typescript/generic/" class="prev" rel="prev" title="泛型"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>泛型</a>
-            <a href="../../../posts/browser/push/" class="next" rel="next" title="服务端消息推送方案总结">服务端消息推送方案总结<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/communicates/" class="prev" rel="prev" title="前端跨页面通信总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>前端跨页面通信总结</a>
+            <a href="../../../posts/browser/worker/" class="next" rel="next" title="各种Worker">各种Worker<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
