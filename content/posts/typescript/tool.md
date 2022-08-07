@@ -180,8 +180,6 @@ mySearch = function(source: string, subString: string) {
 
 ## 工具类型
 
-
-
 ### Partial
 
 将传入类型 T 的所有属性变为可选属性。
@@ -224,7 +222,7 @@ readonlyFoo.foo = 'bar'; // error
 
 #### pick<T,K>
 
-只保留自己选择的属性, K代表要保留的属性键值
+只保留自己选择的属性, K代表要保留的属性键值。
 
 ```TypeScript
 // type Pick<T, K extends keyof T> = { [P in K]: T[P]; }
@@ -271,7 +269,7 @@ type Baz = {
 
 #### Exclude<T,U>
 
-过滤T中和U相同(或兼容)的类型
+过滤T中和U相同(或兼容)的类型。
 
 ```typescript
 // type Exclude<T, U> = T extends U ? never : T
@@ -285,7 +283,7 @@ type Bar = Exclude<"a" | "b" | "c", "a" | "b">;  // "c"
 
 #### **Extract<T,U>**
 
-提取T中和U相同(或兼容)的类型
+提取T中和U相同(或兼容)的类型。
 
 ```typescript
 // type Extract<T, U> = T extends U ? T : never
@@ -297,7 +295,7 @@ type Foo = Extract<"a" | "b" | "c", "a" | "f">;  // "a"
 
 #### **NonNullable**
 
-剔除类型T中的undefined和null
+剔除类型T中的undefined和null。
 
 ```typescript
 // type NonNullable<T> = T extends null | undefined ? never : T
@@ -307,7 +305,7 @@ type Foo = NonNullable<number|string|null|undefined> // number|string
 
 #### **ReturnType**
 
-获取T的返回值的类型
+获取T的返回值的类型。
 
 ```typescript
 // type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any
@@ -315,9 +313,9 @@ type Foo = NonNullable<number|string|null|undefined> // number|string
 type A1= ReturnType<()=>number> // number
 ```
 
-#### **InstanceTyp**
+#### **InstanceType**
 
-返回T的实例类型。:
+返回T的实例类型。
 
 ```TypeScript
 class Human {
@@ -330,7 +328,7 @@ type HumanType = InstanceType<typeof Human>; // Human
 
 #### **Parameters**
 
-返回类型为元祖, 元素顺序同参数顺序.
+返回类型为元祖, 元素顺序同参数顺序。
 
 ```TypeScript
 interface A{
@@ -346,7 +344,7 @@ type A1 = Parameters<A> // [number, string]
 
 #### keyof
 
-返回由对象的键值组成的字面量类型
+返回由对象的键值组成的字面量类型。
 
 ```typescript
 interface Person {
@@ -362,7 +360,7 @@ type B = keyof [1,2] // '0'|'1'|'push'... , 获取到内容的同时, 还得到�
 
 #### typeof
 
-返回值的类型
+返回值的类型。
 
 ```typescript
 const foo: string = 'a';
@@ -402,13 +400,16 @@ type B =  '123' extends string ? string :123 // string
 
 #### infer(类型推断)
 
-表示在`extends`条件语句中**声明**待推断的类型变量. 我们上面介绍的**映射类型**中就有很多都是ts在`lib.d.ts`中实现的, 比如`Parameters`:
+表示在`extends`条件语句中声明待推断的类型变量。
 
-```TypeScript
+ 例如`Parameters`:
+
+```typescript
 type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;
+
 ```
 
-上面声明一个`P`用来表示`...args`可能的类型, 如果`(...args: infer P)`可以**表示** `T`, 那么返回`...args`对应的类型, 也就是函数的参数类型, 反之返回`never`.
+上面声明一个`P`用来表示`...args`可能的类型, 如果`(...args: infer P)`可以表示 `T`, 那么返回`...args`对应的类型, 也就是函数的参数类型, 反之返回`never`.
 
 **注意:** 开始的`T extends (...args: any) => any`用来校验输入的`T`是否是函数, 如果不是ts会报错, 如果直接替换成`T`不会有报错, 会一直返回`never`。
 
