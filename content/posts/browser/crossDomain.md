@@ -12,7 +12,7 @@ typora-root-url: ..\..\static
 浏览器处于安全考虑，只允许本域名下的接口交互，不同域名下的请求，就会出现跨域。
 
 
-![url的组成](../../../static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp)
+![url的组成](/static/images/1638b3579d9eeb32tplv-t2oaga2asx-zoom-in-crop-mark3024000.awebp)
 
 ## 为什么限制跨域访问
 防范XSS攻击，如果不限制跨域访问，你先登录支付宝，浏览器就会保留你的登录状态，避免你每次访问支付宝的页面都去输入用户名和密码。然后你又去访问另一个网站。如果这个网站有恶意代码的话，就会利用浏览器里保留的支付宝的登录状态，去访问支付宝的网站，获取你的信息。
@@ -63,7 +63,7 @@ WebSocket不受跨域限制。
 ### 5.服务器转发
 - 利用nginx 反向代理
 - 代理服务器
-    
+  
     > 例如:开发环境webpack的proxy
 
 ### 6.iframe

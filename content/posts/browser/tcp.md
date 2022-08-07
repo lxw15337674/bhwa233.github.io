@@ -9,7 +9,7 @@ typora-root-url: ..\..\static
 
 ## 一图总结
 
-![image](/images/53062591-3d846300-34fc-11e9-8d0f-4063d9ff3398.png)
+![image](/static/images/53062591-3d846300-34fc-11e9-8d0f-4063d9ff3398.png)
 
 
 

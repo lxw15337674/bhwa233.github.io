@@ -5,7 +5,7 @@ draft: false
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
-
+weight: 1
 ---
 
 ## 高级类型
@@ -172,7 +172,7 @@ interface IUser {
 type optional = Partial<IUser>
 ```
 
-#### Required
+### Required
 
 将传入类型 T 的所有属性变为必选属性。
 
@@ -183,7 +183,7 @@ type A  = {a?:number, b?:string}
 type A1 = Required<A> // { a: number; b: string;}
 ```
 
-#### Readonly
+### Readonly 
 
 将类型 T 的所有属性转换为只读属性，只能在声明时赋值。
 
@@ -197,7 +197,7 @@ const readonlyFoo: Readonly<Foo> = {
 readonlyFoo.foo = 'bar'; // error
 ```
 
-#### pick<T,K>
+### pick
 
 只保留自己选择的属性, K代表要保留的属性键值。
 
@@ -213,7 +213,7 @@ interface Foo{
 type A = Pick<Foo, 'a'|'b'> //  {a:string,b:number}
 ```
 
-#### Omit<T,K>
+### Omit
 
 实现排除已选的属性,, K代表要排除的属性键值。
 
@@ -229,7 +229,7 @@ interface Foo{
 type A = Omit<Foo, 'a'|'b'> //  {c:boolean}
 ```
 
-#### **Record<K,T>**
+### Record
 
 创建一个类型,K代表键值的类型, T代表值的类型。
 
@@ -244,7 +244,7 @@ type Baz = {
 }
 ```
 
-#### Exclude<T,U>
+### Exclude
 
 过滤T中和U相同(或兼容)的类型。
 
@@ -258,7 +258,7 @@ type Bar = Exclude<"a" | "b" | "c", "a" | "b">;  // "c"
 
 
 
-#### **Extract<T,U>**
+### Extract
 
 提取T中和U相同(或兼容)的类型。
 
@@ -270,7 +270,7 @@ type Foo = Extract<"a" | "b" | "c", "a" | "f">;  // "a"
 
 
 
-#### **NonNullable**
+### **NonNullable**
 
 剔除类型T中的undefined和null。
 
@@ -280,7 +280,7 @@ type Foo = Extract<"a" | "b" | "c", "a" | "f">;  // "a"
 type Foo = NonNullable<number|string|null|undefined> // number|string
 ```
 
-#### **ReturnType**
+### **ReturnType**
 
 获取T的返回值的类型。
 
@@ -290,7 +290,7 @@ type Foo = NonNullable<number|string|null|undefined> // number|string
 type A1= ReturnType<()=>number> // number
 ```
 
-#### **InstanceType**
+### **InstanceType**
 
 返回T的实例类型。
 
@@ -303,7 +303,7 @@ class Human {
 type HumanType = InstanceType<typeof Human>; // Human
 ```
 
-#### **Parameters**
+### **Parameters**
 
 返回类型为元祖, 元素顺序同参数顺序。
 
@@ -319,7 +319,7 @@ type A1 = Parameters<A> // [number, string]
 
 ## 关键字
 
-#### keyof
+### keyof
 
 返回由对象的键值组成的字面量类型。
 
@@ -335,7 +335,7 @@ type PesonKeys = keyof Person
 type B = keyof [1,2] // '0'|'1'|'push'... , 获取到内容的同时, 还得到了Array原型上的方法和属性(实战中暂时没遇到这种需求, 了解即可)
 ```
 
-#### typeof
+### typeof
 
 返回值的类型。
 
@@ -361,7 +361,7 @@ type FooType = typeof foo;
 
 
 
-#### extends
+### extends
 
 用来表示类型是不确定的, 如果`U`的类型可以表示`T`, 那么返回`X`, 否则`Y`。
 
@@ -375,15 +375,14 @@ type B =  '123' extends string ? string :123 // string
 
 
 
-#### infer(类型推断)
+### infer
 
-表示在`extends`条件语句中声明待推断的类型变量。
+类型推断，表示在`extends`条件语句中声明待推断的类型变量。
 
- 例如`Parameters`:
+ 例如`Parameters`
 
 ```typescript
 type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) => any ? P : never;
-
 ```
 
 上面声明一个`P`用来表示`...args`可能的类型, 如果`(...args: infer P)`可以表示 `T`, 那么返回`...args`对应的类型, 也就是函数的参数类型, 反之返回`never`.
@@ -393,10 +392,10 @@ type Parameters<T extends (...args: any) => any> = T extends (...args: infer P) 
 举例：利用`infer`来实现"删除元祖类型中第一个元素", 这常用于简化函数参数
 
 ```TypeScript
-export type Tail<Tuple extends any[]> = ((...args: Tuple) => void) extends ((a: any, ...args: infer T) => void) ? T : never;
+ export type Tail<Tuple extends any[]> = ((...args: Tuple) => void) extends ((a: any, ...args: infer T) => void) ? T : never;
 ```
 
-#### in
+### in
 
 遍历联合类型。
 
@@ -410,7 +409,7 @@ type MappedType = { [k in key]: string } // { vue: string; react: string; }
 
 ## 接口
 
-####  带有任意数量的其他属性
+###  带有任意数量的其他属性
 
 ```typescript
 interface SquareConfig {
@@ -420,7 +419,7 @@ interface SquareConfig {
 }
 ```
 
-#### 函数类型
+### 函数类型
 
 ```typescript
 let mySearch: SearchFunc;
