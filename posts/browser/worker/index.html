@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/worker/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-07T23:44:59+08:00" />
-<meta property="article:modified_time" content="2022-08-08T00:18:16+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-08T11:05:22+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="各种Worker"/>
@@ -17,7 +17,7 @@
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/browser/worker/" /><link rel="prev" href="../../../posts/browser/communicates/" /><link rel="next" href="../../../posts/%E7%AE%80%E5%8E%86/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/browser/worker/" /><link rel="prev" href="../../../posts/browser/communicates/" /><link rel="next" href="../../../posts/interview/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/worker\/"
-        },"genre": "posts","keywords": "","wordcount":  1825 ,
-        "url": "\/posts\/browser\/worker\/","datePublished": "2022-08-07T23:44:59+08:00","dateModified": "2022-08-08T00:18:16+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  1324 ,
+        "url": "\/posts\/browser\/worker\/","datePublished": "2022-08-07T23:44:59+08:00","dateModified": "2022-08-08T11:05:22+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">各种Worker</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-07">2022-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1825 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-07">2022-08-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1324 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -120,7 +120,6 @@
     </li>
     <li><a href="#service-worker">service worker</a>
       <ul>
-        <li><a href="#特点-1">特点</a></li>
         <li><a href="#特性">特性</a></li>
         <li><a href="#注意事项">注意事项</a></li>
         <li><a href="#生命周期">生命周期</a></li>
@@ -130,13 +129,14 @@
     <li><a href="#shared-worker">Shared Worker</a>
       <ul>
         <li><a href="#与普通-worker-区别">与普通 Worker 区别</a></li>
+        <li><a href="#应用场景-1">应用场景</a></li>
         <li><a href="#相关资料">相关资料</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="web-worker">web worker</h2>
-<p>JS是单线程没有多线程，当JS在页面中运行长耗时同步任务的时候就会导致页面假死。为了解决这个问题，HTML5提供了新的API<code>web worker</code>，可以通过另外开辟一个独立的 JS 线程来运行这些高耗时的 JS 代码。</p>
+<p>JS是单线程没有多线程，当JS在页面中运行长耗时同步任务的时候就会导致页面假死。为了解决这个问题，HTML5提供了新的API<code>web worker</code>，可以通开启一个独立的 JS 线程来运行这些高耗时的 JS 代码。</p>
 <h3 id="特点">特点</h3>
 <ol>
 <li>
@@ -191,15 +191,26 @@ worker线程不能执行<code>alert</code>、<code>confirm</code>，但可以使
 <h2 id="service-worker">service worker</h2>
 <p>基于web worker，通过注册之后，可以独立于浏览器在后台运行，控制我们的一个或者多个页面。如果我们的页面在多个窗口中打开，Service Worker不会重复创建。</p>
 <p>一般作为 Web 应用程序、浏览器和网络之间的代理服务。他们旨在创建有效的离线体验，拦截网络请求，以及根据网络是否可用采取合适的行动，更新驻留在服务器上的资源。他们还将允许访问推送通知和后台同步 API。</p>
-<h3 id="特点-1">特点</h3>
-<p>在页面中注册并安装成功后，运行于浏览器后台，不受页面刷新的影响，可以监听和拦截作用域范围内所有页面的 HTTP 请求。</p>
 <h3 id="特性">特性</h3>
 <ul>
-<li>在web worker的基础上增加了离线缓存的能力</li>
-<li>其生命周期与页面无关（关联页面未关闭时，它也可以退出，没有关联页面，它也可以启动）</li>
-<li>由事件驱动的,具有生命周期</li>
-<li>可以访问cache和indexDB</li>
-<li>支持推送。</li>
+<li>
+<p>在页面中注册并安装成功后，运行于浏览器后台，不受页面刷新的影响，</p>
+</li>
+<li>
+<p>在web worker的基础上增加了离线缓存的能力</p>
+</li>
+<li>
+<p>其生命周期与页面无关（关联页面未关闭时，它也可以退出，没有关联页面，它也可以启动）</p>
+</li>
+<li>
+<p>由事件驱动的,具有生命周期</p>
+</li>
+<li>
+<p>可以访问cache和indexDB</p>
+</li>
+<li>
+<p>支持推送。</p>
+</li>
 </ul>
 <h3 id="注意事项">注意事项</h3>
 <ul>
@@ -217,32 +228,22 @@ worker线程不能执行<code>alert</code>、<code>confirm</code>，但可以使
 <li>mock数据</li>
 <li>PWA</li>
 </ol>
-<blockquote>
-<p>Progressive Web Apps :</p>
-<ul>
-<li><strong>渐进增强</strong> – 能够让每一位用户使用，无论用户使用什么浏览器，因为它是始终以渐进增强为原则。</li>
-<li><strong>响应式用户界面</strong> – 适应任何环境：桌面电脑，智能手机，笔记本电脑，或者其他设备。</li>
-<li><strong>不依赖网络连接</strong> – 通过 Service Workers 可以在离线或者网速极差的环境下工作。</li>
-<li><strong>类原生应用</strong> – 有像原生应用般的交互和导航给用户原生应用般的体验，因为它是建立在 app shell model 上的。</li>
-<li><strong>持续更新</strong> – 受益于 Service Worker 的更新进程，应用能够始终保持更新。</li>
-<li><strong>安全</strong> – 通过 HTTPS 来提供服务来防止网络窥探，保证内容不被篡改。</li>
-<li><strong>可发现</strong> – 得益于 W3C manifests 元数据和 Service Worker 的登记，让搜索引擎能够找到 web 应用。</li>
-<li><strong>再次访问</strong> – 通过消息推送等特性让用户再次访问变得容易。</li>
-<li><strong>可安装</strong> – 允许用户保留对他们有用的应用在主屏幕上，不需要通过应用商店。</li>
-<li><strong>可连接性</strong> – 通过 URL 可以轻松分享应用，不用复杂的安装即可运行。</li>
-</ul>
-</blockquote>
 <h2 id="shared-worker">Shared Worker</h2>
 <p>由同源的所有页面共享。</p>
 <h3 id="与普通-worker-区别">与普通 Worker 区别</h3>
-<p>1、 同一个js脚本会创建一个 sharedWorker，其他页面再使用同样的脚本创建sharedWorker，会复用已创建的 worker，这个worker由几个页面共享</p>
+<p>1、 同一个js脚本只会创建一个 sharedWorker，其他页面再使用同样的脚本创建sharedWorker，会复用已创建的 worker，这个worker由几个页面共享。</p>
 <p>2、 sharedWorker通过port来发送和接收消息</p>
+<h3 id="应用场景-1">应用场景</h3>
+<ol>
+<li>同源的多页面通信</li>
+</ol>
 <h3 id="相关资料">相关资料</h3>
-<p>[Service Worker 应用详解]([https://lzw.me/a/pwa-service-worker.html#9%20%E5%85%B6%E4%BB%96%E7%9B%B8%E5%85%B3%E5%8F%82%E8%80%83](<a href="https://lzw.me/a/pwa-service-worker.html#9" target="_blank" rel="noopener noreffer ">https://lzw.me/a/pwa-service-worker.html#9</a> 其他相关参考))</p>
-<p><a href="https://juejin.im/post/6844903972759666701" target="_blank" rel="noopener noreffer ">Service Worker初探</a></p>
-<p><a href="https://juejin.im/post/6844903887296528398" target="_blank" rel="noopener noreffer ">Service Worker 从入门到出门</a></p>
 <p><a href="http://www.ruanyifeng.com/blog/2018/07/web-worker.html" target="_blank" rel="noopener noreffer ">Web Worker 使用教程</a></p>
 <p><a href="https://juejin.cn/post/7055456291493249054" target="_blank" rel="noopener noreffer ">让Web Worker来给你的网页提提速</a></p>
+<p><a href="https://wohugb.gitbooks.io/javascript/content/htmlapi/webworker.html" target="_blank" rel="noopener noreffer ">Web Worker</a></p>
+<p><a href="https://lzw.me/a/pwa-service-worker.html#1%20%E4%BB%80%E4%B9%88%E6%98%AF%20Service%20Worker" target="_blank" rel="noopener noreffer ">Service Worker 应用详解</a></p>
+<p><a href="https://juejin.im/post/6844903887296528398" target="_blank" rel="noopener noreffer ">Service Worker 从入门到出门</a></p>
+<p><a href="https://www.cnblogs.com/imgss/p/14634577.html" target="_blank" rel="noopener noreffer ">sharedWorker 实现多页面通信</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -265,7 +266,7 @@ worker线程不能执行<code>alert</code>、<code>confirm</code>，但可以使
     </div>
 
     <div class="post-nav"><a href="../../../posts/browser/communicates/" class="prev" rel="prev" title="前端跨页面通信总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>前端跨页面通信总结</a>
-            <a href="../../../posts/%E7%AE%80%E5%8E%86/" class="next" rel="next" title="简历">简历<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="../../../posts/interview/" class="next" rel="next" title="Interview">Interview<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
