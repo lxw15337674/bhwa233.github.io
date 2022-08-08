@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>鼠标、键盘事件 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="鼠标、键盘事件" />
-<meta property="og:description" content="由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件" />
+        <title>元素 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="元素" />
+<meta property="og:description" content="box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/js/event/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-07-31T16:08:26+08:00" />
+<meta property="og:url" content="/posts/css/box/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-08T15:37:13+08:00" />
 <meta property="article:modified_time" content="2022-08-08T20:24:49+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="鼠标、键盘事件"/>
-<meta name="twitter:description" content="由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件"/>
+<meta name="twitter:title" content="元素"/>
+<meta name="twitter:description" content="box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/js/event/" /><link rel="prev" href="../../../posts/HMR/" /><link rel="next" href="../../../posts/js/letconstvar/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/css/box/" /><link rel="prev" href="../../../posts/safe/xss_csrf/" /><link rel="next" href="../../../posts/css/element/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "鼠标、键盘事件",
+        "headline": "元素",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/js\/event\/"
-        },"genre": "posts","keywords": "","wordcount":  691 ,
-        "url": "\/posts\/js\/event\/","datePublished": "2022-07-31T16:08:26+08:00","dateModified": "2022-08-08T20:24:49+08:00","publisher": {
+            "@id": "\/posts\/css\/box\/"
+        },"genre": "posts","keywords": "","wordcount":  238 ,
+        "url": "\/posts\/css\/box\/","datePublished": "2022-08-08T15:37:13+08:00","dateModified": "2022-08-08T20:24:49+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">鼠标、键盘事件</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-31">2022-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;691 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">元素</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-08">2022-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;238 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -112,156 +112,52 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#box-sizing">box-sizing</a></li>
+    <li><a href="#标准盒模型">标准盒模型</a></li>
+    <li><a href="#ie盒模型">IE盒模型</a></li>
+    <li><a href="#块模型的大小">块模型的大小</a>
       <ul>
-        <li><a href="#触发顺序">触发顺序</a></li>
-        <li><a href="#普通事件">普通事件</a></li>
-        <li><a href="#输入框特殊事件">输入框特殊事件</a></li>
+        <li><a href="#详解">详解</a></li>
       </ul>
     </li>
-    <li><a href="#鼠标事件">鼠标事件</a></li>
-    <li><a href="#参考资料">参考资料</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>由于开发富文本中遇到中文输入法输入等问题，所以总结一下。</p>
-<h1 id="键盘事件">键盘事件</h1>
-<h3 id="触发顺序">触发顺序</h3>
-<h4 id="普通输入">普通输入</h4>
-<p><code>keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup</code></p>
-<h4 id="输入法输入">输入法输入</h4>
-<p><strong>输入时</strong></p>
-<p><code>keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup</code></p>
-<h3 id="普通事件">普通事件</h3>
-<p>在<code>keyup</code> 事件中无法阻止浏览器默认事件，如要阻止默认行为，必须在<code>keydown</code>或<code>keypress</code>时阻止。</p>
-<table>
-<thead>
-<tr>
-<th>事件名</th>
-<th>触发时机</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>keydown</code></td>
-<td>按下任意按键。</td>
-<td></td>
-</tr>
-<tr>
-<td><code>keypress</code></td>
-<td>任意键被按住。</td>
-<td>1.当按键处于按下状态时事件会持续触发。<!-- raw HTML omitted -->2. 按 <code>Shift</code>、<code>Fn</code>、<code>CapsLock</code>不能触发。<!-- raw HTML omitted -->3. 中文输入法中不会被触发</td>
-</tr>
-<tr>
-<td><code>keyup</code></td>
-<td>释放任意按键。</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h3 id="输入框特殊事件">输入框特殊事件</h3>
-<p>只会输入框中输入时触发。</p>
-<table>
-<thead>
-<tr>
-<th>事件名</th>
-<th>触发时机</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>compositionstar</code></td>
-<td>使用中文输入法，开始输入时</td>
-<td>不用输入法不会触发</td>
-</tr>
-<tr>
-<td><code>compositionend</code></td>
-<td>使用中文输入法，输入完成时</td>
-<td>不用输入法不会触发</td>
-</tr>
-<tr>
-<td><code>compositionupdate</code></td>
-<td>使用中文输入法，输入更新时</td>
-<td>不用输入法不会触发</td>
-</tr>
-<tr>
-<td><code>input</code></td>
-<td>当输入时</td>
-<td></td>
-</tr>
-<tr>
-<td><code>change</code></td>
-<td>当值变化时</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="鼠标事件">鼠标事件</h2>
-<table>
-<thead>
-<tr>
-<th>事件类型</th>
-<th>触发时机</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>click</code></td>
-<td>单击鼠标左键，按键抬起后</td>
-<td>如果左右键同时按下则不会发生。当用户的焦点在按钮上并按了 Enter 键时，同样会触发这个事件</td>
-</tr>
-<tr>
-<td><code>contextmenu</code></td>
-<td>单击鼠标右键，按键抬起后</td>
-<td>如果左右键同时按下则不会发生。</td>
-</tr>
-<tr>
-<td><code>dblclick</code></td>
-<td>双击鼠标左键时</td>
-<td>如果右键也按下则不会发生。</td>
-</tr>
-<tr>
-<td><code>mousedown</code></td>
-<td>鼠标左键或右键按下时</td>
-<td></td>
-</tr>
-<tr>
-<td><code>mouseup</code></td>
-<td>鼠标左键或右键抬起后</td>
-<td></td>
-</tr>
-<tr>
-<td><code>mouseover</code></td>
-<td>当鼠标移入元素或其子元素时</td>
-<td>因为移动到子元素也会触发，所以会在元素里重复触发,是一个冒泡的过程。对应的移除事件是<code>mouseout</code></td>
-</tr>
-<tr>
-<td><code>mouseout</code></td>
-<td>当鼠标离开元素或其子元素时</td>
-<td>离开子元素也会触发</td>
-</tr>
-<tr>
-<td><code>mouseenter</code></td>
-<td>当鼠标移入元素本身（不包含元素的子元素）时</td>
-<td>不会冒泡，只会在元素里触发一次。对应的离开事件是<code>mouseleave</code></td>
-</tr>
-<tr>
-<td><code>mouseleave</code></td>
-<td>当鼠标离开元素本身（不包含元素的子元素）时</td>
-<td>离开子元素不会触发</td>
-</tr>
-<tr>
-<td><code>mousemove</code></td>
-<td>鼠标移动时</td>
-<td>会重复触发。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="https://segmentfault.com/a/1190000023543967" target="_blank" rel="noopener noreffer ">限制input输入的方法（监听键盘事件）</a></p>
-<p><a href="https://segmentfault.com/a/1190000012490380" target="_blank" rel="noopener noreffer ">解决oninput事件在中文输入法下会取得拼音的值的问题</a></p>
+            </div><div class="content" id="content"><h2 id="box-sizing">box-sizing</h2>
+<p>通过box-sizing这个属性来设置元素的盒模型</p>
+<ul>
+<li>box-sizing：content-box 为标准盒模型（默认）</li>
+<li>box-sizing：border-box 为IE怪异盒模型
+<ul>
+<li>padding 内边距</li>
+<li>border 边框</li>
+<li>margin 外边距</li>
+</ul>
+</li>
+</ul>
+<h2 id="标准盒模型">标准盒模型</h2>
+<p>元素的 width、height 只包含内容 content，不包含 border 和 padding 值；</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="../../../../../static/images/image-20220808154713338.png"
+        data-srcset="../../../../../static/images/image-20220808154713338.png, ../../../../../static/images/image-20220808154713338.png 1.5x, ../../../../../static/images/image-20220808154713338.png 2x"
+        data-sizes="auto"
+        alt="/../../static/images/image-20220808154713338.png"
+        title="image-20220808154713338" /></p>
+<h2 id="ie盒模型">IE盒模型</h2>
+<p>元素的 width、height 包括 content、 border、 padding，不包含margin。</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="../../../../../static/images/image-20220808154728166.png"
+        data-srcset="../../../../../static/images/image-20220808154728166.png, ../../../../../static/images/image-20220808154728166.png 1.5x, ../../../../../static/images/image-20220808154728166.png 2x"
+        data-sizes="auto"
+        alt="/../../static/images/image-20220808154728166.png"
+        title="image-20220808154728166" /></p>
+<h2 id="块模型的大小">块模型的大小</h2>
+<p>块的大小包含context、border、padding、margin</p>
+<h3 id="详解">详解</h3>
+<p><a href="https://segmentfault.com/a/1190000014692461" target="_blank" rel="noopener noreffer ">https://segmentfault.com/a/1190000014692461</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -271,7 +167,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/js/event/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/css/box/" data-title="元素" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/css/box/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/css/box/" data-title="元素"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/css/box/" data-title="元素"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/css/box/" data-title="元素"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -283,8 +179,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/HMR/" class="prev" rel="prev" title="HMR"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>HMR</a>
-            <a href="../../../posts/js/letconstvar/" class="next" rel="next" title="let、const和var的区别">let、const和var的区别<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/safe/xss_csrf/" class="prev" rel="prev" title="网站的几种攻击方式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>网站的几种攻击方式</a>
+            <a href="../../../posts/css/element/" class="next" rel="next" title="元素分类">元素分类<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

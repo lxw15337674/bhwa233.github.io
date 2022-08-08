@@ -5,10 +5,10 @@
         <description>css - Tag - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</lastBuildDate><atom:link href="/tags/css/" rel="self" type="application/rss+xml" /><item>
     <title>关于元素隐藏</title>
-    <link>/posts/display/</link>
+    <link>/posts/css/display/</link>
     <pubDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/display/</guid>
+    <guid>/posts/css/display/</guid>
     <description><![CDATA[常用的隐藏方法： opacity ：0 display :none visibility :hidden 设置 fixed 并设置足够大负距离的 left top 使其“隐藏” 用层叠关系 z-index 把元素叠在最底下使其“隐藏”。 前三种方法的一些区别 opacity: 0 visibility:]]></description>
 </item>
 </channel>

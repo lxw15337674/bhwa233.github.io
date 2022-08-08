@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>鼠标、键盘事件 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="鼠标、键盘事件" />
-<meta property="og:description" content="由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件" />
+        <title>本地存储 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="本地存储" />
+<meta property="og:description" content="总结 特性 cookie localStorage sessionStorage indexDB 数据生命周期 一般由服务器生成，可以设置过期时间 除非被清理，否则一直存在 页面关闭就清理 除非被清理，否则一直存在 数据存储大小 4K 5M" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/js/event/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-07-31T16:08:26+08:00" />
+<meta property="og:url" content="/posts/browser/storage/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-08T14:20:04+08:00" />
 <meta property="article:modified_time" content="2022-08-08T20:24:49+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="鼠标、键盘事件"/>
-<meta name="twitter:description" content="由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件"/>
+<meta name="twitter:title" content="本地存储"/>
+<meta name="twitter:description" content="总结 特性 cookie localStorage sessionStorage indexDB 数据生命周期 一般由服务器生成，可以设置过期时间 除非被清理，否则一直存在 页面关闭就清理 除非被清理，否则一直存在 数据存储大小 4K 5M"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/js/event/" /><link rel="prev" href="../../../posts/HMR/" /><link rel="next" href="../../../posts/js/letconstvar/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/browser/storage/" /><link rel="prev" href="../../../posts/http/get_post/" /><link rel="next" href="../../../posts/safe/xss_csrf/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "鼠标、键盘事件",
+        "headline": "本地存储",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/js\/event\/"
-        },"genre": "posts","keywords": "","wordcount":  691 ,
-        "url": "\/posts\/js\/event\/","datePublished": "2022-07-31T16:08:26+08:00","dateModified": "2022-08-08T20:24:49+08:00","publisher": {
+            "@id": "\/posts\/browser\/storage\/"
+        },"genre": "posts","keywords": "","wordcount":  766 ,
+        "url": "\/posts\/browser\/storage\/","datePublished": "2022-08-08T14:20:04+08:00","dateModified": "2022-08-08T20:24:49+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,9 +101,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">鼠标、键盘事件</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-31">2022-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;691 words&nbsp;
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">本地存储</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-08">2022-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;766 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -112,156 +112,139 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#总结">总结</a></li>
+    <li><a href="#cookie">Cookie</a>
       <ul>
-        <li><a href="#触发顺序">触发顺序</a></li>
-        <li><a href="#普通事件">普通事件</a></li>
-        <li><a href="#输入框特殊事件">输入框特殊事件</a></li>
+        <li><a href="#缺点">缺点</a></li>
+        <li><a href="#应用场景">应用场景：</a></li>
       </ul>
     </li>
-    <li><a href="#鼠标事件">鼠标事件</a></li>
-    <li><a href="#参考资料">参考资料</a></li>
+    <li><a href="#localstorage">localStorage</a>
+      <ul>
+        <li><a href="#优点">优点</a></li>
+        <li><a href="#应用场景-1">应用场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#sessionstorage">sessionStorage</a>
+      <ul>
+        <li><a href="#优点-1">优点</a></li>
+        <li><a href="#应用场景-2">应用场景</a></li>
+      </ul>
+    </li>
+    <li><a href="#indexeddb">IndexedDB</a>
+      <ul>
+        <li><a href="#应用场景-3">应用场景</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p>由于开发富文本中遇到中文输入法输入等问题，所以总结一下。</p>
-<h1 id="键盘事件">键盘事件</h1>
-<h3 id="触发顺序">触发顺序</h3>
-<h4 id="普通输入">普通输入</h4>
-<p><code>keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup</code></p>
-<h4 id="输入法输入">输入法输入</h4>
-<p><strong>输入时</strong></p>
-<p><code>keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup</code></p>
-<h3 id="普通事件">普通事件</h3>
-<p>在<code>keyup</code> 事件中无法阻止浏览器默认事件，如要阻止默认行为，必须在<code>keydown</code>或<code>keypress</code>时阻止。</p>
+            </div><div class="content" id="content"><h2 id="总结">总结</h2>
 <table>
 <thead>
 <tr>
-<th>事件名</th>
-<th>触发时机</th>
-<th>备注</th>
+<th>特性</th>
+<th>cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+<th>indexDB</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>keydown</code></td>
-<td>按下任意按键。</td>
-<td></td>
+<td>数据生命周期</td>
+<td>一般由服务器生成，可以设置过期时间</td>
+<td>除非被清理，否则一直存在</td>
+<td>页面关闭就清理</td>
+<td>除非被清理，否则一直存在</td>
 </tr>
 <tr>
-<td><code>keypress</code></td>
-<td>任意键被按住。</td>
-<td>1.当按键处于按下状态时事件会持续触发。<!-- raw HTML omitted -->2. 按 <code>Shift</code>、<code>Fn</code>、<code>CapsLock</code>不能触发。<!-- raw HTML omitted -->3. 中文输入法中不会被触发</td>
+<td>数据存储大小</td>
+<td>4K</td>
+<td>5M</td>
+<td>5M</td>
+<td>无限</td>
 </tr>
 <tr>
-<td><code>keyup</code></td>
-<td>释放任意按键。</td>
-<td></td>
+<td>与服务端通信</td>
+<td>每次都会携带在 header 中，对于请求性能影响</td>
+<td>不参与</td>
+<td>不参与</td>
+<td>不参与</td>
 </tr>
 </tbody>
 </table>
-<h3 id="输入框特殊事件">输入框特殊事件</h3>
-<p>只会输入框中输入时触发。</p>
+<h2 id="cookie">Cookie</h2>
+<p>Cookie原本用于解决HTTP无状态性导致的状态管理不足，一般只用来作为状态存储。</p>
+<p><a href="https://juejin.im/post/59d1f59bf265da06700b0934" target="_blank" rel="noopener noreffer ">Cookie属性</a></p>
+<p>对于Cookie需注意安全性</p>
 <table>
 <thead>
 <tr>
-<th>事件名</th>
-<th>触发时机</th>
-<th>备注</th>
+<th>属性</th>
+<th>作用</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>compositionstar</code></td>
-<td>使用中文输入法，开始输入时</td>
-<td>不用输入法不会触发</td>
+<td>value</td>
+<td>如果用于保存用户登录态，应该将该值加密，不能使用明文的用户标识</td>
 </tr>
 <tr>
-<td><code>compositionend</code></td>
-<td>使用中文输入法，输入完成时</td>
-<td>不用输入法不会触发</td>
+<td>http-only</td>
+<td>不能通过 JS 访问 Cookie，减少 XSS 攻击</td>
 </tr>
 <tr>
-<td><code>compositionupdate</code></td>
-<td>使用中文输入法，输入更新时</td>
-<td>不用输入法不会触发</td>
+<td>secure</td>
+<td>只能在协议为 HTTPS 的请求中携带</td>
 </tr>
 <tr>
-<td><code>input</code></td>
-<td>当输入时</td>
-<td></td>
-</tr>
-<tr>
-<td><code>change</code></td>
-<td>当值变化时</td>
-<td></td>
+<td>same-site</td>
+<td>规定浏览器不能在跨域请求中携带 Cookie，减少 CSRF 攻击</td>
 </tr>
 </tbody>
 </table>
-<h2 id="鼠标事件">鼠标事件</h2>
-<table>
-<thead>
-<tr>
-<th>事件类型</th>
-<th>触发时机</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>click</code></td>
-<td>单击鼠标左键，按键抬起后</td>
-<td>如果左右键同时按下则不会发生。当用户的焦点在按钮上并按了 Enter 键时，同样会触发这个事件</td>
-</tr>
-<tr>
-<td><code>contextmenu</code></td>
-<td>单击鼠标右键，按键抬起后</td>
-<td>如果左右键同时按下则不会发生。</td>
-</tr>
-<tr>
-<td><code>dblclick</code></td>
-<td>双击鼠标左键时</td>
-<td>如果右键也按下则不会发生。</td>
-</tr>
-<tr>
-<td><code>mousedown</code></td>
-<td>鼠标左键或右键按下时</td>
-<td></td>
-</tr>
-<tr>
-<td><code>mouseup</code></td>
-<td>鼠标左键或右键抬起后</td>
-<td></td>
-</tr>
-<tr>
-<td><code>mouseover</code></td>
-<td>当鼠标移入元素或其子元素时</td>
-<td>因为移动到子元素也会触发，所以会在元素里重复触发,是一个冒泡的过程。对应的移除事件是<code>mouseout</code></td>
-</tr>
-<tr>
-<td><code>mouseout</code></td>
-<td>当鼠标离开元素或其子元素时</td>
-<td>离开子元素也会触发</td>
-</tr>
-<tr>
-<td><code>mouseenter</code></td>
-<td>当鼠标移入元素本身（不包含元素的子元素）时</td>
-<td>不会冒泡，只会在元素里触发一次。对应的离开事件是<code>mouseleave</code></td>
-</tr>
-<tr>
-<td><code>mouseleave</code></td>
-<td>当鼠标离开元素本身（不包含元素的子元素）时</td>
-<td>离开子元素不会触发</td>
-</tr>
-<tr>
-<td><code>mousemove</code></td>
-<td>鼠标移动时</td>
-<td>会重复触发。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="参考资料">参考资料</h2>
-<p><a href="https://segmentfault.com/a/1190000023543967" target="_blank" rel="noopener noreffer ">限制input输入的方法（监听键盘事件）</a></p>
-<p><a href="https://segmentfault.com/a/1190000012490380" target="_blank" rel="noopener noreffer ">解决oninput事件在中文输入法下会取得拼音的值的问题</a></p>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>容量缺陷，大小上限为4kb</li>
+<li>性能缺陷，因为不管请求是否需要，每次请求都会携带完整的Cookie，</li>
+<li>安全缺陷，以纯文本的形式传递，容易被非法用户截获，在<code>HttpOnly</code>为false的情况下，Cookie信息可以直接通过js来获取。</li>
+</ul>
+<h3 id="应用场景">应用场景：</h3>
+<ol>
+<li>会话管理，记录登陆、购物车、游戏得分或者服务器应该记住的其他内容。</li>
+<li>个性化，记录用户偏好、主题或者其他设置。</li>
+<li>追踪，记录和分析用户行为。</li>
+</ol>
+<h2 id="localstorage">localStorage</h2>
+<p>持久性存储。</p>
+<h3 id="优点">优点</h3>
+<ul>
+<li>容量大。localStorage 的容量上限为5M，当然这个 5M 是针对一个域名的，因此对于一个域名是持久存储的。</li>
+<li>只存在客户端，默认不参与与服务端的通信。</li>
+<li>接口封装。通过localStorage暴露在全局，并通过它的 setItem 和 getItem等方法进行操作。</li>
+</ul>
+<h3 id="应用场景-1">应用场景</h3>
+<ol>
+<li>存储状态，基本信息等。</li>
+</ol>
+<h2 id="sessionstorage">sessionStorage</h2>
+<p>会话性存储。生命周期是当前标签页关闭（即刷新页面还会存在，页面关闭不存在）。</p>
+<h3 id="优点-1">优点</h3>
+<p>同localStorage</p>
+<h3 id="应用场景-2">应用场景</h3>
+<ol>
+<li>可以用它对表单信息进行维护，将表单信息存储在里面，可以保证页面即使刷新也不会让之前的表单信息丢失。</li>
+<li>存储本次浏览记录。</li>
+</ol>
+<h2 id="indexeddb">IndexedDB</h2>
+<p>运行在浏览器中的非关系型数据库。</p>
+<p>优点：</p>
+<ol>
+<li>储存空间没有上限。</li>
+<li>异步操作</li>
+</ol>
+<h3 id="应用场景-3">应用场景</h3>
+<p>1.存储base64的图片。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -271,7 +254,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/js/event/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/js/event/" data-title="鼠标、键盘事件"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/browser/storage/" data-title="本地存储" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/browser/storage/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/browser/storage/" data-title="本地存储"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/browser/storage/" data-title="本地存储"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/browser/storage/" data-title="本地存储"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -283,8 +266,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/HMR/" class="prev" rel="prev" title="HMR"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>HMR</a>
-            <a href="../../../posts/js/letconstvar/" class="next" rel="next" title="let、const和var的区别">let、const和var的区别<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/http/get_post/" class="prev" rel="prev" title="get与post请求区别"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>get与post请求区别</a>
+            <a href="../../../posts/safe/xss_csrf/" class="next" rel="next" title="网站的几种攻击方式">网站的几种攻击方式<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
