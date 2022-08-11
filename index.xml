@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 08 Aug 2022 18:32:41 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,6 +20,22 @@
     <author>Bhwa233</author>
     <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
     <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
+</item>
+<item>
+    <title>git创建分支失败</title>
+    <link>/posts/git/createBranchfail/</link>
+    <pubDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/git/createBranchfail/</guid>
+    <description><![CDATA[报错 Invalid reference name 原因 仓库中已经存在了一个分支名称为 {branch} 的分支，就不能在新建一个 {branch}/{subName} 这样的额分支，比如仓库中有个分支叫 bugfix 那么再新建一个 bugfix/fix1 这样的分支就会报]]></description>
+</item>
+<item>
+    <title>Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理</title>
+    <link>/posts/react/store/</link>
+    <pubDate>Tue, 09 Aug 2022 19:25:58 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/react/store/</guid>
+    <description><![CDATA[状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一]]></description>
 </item>
 <item>
     <title>数据结构</title>
@@ -68,22 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/box/</guid>
     <description><![CDATA[box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b]]></description>
-</item>
-<item>
-    <title>网站的几种攻击方式</title>
-    <link>/posts/safe/xss_csrf/</link>
-    <pubDate>Mon, 08 Aug 2022 14:23:15 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/safe/xss_csrf/</guid>
-    <description><![CDATA[CSRF CSRF即Cross-site request forgery(跨站请求伪造)。CSRF攻击主要是利用自动发送的Cookie，借助Cookie来模拟用户的]]></description>
-</item>
-<item>
-    <title>本地存储</title>
-    <link>/posts/browser/storage/</link>
-    <pubDate>Mon, 08 Aug 2022 14:20:04 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/browser/storage/</guid>
-    <description><![CDATA[总结 特性 cookie localStorage sessionStorage indexDB 数据生命周期 一般由服务器生成，可以设置过期时间 除非被清理，否则一直存在 页面关闭就清理 除非被清理，否则一直存在 数据存储大小 4K 5M]]></description>
 </item>
 </channel>
 </rss>

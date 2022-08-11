@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 08 Aug 2022 18:32:41 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Typescript语法</title>
     <link>/posts/typescript/tool/</link>
     <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
@@ -18,6 +18,22 @@
     <author>Bhwa233</author>
     <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
     <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
+</item>
+<item>
+    <title>git创建分支失败</title>
+    <link>/posts/git/createBranchfail/</link>
+    <pubDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/git/createBranchfail/</guid>
+    <description><![CDATA[报错 Invalid reference name 原因 仓库中已经存在了一个分支名称为 {branch} 的分支，就不能在新建一个 {branch}/{subName} 这样的额分支，比如仓库中有个分支叫 bugfix 那么再新建一个 bugfix/fix1 这样的分支就会报]]></description>
+</item>
+<item>
+    <title>Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理</title>
+    <link>/posts/react/store/</link>
+    <pubDate>Tue, 09 Aug 2022 19:25:58 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/react/store/</guid>
+    <description><![CDATA[状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一]]></description>
 </item>
 <item>
     <title>数据结构</title>
@@ -146,22 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/typescript/webpack_config/</guid>
     <description><![CDATA[安装两个模块 npm i -D typescript ts-loader 添加ts的配置文件tsconfig.json，配置参考。 webpack设置文件后缀补全。 在ts文件中引入其他ts文件会]]></description>
-</item>
-<item>
-    <title>泛型</title>
-    <link>/posts/typescript/generic/</link>
-    <pubDate>Sun, 07 Aug 2022 14:50:37 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/typescript/generic/</guid>
-    <description><![CDATA[类型变量，用于传递类型。 写法 function identity&lt;Type&gt;(arg: Type): Type { return arg; } // 箭头函数的泛型必须有extends，否则语法无法识别。 const identity =&lt;T extends {}&gt;(arg: T): T =&gt; { return arg; }; 泛型约束 interface Length{ length:number }]]></description>
-</item>
-<item>
-    <title>Hugo lovelt的搜索坑</title>
-    <link>/posts/hugo/</link>
-    <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/hugo/</guid>
-    <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
 </item>
 </channel>
 </rss>
