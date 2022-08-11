@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理" />
+        <title>Flux、Redux、Vuex、MobX 状态管理 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Flux、Redux、Vuex、MobX 状态管理" />
 <meta property="og:description" content="状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/react/store/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-09T19:25:58+08:00" />
-<meta property="article:modified_time" content="2022-08-11T14:29:25+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-11T16:37:26+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理"/>
+<meta name="twitter:title" content="Flux、Redux、Vuex、MobX 状态管理"/>
 <meta name="twitter:description" content="状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
@@ -23,13 +23,13 @@
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理",
+        "headline": "Flux、Redux、Vuex、MobX 状态管理",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/react\/store\/"
-        },"genre": "posts","keywords": "","wordcount":  1969 ,
-        "url": "\/posts\/react\/store\/","datePublished": "2022-08-09T19:25:58+08:00","dateModified": "2022-08-11T14:29:25+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  2160 ,
+        "url": "\/posts\/react\/store\/","datePublished": "2022-08-09T19:25:58+08:00","dateModified": "2022-08-11T16:37:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,10 +101,10 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Flux、Redux、Vuex、MobX 状态管理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-09">2022-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1969 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-09">2022-08-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2160 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -129,7 +129,11 @@
     <li><a href="#redux中间件">Redux中间件</a></li>
     <li><a href="#vuex">Vuex</a></li>
     <li><a href="#react-redux">React-Redux</a></li>
-    <li><a href="#mobx">Mobx</a></li>
+    <li><a href="#mobx">Mobx</a>
+      <ul>
+        <li><a href="#工作流程-1">工作流程</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>状态管理的解决思路是：<strong>把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测</strong>。</p>
@@ -221,10 +225,18 @@
 </li>
 <li>
 <p>将新状态更新进 store，store 更新后通知页面进行重新渲染。</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="../../../images/640.jpeg"
+        data-srcset="../../../images/640.jpeg, ../../../images/640.jpeg 1.5x, ../../../images/640.jpeg 2x"
+        data-sizes="auto"
+        alt="/images/640.jpeg"
+        title="图片" /></p>
 </li>
 </ul>
 <h2 id="redux中间件">Redux中间件</h2>
-<p>通过中间件对<code>store.dispatch()</code>进行改造，来进行一些副作用，异步操作。</p>
+<p>由于 reducer 是纯函数，所以 Redux 本身不会去处理一些副作用。因此需要通过中间件对<code>store.dispatch()</code>进行改造，在发起 action 之后，到 reducer 之前进行一些增强，来实现副作用。</p>
 <p><strong>Redux-thunk</strong></p>
 <p>封装少，需要用户自己定义逻辑，在promise的then、catch等不同阶段执行dispatch。</p>
 <p><strong>Redux-promise</strong></p>
@@ -255,19 +267,21 @@
         alt="/images/v2-6c15a43f784be592052aff8e9f495643_720w.jpg"
         title="img" /></p>
 <h2 id="mobx">Mobx</h2>
-<p>基本思想：**任何源自应用状态的东西都应该自动地获得。**类似Vue的响应式，状态只要一变，所有用到状态的地方就都跟着自动变。</p>
-<p>Mobx会把 state 包装成可观察的对象，这个对象会驱动各种改变。Mobx允许有多个Store，sotre里的state可以直接修改。</p>
+<p>基本思想：**任何源自应用状态的东西都应该自动地获得。**Mobx会把 store里的state 包装成可观察的对象，状态只要一变，所有用到状态的地方就都跟着自动变。</p>
 <p><strong>与Redux对比</strong></p>
 <ul>
-<li>
-<p>redux容易记录变更，Mobx相对麻烦。</p>
-</li>
-<li>
-<p>redux每次修改都要返回一整个store，Mobx可以直接修改想更新的数据。</p>
-</li>
-<li>
-<p>redux需要引入中间件处理副作用、异步，Mobx则没有限制。</p>
-</li>
+<li>redux容易记录变更，Mobx相对麻烦。</li>
+<li>redux每次修改都要返回一整个store，Mobx可以直接修改想更新的数据。</li>
+<li>redux需要引入中间件处理副作用、异步，Mobx则没有限制。</li>
+<li>redux只有一个Store，Mobx允许有多个Store</li>
+<li>store里的state可以直接修改，但最好规定只允许在action里修改，状态不会被随意修改。</li>
+</ul>
+<h3 id="工作流程-1">工作流程</h3>
+<ul>
+<li>页面事件（生命周期、点击事件等等）触发 action 的执行。</li>
+<li>通过 action 来修改状态。</li>
+<li>状态更新后，computed 计算属性也会根据依赖的状态重新计算属性值。</li>
+<li>状态更新后会触发 reaction，从而响应这次状态变化来进行一些操作（渲染组件、打印日志等等）。</li>
 </ul>
 <blockquote>
 <p>参考</p>
@@ -283,7 +297,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/react/store/" data-title="Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/react/store/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/react/store/" data-title="Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/react/store/" data-title="Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/react/store/" data-title="Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/react/store/" data-title="Flux、Redux、Vuex、MobX 状态管理" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/react/store/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/react/store/" data-title="Flux、Redux、Vuex、MobX 状态管理"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/react/store/" data-title="Flux、Redux、Vuex、MobX 状态管理"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/react/store/" data-title="Flux、Redux、Vuex、MobX 状态管理"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

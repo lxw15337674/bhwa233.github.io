@@ -28,7 +28,7 @@
     <description><![CDATA[报错 Invalid reference name 原因 仓库中已经存在了一个分支名称为 {branch} 的分支，就不能在新建一个 {branch}/{subName} 这样的额分支，比如仓库中有个分支叫 bugfix 那么再新建一个 bugfix/fix1 这样的分支就会报]]></description>
 </item>
 <item>
-    <title>Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理</title>
+    <title>Flux、Redux、Vuex、MobX 状态管理</title>
     <link>/posts/react/store/</link>
     <pubDate>Tue, 09 Aug 2022 19:25:58 &#43;0800</pubDate>
     <author>Bhwa233</author>

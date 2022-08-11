@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/react/fiber/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-31T13:35:09+08:00" />
-<meta property="article:modified_time" content="2022-07-31T16:58:29+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-11T16:37:26+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fiber"/>
@@ -17,7 +17,7 @@
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/react/fiber/" /><link rel="prev" href="../../../posts/browser/browerCache/" /><link rel="next" href="../../../posts/react/structure/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/react/fiber/" /><link rel="prev" href="../../../posts/browser/browerCache/" /><link rel="next" href="../../../posts/react/diff/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/react\/fiber\/"
-        },"genre": "posts","keywords": "","wordcount":  1747 ,
-        "url": "\/posts\/react\/fiber\/","datePublished": "2022-07-31T13:35:09+08:00","dateModified": "2022-07-31T16:58:29+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  1859 ,
+        "url": "\/posts\/react\/fiber\/","datePublished": "2022-07-31T13:35:09+08:00","dateModified": "2022-08-11T16:37:26+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Fiber</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-31">2022-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1747 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-31">2022-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1859 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -116,6 +116,7 @@
       <ul>
         <li><a href="#一句话总结">一句话总结</a></li>
         <li><a href="#起源">起源</a></li>
+        <li><a href="#架构">架构</a></li>
         <li><a href="#含义">含义</a></li>
         <li><a href="#结构">结构</a></li>
         <li><a href="#工作原理">工作原理</a></li>
@@ -131,6 +132,12 @@
 <h3 id="起源">起源</h3>
 <p>在<code>React15</code>及以前，<code>Reconciler</code>采用递归的方式创建虚拟DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，造成卡顿。</p>
 <p>为了解决这个问题，<code>React16</code>将<strong>递归的无法中断的更新</strong>重构为<strong>异步的可中断更新</strong>，由于曾经用于递归的<strong>虚拟DOM</strong>数据结构已经无法满足需要。于是，全新的<code>Fiber</code>架构应运而生。</p>
+<h3 id="架构">架构</h3>
+<ul>
+<li>Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入<strong>Reconciler</strong></li>
+<li>Reconciler（协调器）—— 负责找出变化的组件</li>
+<li>Renderer（渲染器）—— 负责将变化的组件渲染到页面上</li>
+</ul>
 <h3 id="含义">含义</h3>
 <ol>
 <li>作为架构，之前<code>React15</code>的<code>Reconciler</code>采用递归的方式执行，数据保存在递归调用栈中，所以被称为<code>stack Reconciler</code>。<code>React16</code>的<code>Reconciler</code>基于<code>Fiber节点</code>实现，被称为<code>Fiber Reconciler</code>。</li>
@@ -208,11 +215,15 @@
 <p>这些内容都包含在<code>Fiber节点</code>中。</p>
 <p>所以，在组件<code>mount</code>时，<code>Reconciler</code>根据<code>JSX</code>描述的组件内容生成组件对应的<code>Fiber节点</code>。</p>
 <p>在<code>update</code>时，<code>Reconciler</code>将<code>JSX</code>与<code>Fiber节点</code>保存的数据对比，生成组件对应的<code>Fiber节点</code>，并根据对比结果为<code>Fiber节点</code>打上<code>标记</code>。</p>
+<blockquote>
+<p>资料：</p>
+<p><a href="https://react.iamkasong.com/" target="_blank" rel="noopener noreffer ">React技术揭秘</a></p>
+</blockquote>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-07-31</span>
+                <span>Updated on 2022-08-11</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -230,7 +241,7 @@
     </div>
 
     <div class="post-nav"><a href="../../../posts/browser/browerCache/" class="prev" rel="prev" title="深入理解浏览器的缓存机制(引用)"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>深入理解浏览器的缓存机制(引用)</a>
-            <a href="../../../posts/react/structure/" class="next" rel="next" title="架构">架构<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="../../../posts/react/diff/" class="next" rel="next" title="Diff算法">Diff算法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

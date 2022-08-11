@@ -3,29 +3,13 @@
         <title>react - Tag - Bhwa233 blog</title>
         <link>/tags/react/</link>
         <description>react - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 14:36:15 &#43;0800</lastBuildDate><atom:link href="/tags/react/" rel="self" type="application/rss+xml" /><item>
-    <title>Scheduler</title>
-    <link>/posts/react/scheduler/</link>
-    <pubDate>Sun, 31 Jul 2022 14:36:15 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/scheduler/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</lastBuildDate><atom:link href="/tags/react/" rel="self" type="application/rss+xml" /><item>
     <title>Diff算法</title>
     <link>/posts/react/diff/</link>
     <pubDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/react/diff/</guid>
     <description><![CDATA[本质 diff本身就是上一帧的元素树与当前帧的元素树进行比对。 正常两棵树完全比对的算法复杂度是O(n 3 )。这个开销太过高昂。为了降低算法复杂度]]></description>
-</item>
-<item>
-    <title>架构</title>
-    <link>/posts/react/structure/</link>
-    <pubDate>Sun, 31 Jul 2022 14:04:31 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/structure/</guid>
-    <description><![CDATA[架构 Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入Reconciler Reconciler（协调器）—— 负责找出变化的组]]></description>
 </item>
 </channel>
 </rss>
