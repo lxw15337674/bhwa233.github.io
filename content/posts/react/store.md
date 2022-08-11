@@ -1,5 +1,5 @@
 ---
-title: "Vuex、Flux、Redux、Redux-saga、Dva、MobX 状态管理"
+title: "Flux、Redux、Vuex、MobX 状态管理"
 date: 2022-08-09T19:25:58+08:00
 draft: false
 tags: [""]
@@ -87,11 +87,11 @@ Redux融合了`Flux`与`immunateble`的思想，与Flux有一些差别：
 
 - 将新状态更新进 store，store 更新后通知页面进行重新渲染。
 
-  
+  ![图片](/images/640.jpeg)
 
 ## Redux中间件
 
-通过中间件对`store.dispatch()`进行改造，来进行一些副作用，异步操作。
+由于 reducer 是纯函数，所以 Redux 本身不会去处理一些副作用。因此需要通过中间件对`store.dispatch()`进行改造，在发起 action 之后，到 reducer 之前进行一些增强，来实现副作用。
 
  **Redux-thunk**
 
@@ -139,19 +139,22 @@ React-Redux将React组件分为容器型组件和展示型组件：
 
 ## Mobx
 
-基本思想：**任何源自应用状态的东西都应该自动地获得。**类似Vue的响应式，状态只要一变，所有用到状态的地方就都跟着自动变。
-
-Mobx会把 state 包装成可观察的对象，这个对象会驱动各种改变。Mobx允许有多个Store，sotre里的state可以直接修改。
+基本思想：**任何源自应用状态的东西都应该自动地获得。**Mobx会把 store里的state 包装成可观察的对象，状态只要一变，所有用到状态的地方就都跟着自动变。
 
 **与Redux对比**
 
 - redux容易记录变更，Mobx相对麻烦。
-
 - redux每次修改都要返回一整个store，Mobx可以直接修改想更新的数据。
-
 - redux需要引入中间件处理副作用、异步，Mobx则没有限制。
+- redux只有一个Store，Mobx允许有多个Store 
+- store里的state可以直接修改，但最好规定只允许在action里修改，状态不会被随意修改。
 
-  
+### 工作流程
+
+- 页面事件（生命周期、点击事件等等）触发 action 的执行。
+- 通过 action 来修改状态。
+- 状态更新后，computed 计算属性也会根据依赖的状态重新计算属性值。
+- 状态更新后会触发 reaction，从而响应这次状态变化来进行一些操作（渲染组件、打印日志等等）。
 
 
 

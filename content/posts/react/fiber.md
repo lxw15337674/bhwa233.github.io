@@ -7,8 +7,6 @@ categories: [""]
 typora-root-url: ..\..\static
 ---
 
-
-
 `React`内部实现的一套状态更新机制。支持任务不同`优先级`，可中断与恢复，并且恢复后可以复用之前的`中间状态`。
 
 ### 一句话总结
@@ -22,6 +20,12 @@ typora-root-url: ..\..\static
 在`React15`及以前，`Reconciler`采用递归的方式创建虚拟DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，造成卡顿。
 
 为了解决这个问题，`React16`将**递归的无法中断的更新**重构为**异步的可中断更新**，由于曾经用于递归的**虚拟DOM**数据结构已经无法满足需要。于是，全新的`Fiber`架构应运而生。
+
+### 架构
+
+- Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
+- Reconciler（协调器）—— 负责找出变化的组件
+- Renderer（渲染器）—— 负责将变化的组件渲染到页面上
 
 ### 含义
 
@@ -115,4 +119,12 @@ function FiberNode(
 所以，在组件`mount`时，`Reconciler`根据`JSX`描述的组件内容生成组件对应的`Fiber节点`。
 
 在`update`时，`Reconciler`将`JSX`与`Fiber节点`保存的数据对比，生成组件对应的`Fiber节点`，并根据对比结果为`Fiber节点`打上`标记`。
+
+
+
+
+
+>资料：
+>
+>[React技术揭秘](https://react.iamkasong.com/)
 

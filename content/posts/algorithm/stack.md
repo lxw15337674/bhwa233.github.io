@@ -13,8 +13,6 @@ typora-root-url: ..\..\static
 
 ![2222](/images/2222.1ksit1l8tlr4.png)
 
-![2222](/images/2222.1ksit1l8tlr4.png)
-
 ## 队列
 
 队列是插入在一端进行而删除在另一端进行的表，遵守先进先出的规则。所以队列的另一个名字是FIFO（先进先出）表。
