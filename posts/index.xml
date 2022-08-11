@@ -108,12 +108,12 @@
     <description><![CDATA[http常用方法 方法 作用 GET 请求数据 HEAD 用于获取报头，无返回内容 POST 进行资源修改 PUT 更新 DELETE 删除 CONNECT HTTP1.1 协议中预留给将连接改为管道方式的代理服务器 OPTIONS 预检请]]></description>
 </item>
 <item>
-    <title>StatusCode</title>
+    <title>状态码</title>
     <link>/posts/http/statusCode/</link>
     <pubDate>Mon, 08 Aug 2022 13:46:31 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/http/statusCode/</guid>
-    <description><![CDATA[状态码 分类 状态码分类 1XX：消息状态码。 2XX：成功状态码。 3XX：重定向状态码。 4XX：客户端错误状态码。 5XX：服务端错误状态码。 常用 1xx]]></description>
+    <description><![CDATA[分类 状态码分类 1XX：消息状态码。 2XX：成功状态码。 3XX：重定向状态码。 4XX：客户端错误状态码。 5XX：服务端错误状态码。 常用 1xx 临时响]]></description>
 </item>
 <item>
     <title>面试题</title>
