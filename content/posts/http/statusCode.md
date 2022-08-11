@@ -1,13 +1,11 @@
 ---
-title: "StatusCode"
+title: "状态码"
 date: 2022-08-08T13:46:31+08:00
 draft: false
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
 ---
-
-# 状态码
 
 ## 分类
 

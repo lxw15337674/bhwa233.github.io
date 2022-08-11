@@ -135,7 +135,7 @@ React-Redux将React组件分为容器型组件和展示型组件：
 
 展示型组件：不直接从global state获取数据，其数据来源于父组件。
 
-![img](/../../static/images/v2-6c15a43f784be592052aff8e9f495643_720w.jpg)
+![img](/images/v2-6c15a43f784be592052aff8e9f495643_720w.jpg)
 
 ## Mobx
 

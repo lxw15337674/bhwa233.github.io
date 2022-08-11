@@ -11,7 +11,7 @@ typora-root-url: ..\..\static
 
 
 
-![层叠顺序](/../../static/images/2016-01-07_223349.png)
+![层叠顺序](/images/2016-01-07_223349.png)
 
 ## 规则
 

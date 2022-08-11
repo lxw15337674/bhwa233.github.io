@@ -45,4 +45,4 @@ typora-root-url: ..\..\static
 
 > GUI渲染线程与JS引擎线程是互斥的，当JS引擎执行时GUI线程会被挂起（相当于被冻结了），GUI更新会被保存在一个队列中等到JS引擎空闲时立即被执行。
 
-![image](/../../static/images/1460000012925880.png) 
+![image](/images/1460000012925880.png) 

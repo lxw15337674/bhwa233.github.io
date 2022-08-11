@@ -51,7 +51,7 @@ document.body.addEventListener('click', function() {
 观察者模式没中间商赚差价
 发布订阅模式有中间商赚差价。
 
-![img](/../../static/images/image (21).png)
+![img](/images/image (21).png)
 
 **`观察者模式`**：观察者（Observer）直接订阅（Subscribe）主题（Subject），而当主题被激活的时候，会触发（Fire Event）观察者里的事件。
 

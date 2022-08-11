@@ -20,12 +20,12 @@ typora-root-url: ..\..\static
 ## 标准盒模型
 元素的 width、height 只包含内容 content，不包含 border 和 padding 值；
 
-![image-20220808154713338](/../../static/images/image-20220808154713338.png)
+![image-20220808154713338](/images/image-20220808154713338.png)
 
 ## IE盒模型
 元素的 width、height 包括 content、 border、 padding，不包含margin。
 
-![image-20220808154728166](/../../static/images/image-20220808154728166.png)
+![image-20220808154728166](/images/image-20220808154728166.png)
 
 ## 块模型的大小
 块的大小包含context、border、padding、margin

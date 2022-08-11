@@ -75,7 +75,7 @@ typora-root-url: ..\..\static
 普通文档流可以理解为一个复合图层。
 通过z-idnex、opacity、translate3D的css动画属性等会生成复合图层，两者可单独绘制，互不影响
 
-![image](/../../static/images/bVCZ1H.png)
+![image](/images/bVCZ1H.png)
 
 
 ## 引用

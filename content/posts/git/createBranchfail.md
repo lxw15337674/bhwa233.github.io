@@ -17,7 +17,7 @@ Invalid reference name
 
 主要是因为Git在版本分支信息是以文件夹的形式保存的，在项目的 .git 目录中可以看到，无法在存在一个 文件的情况下，再新建一个同名的文件夹。
 
-![img](/../../static/images/image2022-5-19_16-56-44.png)
+![img](/images/image2022-5-19_16-56-44.png)
 
 # 解决方案
 
