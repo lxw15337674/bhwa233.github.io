@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>slate.js - Tag - Bhwa233 blog</title>
-        <link>/tags/slate.js/</link>
-        <description>slate.js - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</lastBuildDate><atom:link href="/tags/slate.js/" rel="self" type="application/rss+xml" /><item>
+        <title>富文本 - Category - Bhwa233 blog</title>
+        <link>/categories/%E5%AF%8C%E6%96%87%E6%9C%AC/</link>
+        <description>富文本 - Category - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</lastBuildDate><atom:link href="/categories/%E5%AF%8C%E6%96%87%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
     <title>Slate 实践总结</title>
     <link>/posts/richtext/slate/</link>
     <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
@@ -17,14 +17,6 @@
     <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/slate.js/</guid>
-    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
-</item>
-<item>
-    <title>slate.js踩坑记录</title>
-    <link>/posts/slate.js/</link>
-    <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/slate.js/</guid>
     <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
 </item>
 </channel>

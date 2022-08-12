@@ -7,17 +7,17 @@
         <title>slate.js踩坑记录 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="slate.js踩坑记录" />
 <meta property="og:description" content="基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/slate.js/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="/posts/richtext/slate.js/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-06-30T19:58:01+08:00" />
-<meta property="article:modified_time" content="2022-07-18T19:53:41+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-12T18:55:49+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="slate.js踩坑记录"/>
 <meta name="twitter:description" content="基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="../../posts/slate.js/" /><link rel="prev" href="../../posts/draft.js/" /><link rel="next" href="../../posts/richtext/slate.js/" /><link rel="stylesheet" href="../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/richtext/slate.js/" /><link rel="prev" href="../../../posts/slate.js/" /><link rel="next" href="../../../posts/aboutProject/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,9 +27,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/slate.js\/"
+            "@id": "\/posts\/richtext\/slate.js\/"
         },"genre": "posts","keywords": "富文本, slate.js","wordcount":  511 ,
-        "url": "\/posts\/slate.js\/","datePublished": "2022-06-30T19:58:01+08:00","dateModified": "2022-07-18T19:53:41+08:00","publisher": {
+        "url": "\/posts\/richtext\/slate.js\/","datePublished": "2022-06-30T19:58:01+08:00","dateModified": "2022-08-12T18:55:49+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -42,10 +42,10 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="../../posts/"> 文章 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -66,7 +66,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -88,7 +88,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="../../posts/" title="">文章</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
@@ -102,7 +102,7 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">slate.js踩坑记录</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E5%AF%8C%E6%96%87%E6%9C%AC/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>富文本</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-06-30">2022-06-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;511 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
@@ -138,9 +138,9 @@
 <p>value中必须有text或children，否则报错。</p>
 <p><img
         class="lazyload"
-        src="../../svg/loading.min.svg"
-        data-src="../../images/image-20220630195948550.png"
-        data-srcset="../../images/image-20220630195948550.png, ../../images/image-20220630195948550.png 1.5x, ../../images/image-20220630195948550.png 2x"
+        src="../../../svg/loading.min.svg"
+        data-src="../../../images/image-20220630195948550.png"
+        data-srcset="../../../images/image-20220630195948550.png, ../../../images/image-20220630195948550.png 1.5x, ../../../images/image-20220630195948550.png 2x"
         data-sizes="auto"
         alt="/images/image-20220630195948550.png"
         title="image-20220630195948550" /></p>
@@ -183,9 +183,9 @@
 <p>value的默认值不能为空数组，否则会报错</p>
 <p><img
         class="lazyload"
-        src="../../svg/loading.min.svg"
-        data-src="../../images/image-20220630200006806.png"
-        data-srcset="../../images/image-20220630200006806.png, ../../images/image-20220630200006806.png 1.5x, ../../images/image-20220630200006806.png 2x"
+        src="../../../svg/loading.min.svg"
+        data-src="../../../images/image-20220630200006806.png"
+        data-srcset="../../../images/image-20220630200006806.png, ../../../images/image-20220630200006806.png 1.5x, ../../../images/image-20220630200006806.png 2x"
         data-sizes="auto"
         alt="/images/image-20220630200006806.png"
         title="image-20220630200006806" /></p>
@@ -218,7 +218,7 @@
 <p><a href="https://docs.slatejs.org/walkthroughs/01-installing-slate" target="_blank" rel="noopener noreffer ">文档链接</a></p>
 <p><img
         class="lazyload"
-        src="../../svg/loading.min.svg"
+        src="../../../svg/loading.min.svg"
         data-src="https://user-images.githubusercontent.com/19898669/169041124-c0335333-12f4-4a52-a92c-1468d2e887f6.png"
         data-srcset="https://user-images.githubusercontent.com/19898669/169041124-c0335333-12f4-4a52-a92c-1468d2e887f6.png, https://user-images.githubusercontent.com/19898669/169041124-c0335333-12f4-4a52-a92c-1468d2e887f6.png 1.5x, https://user-images.githubusercontent.com/19898669/169041124-c0335333-12f4-4a52-a92c-1468d2e887f6.png 2x"
         data-sizes="auto"
@@ -228,25 +228,25 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-07-18</span>
+                <span>Updated on 2022-08-12</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../posts/slate.js/" data-title="slate.js踩坑记录" data-hashtags="富文本,slate.js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../posts/slate.js/" data-hashtag="富文本"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../posts/slate.js/" data-title="slate.js踩坑记录"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../posts/slate.js/" data-title="slate.js踩坑记录"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../posts/slate.js/" data-title="slate.js踩坑记录"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/richtext/slate.js/" data-title="slate.js踩坑记录" data-hashtags="富文本,slate.js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/richtext/slate.js/" data-hashtag="富文本"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/richtext/slate.js/" data-title="slate.js踩坑记录"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/richtext/slate.js/" data-title="slate.js踩坑记录"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/richtext/slate.js/" data-title="slate.js踩坑记录"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../tags/%E5%AF%8C%E6%96%87%E6%9C%AC/">富文本</a>,&nbsp;<a href="../../tags/slate.js/">slate.js</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/%E5%AF%8C%E6%96%87%E6%9C%AC/">富文本</a>,&nbsp;<a href="../../../tags/slate.js/">slate.js</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../">Home</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../posts/draft.js/" class="prev" rel="prev" title="draft.js 组件 Dev Design"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>draft.js 组件 Dev Design</a>
-            <a href="../../posts/richtext/slate.js/" class="next" rel="next" title="slate.js踩坑记录">slate.js踩坑记录<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/slate.js/" class="prev" rel="prev" title="slate.js踩坑记录"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>slate.js踩坑记录</a>
+            <a href="../../../posts/aboutProject/" class="next" rel="next" title="关于清单表格项目反思">关于清单表格项目反思<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
@@ -260,5 +260,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
 </html>

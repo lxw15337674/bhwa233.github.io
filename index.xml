@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,6 +20,14 @@
     <author>Bhwa233</author>
     <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
     <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
+</item>
+<item>
+    <title>Slate 实践总结</title>
+    <link>/posts/richtext/slate/</link>
+    <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/richtext/slate/</guid>
+    <description><![CDATA[概念 定位 path 节点路径，相对于根节点的相对位置路径。 /** * `Path` arrays are a list of indexes that describe a node&#39;s exact position in * a Slate node tree. Although they are usually relative to the root `Editor` * object, they can be relative to any `Node` object. */ export type Path = number[]]]></description>
 </item>
 <item>
     <title>git创建分支失败</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/element/</guid>
     <description><![CDATA[行内元素 特征 不会独占一行。 不会自动换行。 设置宽高无效。margin仅能设置左右，上下无效，padding设置上下左右有效， 常见元素 &lt;a]]></description>
-</item>
-<item>
-    <title>元素</title>
-    <link>/posts/css/box/</link>
-    <pubDate>Mon, 08 Aug 2022 15:37:13 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/box/</guid>
-    <description><![CDATA[box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b]]></description>
 </item>
 </channel>
 </rss>

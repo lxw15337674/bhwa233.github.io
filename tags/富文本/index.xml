@@ -5,6 +5,14 @@
         <description>富文本 - Tag - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</lastBuildDate><atom:link href="/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/" rel="self" type="application/rss+xml" /><item>
     <title>slate.js踩坑记录</title>
+    <link>/posts/richtext/slate.js/</link>
+    <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/richtext/slate.js/</guid>
+    <description><![CDATA[基本没有实践文档 因为slate在0.5版本进行了break改动，插件基本重构，所以基本没有可参考文档。 解决方法 参考slate的Demo代码和]]></description>
+</item>
+<item>
+    <title>slate.js踩坑记录</title>
     <link>/posts/slate.js/</link>
     <pubDate>Thu, 30 Jun 2022 19:58:01 &#43;0800</pubDate>
     <author>Bhwa233</author>

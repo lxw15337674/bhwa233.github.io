@@ -4,9 +4,14 @@
     ><url>
             <loc>/posts/typescript/tool/</loc><lastmod>2022-08-08T00:18:16&#43;08:00</lastmod></url><url>
             <loc>/posts/%E7%AE%80%E5%8E%86/</loc><lastmod>2022-08-03T21:47:49&#43;08:00</lastmod></url><url>
-            <loc>/</loc><lastmod>2022-08-11T16:37:26&#43;08:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
+            <loc>/categories/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
+            <loc>/posts/richtext/slate/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
+            <loc>/tags/slate.js/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
+            <loc>/categories/%E5%AF%8C%E6%96%87%E6%9C%AC/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
             <loc>/posts/git/createBranchfail/</loc><lastmod>2022-08-11T14:29:25&#43;08:00</lastmod></url><url>
-            <loc>/posts/</loc><lastmod>2022-08-11T16:37:26&#43;08:00</lastmod></url><url>
             <loc>/posts/react/store/</loc><lastmod>2022-08-11T16:37:26&#43;08:00</lastmod></url><url>
             <loc>/posts/algorithm/stack/</loc><lastmod>2022-08-11T16:37:26&#43;08:00</lastmod></url><url>
             <loc>/posts/algorithm/algorithm/</loc><lastmod>2022-08-08T20:24:49&#43;08:00</lastmod></url><url>
@@ -18,7 +23,6 @@
             <loc>/posts/browser/storage/</loc><lastmod>2022-08-08T20:24:49&#43;08:00</lastmod></url><url>
             <loc>/posts/http/get_post/</loc><lastmod>2022-08-08T20:24:49&#43;08:00</lastmod></url><url>
             <loc>/posts/http/statusCode/</loc><lastmod>2022-08-11T14:29:25&#43;08:00</lastmod></url><url>
-            <loc>/categories/</loc><lastmod>2022-08-08T20:24:49&#43;08:00</lastmod></url><url>
             <loc>/categories/%E9%9D%A2%E8%AF%95/</loc><lastmod>2022-08-08T11:10:21&#43;08:00</lastmod></url><url>
             <loc>/posts/interview/</loc><lastmod>2022-08-08T11:10:21&#43;08:00</lastmod></url><url>
             <loc>/posts/browser/worker/</loc><lastmod>2022-08-08T11:05:22&#43;08:00</lastmod></url><url>
@@ -29,7 +33,6 @@
             <loc>/posts/typescript/generic/</loc><lastmod>2022-08-07T16:19:48&#43;08:00</lastmod></url><url>
             <loc>/tags/hugo/</loc><lastmod>2022-08-07T16:19:48&#43;08:00</lastmod></url><url>
             <loc>/posts/hugo/</loc><lastmod>2022-08-07T16:19:48&#43;08:00</lastmod></url><url>
-            <loc>/tags/</loc><lastmod>2022-08-08T20:24:49&#43;08:00</lastmod></url><url>
             <loc>/categories/%E7%AC%94%E8%AE%B0/</loc><lastmod>2022-08-08T20:24:49&#43;08:00</lastmod></url><url>
             <loc>/posts/packages/deps/</loc><lastmod>2022-08-03T18:52:31&#43;08:00</lastmod></url><url>
             <loc>/tags/monorepo/</loc><lastmod>2022-08-03T18:52:31&#43;08:00</lastmod></url><url>
@@ -84,9 +87,9 @@
             <loc>/tags/%E7%8E%AF%E5%A2%83/</loc><lastmod>2022-08-08T00:18:16&#43;08:00</lastmod></url><url>
             <loc>/tags/todo/</loc><lastmod>2022-06-30T20:11:14&#43;08:00</lastmod></url><url>
             <loc>/posts/aboutProject/</loc><lastmod>2022-06-30T20:11:14&#43;08:00</lastmod></url><url>
-            <loc>/tags/slate.js/</loc><lastmod>2022-07-18T19:53:41&#43;08:00</lastmod></url><url>
+            <loc>/posts/richtext/slate.js/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
             <loc>/posts/slate.js/</loc><lastmod>2022-07-18T19:53:41&#43;08:00</lastmod></url><url>
-            <loc>/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/</loc><lastmod>2022-07-18T19:53:41&#43;08:00</lastmod></url><url>
+            <loc>/tags/%E5%AF%8C%E6%96%87%E6%9C%AC/</loc><lastmod>2022-08-12T18:55:49&#43;08:00</lastmod></url><url>
             <loc>/posts/draft.js/</loc><lastmod>2022-06-30T20:11:14&#43;08:00</lastmod></url><url>
             <loc>/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc><lastmod>2022-07-19T19:59:43&#43;08:00</lastmod></url><url>
             <loc>/tags/%E7%BF%BB%E5%A2%99/</loc><lastmod>2022-07-19T19:59:43&#43;08:00</lastmod></url><url>
