@@ -10,7 +10,7 @@ weight: 2
 
 ##  通用配置
 
-#### NodeOptions
+### NodeOptions
 
 ```typescript
 interface NodeOptions {
@@ -26,9 +26,9 @@ interface NodeOptions {
 ```
 
 
-#### `hanging`
+### hanging
 
-hanging 在 Slate 里头的意思代表'这段 Range 涵盖到了不存在的节点。如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。
+`hanging` 在 Slate 里头的意思代表'这段 Range 涵盖到了不存在的节点。如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。
 
 假设目前的 Slate Document 如下：
 
@@ -357,7 +357,7 @@ interface MoveOptions {
 - `editor: Editor`
 - `target: Location`
 
-## `setPoint`
+### `setPoint`
 
 设置`selection` 其中的一个`Point`。
 
