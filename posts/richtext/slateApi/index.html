@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Slate transform API 详细说明 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Slate transform API 详细说明" />
+<meta property="og:description" content="通用配置 node通用配置 interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历sl" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/richtext/slateApi/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-13T16:04:44+08:00" />
+<meta property="article:modified_time" content="2022-08-13T18:23:48+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Slate transform API 详细说明"/>
+<meta name="twitter:description" content="通用配置 node通用配置 interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历sl"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/richtext/slateApi/" /><link rel="prev" href="../../../posts/richtext/slate/" /><link rel="next" href="../../../posts/%E7%AE%80%E5%8E%86/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Slate transform API 详细说明",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/richtext\/slateApi\/"
+        },"genre": "posts","keywords": "slate","wordcount":  2465 ,
+        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:23:48+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Bhwa233"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Slate transform API 详细说明</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-13">2022-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2465 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#通用配置">通用配置</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#node">Node</a>
+      <ul>
+        <li><a href="#insertnodes"><code>insertNodes</code></a></li>
+        <li><a href="#liftnodes"><code>liftNodes</code></a></li>
+        <li><a href="#wrapnodes"><code>wrapNodes</code></a></li>
+        <li><a href="#unwrapnodes"><code>unwrapNodes</code></a></li>
+        <li><a href="#mergenodes"><code>mergeNodes</code></a></li>
+        <li><a href="#splitnodes"><code>splitNodes</code></a></li>
+        <li><a href="#movenodes"><code>moveNodes</code></a></li>
+        <li><a href="#removenodes"><code>removeNodes</code></a></li>
+        <li><a href="#setnodes"><code>setNodes</code></a></li>
+        <li><a href="#unsetnodes"><code>unsetNodes</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#selection">selection</a>
+      <ul>
+        <li><a href="#collapse"><code>collapse</code></a></li>
+        <li><a href="#deselect"><code>deselect</code></a></li>
+        <li><a href="#move"><code>move</code></a></li>
+        <li><a href="#select"><code>select</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#setpoint"><code>setPoint</code></a>
+      <ul>
+        <li></li>
+        <li><a href="#setselection"><code>setSelection</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#text">Text</a>
+      <ul>
+        <li><a href="#inserttext"><code>insertText</code></a></li>
+        <li><a href="#delete"><code>delete</code></a></li>
+        <li><a href="#insertfragment"><code>insertFragment</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="通用配置">通用配置</h2>
+<h4 id="node通用配置">node通用配置</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">at?</span>: <span class="kt">Location</span><span class="p">;</span> <span class="c1">// 需要操作的节点，默认为选区。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">match?</span>: <span class="kt">NodeMatch</span><span class="p">&lt;</span><span class="nt">T</span><span class="p">&gt;;</span> <span class="c1">// 自定义匹配方法。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 指明Editor.nodes(),以哪种模式遍历slate node tree
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// &#39;all&#39;: 遍历所有节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// &#39;highest&#39;: 只遍历最上层的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// &#39;lowest&#39;: 只遍历最下层的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">mode</span><span class="o">?:</span> <span class="p">(</span><span class="s1">&#39;highest&#39;</span> <span class="o">|</span> <span class="s1">&#39;lowest&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="s1">&#39;all&#39;</span> <span class="o">|</span> <span class="s1">&#39;highest&#39;</span> <span class="o">|</span> <span class="s1">&#39;lowest&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">voids?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否跳过空节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h4 id="hanging"><code>hanging</code></h4>
+<p>如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。<code>at``unhanging</code></p>
+<p>hanging 在 Slate 里头的意思代表&rsquo;这段 Range 涵盖到了不存在的节点&rsquo;。</p>
+<p>我們假設目前的 Slate Document 如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">[{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;one &#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="nx">bold</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39; three&#39;</span><span class="p">}]</span>
+</span></span></code></pre></div><p>这时用户看到的显示方式应该如下：</p>
+<p>one <strong>two</strong> three</p>
+<p>假设用户选取了 “two” ，此时可能会有几种<code>selection points</code> 来表示：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 1 -- no hanging
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">0</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">focus</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">3</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 2 -- anchor hanging
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">4</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">focus</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">3</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 3 -- focus hanging
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">0</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">focus</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">0</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 4 -- both hanging
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">4</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">focus</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">0</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="node">Node</h2>
+<h3 id="insertnodes"><code>insertNodes</code></h3>
+<hr>
+<p>插入节点。如果没有指定位置，会在选区内插入。如果没有选区，则会在末尾插入。</p>
+<h4 id="参数">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>nodes: Node | Node[]</code></li>
+<li><code>options: InsertNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">InsertNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hanging?</span>: <span class="kt">boolean</span> <span class="c1">//是否包含不存在的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">select?</span>: <span class="kt">boolean</span> <span class="c1">// 选区是否更新，如果是则选区会更新为插入节点的后面。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="liftnodes"><code>liftNodes</code></h3>
+<hr>
+<p>将指定位置的内容，提升到上一层。如果需要，会将它的父级节点一分为二。</p>
+<p>此 method 限制无法提升路径长度小于 2 的节点（路径长度为 1 的节点上层就是 Editor root 了）</p>
+<p>逻辑分为4种情况：</p>
+<ol>
+<li>要提升的节点为其父层节点里的唯一子节点：向上提升并移除父层节点（因为它不再含有任何子节点了）</li>
+<li>要提升的节点为同层节点的第一顺位：将其移动到父层节点的原本路径</li>
+<li>要提升的节点为同层节点的最后一个顺位：将其移动到父层节点的后一个 sibling 位置</li>
+<li>其余状况则将要提升的节点的后一个 sibling 节点作为基准点，将父层节点拆分为二，并将要提升的节点移动到原始父层节点的后一个 sibling 。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">toPath</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">parentPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Transforms</span><span class="p">.</span><span class="nx">moveNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="p">{</span> <span class="nx">at</span>: <span class="kt">path</span><span class="p">,</span> <span class="nx">to</span>: <span class="kt">toPath</span><span class="p">,</span> <span class="nx">voids</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Transforms</span><span class="p">.</span><span class="nx">removeNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="p">{</span> <span class="nx">at</span>: <span class="kt">parentPath</span><span class="p">,</span> <span class="nx">voids</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Transforms</span><span class="p">.</span><span class="nx">moveNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="p">{</span> <span class="nx">at</span>: <span class="kt">path</span><span class="p">,</span> <span class="nx">to</span>: <span class="kt">parentPath</span><span class="p">,</span> <span class="nx">voids</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">index</span> <span class="o">===</span> <span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">toPath</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">parentPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Transforms</span><span class="p">.</span><span class="nx">moveNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="p">{</span> <span class="nx">at</span>: <span class="kt">path</span><span class="p">,</span> <span class="nx">to</span>: <span class="kt">toPath</span><span class="p">,</span> <span class="nx">voids</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">splitPath</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">toPath</span> <span class="o">=</span> <span class="nx">Path</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">parentPath</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Transforms</span><span class="p">.</span><span class="nx">splitNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="p">{</span> <span class="nx">at</span>: <span class="kt">splitPath</span><span class="p">,</span> <span class="nx">voids</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Transforms</span><span class="p">.</span><span class="nx">moveNodes</span><span class="p">(</span><span class="nx">editor</span><span class="p">,</span> <span class="p">{</span> <span class="nx">at</span>: <span class="kt">path</span><span class="p">,</span> <span class="nx">to</span>: <span class="kt">toPath</span><span class="p">,</span> <span class="nx">voids</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h4 id="参数-1">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: LiftNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">LiftNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{}</span>
+</span></span></code></pre></div><h3 id="wrapnodes"><code>wrapNodes</code></h3>
+<hr>
+<p>将指定的内容包装进一个新的 container 节点</p>
+<h4 id="参数-2">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>element: Element</code>：父层 container 节点</li>
+<li><code>options: WrapNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">  <span class="kr">interface</span> <span class="nx">UnwrapNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">split?</span>: <span class="kt">boolean</span><span class="c1">// 当节点Range type 时，是否将节点拆分。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><h3 id="unwrapnodes"><code>unwrapNodes</code></h3>
+<hr>
+<p>将指定节点的内容展开并提升至上一层的位置，如果传入的 为 Range type 则会拆分父层节点，为了确保只有展开 Range 覆盖的内容。</p>
+<p>如果传入的为 Path，要提升的内容则为 Path 指向的节点覆盖到的所有文本 。</p>
+<p>如果传入的 at 为 Range type 同时 split 参数设为 true ，则会先将 Range 所涵盖到的文字范围与其之外的文字先做节点拆分，确保只有 at 包含的文字集合被包装进新的 container 节点。否则传入的Range会以要提升的节点为单位去包含节点内的所有文字。</p>
+<h4 id="参数-">参数 ：</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: UnwrapNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">  <span class="kr">interface</span> <span class="nx">UnwrapNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">split?</span>: <span class="kt">boolean</span><span class="c1">// 当节点Range type 时，是否将节点拆分。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">}</span>
+</span></span></code></pre></div><h3 id="mergenodes"><code>mergeNodes</code></h3>
+<p>将指定位置的内容,与它同层的前一个node进行合并。并会移除合并过后所产生的空节点。</p>
+<h4 id="参数-3">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: MergeNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">MergeNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">hanging?</span>: <span class="kt">boolean</span> <span class="c1">//是否包含不存在的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="splitnodes"><code>splitNodes</code></h3>
+<hr>
+<p>拆分指定位置的节点。</p>
+<h4 id="参数-4">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: SplitNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">SplitNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">always?</span>: <span class="kt">boolean</span> <span class="c1">// 是否总是拆分，例如拆分节点位于父节点的第一个或最后一个，这种情况不需要拆分父节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">height?</span>: <span class="kt">number</span> <span class="c1">//拆分节点与其父级相差的层级数
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="movenodes"><code>moveNodes</code></h3>
+<hr>
+<p>将指定位置的节点从旧的 Location 移动到新的 Path</p>
+<h4 id="参数-5">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: MoveNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"> <span class="kr">interface</span> <span class="nx">MoveNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"> 	<span class="nx">to</span>: <span class="kt">Path</span> <span class="c1">// 移动的新路径（Path）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span> <span class="p">}</span>
+</span></span></code></pre></div><h3 id="removenodes"><code>removeNodes</code></h3>
+<hr>
+<ul>
+<li>用途：将 Location 指向的单个/复数个节点从 Document 中移除<code>at</code></li>
+</ul>
+<h4 id="参数-6">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: RemoveNodesOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">RemoveNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  	<span class="nx">hanging?</span>: <span class="kt">boolean</span> <span class="c1">//是否包含不存在的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="setnodes"><code>setNodes</code></h3>
+<hr>
+<p>将指定位置的节点设置新属性</p>
+<h4 id="参数-7">参数</h4>
+<ul>
+<li>
+<p><code>editor: Editor</code></p>
+</li>
+<li>
+<p><code>props: Partial&lt;Node&gt;</code>：设置的新属性</p>
+</li>
+<li>
+<p><code>options: SetNodesOption</code></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">SetNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  	<span class="nx">hanging?</span>: <span class="kt">boolean</span>  <span class="c1">//是否包含不存在的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">split?</span>: <span class="kt">boolean</span> <span class="c1">// 当节点Range type 时，是否将节点拆分。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="unsetnodes"><code>unsetNodes</code></h3>
+<hr>
+<p>取消指定位置的节点属性</p>
+<h4 id="参数-8">参数</h4>
+<ul>
+<li>
+<p><code>editor: Editor</code></p>
+</li>
+<li>
+<p><code>props: Partial&lt;Node&gt;</code>：取消设置的属性</p>
+</li>
+<li>
+<p><code>options: UnsetNodesOptions</code></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">UnsetNodesOptions</span> <span class="kr">extends</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">split?</span>: <span class="kt">boolean</span><span class="err">。</span> <span class="c1">// 当节点Range type 时，是否将节点拆分。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="selection">selection</h2>
+<h3 id="collapse"><code>collapse</code></h3>
+<hr>
+<p>将选区折叠为一个<code>Point</code></p>
+<h4 id="参数-9">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: CollapseOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">CollapseOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 决定折叠的方式。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// anchor： 取selection 的 anchor。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// focus：取selection 的 focus。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// start：取selection 真正的 起始位置。 因为selection 可能是反向的。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// end：取selection 真正的 结束位置。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">edge</span><span class="o">?:</span> <span class="s1">&#39;anchor&#39;</span> <span class="o">|</span> <span class="s1">&#39;focus&#39;</span> <span class="o">|</span> <span class="s1">&#39;start&#39;</span> <span class="o">|</span> <span class="s1">&#39;end&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="deselect"><code>deselect</code></h3>
+<hr>
+<p>取消编辑器的选区。</p>
+<h4 id="参数-10">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+</ul>
+<h3 id="move"><code>move</code></h3>
+<hr>
+<p>移动 <code>selection</code> 里的<code>Point</code>。</p>
+<h4 id="参数-11">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>options: MoveOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">MoveOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">distance?</span>: <span class="kt">number</span> <span class="c1">// 搭配unit决定要移动的实际距离
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">unit</span><span class="o">?:</span> <span class="s1">&#39;offset&#39;</span> <span class="o">|</span> <span class="s1">&#39;character&#39;</span> <span class="o">|</span> <span class="s1">&#39;word&#39;</span> <span class="o">|</span> <span class="s1">&#39;line&#39;</span> <span class="c1">// 移动的单位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">reverse?</span>: <span class="kt">boolean</span> <span class="c1">// 移动的方式，true:向前移动。false:向后移动。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 要移动的点,默认值为null，会同时移动anchor与focus point。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// anchor: 移动anchor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// focus: 移动focus
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// start: 移动在选区起始位置的点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// end: 移动在选区结尾位置的点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">edge</span><span class="o">?:</span> <span class="s1">&#39;anchor&#39;</span> <span class="o">|</span> <span class="s1">&#39;focus&#39;</span> <span class="o">|</span> <span class="s1">&#39;start&#39;</span> <span class="o">|</span> <span class="s1">&#39;end&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="select"><code>select</code></h3>
+<hr>
+<p>重新设置 <code>selection</code> 。</p>
+<h4 id="参数-12">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>target: Location</code></li>
+</ul>
+<h2 id="setpoint"><code>setPoint</code></h2>
+<p>设置<code>selection</code> 其中的一个<code>Point</code>。</p>
+<h4 id="参数-13">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>props: Partial&lt;Point&gt;</code></li>
+<li><code>options: SetPointOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">SetPointOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 设置的点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// anchor: anchor
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// focus: focus
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// start: 在选区起始位置的点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// end: 在选区结尾位置的点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">edge</span><span class="o">?:</span> <span class="s1">&#39;anchor&#39;</span> <span class="o">|</span> <span class="s1">&#39;focus&#39;</span> <span class="o">|</span> <span class="s1">&#39;start&#39;</span> <span class="o">|</span> <span class="s1">&#39;end&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="setselection"><code>setSelection</code></h3>
+<hr>
+<p>设置新的prop属性在<code>selection</code> 上，同时可以确保<code>selection</code> 的<code>anchor</code> 或 <code>focus</code> 不会为<code>null</code>。</p>
+<h4 id="参数-14">参数</h4>
+<ul>
+<li>
+<p><code>editor: Editor</code></p>
+</li>
+<li>
+<p><code>props: Partial&lt;Range&gt;</code></p>
+</li>
+</ul>
+<h2 id="text">Text</h2>
+<h3 id="inserttext"><code>insertText</code></h3>
+<hr>
+<p>插入文本。</p>
+<p>参数</p>
+<ul>
+<li>
+<p><code>editor: Editor</code></p>
+</li>
+<li>
+<p><code>text: string</code></p>
+</li>
+<li>
+<p><code>options: InsertTextOptions</code></p>
+</li>
+<li>
+<p>options ：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">InsertTextoptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 插入位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 插入Path,将整个节点的文本内容替换为新的文本内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 插入Range,将Range中的文字内容替换为新的文本内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 插入Point,直接将文字插入到Point之后
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">at?</span>: <span class="kt">Location</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">voids?</span>: <span class="kt">boolean</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="delete"><code>delete</code></h3>
+<hr>
+<p>删除文字内容。</p>
+<h4 id="参数-15">参数</h4>
+<ul>
+<li>
+<p><code>editor: Editor</code></p>
+</li>
+<li>
+<p><code>props: Partial&lt;Range&gt;</code></p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">DeleteOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 传入Path,将整个节点删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 传入Range，将Range集合的文字删除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 传入Point，搭配distance与unit，决定删除文字的范围
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">at</span><span class="o">?:</span> <span class="nx">Location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">distance</span><span class="o">?:</span> <span class="nx">number</span><span class="p">;</span> <span class="c1">// 搭配unit决定要移动的实际距离
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">unit</span><span class="o">?:</span> <span class="s1">&#39;character&#39;</span> <span class="o">|</span> <span class="s1">&#39;word&#39;</span> <span class="o">|</span> <span class="s1">&#39;line&#39;</span> <span class="o">|</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span> <span class="c1">//  移动的单位
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">reverse</span><span class="o">?:</span> <span class="kr">boolean</span><span class="p">;</span> <span class="c1">//  移动的方式，true:向前移动。false:向后移动。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">hanging</span><span class="o">?:</span> <span class="kr">boolean</span><span class="p">;</span> <span class="c1">// 是否包含不存在的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">voids</span><span class="o">?:</span> <span class="kr">boolean</span><span class="p">;</span> <span class="c1">// 是否包含空节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h3 id="insertfragment"><code>insertFragment</code></h3>
+<hr>
+<p>插入Fragment。</p>
+<h4 id="参数-16">参数</h4>
+<ul>
+<li><code>editor: Editor</code></li>
+<li><code>fragment: Node[]</code></li>
+<li><code>options: InsertFragmentOptions</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">InsertFragmentOptions</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 插入位置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 插入Path,将Fragment插入到Path所在的节点开头
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 插入Range,将Range中的文字内容移除后插入Fragment
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">// 插入Point,直接将Fragment插入到Point之后
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">at?</span>: <span class="kt">Location</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">hanging?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否包含不存在的节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">voids?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否包含空节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-08-13</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/richtext/slateApi/" data-title="Slate transform API 详细说明" data-hashtags="slate"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/richtext/slateApi/" data-hashtag="slate"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/richtext/slateApi/" data-title="Slate transform API 详细说明"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/richtext/slateApi/" data-title="Slate transform API 详细说明"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/richtext/slateApi/" data-title="Slate transform API 详细说明"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/slate/">slate</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../../posts/richtext/slate/" class="prev" rel="prev" title="Slate 实践总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Slate 实践总结</a>
+            <a href="../../../posts/%E7%AE%80%E5%8E%86/" class="next" rel="next" title="简历">简历<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
+</html>

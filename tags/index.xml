@@ -3,7 +3,15 @@
         <title>Tags - Tag - Bhwa233 blog</title>
         <link>/tags/</link>
         <description>Tags - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>slate</title>
+    <link>/tags/slate/</link>
+    <pubDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/slate/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>slate.js</title>
     <link>/tags/slate.js/</link>
     <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
@@ -73,14 +81,6 @@
     <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/%E7%90%86%E8%AE%BA/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>环境</title>
-    <link>/tags/%E7%8E%AF%E5%A2%83/</link>
-    <pubDate>Thu, 30 Jun 2022 20:08:22 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/%E7%8E%AF%E5%A2%83/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

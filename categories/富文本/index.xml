@@ -9,7 +9,7 @@
     <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/slate/</guid>
-    <description><![CDATA[概念 定位 path 节点路径，相对于根节点的相对位置路径。 /** * `Path` arrays are a list of indexes that describe a node&#39;s exact position in * a Slate node tree. Although they are usually relative to the root `Editor` * object, they can be relative to any `Node` object. */ export type Path = number[]]]></description>
+    <description><![CDATA[定位 path 节点路径，相对于根节点的相对位置路径。 /** * `Path` arrays are a list of indexes that describe a node&#39;s exact position in * a Slate node tree. Although they are usually relative to the root `Editor` * object, they can be relative to any `Node` object. */ export type Path = number[] 例子]]></description>
 </item>
 <item>
     <title>slate.js踩坑记录</title>
