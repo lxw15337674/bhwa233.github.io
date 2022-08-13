@@ -1,5 +1,5 @@
 ---
-title: "Slate 实践总结"
+title: "Slate 总结"
 date: 2022-08-12T11:11:21+08:00
 draft: false
 tags: ["slate.js"]
@@ -403,27 +403,4 @@ slate在`normalizeNode`前会遍历节点，没有子节点的节点会自动加
 
 
 
-
-## API
-
-`Text.decorations(node: Text, decorations: Range[]) => Text[]`
-
-给区间的文本附加属性。
-
-```typescript
-const text = { text: 'This is text example2.' };
-const ranges = [{
-    anchor: { path: [0, 0], offset: 5 },
-    focus: { path: [0, 0], offset: 7 },
-    bold: true,
-}];
-
-/**
-returns: [
-    { text: 'This ' },
-    { text: 'is', bold: true },
-    { text: ' text example2.' },
-] */
-Text.decorations(text, ranges);
-```
 

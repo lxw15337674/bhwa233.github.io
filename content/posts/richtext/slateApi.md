@@ -471,3 +471,28 @@ interface InsertFragmentOptions {
 }
 ```
 
+
+
+## 其他
+
+### Text.decorations
+
+给选区的文本附加属性。
+
+```typescript
+const text = { text: 'This is text example2.' };
+const ranges = [{
+    anchor: { path: [0, 0], offset: 5 },
+    focus: { path: [0, 0], offset: 7 },
+    bold: true,
+}];
+
+/**
+returns: [
+    { text: 'This ' },
+    { text: 'is', bold: true },
+    { text: ' text example2.' },
+] */
+Text.decorations(text, ranges);
+```
+
