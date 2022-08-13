@@ -7,8 +7,6 @@ categories: ["富文本"]
 typora-root-url: ..\..\static
 ---
 
-## 概念
-
 
 
 ## 定位
@@ -268,7 +266,7 @@ export interface EditorInterface {
 - `merge_node`：合并节点
 - `move_node`：移动节点
 - `remove_node`：删除节点
-- `set_node`：设置节点
+- `set_node`：设置节点属性
 - `split_node`：拆分节点
 
 **Selection** 
@@ -319,6 +317,92 @@ editor.apply({
 ```
 
 `apply()`的工作流程：
+
+## Normalizing
+
+slate规范化是通过一组完整的FLUSHING搭配一次Normalize。
+
+
+
+为了确保slate能够正确的解析，slate有一些约束，针对这些约束也会做一些操作来保证规范化：
+
+1. 所有的`Element`节点内必须至少一个Text子节点。如果遇到不符合规范的节点，会自动加入一个空的`Text`节点。
+
+   原因：为了确保编辑器的`selection`能够选中空元素。
+
+2. 会将相邻且属性相同的`text`节点合并成一个节点。
+
+   原因：为了防止编辑器内的`text	`节点在新增、删除文字属性时造成节点无意义的拆分。
+
+3. 块节点的子节点（children）只能是块元素（Block）、行内块状元素（inline-block）、text节点（inline）的一种。例如`paragraph` 节点的子节点不能既有`paragraph`block节点，还有`text`inline节点。slate会以子节点的第一个节点作为判断可接受类别的节点，删除其他不符合规范的子节点。
+
+   原因：为了让拆分块节点相关的功能保持稳定的结果。
+
+4. 内联节点现在总是被文本节点包围。如果没有，slate会自动插入空的`Text`节点。
+
+   原因：优化编辑器的内容结构。
+
+5. 第一层节点只能是`Block`节点，其他类型的节点会被直接删除。
+
+   原因：确保编辑器存在Block节点，确保拆分节点功能正常。
+
+```typescript
+const initialValue: Descendant[] = [
+  //是block节点，正常。
+  {
+    type: 'paragraph',
+    children: [
+      { text: 'This is editable plain text, just like a <textarea>!' },
+      {
+        type: 'link',
+        url: 'www.baidu.com',
+        text: '123',
+      },
+    ],
+  },
+  // 是text节点，会被直接删除。
+  { text: 'This is editable plain text, just like a <textarea>!' }, 
+];
+```
+
+### 自定义规范化
+
+规范化是通过editor 里的 `normalizeNode()`来实现 ， 如果需要进行定制化，可以通过插件对`normalizeNode `进行重写。但需要注意几点：
+
+**normalizing是重复执行的**
+
+slate是通过递归实现对内容深度遍历，即会从子节点开始`normalizing`再到父节点逐级进行规范化。
+
+**避免对无子节点的节点进行规范化**
+
+slate在`normalizeNode`前会遍历节点，没有子节点的节点会自动加入一个空的`Text`作为子节点。
+
+**避免无法满足约束**
+
+应避免自定义的约束，在修正后仍无法满足约束，导致无限循环`normalizeNode`。
+
+
+
+## 运作流程
+
+![运作流程图](/images/201393593GX3OuA8NF.png)
+
+完整流程：
+
+1. 通过`Transform`的api触发编辑器更新，执行多次`opertaion`。
+2. 第一次的`opertaion`除了会执行`transform` 与`normalize` 之外，也会将 `FLUSHING` 設為 `true` ，并将 `onChange` 的执行以 Promise 的 Micro-Task 包装起来。
+3. `opertaion`通过 `getDirtyPath` 取得并更新到 `DIRTY_PATHS` WeakMap variable。
+4. `opertaion`再通过 `GeneralTransforms.transform` 和` Immer Draft State` 调用`applyToDraft` 更新 `children` 与 `selection`。
+5. 执行`Transform` 的 `normalize`  与 `normalizeNode` 实现对脏路径的节点规范化，调用`Transform` 來更新节点以满足约束并重跑一次相同的 Transform 流程。
+6. 完成所有同步更新后，执行Micro-Task的内容将 `FLUSHING` 设为 `false` 并触发 `onChange` 。
+
+## Transforms
+
+一个 `transform`是多个 `operation` 组成。一般开发中使用高阶(High-level) 的 `Transform`api 来替代 低阶（Low-level） 的 `operation`。
+
+
+
+
 
 ## API
 
