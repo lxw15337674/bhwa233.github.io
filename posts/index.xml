@@ -148,20 +148,20 @@
     <description><![CDATA[详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也]]></description>
 </item>
 <item>
-    <title>前端跨页面通信总结</title>
-    <link>/posts/communicates/</link>
-    <pubDate>Sun, 07 Aug 2022 23:04:49 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/communicates/</guid>
-    <description><![CDATA[详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也]]></description>
-</item>
-<item>
     <title>服务端消息推送方案总结</title>
     <link>/posts/browser/push/</link>
     <pubDate>Sun, 07 Aug 2022 21:42:00 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/browser/push/</guid>
     <description><![CDATA[HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是]]></description>
+</item>
+<item>
+    <title>webpack配置</title>
+    <link>/posts/typescript/webpack_config/</link>
+    <pubDate>Sun, 07 Aug 2022 15:36:16 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/typescript/webpack_config/</guid>
+    <description><![CDATA[安装两个模块 npm i -D typescript ts-loader 添加ts的配置文件tsconfig.json，配置参考。 webpack设置文件后缀补全。 在ts文件中引入其他ts文件会]]></description>
 </item>
 </channel>
 </rss>
