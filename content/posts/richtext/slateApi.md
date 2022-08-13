@@ -5,11 +5,12 @@ draft: false
 tags: ["slate"]
 categories: [""]
 typora-root-url: ..\..\static
+weight: 2
 ---
 
 ##  通用配置
 
-#### node通用配置
+#### NodeOptions
 
 ```typescript
 interface NodeOptions {
@@ -27,11 +28,9 @@ interface NodeOptions {
 
 #### `hanging`
 
-如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。`at``unhanging`
+hanging 在 Slate 里头的意思代表'这段 Range 涵盖到了不存在的节点。如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。
 
-hanging 在 Slate 里头的意思代表'这段 Range 涵盖到了不存在的节点'。
-
-我們假設目前的 Slate Document 如下：
+假设目前的 Slate Document 如下：
 
 ```jsx
 [{text: 'one '}, {text: 'two', bold: true}, {text: ' three'}]
@@ -90,8 +89,6 @@ interface InsertNodesOptions extends NodeOptions {
 	select?: boolean // 选区是否更新，如果是则选区会更新为插入节点的后面。
 }
 ```
-
-
 
 ### `liftNodes`
 
