@@ -93,7 +93,7 @@ disablePathToLower = true
       enable = true
       # special amount of posts in each home posts page 
       # 主页每页显示文章数量
-      paginate = 10
+      paginate = 20
   [params.header]
     # 桌面端导航栏模式 ["fixed", "normal", "auto"]
     desktopMode = "fixed"
