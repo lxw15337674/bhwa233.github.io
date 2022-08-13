@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/richtext/slateApi/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-13T16:04:44+08:00" />
-<meta property="article:modified_time" content="2022-08-13T18:32:20+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-13T18:34:00+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Slate transform API 详细说明"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/richtext\/slateApi\/"
-        },"genre": "posts","keywords": "slate","wordcount":  2436 ,
-        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:32:20+08:00","publisher": {
+        },"genre": "posts","keywords": "slate","wordcount":  2507 ,
+        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:34:00+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Slate transform API 详细说明</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-13">2022-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2436 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-13">2022-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2507 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -147,6 +147,11 @@
         <li><a href="#inserttext"><code>insertText</code></a></li>
         <li><a href="#delete"><code>delete</code></a></li>
         <li><a href="#insertfragment"><code>insertFragment</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#其他">其他</a>
+      <ul>
+        <li><a href="#textdecorations">Text.decorations</a></li>
       </ul>
     </li>
   </ul>
@@ -494,6 +499,23 @@
 </span></span><span class="line"><span class="cl">  <span class="nx">hanging?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否包含不存在的节点。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">voids?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否包含空节点。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="其他">其他</h2>
+<h3 id="textdecorations">Text.decorations</h3>
+<p>给选区的文本附加属性。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">text</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;This is text example2.&#39;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">ranges</span> <span class="o">=</span> <span class="p">[{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">5</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">focus</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">7</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bold</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">returns: [
+</span></span></span><span class="line"><span class="cl"><span class="cm">    { text: &#39;This &#39; },
+</span></span></span><span class="line"><span class="cl"><span class="cm">    { text: &#39;is&#39;, bold: true },
+</span></span></span><span class="line"><span class="cl"><span class="cm">    { text: &#39; text example2.&#39; },
+</span></span></span><span class="line"><span class="cl"><span class="cm">] */</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Text</span><span class="p">.</span><span class="nx">decorations</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">ranges</span><span class="p">);</span>
 </span></span></code></pre></div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -515,7 +537,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/richtext/slate/" class="prev" rel="prev" title="Slate 实践总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Slate 实践总结</a>
+    <div class="post-nav"><a href="../../../posts/richtext/slate/" class="prev" rel="prev" title="Slate 总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Slate 总结</a>
             <a href="../../../posts/typescript/tool/" class="next" rel="next" title="Typescript语法">Typescript语法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>

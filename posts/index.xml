@@ -20,7 +20,7 @@
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
 </item>
 <item>
-    <title>Slate 实践总结</title>
+    <title>Slate 总结</title>
     <link>/posts/richtext/slate/</link>
     <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
     <author>Bhwa233</author>
