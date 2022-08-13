@@ -9,7 +9,7 @@
     <pubDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
-    <description><![CDATA[通用配置 node通用配置 interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历sl]]></description>
+    <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
 </item>
 </channel>
 </rss>

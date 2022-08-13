@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Slate transform API 详细说明 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Slate transform API 详细说明" />
-<meta property="og:description" content="通用配置 node通用配置 interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历sl" />
+<meta property="og:description" content="通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/richtext/slateApi/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-13T16:04:44+08:00" />
-<meta property="article:modified_time" content="2022-08-13T18:23:48+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-13T18:28:13+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Slate transform API 详细说明"/>
-<meta name="twitter:description" content="通用配置 node通用配置 interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历sl"/>
+<meta name="twitter:description" content="通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/richtext/slateApi/" /><link rel="prev" href="../../../posts/richtext/slate/" /><link rel="next" href="../../../posts/%E7%AE%80%E5%8E%86/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/richtext/slateApi/" /><link rel="prev" href="../../../posts/richtext/slate/" /><link rel="next" href="../../../posts/typescript/tool/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/richtext\/slateApi\/"
-        },"genre": "posts","keywords": "slate","wordcount":  2465 ,
-        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:23:48+08:00","publisher": {
+        },"genre": "posts","keywords": "slate","wordcount":  2436 ,
+        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:28:13+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Slate transform API 详细说明</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-13">2022-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2465 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-13">2022-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2436 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -155,7 +155,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="通用配置">通用配置</h2>
-<h4 id="node通用配置">node通用配置</h4>
+<h4 id="nodeoptions">NodeOptions</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">at?</span>: <span class="kt">Location</span><span class="p">;</span> <span class="c1">// 需要操作的节点，默认为选区。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">match?</span>: <span class="kt">NodeMatch</span><span class="p">&lt;</span><span class="nt">T</span><span class="p">&gt;;</span> <span class="c1">// 自定义匹配方法。
@@ -167,9 +167,8 @@
 </span></span><span class="line"><span class="cl">  <span class="nx">voids?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否跳过空节点。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
 </span></span></code></pre></div><h4 id="hanging"><code>hanging</code></h4>
-<p>如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。<code>at``unhanging</code></p>
-<p>hanging 在 Slate 里头的意思代表&rsquo;这段 Range 涵盖到了不存在的节点&rsquo;。</p>
-<p>我們假設目前的 Slate Document 如下：</p>
+<p>hanging 在 Slate 里头的意思代表&rsquo;这段 Range 涵盖到了不存在的节点。如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。</p>
+<p>假设目前的 Slate Document 如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">[{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;one &#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="nx">bold</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39; three&#39;</span><span class="p">}]</span>
 </span></span></code></pre></div><p>这时用户看到的显示方式应该如下：</p>
 <p>one <strong>two</strong> three</p>
@@ -520,7 +519,7 @@
     </div>
 
     <div class="post-nav"><a href="../../../posts/richtext/slate/" class="prev" rel="prev" title="Slate 实践总结"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Slate 实践总结</a>
-            <a href="../../../posts/%E7%AE%80%E5%8E%86/" class="next" rel="next" title="简历">简历<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="../../../posts/typescript/tool/" class="next" rel="next" title="Typescript语法">Typescript语法<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

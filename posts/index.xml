@@ -12,20 +12,12 @@
     <description><![CDATA[高级类型 字面量类型（literal types） 值作为类型。 type foo = &#34;Hello&#34; // foo 的类型就是&#34;hello&#34;,而不是string类型。 foo =&#34;hello&#34;]]></description>
 </item>
 <item>
-    <title>简历</title>
-    <link>/posts/%E7%AE%80%E5%8E%86/</link>
-    <pubDate>Wed, 03 Aug 2022 21:47:49 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/%E7%AE%80%E5%8E%86/</guid>
-    <description><![CDATA[求职简历 - 前端工程师 基本信息 李希望/男/28 工作年限：5年 求职意向：Web前端 教育背景：河南大学/本科/计算机科学与技术 Github：htt]]></description>
-</item>
-<item>
     <title>Slate transform API 详细说明</title>
     <link>/posts/richtext/slateApi/</link>
     <pubDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
-    <description><![CDATA[通用配置 node通用配置 interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历sl]]></description>
+    <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
 </item>
 <item>
     <title>Slate 实践总结</title>
@@ -162,6 +154,14 @@
     <author>Bhwa233</author>
     <guid>/posts/communicates/</guid>
     <description><![CDATA[详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也]]></description>
+</item>
+<item>
+    <title>服务端消息推送方案总结</title>
+    <link>/posts/browser/push/</link>
+    <pubDate>Sun, 07 Aug 2022 21:42:00 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/browser/push/</guid>
+    <description><![CDATA[HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是]]></description>
 </item>
 </channel>
 </rss>
