@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/richtext/slateApi/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-13T16:04:44+08:00" />
-<meta property="article:modified_time" content="2022-08-13T18:28:13+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-13T18:32:20+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Slate transform API 详细说明"/>
@@ -29,7 +29,7 @@
             "@type": "WebPage",
             "@id": "\/posts\/richtext\/slateApi\/"
         },"genre": "posts","keywords": "slate","wordcount":  2436 ,
-        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:28:13+08:00","publisher": {
+        "url": "\/posts\/richtext\/slateApi\/","datePublished": "2022-08-13T16:04:44+08:00","dateModified": "2022-08-13T18:32:20+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -114,7 +114,8 @@
   <ul>
     <li><a href="#通用配置">通用配置</a>
       <ul>
-        <li></li>
+        <li><a href="#nodeoptions">NodeOptions</a></li>
+        <li><a href="#hanging">hanging</a></li>
       </ul>
     </li>
     <li><a href="#node">Node</a>
@@ -137,11 +138,7 @@
         <li><a href="#deselect"><code>deselect</code></a></li>
         <li><a href="#move"><code>move</code></a></li>
         <li><a href="#select"><code>select</code></a></li>
-      </ul>
-    </li>
-    <li><a href="#setpoint"><code>setPoint</code></a>
-      <ul>
-        <li></li>
+        <li><a href="#setpoint"><code>setPoint</code></a></li>
         <li><a href="#setselection"><code>setSelection</code></a></li>
       </ul>
     </li>
@@ -155,7 +152,7 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="通用配置">通用配置</h2>
-<h4 id="nodeoptions">NodeOptions</h4>
+<h3 id="nodeoptions">NodeOptions</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">NodeOptions</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">at?</span>: <span class="kt">Location</span><span class="p">;</span> <span class="c1">// 需要操作的节点，默认为选区。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">match?</span>: <span class="kt">NodeMatch</span><span class="p">&lt;</span><span class="nt">T</span><span class="p">&gt;;</span> <span class="c1">// 自定义匹配方法。
@@ -166,8 +163,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">mode</span><span class="o">?:</span> <span class="p">(</span><span class="s1">&#39;highest&#39;</span> <span class="o">|</span> <span class="s1">&#39;lowest&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="s1">&#39;all&#39;</span> <span class="o">|</span> <span class="s1">&#39;highest&#39;</span> <span class="o">|</span> <span class="s1">&#39;lowest&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="nx">voids?</span>: <span class="kt">boolean</span><span class="p">;</span> <span class="c1">// 是否跳过空节点。
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><h4 id="hanging"><code>hanging</code></h4>
-<p>hanging 在 Slate 里头的意思代表&rsquo;这段 Range 涵盖到了不存在的节点。如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。</p>
+</span></span></code></pre></div><h3 id="hanging">hanging</h3>
+<p><code>hanging</code> 在 Slate 里头的意思代表&rsquo;这段 Range 涵盖到了不存在的节点。如果传入的 为 Range type 的话，这个 value 会决定 Range 是否要另外修正为 type 。</p>
 <p>假设目前的 Slate Document 如下：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="p">[{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;one &#39;</span><span class="p">},</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="nx">bold</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span> <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">&#39; three&#39;</span><span class="p">}]</span>
 </span></span></code></pre></div><p>这时用户看到的显示方式应该如下：</p>
@@ -401,7 +398,7 @@
 <li><code>editor: Editor</code></li>
 <li><code>target: Location</code></li>
 </ul>
-<h2 id="setpoint"><code>setPoint</code></h2>
+<h3 id="setpoint"><code>setPoint</code></h3>
 <p>设置<code>selection</code> 其中的一个<code>Point</code>。</p>
 <h4 id="参数-13">参数</h4>
 <ul>
