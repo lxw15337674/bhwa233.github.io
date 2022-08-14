@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 14 Aug 2022 13:26:49 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,6 +20,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>排序算法</title>
+    <link>/posts/algorithm/sort/</link>
+    <pubDate>Sun, 14 Aug 2022 13:26:49 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/algorithm/sort/</guid>
+    <description><![CDATA[冒泡排序 基本思想：比较任何两个相邻的项，如果第一个比第二个大，则交换它们；（每次比较都会找到一个最大的数在最后） 步骤： 比较相邻的元素。如果第]]></description>
 </item>
 <item>
     <title>Slate 总结</title>
@@ -46,22 +54,6 @@
     <description><![CDATA[状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一]]></description>
 </item>
 <item>
-    <title>数据结构</title>
-    <link>/posts/algorithm/stack/</link>
-    <pubDate>Mon, 08 Aug 2022 18:32:41 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/algorithm/stack/</guid>
-    <description><![CDATA[栈 栈（stack）是限制插入和删除只能在一个位置上进行的表，栈的另一个名字是 LIFO（先进后出）表。栈的末端叫做栈的顶（top），对栈的基本]]></description>
-</item>
-<item>
-    <title>算法资料</title>
-    <link>/posts/algorithm/algorithm/</link>
-    <pubDate>Mon, 08 Aug 2022 18:29:07 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/algorithm/algorithm/</guid>
-    <description><![CDATA[图解算法数据结构 算法精讲]]></description>
-</item>
-<item>
     <title>层叠上下文（z-index）</title>
     <link>/posts/css/zindex/</link>
     <pubDate>Mon, 08 Aug 2022 16:16:36 &#43;0800</pubDate>
@@ -84,6 +76,14 @@
     <author>Bhwa233</author>
     <guid>/posts/css/element/</guid>
     <description><![CDATA[行内元素 特征 不会独占一行。 不会自动换行。 设置宽高无效。margin仅能设置左右，上下无效，padding设置上下左右有效， 常见元素 &lt;a]]></description>
+</item>
+<item>
+    <title>元素</title>
+    <link>/posts/css/box/</link>
+    <pubDate>Mon, 08 Aug 2022 15:37:13 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/box/</guid>
+    <description><![CDATA[box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b]]></description>
 </item>
 </channel>
 </rss>
