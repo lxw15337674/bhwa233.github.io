@@ -50,6 +50,15 @@ Id :                [a-zA-Z_] ([a-zA-Z_] | [0-9])*;
 
 
 
+以balbel流程为例：
+
+- input => [tokenizer](https://github.com/caiyongmin/awesome-coding-javascript/tree/master/src/bundler/babel/lib/tokenizer.js) => tokens，先对输入代码进行**分词**，根据最小有效语法单元，对字符串进行切割。
+- tokens => [parser](https://github.com/caiyongmin/awesome-coding-javascript/tree/master/src/bundler/babel/lib/parser.js) => AST，然后进行**语法分析**，会涉及到读取、暂存、回溯、暂存点销毁等操作。
+- AST => [transformer](https://github.com/caiyongmin/awesome-coding-javascript/tree/master/src/bundler/babel/lib/transformer.js) => newAST，然后**转换**生成新的 AST。
+- newAST => [codeGenerator](https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/src/bundler/babel/lib/codeGenerator.js) => output，最后根据新生成的 AST **输出**目标代码。
+
+
+
 > 扩展：
 >
 > https://qiankunli.github.io/2020/02/08/fundamentals_of_compiling_frontend.html
