@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/analysis/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-02T18:06:56+08:00" />
-<meta property="article:modified_time" content="2022-08-02T19:34:56+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-15T17:16:35+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="解析器"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/analysis\/"
-        },"genre": "posts","keywords": "","wordcount":  520 ,
-        "url": "\/posts\/analysis\/","datePublished": "2022-08-02T18:06:56+08:00","dateModified": "2022-08-02T19:34:56+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  663 ,
+        "url": "\/posts\/analysis\/","datePublished": "2022-08-02T18:06:56+08:00","dateModified": "2022-08-15T17:16:35+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">解析器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;520 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;663 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -140,6 +140,13 @@
 <p>在词法分析的基础上判断单词组合方式识别出<strong>程序的语法结构</strong>。这个结构是一个树状结构，这棵树叫做抽象语法树（Abstract Syntax Tree，AST）。树的每个节点（子树）是一个语法单元（也就是就是词法分析阶段生成的 Token），这个单元的构成规则就叫“语法”。</p>
 <h2 id="语义分析标注ast的属性">语义分析——标注AST的属性</h2>
 <p>语义分析是要让计算机理解我们的真实意图。<strong>语义分析的结果保存在AST 节点的属性上</strong>，比如在 标识符节点和 字面量节点上标识它的数据类型是 int 型的。在AST上还可以标记很多属性。</p>
+<p>以balbel流程为例：</p>
+<ul>
+<li>input =&gt; <a href="https://github.com/caiyongmin/awesome-coding-javascript/tree/master/src/bundler/babel/lib/tokenizer.js" target="_blank" rel="noopener noreffer ">tokenizer</a> =&gt; tokens，先对输入代码进行<strong>分词</strong>，根据最小有效语法单元，对字符串进行切割。</li>
+<li>tokens =&gt; <a href="https://github.com/caiyongmin/awesome-coding-javascript/tree/master/src/bundler/babel/lib/parser.js" target="_blank" rel="noopener noreffer ">parser</a> =&gt; AST，然后进行<strong>语法分析</strong>，会涉及到读取、暂存、回溯、暂存点销毁等操作。</li>
+<li>AST =&gt; <a href="https://github.com/caiyongmin/awesome-coding-javascript/tree/master/src/bundler/babel/lib/transformer.js" target="_blank" rel="noopener noreffer ">transformer</a> =&gt; newAST，然后<strong>转换</strong>生成新的 AST。</li>
+<li>newAST =&gt; <a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/src/bundler/babel/lib/codeGenerator.js" target="_blank" rel="noopener noreffer ">codeGenerator</a> =&gt; output，最后根据新生成的 AST <strong>输出</strong>目标代码。</li>
+</ul>
 <blockquote>
 <p>扩展：</p>
 <p><a href="https://qiankunli.github.io/2020/02/08/fundamentals_of_compiling_frontend.html" target="_blank" rel="noopener noreffer ">https://qiankunli.github.io/2020/02/08/fundamentals_of_compiling_frontend.html</a></p>
@@ -149,7 +156,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-02</span>
+                <span>Updated on 2022-08-15</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>

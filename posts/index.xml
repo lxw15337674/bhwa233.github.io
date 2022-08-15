@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 14 Aug 2022 13:26:49 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Typescript语法</title>
     <link>/posts/typescript/tool/</link>
     <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
@@ -18,14 +18,6 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
-</item>
-<item>
-    <title>排序算法</title>
-    <link>/posts/algorithm/sort/</link>
-    <pubDate>Sun, 14 Aug 2022 13:26:49 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/algorithm/sort/</guid>
-    <description><![CDATA[冒泡排序 基本思想：比较任何两个相邻的项，如果第一个比第二个大，则交换它们；（每次比较都会找到一个最大的数在最后） 步骤： 比较相邻的元素。如果第]]></description>
 </item>
 <item>
     <title>Slate 总结</title>
@@ -162,6 +154,14 @@
     <author>Bhwa233</author>
     <guid>/posts/typescript/generic/</guid>
     <description><![CDATA[类型变量，用于传递类型。 写法 function identity&lt;Type&gt;(arg: Type): Type { return arg; } // 箭头函数的泛型必须有extends，否则语法无法识别。 const identity =&lt;T extends {}&gt;(arg: T): T =&gt; { return arg; }; 泛型约束 interface Length{ length:number }]]></description>
+</item>
+<item>
+    <title>Hugo lovelt的搜索坑</title>
+    <link>/posts/hugo/</link>
+    <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/hugo/</guid>
+    <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
 </item>
 </channel>
 </rss>

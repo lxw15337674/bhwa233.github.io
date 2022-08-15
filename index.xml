@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 14 Aug 2022 13:26:49 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,14 +20,6 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
-</item>
-<item>
-    <title>排序算法</title>
-    <link>/posts/algorithm/sort/</link>
-    <pubDate>Sun, 14 Aug 2022 13:26:49 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/algorithm/sort/</guid>
-    <description><![CDATA[冒泡排序 基本思想：比较任何两个相邻的项，如果第一个比第二个大，则交换它们；（每次比较都会找到一个最大的数在最后） 步骤： 比较相邻的元素。如果第]]></description>
 </item>
 <item>
     <title>Slate 总结</title>
@@ -84,6 +76,14 @@
     <author>Bhwa233</author>
     <guid>/posts/css/box/</guid>
     <description><![CDATA[box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b]]></description>
+</item>
+<item>
+    <title>网站的几种攻击方式</title>
+    <link>/posts/safe/xss_csrf/</link>
+    <pubDate>Mon, 08 Aug 2022 14:23:15 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/safe/xss_csrf/</guid>
+    <description><![CDATA[CSRF CSRF即Cross-site request forgery(跨站请求伪造)。CSRF攻击主要是利用自动发送的Cookie，借助Cookie来模拟用户的]]></description>
 </item>
 </channel>
 </rss>
