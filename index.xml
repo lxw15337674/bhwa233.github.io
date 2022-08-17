@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Aug 2022 18:04:37 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,6 +20,22 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>react hook</title>
+    <link>/posts/react/hook/</link>
+    <pubDate>Tue, 16 Aug 2022 18:04:37 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/react/hook/</guid>
+    <description><![CDATA[Hooks之前的复用方式： mixins 缺点： 方法与属性难以追溯，因为可能存在不同的mixins里。 重名的属性与方法会被覆盖。 渲染属性（render Props) 将]]></description>
+</item>
+<item>
+    <title>Decorators</title>
+    <link>/posts/typescript/decorators/</link>
+    <pubDate>Tue, 16 Aug 2022 10:48:55 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/typescript/decorators/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>Slate 总结</title>
@@ -68,22 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/element/</guid>
     <description><![CDATA[行内元素 特征 不会独占一行。 不会自动换行。 设置宽高无效。margin仅能设置左右，上下无效，padding设置上下左右有效， 常见元素 &lt;a]]></description>
-</item>
-<item>
-    <title>元素</title>
-    <link>/posts/css/box/</link>
-    <pubDate>Mon, 08 Aug 2022 15:37:13 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/box/</guid>
-    <description><![CDATA[box-sizing 通过box-sizing这个属性来设置元素的盒模型 box-sizing：content-box 为标准盒模型（默认） box-sizing：b]]></description>
-</item>
-<item>
-    <title>网站的几种攻击方式</title>
-    <link>/posts/safe/xss_csrf/</link>
-    <pubDate>Mon, 08 Aug 2022 14:23:15 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/safe/xss_csrf/</guid>
-    <description><![CDATA[CSRF CSRF即Cross-site request forgery(跨站请求伪造)。CSRF攻击主要是利用自动发送的Cookie，借助Cookie来模拟用户的]]></description>
 </item>
 </channel>
 </rss>
