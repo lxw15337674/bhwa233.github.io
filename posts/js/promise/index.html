@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/js/promise/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-18T11:02:44+08:00" />
-<meta property="article:modified_time" content="2022-08-18T21:32:16+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-19T00:46:48+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Promise"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/js\/promise\/"
-        },"genre": "posts","keywords": "","wordcount":  2210 ,
-        "url": "\/posts\/js\/promise\/","datePublished": "2022-08-18T11:02:44+08:00","dateModified": "2022-08-18T21:32:16+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  2557 ,
+        "url": "\/posts\/js\/promise\/","datePublished": "2022-08-18T11:02:44+08:00","dateModified": "2022-08-19T00:46:48+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Promise</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-18">2022-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2210 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-18">2022-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2557 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -126,6 +126,12 @@
       </ul>
     </li>
     <li><a href="#完整实现">完整实现</a></li>
+    <li><a href="#一些题">一些题</a>
+      <ul>
+        <li><a href="#并发限制">并发限制</a></li>
+        <li><a href="#方法-1">方法：</a></li>
+      </ul>
+    </li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav></div>
@@ -414,17 +420,94 @@
 </span></span><span class="line"><span class="cl"><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><h2 id="一些题">一些题</h2>
+<h3 id="并发限制">并发限制</h3>
+<p>实现 Scheduler.add() 函数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">scheduler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Scheduler</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">addTask</span> <span class="o">=</span> <span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="nx">order</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">scheduler</span><span class="p">.</span><span class="nx">add</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">timeout</span><span class="p">(</span><span class="nx">time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">order</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 限制同一时刻只能执行2个task
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">addTask</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">addTask</span><span class="p">(</span><span class="mi">3500</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">addTask</span><span class="p">(</span><span class="mi">4000</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">addTask</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">.....</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">//Scheduler ？
+</span></span></span><span class="line"><span class="cl"><span class="c1">//4秒后打印1
+</span></span></span><span class="line"><span class="cl"><span class="c1">//3.5秒打印2
+</span></span></span><span class="line"><span class="cl"><span class="c1">//3进入队列，到7.5秒打印3 
+</span></span></span><span class="line"><span class="cl"><span class="c1">//...
+</span></span></span></code></pre></div><h3 id="方法-1">方法：</h3>
+<p>根据当前请求数，如果超过限制，就使用新的 promise 来进堵塞后续的请求，把 promise 的 resolve 函数传入一个数组中，然后执行完的请求结束后之前队列最前面的resolve。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// promise写法
+</span></span></span><span class="line"><span class="cl"><span class="c1">// function Scheduler() {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   const queue = []
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   let count = 0
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   const add = (task) =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     let res = task
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     if (count &gt;= 2) {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//       res = () =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         return new Promise((res) =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//           queue.push(res)
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         }).then(task)
+</span></span></span><span class="line"><span class="cl"><span class="c1">//       }
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     }
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     count++
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     return res().then(() =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//       count--
+</span></span></span><span class="line"><span class="cl"><span class="c1">//       if (queue.length) {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//         queue.shift()()
+</span></span></span><span class="line"><span class="cl"><span class="c1">//       }
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     })
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   }
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   return {
+</span></span></span><span class="line"><span class="cl"><span class="c1">//     add
+</span></span></span><span class="line"><span class="cl"><span class="c1">//   }
+</span></span></span><span class="line"><span class="cl"><span class="c1">// }
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// async 写法
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">Scheduler</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">add</span> <span class="o">=</span> <span class="kr">async</span> <span class="p">(</span><span class="nx">task</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">queue</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">count</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">task</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">count</span><span class="o">--</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">queue</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">queue</span><span class="p">.</span><span class="nx">shift</span><span class="p">()()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">res</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">add</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h2 id="参考">参考</h2>
 <p><a href="https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc" target="_blank" rel="noopener noreffer ">https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc</a>
 <a href="https://github.com/xieranmaya/blog/issues/3" target="_blank" rel="noopener noreffer ">https://github.com/xieranmaya/blog/issues/3</a></p>
 <p><a href="https://github.com/ljianshu/Blog/issues/81" target="_blank" rel="noopener noreffer ">https://github.com/ljianshu/Blog/issues/81</a></p>
 <p><a href="https://juejin.im/post/6866372840451473415" target="_blank" rel="noopener noreffer ">彻底理解Promise原理及全功能实现</a></p>
-<p><a href="https://juejin.cn/post/6844904077537574919#heading-52" target="_blank" rel="noopener noreffer ">https://juejin.cn/post/6844904077537574919#heading-52</a></p>
+<p><a href="https://juejin.cn/post/6844904077537574919" target="_blank" rel="noopener noreffer ">要就来45道Promise面试题一次爽到底</a></p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-18</span>
+                <span>Updated on 2022-08-19</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
