@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Aug 2022 18:04:37 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 18 Aug 2022 11:02:44 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Typescript语法</title>
     <link>/posts/typescript/tool/</link>
     <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
@@ -18,6 +18,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>Promise</title>
+    <link>/posts/js/promise/</link>
+    <pubDate>Thu, 18 Aug 2022 11:02:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/promise/</guid>
+    <description><![CDATA[一句话总结Promise 用于解决异步操作结束后的方法执行问题。 诞生原因 最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操]]></description>
 </item>
 <item>
     <title>react hook</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/browser/push/</guid>
     <description><![CDATA[HTTP 协议存在一个问题是只能单向通信，即通信只能由客户端向服务器发出请求，服务器返回查询结果。HTTP 协议做不到服务器主动向客户端推送信息。但是]]></description>
-</item>
-<item>
-    <title>webpack配置</title>
-    <link>/posts/typescript/webpack_config/</link>
-    <pubDate>Sun, 07 Aug 2022 15:36:16 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/typescript/webpack_config/</guid>
-    <description><![CDATA[安装两个模块 npm i -D typescript ts-loader 添加ts的配置文件tsconfig.json，配置参考。 webpack设置文件后缀补全。 在ts文件中引入其他ts文件会]]></description>
 </item>
 </channel>
 </rss>

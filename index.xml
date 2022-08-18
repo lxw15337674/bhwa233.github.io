@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 16 Aug 2022 18:04:37 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 18 Aug 2022 11:02:44 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,6 +20,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>Promise</title>
+    <link>/posts/js/promise/</link>
+    <pubDate>Thu, 18 Aug 2022 11:02:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/promise/</guid>
+    <description><![CDATA[一句话总结Promise 用于解决异步操作结束后的方法执行问题。 诞生原因 最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操]]></description>
 </item>
 <item>
     <title>react hook</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/selector/</guid>
     <description><![CDATA[我们需要引入一个概念——特指度（specificity）。特指度表示一个 css 选择器表达式的重要程度，可以通过一个公式来计算出一个数值，数越大，]]></description>
-</item>
-<item>
-    <title>元素分类</title>
-    <link>/posts/css/element/</link>
-    <pubDate>Mon, 08 Aug 2022 15:52:11 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/element/</guid>
-    <description><![CDATA[行内元素 特征 不会独占一行。 不会自动换行。 设置宽高无效。margin仅能设置左右，上下无效，padding设置上下左右有效， 常见元素 &lt;a]]></description>
 </item>
 </channel>
 </rss>
