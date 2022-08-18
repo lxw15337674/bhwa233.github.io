@@ -331,6 +331,102 @@ new myPromise(function (resolve, reject) {
 
 
 
+
+
+## 一些题
+
+### 并发限制
+
+实现 Scheduler.add() 函数
+
+```js
+const timeout = (time) => new Promise(resolve => {
+  setTimeout(resolve, time)
+})
+
+const scheduler = new Scheduler()
+const addTask = (time, order) => {
+  scheduler.add(() => timeout(time))
+    .then(() => console.log(order))
+}
+
+// 限制同一时刻只能执行2个task
+addTask(4000, '1')
+addTask(3500, '2')
+addTask(4000, '3')
+addTask(3000, '4')
+.....
+
+//Scheduler ？
+//4秒后打印1
+//3.5秒打印2
+//3进入队列，到7.5秒打印3 
+//...
+
+```
+
+### 方法：
+
+根据当前请求数，如果超过限制，就使用新的 promise 来进堵塞后续的请求，把 promise 的 resolve 函数传入一个数组中，然后执行完的请求结束后之前队列最前面的resolve。
+
+```javascript
+
+// promise写法
+// function Scheduler() {
+//   const queue = []
+//   let count = 0
+//   const add = (task) => {
+//     let res = task
+//     if (count >= 2) {
+//       res = () => {
+//         return new Promise((res) => {
+//           queue.push(res)
+//         }).then(task)
+//       }
+//     }
+//     count++
+//     return res().then(() => {
+//       count--
+//       if (queue.length) {
+//         queue.shift()()
+//       }
+//     })
+//   }
+//   return {
+//     add
+//   }
+// }
+
+
+// async 写法
+function Scheduler() {
+  const queue = []
+  let count = 0
+  const add = async (task) => {
+    if (count >= 2) {
+      await new Promise((res) => {
+        queue.push(res)
+      })
+    }
+    count++
+    const res = await task()
+    count--
+    if (queue.length) {
+      queue.shift()()
+    }
+    return res
+  }
+  return {
+    add
+  }
+}
+
+```
+
+
+
+
+
 ## 参考
 
 https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc
@@ -340,4 +436,4 @@ https://github.com/ljianshu/Blog/issues/81
 
 [彻底理解Promise原理及全功能实现](https://juejin.im/post/6866372840451473415)
 
-https://juejin.cn/post/6844904077537574919#heading-52
+[要就来45道Promise面试题一次爽到底](https://juejin.cn/post/6844904077537574919)
