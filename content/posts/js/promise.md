@@ -1,0 +1,343 @@
+---
+title: "Promise"
+date: 2022-08-18T11:02:44+08:00
+draft: false
+tags: [""]
+categories: [""]
+typora-root-url: ..\..\static 
+---
+
+## 一句话总结Promise
+
+用于解决异步操作结束后的方法执行问题。
+
+## 诞生原因
+
+最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操作中。导致会无限嵌套，也就是回掉地狱，影响代码可读性。例如`asyncfn1(asyncfn2(asyncfn3()))`。
+
+## 原理
+
+将要执行的函数放入一个队列里，在异步函数执行结束后执行这个队列。
+
+## 特点
+
+- 不受外界影响，由执行函数内部决定成功和失败。
+
+- 一个 `Promise` 必然处于以下三种状态之一：
+
+  - 执行态 `(pending)`: 初始状态，既没有成功，也没有失败。
+
+  - 实现态`(fulfilled)`: 意味着操作成功完成。
+
+  - 拒绝态`(rejected)`: 意味着操作失败。
+
+- 状态只能由 `Pending` 变为 `Fulfilled` 或由 `Pending` 变为 `Rejected`，且状态改变之后不会在发生变化，会一直保持这个状态。
+
+## 流程
+
+1. 必须给`Promise`对象传入一个执行函数，否则将会报错。
+2. 当Promise被创建时就已经开始执行。
+3. Promise中有`throw`的话，就相当于执行了`reject`。
+4. Promise只以`第一次为准`，第一次成功就永久为`fulfilled`，第一次失败就永远状态为`rejected`，执行了`resolve`，Promise状态会变成`fulfilled`，执行了`reject`，Promise状态会变成`rejected`。
+5. Promise里没有执行`resolve`、`reject`以及`throw`的话，则状态也是`pending`，`pending`状态下的promise不会执行对应回调函数。
+
+```javascript
+let p1 = new Promise((resolve, reject) => {
+    resolve('成功')
+    reject('失败')
+})
+console.log('p1', p1) 
+// p1 Promise {<fulfilled>: '成功'}
+
+let p2 = new Promise((resolve, reject) => {
+    reject('失败')
+    resolve('成功')
+})
+console.log('p2', p2)
+// p2 Promise {<rejected>: '失败'}
+
+let p3 = new Promise((resolve, reject) => {
+    throw('报错')
+})
+console.log('p3', p3)
+// p3 Promise {<rejected>: '报错'}
+
+let p4 = new Promise(() => { });
+
+console.log('p4', p4);
+// p4  Promise {<pending>}
+
+let p5 = new Promise((resolve, reject) => {
+  let a = 1;
+  for (let index = 0; index < 5; index++) {
+    a++;
+  }
+})
+
+console.log('p5', p5)
+// p5  Promise {<pending>}
+
+p5.then(() => {
+  console.log("myPromise2执行了then");
+})
+// 不会输出
+
+let p6 = new Promise();
+console.log('myPromise0 :>> ', p6);
+// TypeError: Promise resolver undefined is not a function
+
+let done = true
+const isItDoneYet = new Promise((resolve, reject) => {
+  console.log('test')
+  if (done) {
+    const workDone = '这是创建的东西'
+    resolve(workDone)
+  } else {
+    const why = '仍然在处理其他事情'
+    reject(why)
+  }
+})
+
+let p7 = new Promise(() => {
+  console.log('p7')
+}); 
+// 输出p7
+```
+
+
+
+## 缺点
+
+1. 错误必须被捕获（不捕获反应不到外面）。
+2. 需要写回调函数。
+3. 一旦新建就会立即执行，无法中途取消。
+4. 无法得知`pending`状态，当处于 `pending` 时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+
+## API
+
+#### executor
+
+executor作为接收`resolve`和`reject`的函数。
+`resolve` 是用于处理操作成功结束的情况，会将`promise`对象的状态从执行态转为成功态，并将异步操作的结果作为参数传递出去。
+`reject` 是用于处理操作失败的情况，将`promise` 对象的状态从执行态转为失败态，并将错误作为参数传递出去。
+
+### 原型方法
+
+#### `Promise.prototype.then(onFulfilled,onRejected)`  
+
+将成功和失败的执行函数传入promise，返回一个新的promise，将返回值做为resolve。  
+
+#### `Promise.prototype.catch(onRejected)`  
+
+只处理失败情况，相当于`  
+Promise.prototype.then(undefined, onRejected) `  
+
+#### `Promise.prototype.finall(onFinally)`  
+
+不管成功失败都会执行的函数，并且会把之前的值原封不动的传递给后面的then  
+
+
+### 方法
+
+#### `resolve(value) `
+
+返回一个带有成功值的promise对象，如果参数是promise，则返回参数。  
+
+#### `reject(value)`
+
+返回一个带有拒绝值的promise对象，如果参数是promise，则返回参数。  
+
+#### `all(iterable)`
+
+返回一个promise，执行参数迭代器中所有的promise，如果都正确，则返回一个所有promise结果的列表，如果有一个失败，则返回第一个失败结果。
+
+#### `race(iterable)`
+
+返回一个promise，执行参数迭代器中所有的promise，返回最先执行完成的promise结果。
+
+#### `any(iterable)`
+
+返回一个promise，执行参数迭代器中所有的promise。只要参数实例有一个变成`fulfilled`状态，包装实例就会变成`fulfilled`状态；如果所有参数实例都变成`rejected`状态，包装实例就会变成`rejected`状态。
+
+#### `allSettled(iterable)`
+
+返回一个promise，执行参数迭代器中所有的promise，只有等到所有参数实例都返回结果，才会结束。返回一个所有promise结果的列表，每个对象都有`status`属性，该属性的值只可能是字符串`fulfilled`或字符串`rejected`。`fulfilled`时，对象有`value`属性，`rejected`时有`reason`属性，对应两种状态的返回值。
+
+```javascript
+const resolved = Promise.resolve(42);
+const rejected = Promise.reject(-1);
+
+const allSettledPromise = Promise.allSettled([resolved, rejected]);
+
+allSettledPromise.then(function (results) {
+  console.log(results);
+});
+// [
+//    { status: 'fulfilled', value: 42 },
+//    { status: 'rejected', reason: -1 }
+// ]
+```
+
+
+
+## 完整实现
+
+```javascript
+//Promise/A+规范的三种状态
+const PENDING = 'pending'
+const FULFILLED = 'fulfilled'
+const REJECTED = 'rejected'
+
+class myPromise {
+    constructor(executor) {
+        this.status = PENDING
+        this.data = null
+        this.resolveQueue = []
+        this.rejectQueue = []
+        let resolve = (value) => {
+            let run = () => {
+                if (this.status !== PENDING) return
+                this.status = FULFILLED
+                this.data = null
+                for (let callback of this.resolveQueue) {
+                    callback(value)
+                }
+            }
+            setTimeout(run)
+        }
+        let reject = (reason) => {
+            let run = () => {
+                if (this.status !== PENDING) return
+                this.status = REJECTED
+                this.data = null
+                for (let callback of this.rejectQueue) {
+                    callback(reason)
+                }
+            }
+            setTimeout(run)
+        }
+        executor(resolve, reject)
+    }
+    then(resolveFn, rejectFn) {
+        return new myPromise((resolve, reject) => {
+            let fulfilledfn = value => {
+                try {
+                    resolve(resolveFn(value))
+                }
+                catch (error) {
+                    reject(error)
+                }
+            }
+            let rejectedFn = error => {
+                try {
+                    resolve(rejectFn(error))
+                } catch (error) {
+                    reject(error)
+                }
+            }
+            switch (this.status) {
+                case PENDING:
+                    this.resolveQueue.push(fulfilledfn);
+                    this.rejectQueue.push(rejectedFn)
+                    break
+                case FULFILLED:
+                    fulfilledfn(this.data)
+                    break
+                case REJECTED:
+                    rejectFn(this.data)
+                    break
+            }
+        })
+    }
+    catch(rejectFn) {
+        return this.then(null, rejectFn)
+    }
+    finally(callback) {
+        return this.then(
+            (res) => {
+                callback()
+                return res
+            },
+            (res) => {
+                callback()
+                throw res
+            }
+        )
+    }
+    resolve(value) {
+        return new Promise(resolve => resolve(value))
+    }
+    reject(value) {
+        return new Promise((reject, reject) => { this.reject(value) })
+    }
+    all(promiseList) {
+        let list = []
+        return new Promise((resolve, reject) => {
+            promiseList.forEach((p, i) => {
+                resolve(p).then(
+                    val => {
+                        list.push(val)
+                        if (i === promiseList.length) {
+                            resolve(result)
+                        }
+                    },
+                    err => {
+                        reject(err)
+                    }
+                )
+            })
+
+        })
+    }
+    race(promiseArr) {
+        return new myPromise((resolve, reject) => {
+            for (let p of promiseArr) {
+                resolve(p).then(
+                    value => {
+                        resolve(value)
+                    },
+                    err => {
+                        reject(err)
+                    }
+                )
+            }
+        })
+    }
+}
+
+
+new myPromise(function (resolve, reject) {
+    setTimeout(() => {
+        console.log('test')
+        resolve(2)
+    }, 1000)
+    resolve(2)
+}).then((res) => {
+    console.log(`res1${res}`)
+    return 3
+}).then(res => {
+    console.log(`res2${res}`)
+    return 4
+}).then(res => {
+    console.log(`res3${res}`)
+    return 5
+}).finally(() => {
+    console.log('test')
+}).then(res => {
+    console.log(res)
+})
+
+```
+
+
+
+## 参考
+
+https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc
+https://github.com/xieranmaya/blog/issues/3
+
+https://github.com/ljianshu/Blog/issues/81
+
+[彻底理解Promise原理及全功能实现](https://juejin.im/post/6866372840451473415)
+
+https://juejin.cn/post/6844904077537574919#heading-52
