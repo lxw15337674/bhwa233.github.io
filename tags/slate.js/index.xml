@@ -3,7 +3,15 @@
         <title>slate.js - Tag - Bhwa233 blog</title>
         <link>/tags/slate.js/</link>
         <description>slate.js - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</lastBuildDate><atom:link href="/tags/slate.js/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 22 Aug 2022 14:53:52 &#43;0800</lastBuildDate><atom:link href="/tags/slate.js/" rel="self" type="application/rss+xml" /><item>
+    <title>富文本总结（一）：前置知识</title>
+    <link>/posts/richtext/%E6%80%BB%E7%BB%931/</link>
+    <pubDate>Mon, 22 Aug 2022 14:53:52 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/richtext/%E6%80%BB%E7%BB%931/</guid>
+    <description><![CDATA[本文章指对自己目前富文本的认知进行全面的总结 编辑器技术阶段划分 Level 0 代表产品：UEditor、TinyMCE、CKEditor1-4 特点： 依赖]]></description>
+</item>
+<item>
     <title>Slate 总结</title>
     <link>/posts/richtext/slate/</link>
     <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
