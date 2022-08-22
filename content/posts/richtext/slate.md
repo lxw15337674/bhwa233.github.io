@@ -404,3 +404,19 @@ slate在`normalizeNode`前会遍历节点，没有子节点的节点会自动加
 
 
 
+## 主流的编辑器架构
+
+
+
+
+
+## Slate
+
+主流程：
+
+1. **customCommand** 
+2. **Transform.xxx(editor, ...)** 
+3. **editor.apply(operation)** 
+4. **重新生成 model** 
+5. **React 渲染**
+
