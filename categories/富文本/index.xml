@@ -9,7 +9,7 @@
     <pubDate>Mon, 22 Aug 2022 14:53:52 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/%E6%80%BB%E7%BB%931/</guid>
-    <description><![CDATA[本文章指对自己目前富文本的认知进行全面的总结 编辑器技术阶段划分 Level 0 代表产品：UEditor、TinyMCE、CKEditor1-4 特点： 依赖]]></description>
+    <description><![CDATA[编辑器技术阶段划分 Level 0 代表产品：UEditor、TinyMCE、CKEditor1-4 特点： 依赖了浏览器原生的 contenteditable API 来实现编辑。 以 document.execCommand API 为基础，]]></description>
 </item>
 <item>
     <title>Slate 总结</title>
