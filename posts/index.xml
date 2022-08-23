@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 22 Aug 2022 14:53:52 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Typescript语法</title>
     <link>/posts/typescript/tool/</link>
     <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
@@ -18,6 +18,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>总结2</title>
+    <link>/posts/richtext/%E6%80%BB%E7%BB%932/</link>
+    <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/richtext/%E6%80%BB%E7%BB%932/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>富文本总结（一）：前置知识</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/browser/worker/</guid>
     <description><![CDATA[web worker JS是单线程没有多线程，当JS在页面中运行长耗时同步任务的时候就会导致页面假死。为了解决这个问题，HTML5提供了新的APIweb wor]]></description>
-</item>
-<item>
-    <title>前端跨页面通信总结</title>
-    <link>/posts/browser/communicates/</link>
-    <pubDate>Sun, 07 Aug 2022 23:04:49 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/browser/communicates/</guid>
-    <description><![CDATA[详解看面试官：前端跨页面通信，你知道哪些方法？，这里只做总结。 在浏览器中，每个Tab页可以粗略理解为一个“独立”的运行环境，即使是全局对象也]]></description>
 </item>
 </channel>
 </rss>

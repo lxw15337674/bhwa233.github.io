@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 22 Aug 2022 14:53:52 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -20,6 +20,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>总结2</title>
+    <link>/posts/richtext/%E6%80%BB%E7%BB%932/</link>
+    <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/richtext/%E6%80%BB%E7%BB%932/</guid>
+    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>富文本总结（一）：前置知识</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/react/store/</guid>
     <description><![CDATA[状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一]]></description>
-</item>
-<item>
-    <title>层叠上下文（z-index）</title>
-    <link>/posts/css/zindex/</link>
-    <pubDate>Mon, 08 Aug 2022 16:16:36 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/zindex/</guid>
-    <description><![CDATA[一个 DOM 元素，在不考虑层叠上下文的情况下，会按照层叠水平决定元素在 z 轴上的显示顺序，通俗易懂地讲，不同的 DOM 元素组合在一起发生重叠的时候，它们的]]></description>
 </item>
 </channel>
 </rss>
