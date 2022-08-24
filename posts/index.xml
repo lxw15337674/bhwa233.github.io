@@ -20,12 +20,12 @@
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
 </item>
 <item>
-    <title>总结2</title>
+    <title>富文本总结（一）：Slate概念</title>
     <link>/posts/richtext/%E6%80%BB%E7%BB%932/</link>
     <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/%E6%80%BB%E7%BB%932/</guid>
-    <description><![CDATA[]]></description>
+    <description><![CDATA[架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性： Immuta]]></description>
 </item>
 <item>
     <title>富文本总结（一）：前置知识</title>
@@ -65,7 +65,7 @@
     <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/slate/</guid>
-    <description><![CDATA[定位 path 节点路径，相对于根节点的相对位置路径。 /** * `Path` arrays are a list of indexes that describe a node&#39;s exact position in * a Slate node tree. Although they are usually relative to the root `Editor` * object, they can be relative to any `Node` object. */ export type Path = number[] 例子]]></description>
+    <description><![CDATA[]]></description>
 </item>
 <item>
     <title>git创建分支失败</title>

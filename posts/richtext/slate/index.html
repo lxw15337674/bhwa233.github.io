@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Slate 总结 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Slate 总结" />
-<meta property="og:description" content="定位 path 节点路径，相对于根节点的相对位置路径。 /** * `Path` arrays are a list of indexes that describe a node&#39;s exact position in * a Slate node tree. Although they are usually relative to the root `Editor` * object, they can be relative to any `Node` object. */ export type Path = number[] 例子" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/richtext/slate/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-12T11:11:21+08:00" />
-<meta property="article:modified_time" content="2022-08-22T20:01:39+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-24T20:15:03+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Slate 总结"/>
-<meta name="twitter:description" content="定位 path 节点路径，相对于根节点的相对位置路径。 /** * `Path` arrays are a list of indexes that describe a node&#39;s exact position in * a Slate node tree. Although they are usually relative to the root `Editor` * object, they can be relative to any `Node` object. */ export type Path = number[] 例子"/>
+<meta name="twitter:description" content=""/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/richtext\/slate\/"
-        },"genre": "posts","keywords": "slate.js","wordcount":  2468 ,
-        "url": "\/posts\/richtext\/slate\/","datePublished": "2022-08-12T11:11:21+08:00","dateModified": "2022-08-22T20:01:39+08:00","publisher": {
+        },"genre": "posts","keywords": "slate.js","wordcount":  0 ,
+        "url": "\/posts\/richtext\/slate\/","datePublished": "2022-08-12T11:11:21+08:00","dateModified": "2022-08-24T20:15:03+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,364 +103,19 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Slate 总结</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E5%AF%8C%E6%96%87%E6%9C%AC/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>富文本</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-12">2022-08-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2468 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-12">2022-08-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;0 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;0 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#定位">定位</a>
-      <ul>
-        <li><a href="#path">path</a></li>
-        <li><a href="#point">point</a></li>
-        <li><a href="#range">range</a></li>
-        <li><a href="#span">span</a></li>
-        <li><a href="#location">location</a></li>
-      </ul>
-    </li>
-    <li><a href="#refs">refs</a>
-      <ul>
-        <li><a href="#设置refs">设置refs</a></li>
-        <li><a href="#获取refs">获取refs</a></li>
-      </ul>
-    </li>
-    <li><a href="#operation">operation</a>
-      <ul>
-        <li><a href="#类型">类型</a></li>
-        <li><a href="#apply">apply</a></li>
-      </ul>
-    </li>
-    <li><a href="#normalizing">Normalizing</a>
-      <ul>
-        <li><a href="#自定义规范化">自定义规范化</a></li>
-      </ul>
-    </li>
-    <li><a href="#运作流程">运作流程</a></li>
-    <li><a href="#transforms">Transforms</a></li>
-    <li><a href="#主流的编辑器架构">主流的编辑器架构</a></li>
-    <li><a href="#slate">Slate</a></li>
-  </ul>
-</nav></div>
-            </div><div class="content" id="content"><h2 id="定位">定位</h2>
-<h3 id="path">path</h3>
-<p>节点路径，相对于根节点的相对位置路径。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * `Path` arrays are a list of indexes that describe a node&#39;s exact position in
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * a Slate node tree. Although they are usually relative to the root `Editor`
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * object, they can be relative to any `Node` object.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">type</span> <span class="nx">Path</span> <span class="o">=</span> <span class="kt">number</span><span class="p">[]</span>
-</span></span></code></pre></div><p><strong>例子</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// Path: [0]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// Path: [0, 0]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A line of text!&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">},</span>
-</span></span><span class="line"><span class="cl">                <span class="c1">// Path: [0, 1]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;Another line of text!&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="nx">bold</span>: <span class="kt">true</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="p">],</span>
-</span></span><span class="line"><span class="cl">            <span class="p">},</span>
-</span></span><span class="line"><span class="cl">		<span class="c1">// Path: [1]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>		<span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">				<span class="c1">// Path: [1, 0]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>				<span class="p">{</span>
-</span></span><span class="line"><span class="cl">					<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A line of text!&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">				<span class="p">},</span>
-</span></span><span class="line"><span class="cl">			<span class="p">],</span>
-</span></span><span class="line"><span class="cl">		<span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="point">point</h3>
-<p>定位单一字符的位置。先用<code>path</code>表示字符节点，再用<code>offset</code>表示字符在节点的位置。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * `Point` objects refer to a specific location in a text node in a Slate
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * document. Its path refers to the location of the node in the tree, and its
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * offset refers to the distance into the node&#39;s string of text. Points can
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * only refer to `Text` nodes.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">BasePoint</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">path</span>: <span class="kt">Path</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">offset</span>: <span class="kt">number</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>例子</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">        <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">            <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">                <span class="p">{</span>
-</span></span><span class="line"><span class="cl">                    <span class="c1">//  &#34;!&#34; is { path: [0, 0], offset: 14 }
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A line of text!&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                <span class="p">},</span>
-</span></span><span class="line"><span class="cl">            <span class="p">],</span>
-</span></span><span class="line"><span class="cl">        <span class="p">},</span>
-</span></span><span class="line"><span class="cl">		<span class="p">{</span>
-</span></span><span class="line"><span class="cl">			<span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">			<span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">				<span class="p">{</span>
-</span></span><span class="line"><span class="cl">					<span class="c1">// The point of the character &#34;l&#34; is { path: [1, 0], offset: 2 }
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>					<span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A line of text!&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">				<span class="p">},</span>
-</span></span><span class="line"><span class="cl">			<span class="p">],</span>
-</span></span><span class="line"><span class="cl">		<span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="range">range</h3>
-<p>选取区间。分别用<code>anchor</code>， <code>focus</code>选取区间的开始位置和结束位置。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * `Range` objects are a set of points that refer to a specific span of a Slate
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * document. They can define a span inside a single node or a can span across
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * multiple nodes.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">BaseRange</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">anchor</span>: <span class="kt">Point</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">focus</span>: <span class="kt">Point</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>例子</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// mynameisbhwa233
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">offset</span>: <span class="kt">0</span><span class="p">,</span>	
-</span></span><span class="line"><span class="cl">	<span class="p">},</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">focus</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">		<span class="nx">offset</span>:<span class="kt">5</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">	<span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="c1">// 表示选取内容为：myname
-</span></span></span></code></pre></div><h3 id="span">span</h3>
-<p>用于表示没有文本的选区区间。例如选取两个图片元素。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * The `Span` interface is a low-level way to refer to locations in nodes
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * without using `Point` which requires leaf text nodes to be present.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">type</span> <span class="nx">Span</span> <span class="o">=</span> <span class="p">[</span><span class="nx">Path</span><span class="p">,</span> <span class="nx">Path</span><span class="p">]</span>
-</span></span></code></pre></div><h3 id="location">location</h3>
-<p><code>Path</code> 、 <code>Point</code> 、 <code>Range</code> 的联合类型</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * The `Location` interface is a union of the ways to refer to a specific
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * location in a Slate document: paths, points or ranges.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> *
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * Methods will often accept a `Location` instead of requiring only a `Path`,
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * `Point` or `Range`. This eliminates the need for developers to manage
-</span></span></span><span class="line"><span class="cl"><span class="cm"> * converting between the different interfaces in their own code base.
-</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">type</span> <span class="nx">Location</span> <span class="o">=</span> <span class="nx">Path</span> <span class="o">|</span> <span class="nx">Point</span> <span class="o">|</span> <span class="nx">Range</span>
-</span></span></code></pre></div><h2 id="refs">refs</h2>
-<p>slate通过refs来指向某个节点（类似于React Refs）的定位。<strong>当节点更新时，对应的定位会跟着变化</strong>。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">PathRef</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">current</span>: <span class="kt">Path</span> <span class="o">|</span> <span class="kc">null</span> 
-</span></span><span class="line"><span class="cl">  <span class="nx">affinity</span><span class="o">:</span> <span class="s1">&#39;forward&#39;</span> <span class="o">|</span> <span class="s1">&#39;backward&#39;</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">unref</span><span class="p">()</span><span class="o">:</span> <span class="nx">Path</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">PointRef</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">current</span>: <span class="kt">Point</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">affinity</span><span class="o">:</span> <span class="s1">&#39;forward&#39;</span> <span class="o">|</span> <span class="s1">&#39;backward&#39;</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">unref</span><span class="p">()</span><span class="o">:</span> <span class="nx">Point</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">RangeRef</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">current</span>: <span class="kt">Range</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">affinity</span><span class="o">:</span> <span class="s1">&#39;forward&#39;</span> <span class="o">|</span> <span class="s1">&#39;backward&#39;</span> <span class="o">|</span> <span class="s1">&#39;outward&#39;</span> <span class="o">|</span> <span class="s1">&#39;inward&#39;</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">unref</span><span class="p">()</span><span class="o">:</span> <span class="nx">Range</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><ul>
-<li><code>current</code>：节点定位。</li>
-<li><code>affinity</code>：作为执行opeeration时<code>transform</code>函数的参数。</li>
-<li><code>unref</code>：取消指向。</li>
-</ul>
-<h3 id="设置refs">设置refs</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">EditorInterface</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">pathRef</span><span class="o">:</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">path</span>: <span class="kt">Path</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">options</span><span class="o">?:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">affinity</span><span class="o">?:</span> <span class="s1">&#39;backward&#39;</span> <span class="o">|</span> <span class="s1">&#39;forward&#39;</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">PathRef</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">pointRef</span><span class="o">:</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">point</span>: <span class="kt">Point</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">options</span><span class="o">?:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">affinity</span><span class="o">?:</span> <span class="s1">&#39;backward&#39;</span> <span class="o">|</span> <span class="s1">&#39;forward&#39;</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">PointRef</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">rangeRef</span><span class="o">:</span> <span class="p">(</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">range</span>: <span class="kt">Range</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">options</span><span class="o">?:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="nx">affinity</span><span class="o">?:</span> <span class="s1">&#39;backward&#39;</span> <span class="o">|</span> <span class="s1">&#39;forward&#39;</span> <span class="o">|</span> <span class="s1">&#39;outward&#39;</span> <span class="o">|</span> <span class="s1">&#39;inward&#39;</span> <span class="o">|</span> <span class="kc">null</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">RangeRef</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="获取refs">获取refs</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">export</span> <span class="kr">interface</span> <span class="nx">EditorInterface</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">pathRefs</span><span class="o">:</span> <span class="p">(</span><span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Set</span><span class="p">&lt;</span><span class="nt">PathRef</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">pointRefs</span><span class="o">:</span> <span class="p">(</span><span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Set</span><span class="p">&lt;</span><span class="nt">PointRef</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">rangeRefs</span><span class="o">:</span> <span class="p">(</span><span class="nx">editor</span>: <span class="kt">Editor</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">Set</span><span class="p">&lt;</span><span class="nt">RangeRef</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="operation">operation</h2>
-<p><code>operation</code> 是slate中最基础的核心操作（即原子操作），对编辑器的一切修改都是通过一个或多个<code>opertaion</code>来实现的。</p>
-<h3 id="类型">类型</h3>
-<p><code>operation</code>可以分为三类：</p>
-<p><strong>Node</strong></p>
-<p>负责与节点（node）相关的操作：</p>
-<ul>
-<li><code>insert_node</code>：插入节点</li>
-<li><code>merge_node</code>：合并节点</li>
-<li><code>move_node</code>：移动节点</li>
-<li><code>remove_node</code>：删除节点</li>
-<li><code>set_node</code>：设置节点属性</li>
-<li><code>split_node</code>：拆分节点</li>
-</ul>
-<p><strong>Selection</strong></p>
-<p>负责与选区（selection）相关的操作：</p>
-<ul>
-<li><code>set_selection</code>：设置选区</li>
-</ul>
-<p><strong>Text</strong></p>
-<p>负责与纯文字相关的操作：</p>
-<ul>
-<li>
-<p><code>insert_text</code>：插入文本</p>
-</li>
-<li>
-<p><code>remove_text</code>：删除文本</p>
-</li>
-</ul>
-<h3 id="apply">apply</h3>
-<p>operation是通过<code>editor.apply()</code>调用。</p>
-<p>例子：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">editor</span><span class="p">.</span><span class="nx">apply</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;insert_text&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">offset</span>: <span class="kt">15</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A new string of text to be inserted.&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">editor</span><span class="p">.</span><span class="nx">apply</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;remove_node&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">node</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A line of text!&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nx">editor</span><span class="p">.</span><span class="nx">apply</span><span class="p">({</span>
-</span></span><span class="line"><span class="cl">  <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;set_selection&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">0</span> <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="nx">newProperties</span><span class="o">:</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">anchor</span><span class="o">:</span> <span class="p">{</span> <span class="nx">path</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nx">offset</span>: <span class="kt">15</span> <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl"><span class="p">})</span>
-</span></span></code></pre></div><p><code>apply()</code>的工作流程：</p>
-<h2 id="normalizing">Normalizing</h2>
-<p>slate规范化是通过一组完整的FLUSHING搭配一次Normalize。</p>
-<p>为了确保slate能够正确的解析，slate有一些约束，针对这些约束也会做一些操作来保证规范化：</p>
-<ol>
-<li>
-<p>所有的<code>Element</code>节点内必须至少一个Text子节点。如果遇到不符合规范的节点，会自动加入一个空的<code>Text</code>节点。</p>
-<p>原因：为了确保编辑器的<code>selection</code>能够选中空元素。</p>
-</li>
-<li>
-<p>会将相邻且属性相同的<code>text</code>节点合并成一个节点。</p>
-<p>原因：为了防止编辑器内的<code>text	</code>节点在新增、删除文字属性时造成节点无意义的拆分。</p>
-</li>
-<li>
-<p>块节点的子节点（children）只能是块元素（Block）、行内块状元素（inline-block）、text节点（inline）的一种。例如<code>paragraph</code> 节点的子节点不能既有<code>paragraph</code>block节点，还有<code>text</code>inline节点。slate会以子节点的第一个节点作为判断可接受类别的节点，删除其他不符合规范的子节点。</p>
-<p>原因：为了让拆分块节点相关的功能保持稳定的结果。</p>
-</li>
-<li>
-<p>内联节点现在总是被文本节点包围。如果没有，slate会自动插入空的<code>Text</code>节点。</p>
-<p>原因：优化编辑器的内容结构。</p>
-</li>
-<li>
-<p>第一层节点只能是<code>Block</code>节点，其他类型的节点会被直接删除。</p>
-<p>原因：确保编辑器存在Block节点，确保拆分节点功能正常。</p>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">initialValue</span>: <span class="kt">Descendant</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">//是block节点，正常。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;This is editable plain text, just like a &lt;textarea&gt;!&#39;</span> <span class="p">},</span>
-</span></span><span class="line"><span class="cl">      <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;link&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;www.baidu.com&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;123&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">      <span class="p">},</span>
-</span></span><span class="line"><span class="cl">    <span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="p">},</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// 是text节点，会被直接删除。
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">{</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;This is editable plain text, just like a &lt;textarea&gt;!&#39;</span> <span class="p">},</span> 
-</span></span><span class="line"><span class="cl"><span class="p">];</span>
-</span></span></code></pre></div><h3 id="自定义规范化">自定义规范化</h3>
-<p>规范化是通过editor 里的 <code>normalizeNode()</code>来实现 ， 如果需要进行定制化，可以通过插件对<code>normalizeNode </code>进行重写。但需要注意几点：</p>
-<p><strong>normalizing是重复执行的</strong></p>
-<p>slate是通过递归实现对内容深度遍历，即会从子节点开始<code>normalizing</code>再到父节点逐级进行规范化。</p>
-<p><strong>避免对无子节点的节点进行规范化</strong></p>
-<p>slate在<code>normalizeNode</code>前会遍历节点，没有子节点的节点会自动加入一个空的<code>Text</code>作为子节点。</p>
-<p><strong>避免无法满足约束</strong></p>
-<p>应避免自定义的约束，在修正后仍无法满足约束，导致无限循环<code>normalizeNode</code>。</p>
-<h2 id="运作流程">运作流程</h2>
-<p><img
-        class="lazyload"
-        src="../../../svg/loading.min.svg"
-        data-src="../../../images/201393593GX3OuA8NF.png"
-        data-srcset="../../../images/201393593GX3OuA8NF.png, ../../../images/201393593GX3OuA8NF.png 1.5x, ../../../images/201393593GX3OuA8NF.png 2x"
-        data-sizes="auto"
-        alt="/images/201393593GX3OuA8NF.png"
-        title="运作流程图" /></p>
-<p>完整流程：</p>
-<ol>
-<li>通过<code>Transform</code>的api触发编辑器更新，执行多次<code>opertaion</code>。</li>
-<li>第一次的<code>opertaion</code>除了会执行<code>transform</code> 与<code>normalize</code> 之外，也会将 <code>FLUSHING</code> 設為 <code>true</code> ，并将 <code>onChange</code> 的执行以 Promise 的 Micro-Task 包装起来。</li>
-<li><code>opertaion</code>通过 <code>getDirtyPath</code> 取得并更新到 <code>DIRTY_PATHS</code> WeakMap variable。</li>
-<li><code>opertaion</code>再通过 <code>GeneralTransforms.transform</code> 和<code> Immer Draft State</code> 调用<code>applyToDraft</code> 更新 <code>children</code> 与 <code>selection</code>。</li>
-<li>执行<code>Transform</code> 的 <code>normalize</code>  与 <code>normalizeNode</code> 实现对脏路径的节点规范化，调用<code>Transform</code> 來更新节点以满足约束并重跑一次相同的 Transform 流程。</li>
-<li>完成所有同步更新后，执行Micro-Task的内容将 <code>FLUSHING</code> 设为 <code>false</code> 并触发 <code>onChange</code> 。</li>
-</ol>
-<h2 id="transforms">Transforms</h2>
-<p>一个 <code>transform</code>是多个 <code>operation</code> 组成。一般开发中使用高阶(High-level) 的 <code>Transform</code>api 来替代 低阶（Low-level） 的 <code>operation</code>。</p>
-<h2 id="主流的编辑器架构">主流的编辑器架构</h2>
-<h2 id="slate">Slate</h2>
-<p>主流程：</p>
-<ol>
-<li><strong>customCommand</strong></li>
-<li><strong>Transform.xxx(editor, &hellip;)</strong></li>
-<li><strong>editor.apply(operation)</strong></li>
-<li><strong>重新生成 model</strong></li>
-<li><strong>React 渲染</strong></li>
-</ol>
-</div><div class="post-footer" id="post-footer">
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-22</span>
+                <span>Updated on 2022-08-24</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
