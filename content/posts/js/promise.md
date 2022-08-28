@@ -17,7 +17,7 @@ typora-root-url: ..\..\static
 
 ## 原理
 
-将要执行的函数放入一个队列里，在异步函数执行结束后执行这个队列。
+通过观察者模式，将要执行的函数放入一个队列里，在异步函数执行结束后执行这个队列。
 
 ## 特点
 
@@ -429,11 +429,8 @@ function Scheduler() {
 
 ## 参考
 
-https://juejin.im/post/5e3b9ae26fb9a07ca714a5cc
-https://github.com/xieranmaya/blog/issues/3
+[剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类 ](https://github.com/xieranmaya/blog/issues/3)
 
-https://github.com/ljianshu/Blog/issues/81
-
-[彻底理解Promise原理及全功能实现](https://juejin.im/post/6866372840451473415)
+[你真的懂Promise吗](https://github.com/ljianshu/Blog/issues/81)
 
 [要就来45道Promise面试题一次爽到底](https://juejin.cn/post/6844904077537574919)
