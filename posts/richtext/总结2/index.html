@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>富文本总结（一）：Slate概念 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="富文本总结（一）：Slate概念" />
-<meta property="og:description" content="架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性： Immuta" />
+<meta property="og:description" content="架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性 Immutab" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/richtext/%E6%80%BB%E7%BB%932/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-23T09:31:25+08:00" />
@@ -13,7 +13,7 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="富文本总结（一）：Slate概念"/>
-<meta name="twitter:description" content="架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性： Immuta"/>
+<meta name="twitter:description" content="架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性 Immutab"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/richtext\/%E6%80%BB%E7%BB%932\/"
-        },"genre": "posts","keywords": "slate.js","wordcount":  3250 ,
+        },"genre": "posts","keywords": "slate.js","wordcount":  3966 ,
         "url": "\/posts\/richtext\/%E6%80%BB%E7%BB%932\/","datePublished": "2022-08-23T09:31:25+08:00","dateModified": "2022-08-23T09:31:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">富文本总结（一）：Slate概念</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E5%AF%8C%E6%96%87%E6%9C%AC/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>富文本</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-23">2022-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3250 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-23">2022-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3966 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -114,11 +114,18 @@
   <ul>
     <li><a href="#架构">架构</a>
       <ul>
-        <li><a href="#特性">特性：</a></li>
+        <li><a href="#特性">特性</a></li>
         <li><a href="#源码">源码</a></li>
       </ul>
     </li>
     <li><a href="#数据结构">数据结构</a></li>
+    <li><a href="#节点">节点</a>
+      <ul>
+        <li><a href="#node">Node</a></li>
+        <li><a href="#element">Element</a></li>
+        <li><a href="#text">Text</a></li>
+      </ul>
+    </li>
     <li><a href="#定位">定位</a>
       <ul>
         <li><a href="#path">path</a></li>
@@ -152,7 +159,7 @@
 </nav></div>
             </div><div class="content" id="content"><h2 id="架构">架构</h2>
 <p>Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。</p>
-<h3 id="特性">特性：</h3>
+<h3 id="特性">特性</h3>
 <ul>
 <li>
 <p><strong>Immutable</strong>：基于Immutable，利用<code>Immer</code>库，每次只会生成修改的数据，其他相同的部分和原有数据共享。</p>
@@ -187,10 +194,136 @@
 <p>Slate.js 的数据结构设计大量参考了 HTML 中对于 DOM 的设计，</p>
 <p>Web 富文本，其实就是一段 HTML 内容，它由两个部分组成：</p>
 <ul>
-<li><strong>节点（Node）</strong>：节点容纳了我们能看到的富文本内容，富文本容器也是一个节点，容纳了其他节点</li>
-<li><strong>选区（Selection）</strong>：当前选中的区域，如果区域的起点和终点重合，那看到就是一个光标</li>
+<li><strong>节点（Node）</strong>：节点容纳了我们能看到的富文本内容，富文本容器也是一个节点，容纳了其他节点。</li>
+<li><strong>选区（Selection）</strong>：当前选中的区域，如果区域的起点和终点重合，那就是一个光标。</li>
 </ul>
-<p>Slate.js数据模型的设计非常的“类DOM”，下面从节点(Node)和选区(Selection)的设计上说明。</p>
+<p>Slate.js数据模型的设计非常的“类DOM”。下面从节点(Node)和选区(Selection)的设计上说明</p>
+<h2 id="节点">节点</h2>
+<p>一个完整的slate节点树：</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/20220829213144.png"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/20220829213144.png, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/20220829213144.png 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/20220829213144.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/20220829213144.png"
+        title="test" /></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;paragraph&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">children</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;A line of text!&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span>
+</span></span><span class="line"><span class="cl">      <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...the editor has other properties too.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><p>slate的节点共有三种类型：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Node</span> <span class="o">=</span> <span class="nx">Editor</span> <span class="o">|</span> <span class="nx">Element</span> <span class="o">|</span> <span class="nx">Text</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Editor</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">children</span>:<span class="kt">Node</span><span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Element</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">children</span>:<span class="kt">Node</span><span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">key</span>:<span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="kt">unknown</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Text</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span>:<span class="kt">string</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">key</span>:<span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="kt">unknown</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>总结：</p>
+<ul>
+<li><code>Editor</code>类型是文档树的根节点。</li>
+<li><code>Element</code>类型含有children属性，可以作为其他Node的父节点</li>
+<li><code>Text</code>类型是树的叶子节点，包含文本信息。</li>
+</ul>
+<p>用户可以自行扩展<code>Element</code>和<code>text</code>类型的属性来扩展节点，例如增加<code>type</code>属性表示Node的类型（<code>table</code>,<code>select</code>），增加<code>style</code>属性表示文本的样式（<code>bold</code>,<code>color</code>）等</p>
+<h3 id="node">Node</h3>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png, https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png 1.5x, https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png"
+        title="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png" /></p>
+<p>Node是slate中最基础的抽象。一个 Node 对象含有如下属性：</p>
+<ul>
+<li>
+<p>key：节点在当前文档中的索引</p>
+</li>
+<li>
+<p>data：节点绑定的数据</p>
+</li>
+<li>
+<p>nodes：节点的子孙</p>
+</li>
+<li>
+<p>object：节点类型</p>
+</li>
+<li>
+<p>text：这是一个计算属性，返回节点的文本内容</p>
+</li>
+</ul>
+<h3 id="element">Element</h3>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/202208292127484.png"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/202208292127484.png, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/202208292127484.png 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/202208292127484.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/202208292127484.png"
+        title="image2021-11-5_15-16-34" /></p>
+<p>节点类型：</p>
+<ul>
+<li><strong>Document Element</strong>：表示编辑器的整个文档树</li>
+<li><strong>Block Element</strong>: 表示编辑器中的块级元素</li>
+<li><strong>Inline Element</strong>：表示编辑器中的行内元素</li>
+</ul>
+<p>节点的基本属性：</p>
+<ul>
+<li>
+<p>key：节点在当前文档中的索引</p>
+</li>
+<li>
+<p>data：节点绑定的数据</p>
+</li>
+<li>
+<p>nodes：节点的子孙</p>
+</li>
+<li>
+<p>object：节点类型</p>
+</li>
+<li>
+<p>text：一个计算属性，返回节点的文本内容</p>
+</li>
+</ul>
+<h3 id="text">Text</h3>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png"
+        data-srcset="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png, https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png 1.5x, https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png 2x"
+        data-sizes="auto"
+        alt="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png"
+        title="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png" /></p>
+<p>Text Model 的基本属性</p>
+<ul>
+<li>key：节点在当前文档中的索引</li>
+<li>object：节点类型</li>
+<li>text：一个计算属性，返回节点的文本内容</li>
+<li>leaves: 文本叶子节点，不同格式（例如加粗，斜体等）的文本，将会被分拆为若干个 leaf</li>
+<li>marks：文本节点所包含的所有 mark（标记）</li>
+</ul>
+<p>Slate.js 是通过 mark 来标记文本格式，在视图层，开发者可以通过 CSS 或者 <!-- raw HTML omitted --> 这样的 tag 来展示格式化文本。</p>
+<p>Slate.js 根据 mark 类型的不同，将 Text Node 拆分为了若干 Leaf。每个 Leaf 对象含有这些属性：</p>
+<ul>
+<li>text: string：leaf 的文本内容</li>
+<li>mark: Mark：leaf 被标记上的 mark</li>
+</ul>
 <h2 id="定位">定位</h2>
 <h3 id="path">path</h3>
 <p>节点路径，相对于根节点的相对位置路径。</p>
@@ -550,7 +683,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.101.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
         </div>
     </footer></div>

@@ -27,7 +27,7 @@
     <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/richtext/%E6%80%BB%E7%BB%932/</guid>
-    <description><![CDATA[架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性： Immuta]]></description>
+    <description><![CDATA[架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性 Immutab]]></description>
 </item>
 <item>
     <title>富文本总结（一）：前置知识</title>
