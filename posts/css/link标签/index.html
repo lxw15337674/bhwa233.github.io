@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Link标签 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Link标签" />
+<meta property="og:description" content="概述 link 元素用于链接外部css样式表等其他相关外部资源。 属性 href：指明外部资源文件的路径，即告诉浏览器外部资源的位置 hreflang：说明" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/css/link%E6%A0%87%E7%AD%BE/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-21T13:13:13+08:00" />
+<meta property="article:modified_time" content="2022-08-21T13:13:13+08:00" /><meta property="og:site_name" content="My cool site" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Link标签"/>
+<meta name="twitter:description" content="概述 link 元素用于链接外部css样式表等其他相关外部资源。 属性 href：指明外部资源文件的路径，即告诉浏览器外部资源的位置 hreflang：说明"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/css/link%E6%A0%87%E7%AD%BE/" /><link rel="prev" href="../../../posts/css/script%E6%A0%87%E7%AD%BE/" /><link rel="next" href="../../../posts/css/src%E5%92%8Chref/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Link标签",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/css\/link%E6%A0%87%E7%AD%BE\/"
+        },"genre": "posts","keywords": "html","wordcount":  857 ,
+        "url": "\/posts\/css\/link%E6%A0%87%E7%AD%BE\/","datePublished": "2022-08-21T13:13:13+08:00","dateModified": "2022-08-21T13:13:13+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Bhwa233"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Link标签</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/html/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>html</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-21">2022-08-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;857 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#概述">概述</a>
+      <ul>
+        <li><a href="#属性">属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#应用场景">应用场景</a>
+      <ul>
+        <li><a href="#链接样式表">链接样式表</a></li>
+        <li><a href="#创建站点图标">创建站点图标</a></li>
+        <li><a href="#预加载">预加载</a></li>
+        <li><a href="#prefetch-预获取">prefetch 预获取</a></li>
+        <li><a href="#preload">preload</a></li>
+        <li><a href="#dns-prefetch">dns-prefetch</a></li>
+        <li><a href="#prefetch--preload-对比">prefetch &amp; preload 对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#media-属性">media 属性</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="概述">概述</h2>
+<p><a href="https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTML%2FElement%2Flink" target="_blank" rel="noopener noreffer ">link</a> 元素用于链接外部<code>css</code>样式表等其他相关外部资源。</p>
+<h3 id="属性">属性</h3>
+<ul>
+<li><code>href</code>：指明外部资源文件的路径，即告诉浏览器外部资源的位置</li>
+<li><code>hreflang</code>：说明外部资源使用的语言</li>
+<li><code>media</code>：说明外部资源用于哪种设备</li>
+<li><code>rel</code>：必填，表明当前文档和外部资源的关系</li>
+<li><code>sizes</code>：指定图标的大小，只对属性<code>rel=&quot;icon&quot;</code>生效</li>
+<li><code>type</code>：说明外部资源的 <a href="https://link.juejin.cn/?target=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FHTTP%2FBasics_of_HTTP%2FMIME_types" target="_blank" rel="noopener noreffer ">MIME</a> 类型，如<code>text/css</code>、<code>image/x-icon</code></li>
+</ul>
+<h2 id="应用场景">应用场景</h2>
+<h3 id="链接样式表">链接样式表</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">&#34;main.css&#34;</span> <span class="na">rel=</span><span class="s">&#34;stylesheet&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><h3 id="创建站点图标">创建站点图标</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;icon&#34;</span> <span class="na">type=</span><span class="s">&#34;image/png&#34;</span> <span class="na">href=</span><span class="s">&#34;myicon.png&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><h3 id="预加载">预加载</h3>
+<p>用于前端界面性能优化，rel 的属性值可以为preload、prefetch、dns-prefetch。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;preload&#34;</span> <span class="na">href=</span><span class="s">&#34;style.css&#34;</span> <span class="na">as=</span><span class="s">&#34;style&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;prefetch&#34;</span> <span class="na">href=</span><span class="s">&#34;/uploads/images/pic.png&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;dns-prefetch&#34;</span> <span class="na">href=</span><span class="s">&#34;//fonts.googleapis.com&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><h3 id="prefetch-预获取">prefetch 预获取</h3>
+<p>用户在使用当前界面时，浏览器空闲时先把下个界面要使用的资源下载到本地缓存。浏览器下不下载不可知。
+举个例子： 网站有A，B 两个界面。当用户访问界面 A 时有很大的概率会访问 B 界面（比如登录跳转）那么我们可以在用户访问界面 A 的时候，提前将 B 界面需要的某些资源下载到本地，性能会得到很大的提升。那么我们只需要在界面 A.html 文件中设置如下代码：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;prefetch&#34;</span> <span class="na">href=</span><span class="s">&#34;/uploads/images/pic.png&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><h3 id="preload">preload</h3>
+<p>控制当前界面的资源下载优先级，浏览器必须下载资源。
+举个例子： 网站的一个界面 A的 css 样式文件中使用了外部字体文件，正常情况下该字体的下载是在 css 解析的时候完成的。想想字体文件好像在 css 样式文件解析之前下载到本地比较好。那么我们就可以在head标签设置字体的 preload。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;preload&#34;</span> <span class="na">href=</span><span class="s">&#34;https://example.com/fonts/font.woff&#34;</span> <span class="na">as=</span><span class="s">&#34;font&#34;</span><span class="nt">&gt;</span>
+</span></span></code></pre></div><h3 id="dns-prefetch">dns-prefetch</h3>
+<p>DNS Prefetch 是一种 DNS 预解析技术。当你浏览网页时，浏览器会在加载网页时对网页中的域名进行解析缓存，这样在你单击当前网页中的连接时就无需进行 DNS 的解析，减少用户等待时间，提高用户体验。</p>
+<h3 id="prefetch--preload-对比">prefetch &amp; preload 对比</h3>
+<ul>
+<li>关注的页面不同： prefetch 关注要使用的页面，preload 关注当前页面</li>
+<li>资源是否下载：prefetch 的资源下载情况未知（只在浏览器空闲时会下载），preload 肯定下载</li>
+</ul>
+<h2 id="media-属性">media 属性</h2>
+<p>media 属性规定被链接文档将显示在什么设备上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;head&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href=</span><span class="s">&#34;theme.css&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">type=</span><span class="s">&#34;text/css&#34;</span> <span class="na">href=</span><span class="s">&#34;print.css&#34;</span> <span class="na">media=</span><span class="s">&#34;print&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/head&gt;</span>
+</span></span></code></pre></div><p>注意： 当界面加载时，两个样式表都会下载到客户端，只是会根据场景不同使用不同的样式。</p>
+<blockquote>
+<p>引用</p>
+<p><a href="https://juejin.cn/post/6971640926389141518" target="_blank" rel="noopener noreffer ">HTML5 之 Link 标签</a></p>
+<p><a href="https://juejin.cn/post/6844903746023997448" target="_blank" rel="noopener noreffer ">script、link标签详解</a></p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-08-21</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/css/link%E6%A0%87%E7%AD%BE/" data-title="Link标签" data-hashtags="html"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/css/link%E6%A0%87%E7%AD%BE/" data-hashtag="html"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/css/link%E6%A0%87%E7%AD%BE/" data-title="Link标签"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/css/link%E6%A0%87%E7%AD%BE/" data-title="Link标签"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/css/link%E6%A0%87%E7%AD%BE/" data-title="Link标签"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/html/">html</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../../posts/css/script%E6%A0%87%E7%AD%BE/" class="prev" rel="prev" title="script标签"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>script标签</a>
+            <a href="../../../posts/css/src%E5%92%8Chref/" class="next" rel="next" title="Src和href">Src和href<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
+</html>

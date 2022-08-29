@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/packages/AboutVersion/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-06T15:29:43+08:00" />
-<meta property="article:modified_time" content="2022-08-08T00:18:16+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-28T23:42:34+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="npm 语义版本控制"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/packages\/AboutVersion\/"
-        },"genre": "posts","keywords": "","wordcount":  505 ,
-        "url": "\/posts\/packages\/AboutVersion\/","datePublished": "2022-07-06T15:29:43+08:00","dateModified": "2022-08-08T00:18:16+08:00","publisher": {
+        },"genre": "posts","keywords": "npm","wordcount":  1190 ,
+        "url": "\/posts\/packages\/AboutVersion\/","datePublished": "2022-07-06T15:29:43+08:00","dateModified": "2022-08-28T23:42:34+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -102,9 +102,9 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">npm 语义版本控制</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-06">2022-07-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;505 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E5%8C%85%E7%AE%A1%E7%90%86/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>包管理</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-06">2022-07-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1190 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -127,66 +127,118 @@
 </li>
 <li>
 <p><code>patch</code>补丁版本号：做了向下兼容的问题修正。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>major</td>
+<td>主版本号。新的架构调整，做了不兼容的 API 修改，不兼容老版本。</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>次版本号。新增功能，兼容老版本。</td>
+</tr>
+<tr>
+<td>patch</td>
+<td>修补版本号。修复bug，兼容老版本。</td>
+</tr>
+</tbody>
+</table>
 </li>
-</ul>
-<p>新版本号应遵循规则：</p>
-<ul>
-<li>当进行不兼容的 API 更改时，则升级主版本。</li>
-<li>当以向后兼容的方式添加功能时，则升级次版本。</li>
-<li>当进行向后兼容的缺陷修复时，则升级补丁版本。</li>
 </ul>
 <h2 id="版本符号">版本符号</h2>
-<ul>
-<li>
-<p><code>^</code>: 只会执行不更改最左边非零数字的更新。 如果写入的是 <code>^0.13.0</code>，则当运行 <code>npm update</code> 时，可以更新到 <code>0.13.1</code>、<code>0.13.2</code> 等，但不能更新到 <code>0.14.0</code> 或更高版本。 如果写入的是 <code>^1.13.0</code>，则当运行 <code>npm update</code> 时，可以更新到 <code>1.13.1</code>、<code>1.14.0</code> 等，但不能更新到 <code>2.0.0</code> 或更高版本。</p>
-</li>
-<li>
-<p><code>~</code>: 如果写入的是 <code>〜0.13.0</code>，则当运行 <code>npm update</code> 时，会更新到补丁版本：即 <code>0.13.1</code> 可以，但 <code>0.14.0</code> 不可以。</p>
-</li>
-<li>
-<p><code>&gt;</code>: 接受高于指定版本的任何版本。</p>
-</li>
-<li>
-<p><code>&gt;=</code>: 接受等于或高于指定版本的任何版本。</p>
-</li>
-<li>
-<p><code>&lt;=</code>: 接受等于或低于指定版本的任何版本。</p>
-</li>
-<li>
-<p><code>&lt;</code>: 接受低于指定版本的任何版本。</p>
-</li>
-<li>
-<p><code>=</code>: 接受确切的版本。</p>
-</li>
-<li>
-<p><code>-</code>: 接受一定范围的版本。例如：<code>2.1.0 - 2.6.2</code>。</p>
-</li>
-<li>
-<p><code>||</code>: 组合集合。例如 <code>&lt; 2.1 || &gt; 2.6</code>。</p>
-</li>
-<li>
-<p><code>latest</code>: 使用可用的最新版本。</p>
-</li>
-<li>
-<p>无符号: 仅接受指定的特定版本（例如 <code>1.2.1</code>）。</p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>解释</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>version</td>
+<td>必须匹配某个版本</td>
+<td>1.1.2，表示必须依赖1.1.2版</td>
+</tr>
+<tr>
+<td>&gt;version</td>
+<td>必须大于某个版本</td>
+<td>&gt;1.1.2，表示必须大于1.1.2版</td>
+</tr>
+<tr>
+<td>&gt;=version</td>
+<td>可大于或等于某个版本</td>
+<td>&gt;=1.1.2，表示可以等于1.1.2，也可以大于1.1.2版本</td>
+</tr>
+<tr>
+<td>&lt;version</td>
+<td>必须小于某个版本</td>
+<td>&lt;1.1.2，表示必须小于1.1.2版本</td>
+</tr>
+<tr>
+<td>&lt;=version</td>
+<td>可以小于或等于某个版本</td>
+<td>&lt;=1.1.2，表示可以等于1.1.2，也可以小于1.1.2版本</td>
+</tr>
+<tr>
+<td>~version</td>
+<td>会匹配最近的小版本依赖包<!-- raw HTML omitted -->如果minor版本号指定了，那么minor版本号不变，而patch版本号任意<!-- raw HTML omitted -->如果minor和patch版本号未指定，那么minor和patch版本号任意</td>
+<td>~1.1.2，表示&gt;=1.1.2 &lt;1.2.0，可以是1.1.2，1.1.3，1.1.4，&hellip;..，1.1.n <!-- raw HTML omitted -->~1.1，表示&gt;=1.1.0 &lt;1.2.0，可以是同上<!-- raw HTML omitted -->~1，表示&gt;=1.0.0 &lt;2.0.0，可以是1.0.0，1.0.1，1.0.2，&hellip;..，1.0.n，1.1.n，1.2.n，&hellip;..，1.n.n</td>
+</tr>
+<tr>
+<td>^version</td>
+<td>会匹配最新的大版本依赖包<!-- raw HTML omitted -->如果缺少某个版本号，则这个版本号的位置可以任意。<!-- raw HTML omitted -->表示安装1.x.x的最新版本（不低于1.2.3，包括1.3.0），但是不安装2.x.x，也就是说安装时不改变大版本号。<!-- raw HTML omitted -->需要注意的是，如果大版本号为0，则插入号的行为与波浪号相同，这是因为此时处于开发阶段，即使是次要版本号变动，也可能带来程序的不兼容。(主版本)</td>
+<td>^1.1.2 ，表示&gt;=1.1.2 &lt;2.0.0，可以是1.1.2，1.1.3，&hellip;..，1.1.n，1.2.n，&hellip;..，1.n.n<!-- raw HTML omitted -->^0.2.3 ，表示&gt;=0.2.3 &lt;0.3.0，可以是0.2.3，0.2.4，&hellip;..，0.2.n<!-- raw HTML omitted --><!-- raw HTML omitted -->^0.0，表示 &gt;=0.0.0 &lt;0.1.0，可以是0.0.0，0.0.1，&hellip;..，0.0.n</td>
+</tr>
+<tr>
+<td>x-range</td>
+<td>x的位置表示任意版本</td>
+<td>1.2.x，表示可以1.2.0，1.2.1，&hellip;..，1.2.n</td>
+</tr>
+<tr>
+<td>*-range</td>
+<td>任意版本，&ldquo;&ldquo;也表示任意版本</td>
+<td>*，表示&gt;=0.0.0的任意版本</td>
+</tr>
+<tr>
+<td>version1 - version2</td>
+<td>大于等于version1，小于等于version2</td>
+<td>1.1.2 - 1.3.1，表示包括1.1.2和1.3.1以及他们之间的任意版本</td>
+</tr>
+<tr>
+<td>range1||range2</td>
+<td>满足range1或者满足range2，可以多个范围</td>
+<td></td>
+</tr>
+<tr>
+<td>latest</td>
+<td>安装最新的版本</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-08</span>
+                <span>Updated on 2022-08-28</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/packages/AboutVersion/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制" data-hashtags="npm"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/packages/AboutVersion/" data-hashtag="npm"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/packages/AboutVersion/" data-title="npm 语义版本控制"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/">Tags</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/npm/">npm</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
         </section>

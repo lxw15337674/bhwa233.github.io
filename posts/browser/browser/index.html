@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/browser/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-02T17:30:41+08:00" />
-<meta property="article:modified_time" content="2022-08-11T14:29:25+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-08-28T23:42:34+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多进程的浏览器"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/browser\/"
-        },"genre": "posts","keywords": "","wordcount":  1006 ,
-        "url": "\/posts\/browser\/browser\/","datePublished": "2022-08-02T17:30:41+08:00","dateModified": "2022-08-11T14:29:25+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  1613 ,
+        "url": "\/posts\/browser\/browser\/","datePublished": "2022-08-02T17:30:41+08:00","dateModified": "2022-08-28T23:42:34+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">多进程的浏览器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1006 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1613 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -114,6 +114,11 @@
   <ul>
     <li><a href="#多进程优势">多进程优势</a></li>
     <li><a href="#浏览器内核渲染进程">浏览器内核（渲染进程）</a></li>
+    <li><a href="#面试题">面试题</a>
+      <ul>
+        <li><a href="#打开一个页面会有多少个进程">打开一个页面会有多少个进程？</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><p>一个浏览器是多进程，1 个浏览器（Browser）主进程、1 个 GPU 进程、1 个网络（NetWork Service）进程、多个渲染进程和多个插件进程。：</p>
@@ -182,11 +187,22 @@
         data-sizes="auto"
         alt="/images/1460000012925880.png"
         title="image" /></p>
+<h2 id="面试题">面试题</h2>
+<h3 id="打开一个页面会有多少个进程">打开一个页面会有多少个进程？</h3>
+<p>浏览器从关闭状态进行启动，然后新开 1 个页面至少需要 1 个网络进程、1 个浏览器进程、1 个 GPU 进程以及 1 个渲染进程，共 4 个进程；后续再新开标签页，浏览器、网络进程、GPU进程是共享的，不会重新启动，如果2个页面属于同一站点的话，并且从a页面中打开的b页面，那么他们也会共用一个渲染进程，否则新开一个渲染进程。</p>
+<p>最新的 Chrome 浏览器包括：1 个浏览器（Browser）主进程、1 个 GPU 进程、1 个网络（NetWork）进程、多个渲染进程和多个插件进程。</p>
+<ul>
+<li><code>浏览器进程</code>：主要负责界面显示、用户交互、子进程管理，同时提供存储等功能。</li>
+<li><code>渲染进程</code>：核心任务是将 HTML、CSS 和 JavaScript 转换为用户可以与之交互的网页，排版引擎 Blink 和 JavaScript 引擎 V8 都是运行在该进程中，默认情况下，Chrome 会为每个 Tab 标签创建一个渲染进程。出于安全考虑，渲染进程都是运行在沙箱模式下。</li>
+<li><code>GPU 进程</code>：其实，Chrome 刚开始发布的时候是没有 GPU 进程的。而 GPU 的使用初衷是为了实现 3D CSS 的效果，只是随后网页、Chrome 的 UI 界面都选择采用 GPU 来绘制，这使得 GPU 成为浏览器普遍的需求。最后，Chrome 在其多进程架构上也引入了 GPU 进程。</li>
+<li><code>网络进程</code>：主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。</li>
+<li><code>插件进程</code>：主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-11</span>
+                <span>Updated on 2022-08-28</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -203,7 +219,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/css/flex/" class="prev" rel="prev" title="Flex"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Flex</a>
+    <div class="post-nav"><a href="../../../posts/css/flex/" class="prev" rel="prev" title="Flex 弹性布局"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Flex 弹性布局</a>
             <a href="../../../posts/browser/urltorender/" class="next" rel="next" title="从输入URL到页面呈现发生了什么">从输入URL到页面呈现发生了什么<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>

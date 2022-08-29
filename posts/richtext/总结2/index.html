@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>富文本总结（一）：Slate概念 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="富文本总结（一）：Slate概念" />
+        <title>富文本总结（二）：Slate概念 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="富文本总结（二）：Slate概念" />
 <meta property="og:description" content="架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性 Immutab" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/richtext/%E6%80%BB%E7%BB%932/" /><meta property="article:section" content="posts" />
@@ -12,18 +12,18 @@
 <meta property="article:modified_time" content="2022-08-23T09:31:25+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="富文本总结（一）：Slate概念"/>
+<meta name="twitter:title" content="富文本总结（二）：Slate概念"/>
 <meta name="twitter:description" content="架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性 Immutab"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/richtext/%E6%80%BB%E7%BB%932/" /><link rel="prev" href="../../../posts/richtext/%E6%80%BB%E7%BB%931/" /><link rel="next" href="../../../posts/richtext/slateApi/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/richtext/%E6%80%BB%E7%BB%932/" /><link rel="prev" href="../../../posts/richtext/%E6%80%BB%E7%BB%931/" /><link rel="next" href="../../../posts/js/%E4%BA%8B%E4%BB%B6%E6%B5%81/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "富文本总结（一）：Slate概念",
+        "headline": "富文本总结（二）：Slate概念",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -101,7 +101,7 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">富文本总结（一）：Slate概念</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">富文本总结（二）：Slate概念</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E5%AF%8C%E6%96%87%E6%9C%AC/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>富文本</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-23">2022-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3966 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
@@ -321,8 +321,12 @@
 <p>Slate.js 是通过 mark 来标记文本格式，在视图层，开发者可以通过 CSS 或者 <!-- raw HTML omitted --> 这样的 tag 来展示格式化文本。</p>
 <p>Slate.js 根据 mark 类型的不同，将 Text Node 拆分为了若干 Leaf。每个 Leaf 对象含有这些属性：</p>
 <ul>
-<li>text: string：leaf 的文本内容</li>
-<li>mark: Mark：leaf 被标记上的 mark</li>
+<li>
+<p>text: string：leaf 的文本内容</p>
+</li>
+<li>
+<p>mark: Mark：leaf 被标记上的 mark</p>
+</li>
 </ul>
 <h2 id="定位">定位</h2>
 <h3 id="path">path</h3>
@@ -666,7 +670,7 @@
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（一）：Slate概念" data-hashtags="slate.js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-hashtag="slate.js"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（一）：Slate概念"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（一）：Slate概念"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（一）：Slate概念"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（二）：Slate概念" data-hashtags="slate.js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-hashtag="slate.js"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（二）：Slate概念"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（二）：Slate概念"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/richtext/%E6%80%BB%E7%BB%932/" data-title="富文本总结（二）：Slate概念"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -679,7 +683,7 @@
     </div>
 
     <div class="post-nav"><a href="../../../posts/richtext/%E6%80%BB%E7%BB%931/" class="prev" rel="prev" title="富文本总结（一）：前置知识"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>富文本总结（一）：前置知识</a>
-            <a href="../../../posts/richtext/slateApi/" class="next" rel="next" title="Slate transform API 详细说明">Slate transform API 详细说明<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+            <a href="../../../posts/js/%E4%BA%8B%E4%BB%B6%E6%B5%81/" class="next" rel="next" title="DOM事件">DOM事件<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

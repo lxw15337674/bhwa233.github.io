@@ -3,12 +3,44 @@
         <title>Tags - Tag - Bhwa233 blog</title>
         <link>/tags/</link>
         <description>Tags - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>javascript</title>
+    <link>/tags/javascript/</link>
+    <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/javascript/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>slate.js</title>
     <link>/tags/slate.js/</link>
     <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/slate.js/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>设计模式</title>
+    <link>/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Sun, 21 Aug 2022 16:55:21 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>html</title>
+    <link>/tags/html/</link>
+    <pubDate>Sun, 21 Aug 2022 13:29:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/html/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>css</title>
+    <link>/tags/css/</link>
+    <pubDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/css/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -36,14 +68,6 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>javascript</title>
-    <link>/tags/javascript/</link>
-    <pubDate>Sun, 31 Jul 2022 15:31:55 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/javascript/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>react</title>
     <link>/tags/react/</link>
     <pubDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</pubDate>
@@ -57,30 +81,6 @@
     <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/js/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>css</title>
-    <link>/tags/css/</link>
-    <pubDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/css/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>云计算</title>
-    <link>/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</link>
-    <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>理论</title>
-    <link>/tags/%E7%90%86%E8%AE%BA/</link>
-    <pubDate>Thu, 30 Jun 2022 20:11:35 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/%E7%90%86%E8%AE%BA/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

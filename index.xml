@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Typescript语法</title>
@@ -22,7 +22,23 @@
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
 </item>
 <item>
-    <title>富文本总结（一）：Slate概念</title>
+    <title>js的继承</title>
+    <link>/posts/js/%E7%BB%A7%E6%89%BF/</link>
+    <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E7%BB%A7%E6%89%BF/</guid>
+    <description><![CDATA[原型链继承 原理 让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性]]></description>
+</item>
+<item>
+    <title>DOM事件</title>
+    <link>/posts/js/%E4%BA%8B%E4%BB%B6%E6%B5%81/</link>
+    <pubDate>Tue, 23 Aug 2022 22:33:57 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E4%BA%8B%E4%BB%B6%E6%B5%81/</guid>
+    <description><![CDATA[事件流 事件两种模型：捕获和冒泡 流程： 捕获 目标阶段 冒泡 事件捕获流程 从上到下 window -&gt; document -&gt; html -&gt; body-&gt;元素 Event 对象 event.preventDefault() event.stopPropagation() event.stopImmediatePropagation() event.target event.currentTarget 函数 作用 event.stopImmediatePropagation() 能阻止父]]></description>
+</item>
+<item>
+    <title>富文本总结（二）：Slate概念</title>
     <link>/posts/richtext/%E6%80%BB%E7%BB%932/</link>
     <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
     <author>Bhwa233</author>
@@ -38,52 +54,36 @@
     <description><![CDATA[编辑器技术阶段划分 Level 0 代表产品：UEditor、TinyMCE、CKEditor1-4 特点： 依赖了浏览器原生的 contenteditable API 来实现编辑。 以 document.execCommand API 为基础，]]></description>
 </item>
 <item>
-    <title>Promise</title>
-    <link>/posts/js/promise/</link>
-    <pubDate>Thu, 18 Aug 2022 11:02:44 &#43;0800</pubDate>
+    <title>设计模式总结</title>
+    <link>/posts/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Sun, 21 Aug 2022 16:55:21 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/js/promise/</guid>
-    <description><![CDATA[一句话总结Promise 用于解决异步操作结束后的方法执行问题。 诞生原因 最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操]]></description>
+    <guid>/posts/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[设计模式 设计模式 描述 例子 单例模式 一个类只能构造出唯一实例 vuex 工厂模式 对创建对象逻辑的封装 new 创建实例 观察者模式 当一个对象被修改时，自动通知所有依]]></description>
 </item>
 <item>
-    <title>react hook</title>
-    <link>/posts/react/hook/</link>
-    <pubDate>Tue, 16 Aug 2022 18:04:37 &#43;0800</pubDate>
+    <title>Src和href</title>
+    <link>/posts/css/src%E5%92%8Chref/</link>
+    <pubDate>Sun, 21 Aug 2022 13:29:51 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/react/hook/</guid>
-    <description><![CDATA[Hooks之前的复用方式： mixins 缺点： 方法与属性难以追溯，因为可能存在不同的mixins里。 重名的属性与方法会被覆盖。 渲染属性（render Props) 将]]></description>
+    <guid>/posts/css/src%E5%92%8Chref/</guid>
+    <description><![CDATA[href href是Hypertext Reference的简写，表示超文本引用，指向网络资源所在位置。 &lt;a href=&#34;http://www.baidu.com&#34;&gt;&lt;/a&gt; &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;common.css&#34;&gt; src src是source的简写，目的]]></description>
 </item>
 <item>
-    <title>Decorators</title>
-    <link>/posts/typescript/decorators/</link>
-    <pubDate>Tue, 16 Aug 2022 10:48:55 &#43;0800</pubDate>
+    <title>Link标签</title>
+    <link>/posts/css/link%E6%A0%87%E7%AD%BE/</link>
+    <pubDate>Sun, 21 Aug 2022 13:13:13 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/typescript/decorators/</guid>
-    <description><![CDATA[]]></description>
+    <guid>/posts/css/link%E6%A0%87%E7%AD%BE/</guid>
+    <description><![CDATA[概述 link 元素用于链接外部css样式表等其他相关外部资源。 属性 href：指明外部资源文件的路径，即告诉浏览器外部资源的位置 hreflang：说明]]></description>
 </item>
 <item>
-    <title>Slate 总结</title>
-    <link>/posts/richtext/slate/</link>
-    <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
+    <title>script标签</title>
+    <link>/posts/css/script%E6%A0%87%E7%AD%BE/</link>
+    <pubDate>Sun, 21 Aug 2022 13:12:34 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/richtext/slate/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>git创建分支失败</title>
-    <link>/posts/git/createBranchfail/</link>
-    <pubDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/git/createBranchfail/</guid>
-    <description><![CDATA[报错 Invalid reference name 原因 仓库中已经存在了一个分支名称为 {branch} 的分支，就不能在新建一个 {branch}/{subName} 这样的额分支，比如仓库中有个分支叫 bugfix 那么再新建一个 bugfix/fix1 这样的分支就会报]]></description>
-</item>
-<item>
-    <title>Flux、Redux、Vuex、MobX 状态管理</title>
-    <link>/posts/react/store/</link>
-    <pubDate>Tue, 09 Aug 2022 19:25:58 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/store/</guid>
-    <description><![CDATA[状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一]]></description>
+    <guid>/posts/css/script%E6%A0%87%E7%AD%BE/</guid>
+    <description><![CDATA[基本概念 概述 script元素就是通过直接在页面嵌入 JS 代码或者通过加载外部脚本文件。 正常来说浏览器解析文档时遇到script会依次等代码下载、]]></description>
 </item>
 </channel>
 </rss>

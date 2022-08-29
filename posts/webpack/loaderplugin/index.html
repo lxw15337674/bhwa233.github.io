@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/webpack\/loaderplugin\/"
-        },"genre": "posts","keywords": "","wordcount":  291 ,
+        },"genre": "posts","keywords": "","wordcount":  642 ,
         "url": "\/posts\/webpack\/loaderplugin\/","datePublished": "2022-08-01T23:17:54+08:00","dateModified": "2022-08-01T23:17:54+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">webpack 中 loader 和 plugin</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-01">2022-08-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;291 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-01">2022-08-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;642 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -112,17 +112,123 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#loader">loader</a></li>
+    <li><a href="#loader">loader</a>
+      <ul>
+        <li><a href="#常用loaders">常用loaders</a></li>
+      </ul>
+    </li>
     <li><a href="#plugin">plugin</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="loader">loader</h2>
 <p>webpack自身只支持js和json这两种格式的文件，对于其他文件需要通过loader将其转换为commonJS规范的文件后，webpack才能解析到。</p>
 <p>它是一个转换器，将A文件进行编译成B文件，比如：将A.less转换为A.css，单纯的文件转换过程。</p>
+<h3 id="常用loaders">常用loaders</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>babel-loader</td>
+<td>转换js新特性语法</td>
+</tr>
+<tr>
+<td>stylus-loader</td>
+<td>将stylus文件转换成css</td>
+</tr>
+<tr>
+<td>css-loader</td>
+<td>将css文件打包到js中</td>
+</tr>
+<tr>
+<td>style-loader</td>
+<td>将 css 代码以<!-- raw HTML omitted -->标签的形式插入到 html 中。</td>
+</tr>
+<tr>
+<td>ts-loader</td>
+<td>将ts转换为js</td>
+</tr>
+<tr>
+<td>file-loader</td>
+<td>生成文件的文件名就是文件内容的 MD5 哈希值并会保留所引用资源的原始扩展名</td>
+</tr>
+<tr>
+<td>url-loader</td>
+<td>把图片以Base64格式打包到bundle.js文件中</td>
+</tr>
+<tr>
+<td>raw-loader</td>
+<td>将文件以字符串的形式导入</td>
+</tr>
+<tr>
+<td>thread-loader</td>
+<td>多进程打包js和css</td>
+</tr>
+<tr>
+<td>image-webpack-loader</td>
+<td>压缩图片大小</td>
+</tr>
+<tr>
+<td>vue-loader</td>
+<td>vue文件的一个加载器，跟template/js/style转换成js模块。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>编写原则</strong>:</p>
+<ul>
+<li><strong>单一原则</strong>: 每个 Loader 只做一件事；</li>
+<li><strong>链式调用</strong>: Webpack 会按顺序链式调用每个 Loader；</li>
+<li><strong>统一原则</strong>: 遵循 Webpack 制定的设计规则和结构，输入与输出均为字符串，各个 Loader 完全独立，即插即用；</li>
+</ul>
 <h2 id="plugin">plugin</h2>
 <p>是用于在webpack打包编译过程里，在对应的事件节点里执行自定义操作，比如资源管理、bundle文件优化等操作。</p>
 <p>plugin是一个扩展器，它丰富了webpack本身，针对是loader结束后，webpack打包的整个过程，它并不直接操作文件，而是基于事件机制工作，会监听webpack打包过程中的某些节点，执行广泛的任务</p>
-<p>todo:https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/308</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>progress-bar-webpack-plugin</td>
+<td>编译进度条</td>
+</tr>
+<tr>
+<td>compression-webpack-plugin</td>
+<td>gzip 压缩</td>
+</tr>
+<tr>
+<td>happypack</td>
+<td>多线程处理</td>
+</tr>
+<tr>
+<td>webpack-merge</td>
+<td>配置合并</td>
+</tr>
+<tr>
+<td>splitChunksPlugin</td>
+<td>代码分隔</td>
+</tr>
+<tr>
+<td>CommonsChunkPlugin</td>
+<td>代码分割</td>
+</tr>
+<tr>
+<td>DefinePlugin</td>
+<td>定义全局变量</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>参考</p>
+<p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/308" target="_blank" rel="noopener noreffer "> webpack 中 loader 和 plugin 的区别是什么</a></p>
+</blockquote>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -144,8 +250,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/http/http/" class="prev" rel="prev" title="Http"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Http</a>
-            <a href="../../../posts/css/flex/" class="next" rel="next" title="Flex">Flex<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/http/http/" class="prev" rel="prev" title="Http各版本"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Http各版本</a>
+            <a href="../../../posts/css/flex/" class="next" rel="next" title="Flex 弹性布局">Flex 弹性布局<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

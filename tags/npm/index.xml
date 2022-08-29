@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>npm - Tag - Bhwa233 blog</title>
+        <link>/tags/npm/</link>
+        <description>npm - Tag - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 06 Jul 2022 15:29:43 &#43;0800</lastBuildDate><atom:link href="/tags/npm/" rel="self" type="application/rss+xml" /><item>
+    <title>npm 语义版本控制</title>
+    <link>/posts/packages/AboutVersion/</link>
+    <pubDate>Wed, 06 Jul 2022 15:29:43 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/packages/AboutVersion/</guid>
+    <description><![CDATA[版本号 版本一般被分解 3 个数字：x.y.z。例如3.14.1, 0.42.0, 2.7.18。 major主版本号：做了不兼容的 API 修改。 minor次版本号：做了]]></description>
+</item>
+</channel>
+</rss>
