@@ -9,6 +9,8 @@ typora-root-url: ..\..\static
 
 
 
+[分类总结](前端该如何准备数据结构和算法？)
+
 ## 双指针
 
 数组和链表算法主要都是使用双指针，双指针分为两类：
@@ -169,7 +171,7 @@ var levelOrder = function (root) {
 
 
 
-## 回溯
+## 回溯（DFS）
 
 回溯算法就是多叉树的遍历问题。
 
@@ -192,3 +194,132 @@ def backtrack(...):
 使用场景：
 
 1. 排列/组合/子集
+
+
+
+## BFS
+
+本质上就是一幅「图」，让你从一个起点，走到终点，问最短路径
+
+### BFS 相对 DFS 区别：
+
+**方式：**
+
+DFS是深度遍历，通过递归，遍历所有路径才能找到。
+
+BFS是广度遍历，通过队列，遍历当前路径。不满足条件，才会进行下一层路径遍历，所以BFS 找到的路径一定是最短的。
+
+**空间复杂度：**
+
+DFS是递归堆栈，最坏情况就是树的高度，也就是 `O(logN)`，空间复杂度低。
+
+BFS是队列，队列中需要存储一层的所有节点，也就是 `O(N)`，空间复杂度高。
+
+### 使用场景
+
+找最短路径
+
+解题思路：
+
+```
+// 计算从起点 start 到终点 target 的最近距离
+int BFS(Node start, Node target) {
+    Queue<Node> q; // 核心数据结构
+    Set<Node> visited; // 避免走回头路
+    q.push(start); // 将起点加入队列
+    visited.add(start);
+    int step = 0; // 记录扩散的步数
+
+    while (q not empty) {
+        int sz = q.size();
+        /* 将当前队列中的所有节点向四周扩散 */
+        for (int i = 0; i < sz; i++) {
+            Node cur = q.poll();
+            /* 划重点：这里判断是否到达终点 */
+            if (cur is target)
+                return step;
+            /* 将 cur 的相邻节点加入队列 */
+            for (Node x : cur.adj()) {
+                if (x not in visited) {
+                    q.offer(x);
+                    visited.add(x);
+                }
+            }
+        }
+        /* 划重点：更新步数在这里 */
+        step++;
+    }
+}
+```
+
+### 双向BFS优化
+
+**原理**
+
+传统的 BFS 框架就是从起点开始向四周扩散，遇到终点时停止；而双向 BFS 则是从起点和终点同时开始扩散，当两边有交集的时候停止。按照传统 BFS 算法的策略，会把整棵树的节点都搜索一遍，最后找到 `target`；而双向 BFS 其实只遍历了半棵树就出现了交集，也就是找到了最短距离。
+
+**局限**
+
+必须知道终点在哪里。
+
+
+
+## 二分查找
+
+
+
+思路
+
+```
+int binarySearch(int[] nums, int target) {
+    int left = 0, right = ...;
+
+    while(...) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            ...
+        } else if (nums[mid] < target) {
+            left = ...
+        } else if (nums[mid] > target) {
+            right = ...
+        }
+    }
+    return ...;
+}
+```
+
+
+
+## 滑动窗口
+
+定义左右指针。先移动右指针，每当满足收缩条件时，就移动左指针，直到不满足条件后，再重新开始移动右指针。
+
+使用场景：
+
+- 查找子串
+
+思路
+
+```javascript
+var findAnagrams = function (s) {
+  let left = 0, right = 0;
+  while (right < s.length) {
+     // 将要移入窗口的字符
+    const rightChar = s[right]
+    //扩大窗口
+    right++
+    // 进行窗口内数据更新
+    // ....  
+    // 判断左侧窗口是否需要收缩
+    while (condition) {
+      // 将要移出的字符
+      const leftChar = s[left]
+      // 缩小窗口
+      left++
+      // 进行窗口内数据更新
+     
+    }
+  }
+};
+```
+

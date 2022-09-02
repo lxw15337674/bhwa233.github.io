@@ -2,8 +2,8 @@
 title: "元素分类"
 date: 2022-08-08T15:52:11+08:00
 draft: false
-tags: [""]
-categories: [""]
+tags: ["css"]
+categories: ["css"]
 typora-root-url: ..\..\static
 ---
 

@@ -7,11 +7,11 @@ categories: [""]
 typora-root-url: ..\..\static
 ---
 
+![image-20220827220834833](/../../static/images/image-20220827220834833.png)
+
 ## CSRF
 
-CSRF即Cross-site request forgery(跨站请求伪造)。CSRF攻击主要是利用自动发送的Cookie，借助Cookie来模拟用户的身份。
-
-钓鱼网站。
+CSRF即Cross-site request forgery(跨站请求伪造)。CSRF攻击主要是利用自动发送的Cookie，借助Cookie来模拟用户的身份
 
 例如：
 

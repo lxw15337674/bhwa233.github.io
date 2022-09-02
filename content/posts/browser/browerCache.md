@@ -164,7 +164,7 @@ Last-Modified: Fri, 22 Jul 2016 01:47:00 GMT
 
 ![img](https:////upload-images.jianshu.io/upload_images/3174701-bb7148a4431ccda1?imageMogr2/auto-orient/strip|imageView2/2/w/438/format/webp)
 
-image
+
 
 #### 但是 Last-Modified 存在一些弊端：
 
