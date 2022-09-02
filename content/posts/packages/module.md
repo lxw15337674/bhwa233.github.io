@@ -12,7 +12,7 @@ typora-root-url: ..\..\static
 |                   | 无模块化 | CommonJS规范 | AMD规范                        | CMD规范  | ES6模块化 |
 | ----------------- | -------- | ------------ | ------------------------------ | -------- | --------- |
 | 适用              |          | 服务端       | 浏览器端                       | 浏览器端 | 浏览器端  |
-| 加载方式          |          | 同步加载     | 异步加载、模块开始加载所有依赖 | 按需加载 |           |
+| 加载方式          |          | 同步加载     | 异步加载、模块开始加载所有依赖 | 按需加载 | 异步加载  |
 | 实现库            |          |              | requireJs                      | seajs    |           |
 | 来源              |          | 前端社区     | 前端社区                       | 前端社区 | 官方      |
 | 是否需要bebal编译 | 否       | 否           | 否                             | 否       | 是        |
@@ -199,10 +199,6 @@ UMD的实现很简单，先判断是否支持NodeJS模块格式（exports是否�
 - 不再需要UMD模块格式，将来服务器和浏览器都会支持 ES6 模块格式。
 - 将来浏览器的新 API 就能用模块格式提供，不再必须做成全局变量或者navigator对象的属性
 
-缺点：
-
-- 浏览器暂不支持，需要babell将不被支持的import编译为当前受到广泛支持的 require 
-
 #### 用途
 
 1. 实现按需加载
@@ -235,7 +231,7 @@ CommonJS 是一种模块规范，最初被应用于 Nodejs，成为 Nodejs 的�
 - CommonJs 是动态语法可以写在判断里，ES6 Module 静态语法只能写在顶层
 - CommonJs 的 this 是当前模块，ES6 Module的 this 是 undefined
 
-![image](https://mmbiz.qpic.cn/mmbiz/vO7l6lQ0BwqmG300mRMj1zE3n6ZFHk05bLbUMkqUBmllBL9tgmKWVLq13IZrs2BNg3yxlWw43Bvrd0rjBr3olg/640?wx_fmt=other&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
 
 ## 参考
 
