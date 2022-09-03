@@ -3,7 +3,15 @@
         <title>Tags - Tag - Bhwa233 blog</title>
         <link>/tags/</link>
         <description>Tags - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>js</title>
+    <link>/tags/js/</link>
+    <pubDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/js/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>javascript</title>
     <link>/tags/javascript/</link>
     <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
@@ -73,14 +81,6 @@
     <pubDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/react/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>js</title>
-    <link>/tags/js/</link>
-    <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/js/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

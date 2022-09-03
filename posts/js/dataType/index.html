@@ -4,32 +4,32 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>状态码 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="状态码" />
-<meta property="og:description" content="分类 状态码分类 1XX：消息状态码。 2XX：成功状态码。 3XX：重定向状态码。 4XX：客户端错误状态码。 5XX：服务端错误状态码。 常用 1xx 临时响" />
+        <title>javscript数据类型 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="javscript数据类型" />
+<meta property="og:description" content="基本数据类型 7种： Undefined Null Boolean String Number BigInt(主要用的大数据。number最大值2的53次方，超过只能使用BigInt) Symbol NaN 属于 number 类型，并且 NaN 不" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/http/statusCode/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-08-08T13:46:31+08:00" />
-<meta property="article:modified_time" content="2022-08-11T14:29:25+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="og:url" content="/posts/js/dataType/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-07-19T09:45:56+08:00" />
+<meta property="article:modified_time" content="2022-09-03T18:08:59+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="状态码"/>
-<meta name="twitter:description" content="分类 状态码分类 1XX：消息状态码。 2XX：成功状态码。 3XX：重定向状态码。 4XX：客户端错误状态码。 5XX：服务端错误状态码。 常用 1xx 临时响"/>
+<meta name="twitter:title" content="javscript数据类型"/>
+<meta name="twitter:description" content="基本数据类型 7种： Undefined Null Boolean String Number BigInt(主要用的大数据。number最大值2的53次方，超过只能使用BigInt) Symbol NaN 属于 number 类型，并且 NaN 不"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/http/statusCode/" /><link rel="prev" href="../../../posts/interview/" /><link rel="next" href="../../../posts/http/get_post/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/js/dataType/" /><link rel="prev" href="../../../posts/external/" /><link rel="next" href="../../../posts/js/getDataType/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "状态码",
+        "headline": "javscript数据类型",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/http\/statusCode\/"
-        },"genre": "posts","keywords": "","wordcount":  844 ,
-        "url": "\/posts\/http\/statusCode\/","datePublished": "2022-08-08T13:46:31+08:00","dateModified": "2022-08-11T14:29:25+08:00","publisher": {
+            "@id": "\/posts\/js\/dataType\/"
+        },"genre": "posts","keywords": "","wordcount":  624 ,
+        "url": "\/posts\/js\/dataType\/","datePublished": "2022-07-19T09:45:56+08:00","dateModified": "2022-09-03T18:08:59+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,9 +101,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">状态码</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">javscript数据类型</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-08">2022-08-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;844 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-19">2022-07-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;624 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -112,212 +112,127 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#分类">分类</a></li>
-    <li><a href="#常用">常用</a>
+    <li><a href="#基本数据类型">基本数据类型</a>
       <ul>
-        <li><a href="#1xx-临时响应表示接受的请求正在处理">1xx 临时响应，表示接受的请求正在处理</a></li>
-        <li><a href="#2xx">2xx</a></li>
-        <li><a href="#3xx">3XX</a></li>
-        <li><a href="#4xx">4XX</a></li>
-        <li><a href="#5xx">5XX</a></li>
+        <li><a href="#特点">特点</a></li>
+        <li><a href="#引用数据类型">引用数据类型</a></li>
+        <li><a href="#特点-1">特点</a></li>
+        <li><a href="#null-和-undefined-区别">null 和 undefined 区别</a></li>
       </ul>
     </li>
-    <li><a href="#完整表">完整表</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="分类">分类</h2>
-<p>状态码分类</p>
+            </div><div class="content" id="content"><h2 id="基本数据类型">基本数据类型</h2>
+<p>7种：</p>
 <ul>
 <li>
-<p>1XX：消息状态码。</p>
+<p>Undefined</p>
 </li>
 <li>
-<p>2XX：成功状态码。</p>
+<p>Null</p>
 </li>
 <li>
-<p>3XX：重定向状态码。</p>
+<p>Boolean</p>
 </li>
 <li>
-<p>4XX：客户端错误状态码。</p>
+<p>String</p>
 </li>
 <li>
-<p>5XX：服务端错误状态码。</p>
+<p>Number</p>
+</li>
+<li>
+<p>BigInt(主要用的大数据。number最大值2的53次方，超过只能使用BigInt)</p>
+</li>
+<li>
+<p>Symbol</p>
+<blockquote>
+<p>NaN 属于 number 类型，并且 NaN 不等于自身。
+bigint 理论上属于 number 类型，但在 typeof 中是 <code>bigint</code></p>
+</blockquote>
 </li>
 </ul>
-<h2 id="常用">常用</h2>
-<h3 id="1xx-临时响应表示接受的请求正在处理">1xx 临时响应，表示接受的请求正在处理</h3>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>概括</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>100</td>
-<td>继续</td>
-<td>继续。客户端应继续其请求</td>
-</tr>
-<tr>
-<td>101</td>
-<td>切换协议</td>
-<td>切换协议。服务器根据客户端的请求切换协议。只能切换到更高级的协议，例如，切换到HTTP的新版本协议</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2xx">2xx</h3>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>概括</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>成功</td>
-<td></td>
-</tr>
-<tr>
-<td>201</td>
-<td>已创建</td>
-<td>资源已创建，服务器已确认。</td>
-</tr>
-<tr>
-<td>204</td>
-<td>没有内容</td>
-<td>该操作请求成功，但没有返回任何内容。对于不需要响应主体的操作很有用，例如 DELETE 操作。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="3xx">3XX</h3>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>概括</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>301</td>
-<td>永久重定向</td>
-<td>表示请求的资源已经永久的搬到了其他位置。（我们访问 <a href="http://www.baidu.com" target="_blank" rel="noopener noreffer ">http://www.baidu.com</a> 会跳转到 <a href="https://www.baidu.com" target="_blank" rel="noopener noreffer ">https://www.baidu.com</a>，发送请求之后，就会返回301状态码，然后返回一个location，提示新的地址，浏览器就会拿着这个新的地址去访问。）</td>
-</tr>
-<tr>
-<td>302</td>
-<td>临时重定向</td>
-<td>临时重定向，表示请求的资源临时搬到了其他位置。（比如未登陆的用户访问用户中心重定向到登录页面。）</td>
-</tr>
-<tr>
-<td>303</td>
-<td>查找其他</td>
-<td>表示资源存在着另一个 URL，应使用 GET 方法获取资源。</td>
-</tr>
-<tr>
-<td>304</td>
-<td>协商缓存</td>
-<td>表示自从上次请求后，请求的网页未修改过，请客户端使用本地缓存。服务器返回此响应时，不会返回网页内容</td>
-</tr>
-</tbody>
-</table>
-<pre tabindex="0"><code>当 301、302、303 响应状态码返回时，几乎所有的浏览器都会把 POST 改成 GET，并删除请求报文内的主体，之后请求会自动再次发送 301、302 标准是禁止将 POST 方法改变成 GET 方法的，但实际使用时大家都会这么做
-</code></pre><h3 id="4xx">4XX</h3>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>概括</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>400</td>
-<td>错误请求</td>
-<td>客户端请求有语法错误，服务器无法理解。</td>
-</tr>
-<tr>
-<td>401</td>
-<td>未授权</td>
-<td>请求未经授权，（表示未登录）</td>
-</tr>
-<tr>
-<td>403</td>
-<td>拒绝请求</td>
-<td>服务器收到请求，但是拒绝提供服务。（登录了没有权限）</td>
-</tr>
-<tr>
-<td>404</td>
-<td>未找到</td>
-<td>服务器找不到请求的网页。</td>
-</tr>
-<tr>
-<td>405</td>
-<td>请求方法错误</td>
-<td>请求方法不正确，（例如应为 get 请求，发的 post 请求）</td>
-</tr>
-<tr>
-<td>408</td>
-<td>请求超时</td>
-<td>服务器等待客户端发送的请求时间过长，超时。</td>
-</tr>
-</tbody>
-</table>
-<h3 id="5xx">5XX</h3>
-<table>
-<thead>
-<tr>
-<th>状态码</th>
-<th>概括</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>500</td>
-<td>服务器错误。</td>
-<td></td>
-</tr>
-<tr>
-<td>501</td>
-<td>不支持请求的功能。</td>
-<td></td>
-</tr>
-<tr>
-<td>502</td>
-<td>网关错误，服务器作为网关或代理，从上游服务器收到无效响应。</td>
-<td></td>
-</tr>
-<tr>
-<td>503</td>
-<td>服务器目前不可用（由于超载或停机维护）</td>
-<td></td>
-</tr>
-<tr>
-<td>505</td>
-<td>服务器不支持请求中所用的 HTTP 协议版本。</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id="完整表">完整表</h2>
-<p><a href="https://tool.oschina.net/commons?type=5" target="_blank" rel="noopener noreffer ">https://tool.oschina.net/commons?type=5</a></p>
+<h3 id="特点">特点</h3>
+<ol>
+<li>
+<p>值是不可变的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">&#39;java&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">name</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span> <span class="c1">// 输出 &#39;JAVA&#39;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span> <span class="c1">// 输出  &#39;java&#39;
+</span></span></span></code></pre></div></li>
+<li>
+<p>存放在栈内存</p>
+</li>
+</ol>
+<p>原始数据类型的数据占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储。</p>
+<ol start="3">
+<li>
+<p>值的比较</p>
+<p>可以正常比较。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">==</span> <span class="nx">b</span><span class="p">);</span>    <span class="c1">// true
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">===</span> <span class="nx">b</span><span class="p">);</span>   <span class="c1">// false
+</span></span></span></code></pre></div></li>
+</ol>
+<h3 id="引用数据类型">引用数据类型</h3>
+<p>6种：</p>
+<ul>
+<li>Object(普通类型)</li>
+<li>Array(数组对象)</li>
+<li>RegExp(正则对象)</li>
+<li>Date(日期对象)</li>
+<li>Math(数据对象)</li>
+<li>Function(函数对象)</li>
+</ul>
+<h3 id="特点-1">特点</h3>
+<ol>
+<li>
+<p>值是动态可变的</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">a</span><span class="o">=</span><span class="p">{</span><span class="nx">age</span><span class="o">:</span><span class="mi">20</span><span class="p">}</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="nx">a</span><span class="p">.</span><span class="nx">age</span><span class="o">=</span><span class="mi">21</span><span class="err">；</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">age</span><span class="p">)</span><span class="c1">//21
+</span></span></span></code></pre></div></li>
+<li>
+<p>栈内存中存储指针，堆内存存储实体</p>
+<p>引用数据类型的数据大小不固定，占据空间大，如果存储在栈中，将会影响程序运行的性能；所以引用数据类型在栈中仅存储了指针，该指针指向堆中该实体的起始地址。</p>
+<p><strong>当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。</strong></p>
+</li>
+<li>
+<p>赋值只会赋值指针</p>
+<p>当将引用类型的值赋给另一个变量时，仅会复制数据的指针。改变其中任何一个变量，都会相互影响</p>
+<pre tabindex="0"><code>var a={age:20};
+var b=a;
+b.age=21;
+console.log(a.age==b.age)//true
+</code></pre></li>
+</ol>
+<h3 id="null-和-undefined-区别">null 和 undefined 区别</h3>
+<ul>
+<li>null 表示对象的值未设定。
+<ul>
+<li>作为对象原型链的终点。</li>
+<li>作为标识，表示变量未指向任何对象。</li>
+</ul>
+</li>
+<li>undefined 表示没有被定义。
+<ul>
+<li>定义了形参，没有传实参，显示 undefined。</li>
+<li>对象属性名不存在时，显示 undefined。</li>
+<li>函数没有写返回值，即没有写 return，返回 undefined</li>
+<li>写了 return，但没有赋值，拿到的是 undefined</li>
+</ul>
+</li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-11</span>
+                <span>Updated on 2022-09-03</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/http/statusCode/" data-title="状态码" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/http/statusCode/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/http/statusCode/" data-title="状态码"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/http/statusCode/" data-title="状态码"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/http/statusCode/" data-title="状态码"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/js/dataType/" data-title="javscript数据类型" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/js/dataType/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/js/dataType/" data-title="javscript数据类型"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/js/dataType/" data-title="javscript数据类型"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/js/dataType/" data-title="javscript数据类型"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
@@ -329,8 +244,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../../posts/interview/" class="prev" rel="prev" title="面试题"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>面试题</a>
-            <a href="../../../posts/http/get_post/" class="next" rel="next" title="get与post请求区别">get与post请求区别<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/external/" class="prev" rel="prev" title="外部文章"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>外部文章</a>
+            <a href="../../../posts/js/getDataType/" class="next" rel="next" title="判断数据类型">判断数据类型<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">

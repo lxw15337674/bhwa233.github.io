@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/browerCache/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-28T23:28:42+08:00" />
-<meta property="article:modified_time" content="2022-08-28T23:42:34+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-09-03T18:08:59+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入理解浏览器的缓存机制(引用)"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/browerCache\/"
-        },"genre": "posts","keywords": "","wordcount":  6191 ,
-        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2022-08-28T23:42:34+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  6217 ,
+        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2022-09-03T18:08:59+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">深入理解浏览器的缓存机制(引用)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6191 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6217 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;13 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -193,10 +193,10 @@
 <p><img
         class="lazyload"
         src="../../../svg/loading.min.svg"
-        data-src="../../../images/image-20220728233834772.png"
-        data-srcset="../../../images/image-20220728233834772.png, ../../../images/image-20220728233834772.png 1.5x, ../../../images/image-20220728233834772.png 2x"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/image-20220728233834772.png"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/image-20220728233834772.png, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/image-20220728233834772.png 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/image-20220728233834772.png 2x"
         data-sizes="auto"
-        alt="/images/image-20220728233834772.png"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/image-20220728233834772.png"
         title="image-20220728233834772" /></p>
 <p>内存缓存中有一块重要的缓存资源是preloader相关指令（例如<code>&lt;link rel=&quot;prefetch&quot;&gt;</code>）下载的资源。总所周知preloader的相关指令已经是页面优化的常见手段之一，它可以一边解析js/css文件，一边网络请求下一个资源。</p>
 <p>需要注意的事情是，<strong>内存缓存在缓存资源时并不关心返回资源的HTTP缓存头Cache-Control是什么值，同时资源的匹配也并非仅仅是对URL做匹配，还可能会对Content-Type，CORS等其他特征做校验</strong>。</p>
@@ -245,7 +245,10 @@
 </ul>
 <p>以上两点结论就是浏览器缓存机制的关键，它确保了每个请求的缓存存入与读取，只要我们再理解浏览器缓存的使用规则，那么所有的问题就迎刃而解了，本文也将围绕着这点进行详细分析。为了方便大家理解，这里我们根据是否需要向服务器重新发起HTTP请求将缓存过程分为两个部分，分别是强缓存和协商缓存。</p>
 <h2 id="四强缓存">四、强缓存</h2>
-<p><strong>强缓存：不会向服务器发送请求，直接从缓存中读取资源，在chrome控制台的Network选项中可以看到该请求返回200的状态码，并且Size显示from disk cache或from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。</strong></p>
+<p>**不会向服务器发送请求，直接从缓存中读取资源，**在chrome控制台的Network选项中可以看到该请求返回200的状态码，并且Size显示from disk cache或from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。</p>
+<blockquote>
+<p>HTML一般不做强缓存，保证页面始终引入最新的资源。</p>
+</blockquote>
 <h3 id="1expires">1.Expires</h3>
 <p><strong>缓存过期时间，用来指定资源到期的时间，是服务器端的具体的时间点</strong>。也就是说，Expires=max-age + 请求时间，需要和Last-modified结合使用。Expires是Web服务器响应消息头字段，在响应http请求时告诉浏览器在过期时间前浏览器可以直接从浏览器缓存取数据，而无需再次请求。</p>
 <p><strong>Expires 是 HTTP/1 的产物，受限于本地时间，如果修改了本地时间，可能会造成缓存失效</strong>。<code>Expires: Wed, 22 Oct 2018 08:41:00 GMT</code>表示资源会在 Wed, 22 Oct 2018 08:41:00 GMT 后过期，需要再次请求。</p>
@@ -393,7 +396,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-28</span>
+                <span>Updated on 2022-09-03</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>

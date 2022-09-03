@@ -3,7 +3,15 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Sep 2022 17:18:32 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo lovelt的搜索坑</title>
+    <link>/posts/hugo/</link>
+    <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/hugo/</guid>
+    <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
+</item>
+<item>
     <title>Typescript语法</title>
     <link>/posts/typescript/tool/</link>
     <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
@@ -18,6 +26,30 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>网络</title>
+    <link>/posts/%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Sat, 03 Sep 2022 17:18:32 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[TCP/IP TCP ：传输通道 相当于路 HTTP：传输协议 相当于快递小哥]]></description>
+</item>
+<item>
+    <title>this指向问题</title>
+    <link>/posts/js/this/</link>
+    <pubDate>Sat, 03 Sep 2022 16:15:11 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/this/</guid>
+    <description><![CDATA[总结 this始终指向调用它的那个对象。 场景： 给元素的某个行为绑定方法，当事件行为触发，方法中的this是元素本身。 构造函数体中的this是当]]></description>
+</item>
+<item>
+    <title>js中三类For循环</title>
+    <link>/posts/js/for%E5%BE%AA%E7%8E%AF/</link>
+    <pubDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/for%E5%BE%AA%E7%8E%AF/</guid>
+    <description><![CDATA[总结 性能对比： for 与 while 基础 var 循环的时候，两者性能差不多 let arr = new Array(9999999).fill(0); console.time(&#39;for&#39;) for(var i = 0; i &lt; arr.length; i++) {} console.timeEnd(&#39;for&#39;) // for: 8.13818359375 ms console.time(&#39;while&#39;) var i = 0; while(i &lt; arr.length) { i++; } console.timeEnd(&#39;while&#39;) // while: 8.020751953125 ms var 没有块级作用域]]></description>
 </item>
 <item>
     <title>js的继承</title>
@@ -130,38 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/react/hook/</guid>
     <description><![CDATA[Hooks之前的复用方式 mixins 缺点： 方法与属性难以追溯，因为可能存在不同的mixins里。 多个 Mixin 之间可能产生冲突,重名的属性与方法会被覆盖。 渲染]]></description>
-</item>
-<item>
-    <title>Decorators</title>
-    <link>/posts/typescript/decorators/</link>
-    <pubDate>Tue, 16 Aug 2022 10:48:55 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/typescript/decorators/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Slate 总结</title>
-    <link>/posts/richtext/slate/</link>
-    <pubDate>Fri, 12 Aug 2022 11:11:21 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/richtext/slate/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>git创建分支失败</title>
-    <link>/posts/git/createBranchfail/</link>
-    <pubDate>Thu, 11 Aug 2022 11:01:51 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/git/createBranchfail/</guid>
-    <description><![CDATA[报错 Invalid reference name 原因 仓库中已经存在了一个分支名称为 {branch} 的分支，就不能在新建一个 {branch}/{subName} 这样的额分支，比如仓库中有个分支叫 bugfix 那么再新建一个 bugfix/fix1 这样的分支就会报]]></description>
-</item>
-<item>
-    <title>Flux、Redux、Vuex、MobX 状态管理</title>
-    <link>/posts/react/store/</link>
-    <pubDate>Tue, 09 Aug 2022 19:25:58 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/store/</guid>
-    <description><![CDATA[状态管理的解决思路是：把组件之间需要共享的状态抽取出来，遵循特定的约定，统一来管理，让状态的变化可以预测。 store模式 简单模式 把状态存到一]]></description>
 </item>
 </channel>
 </rss>

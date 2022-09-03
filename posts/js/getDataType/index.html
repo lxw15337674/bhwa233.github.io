@@ -7,17 +7,17 @@
         <title>判断数据类型 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="判断数据类型" />
 <meta property="og:description" content="总结 Object.prototype.toString.call(obj)最准确。 typeof 只能检测基本数据类型。 利用 typeof 来判断number, string, object, boolean, function," />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/getDataType/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="/posts/js/getDataType/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-19T19:39:22+08:00" />
-<meta property="article:modified_time" content="2022-07-26T23:59:51+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-09-03T18:08:59+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="判断数据类型"/>
 <meta name="twitter:description" content="总结 Object.prototype.toString.call(obj)最准确。 typeof 只能检测基本数据类型。 利用 typeof 来判断number, string, object, boolean, function,"/>
 <meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../apple-touch-icon.png"><link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../site.webmanifest"><link rel="canonical" href="../../posts/getDataType/" /><link rel="prev" href="../../posts/dataType/" /><link rel="next" href="../../posts/debounce/" /><link rel="stylesheet" href="../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/js/getDataType/" /><link rel="prev" href="../../../posts/js/dataType/" /><link rel="next" href="../../../posts/debounce/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,9 +27,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "\/posts\/getDataType\/"
-        },"genre": "posts","keywords": "","wordcount":  1312 ,
-        "url": "\/posts\/getDataType\/","datePublished": "2022-07-19T19:39:22+08:00","dateModified": "2022-07-26T23:59:51+08:00","publisher": {
+            "@id": "\/posts\/js\/getDataType\/"
+        },"genre": "posts","keywords": "","wordcount":  1285 ,
+        "url": "\/posts\/js\/getDataType\/","datePublished": "2022-07-19T19:39:22+08:00","dateModified": "2022-09-03T18:08:59+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -42,10 +42,10 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="../../posts/"> 文章 </a><a class="menu-item" href="../../tags/"> 标签 </a><a class="menu-item" href="../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
                         <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
                             <i class="fas fa-search fa-fw" aria-hidden="true"></i>
@@ -66,7 +66,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -88,7 +88,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Cancel
                     </a>
-                </div><a class="menu-item" href="../../posts/" title="">文章</a><a class="menu-item" href="../../tags/" title="">标签</a><a class="menu-item" href="../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
@@ -102,8 +102,8 @@
             <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">判断数据类型</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-19">2022-07-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1312 words&nbsp;
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/javascript/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>javascript</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-19">2022-07-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1285 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -130,6 +130,7 @@
         <li><a href="#原理-2">原理</a></li>
         <li><a href="#语法-1">语法</a></li>
         <li><a href="#弊端">弊端</a></li>
+        <li><a href="#源码实现">源码实现</a></li>
       </ul>
     </li>
     <li><a href="#constructor">constructor</a>
@@ -154,10 +155,10 @@
 </ul>
 <h2 id="objectprototypetostringcallobj">Object.prototype.toString.call(obj)</h2>
 <h3 id="原理">原理</h3>
-<p>返回 obj 的类型字符串。</p>
+<p>返回 obj 所属类的信息。</p>
 <ul>
 <li>基本类型数据原型上的toString方法都是把当前的数据类型转换为字符串的类型（它们的作用仅仅是用来转换为字符串的）</li>
-<li>引用类型数据上的toString它的作用是返回当前方法执行的主体（方法中的this）所属类的详细信息即&quot;[object Object]&quot;,其中第一个object代表当前实例是对象数据类型的(这个是固定死的)，第二个Object代表的是this所属的类是Object。</li>
+<li>引用类型数据上的toString返回当前方法执行的主体（方法中的this）所属类的信息即<code>[object Object]</code>=。</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">;</span>   <span class="c1">// [object String]
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">;</span>    <span class="c1">// [object Number]
@@ -175,8 +176,8 @@
 <pre tabindex="0"><code>Object.prototype.toString.call(a).split(&#39; &#39;)[1].slice(0,-1).toLowerCase()
 </code></pre><h2 id="typeof">typeof</h2>
 <h3 id="原理-1">原理</h3>
-<p>typeof 操作符返回一个字符串，只是未经计算的操作数的类型。</p>
-<p>对于原始类型来说，除了 null 都可以调用 typeof 显示正确的类型。</p>
+<p>基于js底层存储变量数据类型的值（二进制）进行检测</p>
+<blockquote>
 <p>js 在底层存储变量的时候，会在变量的机器码的低位 1-3 位存储其类型信息</p>
 <ul>
 <li>000：对象</li>
@@ -184,9 +185,13 @@
 <li>100：字符串</li>
 <li>110：布尔</li>
 <li>1：整数</li>
-<li>所有机器码均为 0：null</li>
+<li>所有机器码均为 0：null-</li>
 <li>−2^30 ：undefined</li>
 </ul>
+</blockquote>
+<blockquote>
+<p>对于原始类型来说，除了 null 都可以调用 typeof 显示正确的类型。null会被检测为object，是js底层的一个bug。</p>
+</blockquote>
 <h3 id="语法">语法</h3>
 <p>typeof检测null是一个对象</p>
 <p>typeof检测函数返回时一个function</p>
@@ -203,7 +208,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">typeof</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">//object 
 </span></span></span></code></pre></div><h2 id="instanceof">instanceof</h2>
 <h3 id="原理-2">原理</h3>
-<p>instanceof 是用来判断A是否为B的实例，表达式为：A instanceof B，如果A是B的实例，则返回true,否则返回false。</p>
+<p>判断当前类出现在实例的原型链上。</p>
+<p>表达式为：A instanceof B，如果A是B的实例，则返回true,否则返回false。</p>
 <h3 id="语法-1">语法</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="p">[]</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">;</span> <span class="c1">//true
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">{}</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">;</span><span class="c1">//true
@@ -243,6 +249,22 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">fn</span><span class="p">(){}</span>
 </span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span> <span class="k">instanceof</span> <span class="nb">Function</span><span class="p">)</span><span class="c1">// true
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fn</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">)</span><span class="c1">// true
+</span></span></span></code></pre></div><h3 id="源码实现">源码实现</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// 实例.__proto__===类.prototype
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">instance_of</span><span class="p">(</span><span class="nx">example</span><span class="p">,</span> <span class="nx">classFunc</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">classFuncPrototype</span> <span class="o">=</span> <span class="nx">classFunc</span><span class="p">.</span><span class="nx">prototype</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">proto</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">example</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">proto</span> <span class="o">===</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">proto</span> <span class="o">===</span> <span class="nx">classFuncPrototype</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">proto</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getPrototypeOf</span><span class="p">(</span><span class="nx">proto</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">instance_of</span><span class="p">({},</span> <span class="nb">Array</span><span class="p">))</span><span class="c1">//false
 </span></span></span></code></pre></div><h2 id="constructor">constructor</h2>
 <p>constructor作用和instanceof相似。<strong>但constructor检测 Object与instanceof不一样，还可以处理基本数据类型的检测。</strong></p>
 <h3 id="语法-2">语法</h3>
@@ -255,7 +277,7 @@
 </span></span></span></code></pre></div><h3 id="弊端-1">弊端</h3>
 <ul>
 <li>null 和 undefined 是无效的对象，因此是不会有 constructor 存在的，这两种类型的数据需要通过其他方式来判断。</li>
-<li>函数的 constructor 是不稳定的，这个主要体现在把类的原型进行重写，在重写的过程中很有可能出现把之前的constructor给覆盖了，这样检测出来的结果就是不准确的</li>
+<li>constructor可以被重写，这样检测出来的结果就是不准确的</li>
 </ul>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Fn</span><span class="p">(){}</span>
 </span></span><span class="line"><span class="cl"><span class="nx">Fn</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">()</span>
@@ -265,25 +287,25 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-07-26</span>
+                <span>Updated on 2022-09-03</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../posts/getDataType/" data-title="判断数据类型" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../posts/getDataType/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../posts/getDataType/" data-title="判断数据类型"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../posts/getDataType/" data-title="判断数据类型"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../posts/getDataType/" data-title="判断数据类型"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/js/getDataType/" data-title="判断数据类型" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/js/getDataType/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/js/getDataType/" data-title="判断数据类型"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/js/getDataType/" data-title="判断数据类型"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/js/getDataType/" data-title="判断数据类型"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../tags/">Tags</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/">Tags</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../">Home</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="../../posts/dataType/" class="prev" rel="prev" title="javscript数据类型"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>javscript数据类型</a>
-            <a href="../../posts/debounce/" class="next" rel="next" title="防抖节流">防抖节流<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="../../../posts/js/dataType/" class="prev" rel="prev" title="javscript数据类型"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>javscript数据类型</a>
+            <a href="../../../posts/debounce/" class="next" rel="next" title="防抖节流">防抖节流<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
@@ -297,5 +319,5 @@
             </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
 </html>

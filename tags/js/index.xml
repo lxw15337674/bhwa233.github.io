@@ -3,7 +3,15 @@
         <title>js - Tag - Bhwa233 blog</title>
         <link>/tags/js/</link>
         <description>js - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</lastBuildDate><atom:link href="/tags/js/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</lastBuildDate><atom:link href="/tags/js/" rel="self" type="application/rss+xml" /><item>
+    <title>js中三类For循环</title>
+    <link>/posts/js/for%E5%BE%AA%E7%8E%AF/</link>
+    <pubDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/for%E5%BE%AA%E7%8E%AF/</guid>
+    <description><![CDATA[总结 性能对比： for 与 while 基础 var 循环的时候，两者性能差不多 let arr = new Array(9999999).fill(0); console.time(&#39;for&#39;) for(var i = 0; i &lt; arr.length; i++) {} console.timeEnd(&#39;for&#39;) // for: 8.13818359375 ms console.time(&#39;while&#39;) var i = 0; while(i &lt; arr.length) { i++; } console.timeEnd(&#39;while&#39;) // while: 8.020751953125 ms var 没有块级作用域]]></description>
+</item>
+<item>
     <title>前端模块化输出</title>
     <link>/posts/packages/module/</link>
     <pubDate>Thu, 28 Jul 2022 21:17:45 &#43;0800</pubDate>
