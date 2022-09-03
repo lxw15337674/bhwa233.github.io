@@ -301,7 +301,7 @@ int binarySearch(int[] nums, int target) {
 思路
 
 ```javascript
-var findAnagrams = function (s) {
+let findAnagrams = function (s) {
   let left = 0, right = 0;
   while (right < s.length) {
      // 将要移入窗口的字符
@@ -322,4 +322,10 @@ var findAnagrams = function (s) {
   }
 };
 ```
+
+
+
+## 动态规划
+
+把原始问题分化成一系列子问题，由以求出的局部最优解来推导全局最优解。
 

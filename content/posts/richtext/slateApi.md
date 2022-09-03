@@ -5,7 +5,7 @@ draft: false
 tags: ["slate"]
 categories: [""]
 typora-root-url: ..\..\static
-weight: 2
+weight: 3
 ---
 
 ##  通用配置

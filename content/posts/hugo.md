@@ -5,6 +5,7 @@ draft: false
 tags: ["hugo"]
 categories: ["笔记"]
 typora-root-url: ..\..\static
+weight: 1
 ---
 
 

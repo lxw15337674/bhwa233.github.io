@@ -24,7 +24,7 @@ Memory Cache 也就是内存中的缓存，主要包含的是当前中页面中�
 
 当我们访问过页面以后，再次刷新页面，可以发现很多数据都来自于内存缓存
 
-![image-20220728233834772](/images/image-20220728233834772.png)
+![image-20220728233834772](https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/image-20220728233834772.png)
 
 内存缓存中有一块重要的缓存资源是preloader相关指令（例如`<link rel="prefetch">`）下载的资源。总所周知preloader的相关指令已经是页面优化的常见手段之一，它可以一边解析js/css文件，一边网络请求下一个资源。
 
@@ -85,7 +85,9 @@ Push Cache 在国内能够查到的资料很少，也是因为 HTTP/2 在国内�
 
 ## 四、强缓存
 
-**强缓存：不会向服务器发送请求，直接从缓存中读取资源，在chrome控制台的Network选项中可以看到该请求返回200的状态码，并且Size显示from disk cache或from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。**
+**不会向服务器发送请求，直接从缓存中读取资源，**在chrome控制台的Network选项中可以看到该请求返回200的状态码，并且Size显示from disk cache或from memory cache。强缓存可以通过设置两种 HTTP Header 实现：Expires 和 Cache-Control。
+
+> HTML一般不做强缓存，保证页面始终引入最新的资源。
 
 ### 1.Expires
 
