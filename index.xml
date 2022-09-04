@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Sep 2022 17:18:32 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 04 Sep 2022 16:57:06 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,30 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>Hook原理</title>
+    <link>/posts/react/hook%E5%8E%9F%E7%90%86/</link>
+    <pubDate>Sun, 04 Sep 2022 16:57:06 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/react/hook%E5%8E%9F%E7%90%86/</guid>
+    <description><![CDATA[作者：宫秋 链接：https://juejin.cn/post/7119102104337121316 来源：稀土掘金 原理 hooks 的实现就是基于 fiber 的，]]></description>
+</item>
+<item>
+    <title>AOP思想</title>
+    <link>/posts/AOP/</link>
+    <pubDate>Sun, 04 Sep 2022 14:52:22 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/AOP/</guid>
+    <description><![CDATA[基本思想 面向切面编程，把一些跟核心业务逻辑无关的功能抽离出来，再通过动态组织的方式掺入业务逻辑模块中。 let func = ()=&gt;{ //业务逻辑 console.log(&#39;func&#39;); } func = func.before(()=&gt;{ console.log(&#39;before&#39;); }).after(()=&gt;{ console.log(&#39;after&#39;); })]]></description>
+</item>
+<item>
+    <title>浅拷贝与深拷贝</title>
+    <link>/posts/js/%E6%8B%B7%E8%B4%9D/</link>
+    <pubDate>Sun, 04 Sep 2022 14:05:12 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E6%8B%B7%E8%B4%9D/</guid>
+    <description><![CDATA[总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys]]></description>
 </item>
 <item>
     <title>网络</title>
@@ -60,30 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/js/%E7%BB%A7%E6%89%BF/</guid>
     <description><![CDATA[原型链继承 原理 让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性]]></description>
-</item>
-<item>
-    <title>DOM事件</title>
-    <link>/posts/js/%E4%BA%8B%E4%BB%B6%E6%B5%81/</link>
-    <pubDate>Tue, 23 Aug 2022 22:33:57 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/js/%E4%BA%8B%E4%BB%B6%E6%B5%81/</guid>
-    <description><![CDATA[事件流 事件两种模型：捕获和冒泡 流程： 捕获 目标阶段 冒泡 事件捕获流程 从上到下 window -&gt; document -&gt; html -&gt; body-&gt;元素 Event 对象 event.preventDefault() event.stopPropagation() event.stopImmediatePropagation() event.target event.currentTarget 函数 作用 event.stopImmediatePropagation() 能阻止父]]></description>
-</item>
-<item>
-    <title>富文本总结（二）：Slate概念</title>
-    <link>/posts/richtext/%E6%80%BB%E7%BB%932/</link>
-    <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/richtext/%E6%80%BB%E7%BB%932/</guid>
-    <description><![CDATA[架构 Slate 并非一个做到开箱即用的富文本应用，而是提供了基本富文本能力的框架。而其他功能都需要开发者自行通过插件的形式进行实现。 特性 Immutab]]></description>
-</item>
-<item>
-    <title>富文本总结（一）：前置知识</title>
-    <link>/posts/richtext/%E6%80%BB%E7%BB%931/</link>
-    <pubDate>Mon, 22 Aug 2022 14:53:52 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/richtext/%E6%80%BB%E7%BB%931/</guid>
-    <description><![CDATA[编辑器技术阶段划分 Level 0 代表产品：UEditor、TinyMCE、CKEditor1-4 特点： 依赖了浏览器原生的 contenteditable API 来实现编辑。 以 document.execCommand API 为基础，]]></description>
 </item>
 </channel>
 </rss>

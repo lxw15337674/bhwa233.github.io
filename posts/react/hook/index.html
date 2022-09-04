@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/react/hook/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-16T18:04:37+08:00" />
-<meta property="article:modified_time" content="2022-08-28T23:42:34+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-09-04T21:57:19+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="react hook"/>
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/react\/hook\/"
-        },"genre": "posts","keywords": "","wordcount":  2049 ,
-        "url": "\/posts\/react\/hook\/","datePublished": "2022-08-16T18:04:37+08:00","dateModified": "2022-08-28T23:42:34+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  2479 ,
+        "url": "\/posts\/react\/hook\/","datePublished": "2022-08-16T18:04:37+08:00","dateModified": "2022-09-04T21:57:19+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">react hook</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-16">2022-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2049 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-16">2022-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2479 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -117,10 +117,19 @@
         <li><a href="#mixins">mixins</a></li>
         <li><a href="#渲染属性render-props">渲染属性（render Props)</a></li>
         <li><a href="#高阶组件">高阶组件</a></li>
-        <li><a href="#hooks原因">Hooks原因</a></li>
       </ul>
     </li>
-    <li><a href="#对比vue-hooks">对比Vue Hooks</a></li>
+    <li><a href="#hooks">Hooks</a>
+      <ul>
+        <li><a href="#诞生原因">诞生原因</a></li>
+        <li><a href="#基本原理">基本原理</a></li>
+        <li><a href="#优点">优点</a></li>
+        <li><a href="#缺点">缺点</a></li>
+        <li><a href="#为什么不能条件语句中声明hooks">为什么不能条件语句中，声明<code>hooks</code></a></li>
+        <li><a href="#闭包陷阱">闭包陷阱</a></li>
+        <li><a href="#对比vue-hooks">对比Vue Hooks</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="hooks之前的复用方式">Hooks之前的复用方式</h2>
@@ -183,7 +192,8 @@
 <p>如果高阶组件多次嵌套,没有使用命名空间的话会产生冲突,然后覆盖老属性</p>
 </li>
 </ul>
-<h3 id="hooks原因">Hooks原因</h3>
+<h2 id="hooks">Hooks</h2>
+<h3 id="诞生原因">诞生原因</h3>
 <ol>
 <li>
 <p>复用一个有状态的组件很困难。</p>
@@ -197,7 +207,10 @@
 <p>为了保证this的指向正确，经常写<code>bind</code>将this指向当前组件。</p>
 </li>
 </ol>
-<p>优点：</p>
+<h3 id="基本原理">基本原理</h3>
+<p>在 fiber 节点的 memorizedState 属性存放一个链表，链表节点和 hook 一一对应，每个 hook 都在各自对应的节点上存取数据。</p>
+<p>useEffect、useMomo、useCallback 等都有 deps 的参数，实现的时候会对比新旧两次的 deps，如果变了才会重新执行传入的函数。所以 undefined、null 每次都会执行，[] 只会执行一次，[state] 在 state 变了才会再次执行。</p>
+<h3 id="优点">优点</h3>
 <ul>
 <li>
 <p>简洁: React Hooks解决了HOC和Render Props的嵌套问题,更加简洁</p>
@@ -217,13 +230,10 @@
 </ul>
 </li>
 </ul>
-<p>缺点：</p>
+<h3 id="缺点">缺点</h3>
 <ul>
 <li>
-<p>额外的学习成本（Functional Component 与 Class Component 之间的困惑）</p>
-</li>
-<li>
-<p>写法上有限制（不能出现在条件、循环中），并且写法限制增加了重构成本</p>
+<p>写法上有限制（不能出现在条件、循环中）。</p>
 </li>
 <li>
 <p>破坏了PureComponent、React.memo浅比较的性能优化效果（为了取最新的props和state，每次render()都要重新创建事件处函数）</p>
@@ -235,7 +245,20 @@
 <p>React.memo并不能完全替代shouldComponentUpdate（因为拿不到 state change，只针对 props change）</p>
 </li>
 </ul>
-<h2 id="对比vue-hooks">对比Vue Hooks</h2>
+<h3 id="为什么不能条件语句中声明hooks">为什么不能条件语句中，声明<code>hooks</code></h3>
+<p>因为一旦在条件语句中声明<code>hooks</code>，在下一次函数组件更新，<code>hooks</code>链表结构，将会被破坏，<code>current</code>树的<code>memoizedState</code>缓存<code>hooks</code>信息，和当前<code>workInProgress</code>不一致，如果涉及到读取<code>state</code>等操作，就会发生异常。</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp"
+        title="hoo11.jpg" /></p>
+<h3 id="闭包陷阱">闭包陷阱</h3>
+<p><strong>当我们更新状态的时候，React会重新渲染组件。每一次渲染都能拿到独立的count 状态，这个状态值是函数中的一个常量。每一次调用引起的渲染中，它包含的count值独立于其他渲染（闭包）</strong></p>
+<p>在诸如 的钩子中使用了某个状态<code>useEffect</code>，但它并没有添加到<code>deps</code>数组中，这样即使状态发生变化，回调函数也不会重新执行，它仍然是指旧值。</p>
+<h3 id="对比vue-hooks">对比Vue Hooks</h3>
 <blockquote>
 <p>引用：https://juejin.cn/post/6844903877574295560#heading-2</p>
 </blockquote>
@@ -275,7 +298,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-28</span>
+                <span>Updated on 2022-09-04</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>

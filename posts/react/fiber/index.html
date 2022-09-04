@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Fiber - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Fiber" />
-<meta property="og:description" content="一句话总结 React内部实现的一套状态更新机制。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。 其中每个任务更新单元为R" />
+<meta property="og:description" content="一句话总结 React内部实现的一套状态更新机制。将同步的更新变为可中断的异步更新。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/react/fiber/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-31T13:35:09+08:00" />
-<meta property="article:modified_time" content="2022-08-28T23:42:34+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-09-04T21:57:19+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fiber"/>
-<meta name="twitter:description" content="一句话总结 React内部实现的一套状态更新机制。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的中间状态。 其中每个任务更新单元为R"/>
+<meta name="twitter:description" content="一句话总结 React内部实现的一套状态更新机制。将同步的更新变为可中断的异步更新。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/react\/fiber\/"
-        },"genre": "posts","keywords": "","wordcount":  1916 ,
-        "url": "\/posts\/react\/fiber\/","datePublished": "2022-07-31T13:35:09+08:00","dateModified": "2022-08-28T23:42:34+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  1991 ,
+        "url": "\/posts\/react\/fiber\/","datePublished": "2022-07-31T13:35:09+08:00","dateModified": "2022-09-04T21:57:19+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Fiber</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-31">2022-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1916 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-31">2022-07-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1991 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -126,17 +126,31 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h3 id="一句话总结">一句话总结</h3>
-<p><code>React</code>内部实现的一套状态更新机制。支持任务不同<code>优先级</code>，可中断与恢复，并且恢复后可以复用之前的<code>中间状态</code>。</p>
-<p>其中每个任务更新单元为<code>React Element</code>对应的<code>Fiber节点</code>。</p>
+<p><code>React</code>内部实现的一套状态更新机制。将<strong>同步的更新</strong>变为<strong>可中断的异步更新</strong>。支持任务不同<code>优先级</code>，可中断与恢复，并且恢复后可以复用之前的<code>中间状态</code>。</p>
 <h3 id="背景">背景</h3>
 <p>react-fiber 产生的根本原因，是大量的同步计算任务阻塞了浏览器的 UI 渲染。</p>
 <p>在<code>React15</code>及以前，<code>Reconciler</code>采用递归的方式创建虚拟DOM，递归过程是不能中断的。如果组件树的层级很深，递归会占用线程很多时间，造成卡顿。</p>
 <p>为了解决这个问题，react 16.18.0 版本引入 fiber 架构，实现异步可中断更新。先把 vdom 树转成 fiber 链表，然后再渲染 fiber。主要是解决之前由于直接递归遍历 vdom，不可中断，导致当 vdom 比较大的，频繁调用耗时 dom api 容易产生性能问题。</p>
 <h3 id="架构">架构</h3>
+<p>react 16.18.0 版本引入 fiber 架构，实现异步可中断更新。先把 vdom 树转成 fiber 链表，然后再渲染 fiber。主要是解决之前由于直接递归遍历 vdom，不可中断，导致当 vdom 比较大的，频繁调用耗时 dom api 容易产生性能问题。</p>
 <ul>
-<li>Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入<strong>Reconciler</strong></li>
-<li>Reconciler（协调器）—— 负责找出变化的组件，负责调用组件生命周期方法，进行 Diff 运算等。</li>
-<li>Renderer（渲染器）—— 负责将变化的组件渲染到页面上，根据不同的平台，渲染出相应的页面，比较常见的是 ReactDOM 和 ReactNative。</li>
+<li>
+<p>Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入<strong>Reconciler</strong></p>
+</li>
+<li>
+<p>Reconciler（协调器）—— 负责找出变化的组件，负责调用组件生命周期方法，进行 Diff 运算等。</p>
+</li>
+<li>
+<p>Renderer（渲染器）—— 负责将变化的组件渲染到页面上，根据不同的平台，渲染出相应的页面，比较常见的是 ReactDOM 和 ReactNative。</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/95e8824fc57f4f00a97df4672596a251%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/95e8824fc57f4f00a97df4672596a251%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/95e8824fc57f4f00a97df4672596a251%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/95e8824fc57f4f00a97df4672596a251%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/95e8824fc57f4f00a97df4672596a251%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp"
+        title="img" /></p>
+</li>
 </ul>
 <h3 id="含义">含义</h3>
 <ol>
@@ -223,7 +237,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-28</span>
+                <span>Updated on 2022-09-04</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>

@@ -3,20 +3,28 @@
         <title>Categories - Category - Bhwa233 blog</title>
         <link>/categories/</link>
         <description>Categories - Category - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
-    <title>js</title>
-    <link>/categories/js/</link>
-    <pubDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</pubDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 04 Sep 2022 14:52:22 &#43;0800</lastBuildDate><atom:link href="/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>javascript</title>
+    <link>/categories/javascript/</link>
+    <pubDate>Sun, 04 Sep 2022 14:52:22 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/categories/js/</guid>
+    <guid>/categories/javascript/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>javascript</title>
-    <link>/categories/javascript/</link>
-    <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
+    <title>手撕代码</title>
+    <link>/categories/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81/</link>
+    <pubDate>Sun, 04 Sep 2022 14:52:22 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/categories/javascript/</guid>
+    <guid>/categories/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>js</title>
+    <link>/categories/js/</link>
+    <pubDate>Sun, 04 Sep 2022 14:05:12 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/categories/js/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -73,14 +81,6 @@
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/categories/%E7%AC%94%E8%AE%B0/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>包管理</title>
-    <link>/categories/%E5%8C%85%E7%AE%A1%E7%90%86/</link>
-    <pubDate>Wed, 06 Jul 2022 15:29:43 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/categories/%E5%8C%85%E7%AE%A1%E7%90%86/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
