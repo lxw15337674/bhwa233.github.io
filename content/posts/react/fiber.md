@@ -9,9 +9,7 @@ typora-root-url: ..\..\static
 
 ### 一句话总结
 
-`React`内部实现的一套状态更新机制。支持任务不同`优先级`，可中断与恢复，并且恢复后可以复用之前的`中间状态`。
-
-其中每个任务更新单元为`React Element`对应的`Fiber节点`。
+`React`内部实现的一套状态更新机制。将**同步的更新**变为**可中断的异步更新**。支持任务不同`优先级`，可中断与恢复，并且恢复后可以复用之前的`中间状态`。
 
 ### 背景
 
@@ -23,9 +21,13 @@ react-fiber 产生的根本原因，是大量的同步计算任务阻塞了浏�
 
 ### 架构
 
+react 16.18.0 版本引入 fiber 架构，实现异步可中断更新。先把 vdom 树转成 fiber 链表，然后再渲染 fiber。主要是解决之前由于直接递归遍历 vdom，不可中断，导致当 vdom 比较大的，频繁调用耗时 dom api 容易产生性能问题。
+
 - Scheduler（调度器）—— 调度任务的优先级，高优任务优先进入**Reconciler**
 - Reconciler（协调器）—— 负责找出变化的组件，负责调用组件生命周期方法，进行 Diff 运算等。
 - Renderer（渲染器）—— 负责将变化的组件渲染到页面上，根据不同的平台，渲染出相应的页面，比较常见的是 ReactDOM 和 ReactNative。
+
+  ![img](https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/95e8824fc57f4f00a97df4672596a251%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp)
 
 ### 含义
 

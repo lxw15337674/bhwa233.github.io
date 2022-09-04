@@ -79,7 +79,9 @@ export default withUser(UserPage);
 
   
 
-### Hooks原因
+## Hooks
+
+### 诞生原因
 
 1. 复用一个有状态的组件很困难。
 
@@ -91,7 +93,15 @@ export default withUser(UserPage);
 
    为了保证this的指向正确，经常写`bind`将this指向当前组件。
 
-优点：
+### 基本原理
+
+在 fiber 节点的 memorizedState 属性存放一个链表，链表节点和 hook 一一对应，每个 hook 都在各自对应的节点上存取数据。
+
+useEffect、useMomo、useCallback 等都有 deps 的参数，实现的时候会对比新旧两次的 deps，如果变了才会重新执行传入的函数。所以 undefined、null 每次都会执行，[] 只会执行一次，[state] 在 state 变了才会再次执行。
+
+
+
+### 优点
 
 - 简洁: React Hooks解决了HOC和Render Props的嵌套问题,更加简洁
 
@@ -104,11 +114,9 @@ export default withUser(UserPage);
   - 分割在不同声明周期中的逻辑使得代码难以理解和维护
   - 代码复用成本高（高阶组件容易使代码量剧增）
 
-缺点：
+### 缺点
 
-- 额外的学习成本（Functional Component 与 Class Component 之间的困惑）
-
-- 写法上有限制（不能出现在条件、循环中），并且写法限制增加了重构成本
+- 写法上有限制（不能出现在条件、循环中）。
 
 - 破坏了PureComponent、React.memo浅比较的性能优化效果（为了取最新的props和state，每次render()都要重新创建事件处函数）
 
@@ -118,8 +126,22 @@ export default withUser(UserPage);
 
 
 
+### 为什么不能条件语句中，声明`hooks`
 
-## 对比Vue Hooks
+因为一旦在条件语句中声明`hooks`，在下一次函数组件更新，`hooks`链表结构，将会被破坏，`current`树的`memoizedState`缓存`hooks`信息，和当前`workInProgress`不一致，如果涉及到读取`state`等操作，就会发生异常。
+
+
+
+![hoo11.jpg](https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp)
+
+### 闭包陷阱
+
+**当我们更新状态的时候，React会重新渲染组件。每一次渲染都能拿到独立的count 状态，这个状态值是函数中的一个常量。每一次调用引起的渲染中，它包含的count值独立于其他渲染（闭包）**
+
+在诸如 的钩子中使用了某个状态`useEffect`，但它并没有添加到`deps`数组中，这样即使状态发生变化，回调函数也不会重新执行，它仍然是指旧值。
+
+
+### 对比Vue Hooks
 
 > 引用：https://juejin.cn/post/6844903877574295560#heading-2
 

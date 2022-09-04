@@ -1,5 +1,5 @@
 ---
-title: "设计题"
+title: "面试设计题"
 date: 2022-08-21T10:43:43+08:00
 draft: false
 tags: [""]
@@ -21,3 +21,6 @@ typora-root-url: ..\..\static
    4. 200 已授权 如果手机点击了确认登录，服务器返回200及token -> 前端停止轮询, 获取到token，重定向到目标页
 
 [阿里面试官：分别说说微信和淘宝扫码登录背后的实现原理？](https://cloud.tencent.com/developer/article/1589934?cps_key=1d358d18a7a17b4a6df8d67a62fd3d3d)
+
+
+
