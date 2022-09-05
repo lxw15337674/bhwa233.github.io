@@ -7,6 +7,15 @@ categories: ["笔记"]
 typora-root-url: ..\..\static
 ---
 
+## 总结
+
+一个解析器分为四步：
+
+1. 词法分析，将 SQL 字符串拆分成包含关键词识别的字符段（Tokens）。
+2. 语法分析，利用自顶向下或自底向上的算法，将 Tokens 解析为 AST，可以手动，也可以自动。
+3. 错误检测、恢复、提示推断，都需要利用语法分析产生的 AST。
+4. 语义分析，做完这一步就可以执行 SQL 语句了，不过对前端而言，不需要深入到这一步，可以跳过。
+
 ## 词法分析
 
 词法分析阶段是编译过程的第一个阶段。
@@ -60,6 +69,8 @@ Id :                [a-zA-Z_] ([a-zA-Z_] | [0-9])*;
 
 
 > 扩展：
+>
+> [**手写 SQL 编译器 - 词法分析**](https://github.com/ascoders/weekly/blob/master/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/64.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E3%80%8B.md)
 >
 > https://qiankunli.github.io/2020/02/08/fundamentals_of_compiling_frontend.html
 >

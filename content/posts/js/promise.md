@@ -425,6 +425,106 @@ function Scheduler() {
 
 
 
+### 实现 Promise.retry
+
+```javascript
+const resolveData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => (Math.random() > 0.8 ? resolve('成功') : reject(new Error('失败')))
+      , 1000,
+    )
+  })
+}
+
+Promise.retry(resolveData, 3, 1000).then(res => {
+  console.log(res);
+})
+```
+
+**答案**
+
+Promise写法
+
+```javascript
+Promise.retry = (fn, times, delay) => {
+  return new Promise((resolve, reject) => {
+    const attempt = () => {
+      fn().then(res => {
+        resolve(res)
+      }).catch(err => {
+        if (times === 0) {
+          reject(err)
+          return
+        }
+        times--
+        console.log('重试中', times);
+        setTimeout(attempt, delay)
+      })
+    }
+    attempt()
+  })
+};
+
+
+const resolveData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => (Math.random() > 0.5 ? resolve('成功') : reject(new Error('失败')))
+      , 1000,
+    )
+  })
+}
+
+Promise.retry(resolveData, 3, 100).then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+})
+```
+
+async 写法
+
+```javascript
+// 传入一个promise生成器
+Promise.retry = async (fn, times, delay) => {
+  const delayFn = () => new Promise((res) => setTimeout(res, delay))
+  let error = null
+  while (true) {
+    try {
+      return await fn()
+    } catch (e) {
+      error = e
+    }
+    if (times === 0) {
+      throw error
+    }
+    times--
+    await delayFn()
+    console.log('重试中', times);
+  }
+};
+
+const resolveData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(
+      () => (Math.random() > 0.5 ? resolve('成功') : reject(new Error('失败')))
+      , 1000,
+    )
+  })
+}
+
+Promise.retry(resolveData, 3, 100).then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+})
+```
+
+
+
+
+
 
 
 ## 参考
