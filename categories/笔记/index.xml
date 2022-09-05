@@ -41,7 +41,7 @@
     <pubDate>Tue, 02 Aug 2022 18:06:56 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/analysis/</guid>
-    <description><![CDATA[词法分析 词法分析阶段是编译过程的第一个阶段。 这个阶段的任务是从左到右一个字符一个字符地读入源程序，然后根据构词规则识别单词(也就是token]]></description>
+    <description><![CDATA[总结 一个解析器分为四步： 词法分析，将 SQL 字符串拆分成包含关键词识别的字符段（Tokens）。 语法分析，利用自顶向下或自底向上的算法，将 Tokens 解析为]]></description>
 </item>
 <item>
     <title>鼠标、键盘事件</title>

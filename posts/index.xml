@@ -52,14 +52,6 @@
     <description><![CDATA[总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys]]></description>
 </item>
 <item>
-    <title>网络</title>
-    <link>/posts/%E7%BD%91%E7%BB%9C/</link>
-    <pubDate>Sat, 03 Sep 2022 17:18:32 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/%E7%BD%91%E7%BB%9C/</guid>
-    <description><![CDATA[TCP/IP TCP ：传输通道 相当于路 HTTP：传输协议 相当于快递小哥]]></description>
-</item>
-<item>
     <title>this指向问题</title>
     <link>/posts/js/this/</link>
     <pubDate>Sat, 03 Sep 2022 16:15:11 &#43;0800</pubDate>
@@ -162,6 +154,14 @@
     <author>Bhwa233</author>
     <guid>/posts/css/float/</guid>
     <description><![CDATA[概念 浮动元素会脱离文档流并向左/向右浮动，直到碰到父元素或者另一个浮动元素。 优点 使文字环绕在图片周围。 当元素浮动后，它有着块级元素的一些性质]]></description>
+</item>
+<item>
+    <title>Base</title>
+    <link>/posts/webpack/base/</link>
+    <pubDate>Sun, 21 Aug 2022 11:29:30 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/webpack/base/</guid>
+    <description><![CDATA[一、webpack的打包原理 识别入口文件 通过逐层识别模块依赖(Commonjs、amd或者es6的import，webpack都会对其进行分]]></description>
 </item>
 </channel>
 </rss>

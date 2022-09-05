@@ -5,15 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>解析器 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="解析器" />
-<meta property="og:description" content="词法分析 词法分析阶段是编译过程的第一个阶段。 这个阶段的任务是从左到右一个字符一个字符地读入源程序，然后根据构词规则识别单词(也就是token" />
+<meta property="og:description" content="总结 一个解析器分为四步： 词法分析，将 SQL 字符串拆分成包含关键词识别的字符段（Tokens）。 语法分析，利用自顶向下或自底向上的算法，将 Tokens 解析为" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/analysis/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-02T18:06:56+08:00" />
-<meta property="article:modified_time" content="2022-08-15T17:16:35+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2022-09-05T23:06:02+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="解析器"/>
-<meta name="twitter:description" content="词法分析 词法分析阶段是编译过程的第一个阶段。 这个阶段的任务是从左到右一个字符一个字符地读入源程序，然后根据构词规则识别单词(也就是token"/>
+<meta name="twitter:description" content="总结 一个解析器分为四步： 词法分析，将 SQL 字符串拆分成包含关键词识别的字符段（Tokens）。 语法分析，利用自顶向下或自底向上的算法，将 Tokens 解析为"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32x32.png">
@@ -28,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/analysis\/"
-        },"genre": "posts","keywords": "","wordcount":  663 ,
-        "url": "\/posts\/analysis\/","datePublished": "2022-08-02T18:06:56+08:00","dateModified": "2022-08-15T17:16:35+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  831 ,
+        "url": "\/posts\/analysis\/","datePublished": "2022-08-02T18:06:56+08:00","dateModified": "2022-09-05T23:06:02+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -103,7 +103,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">解析器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;663 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;831 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -112,12 +112,21 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#总结">总结</a></li>
     <li><a href="#词法分析">词法分析</a></li>
     <li><a href="#语法分析">语法分析</a></li>
     <li><a href="#语义分析标注ast的属性">语义分析——标注AST的属性</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="词法分析">词法分析</h2>
+            </div><div class="content" id="content"><h2 id="总结">总结</h2>
+<p>一个解析器分为四步：</p>
+<ol>
+<li>词法分析，将 SQL 字符串拆分成包含关键词识别的字符段（Tokens）。</li>
+<li>语法分析，利用自顶向下或自底向上的算法，将 Tokens 解析为 AST，可以手动，也可以自动。</li>
+<li>错误检测、恢复、提示推断，都需要利用语法分析产生的 AST。</li>
+<li>语义分析，做完这一步就可以执行 SQL 语句了，不过对前端而言，不需要深入到这一步，可以跳过。</li>
+</ol>
+<h2 id="词法分析">词法分析</h2>
 <p>词法分析阶段是编译过程的第一个阶段。</p>
 <p>这个阶段的任务是从左到右一个字符一个字符地读入源程序，然后根据构词规则识别单词(也就是token)。比如把“我学习编程”这个句子拆解成“我”“学习”“编程”，这个过程叫做“分词”。</p>
 <p>通常用现成工具Lex/Yacc/JavaCC/Antlr生成词法分析器（lexical analyzer、lexer 或者 scanner）。</p>
@@ -149,6 +158,7 @@
 </ul>
 <blockquote>
 <p>扩展：</p>
+<p><a href="https://github.com/ascoders/weekly/blob/master/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/64.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%89%8B%E5%86%99%20SQL%20%E7%BC%96%E8%AF%91%E5%99%A8%20-%20%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E3%80%8B.md" target="_blank" rel="noopener noreffer "><strong>手写 SQL 编译器 - 词法分析</strong></a></p>
 <p><a href="https://qiankunli.github.io/2020/02/08/fundamentals_of_compiling_frontend.html" target="_blank" rel="noopener noreffer ">https://qiankunli.github.io/2020/02/08/fundamentals_of_compiling_frontend.html</a></p>
 <p><a href="https://yearn.xyz/posts/techs/%E8%AF%8D%E6%B3%95%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/#hello-world" target="_blank" rel="noopener noreffer ">https://yearn.xyz/posts/techs/%E8%AF%8D%E6%B3%95%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/#hello-world</a></p>
 </blockquote>
@@ -156,7 +166,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-08-15</span>
+                <span>Updated on 2022-09-05</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
