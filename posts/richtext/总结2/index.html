@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/richtext\/%E6%80%BB%E7%BB%932\/"
-        },"genre": "posts","keywords": "slate.js","wordcount":  3966 ,
+        },"genre": "posts","keywords": "slate.js","wordcount":  4469 ,
         "url": "\/posts\/richtext\/%E6%80%BB%E7%BB%932\/","datePublished": "2022-08-23T09:31:25+08:00","dateModified": "2022-08-23T09:31:25+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -103,8 +103,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">富文本总结（二）：Slate概念</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/%E5%AF%8C%E6%96%87%E6%9C%AC/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>富文本</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-23">2022-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3966 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-23">2022-08-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4469 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -119,6 +119,7 @@
       </ul>
     </li>
     <li><a href="#数据结构">数据结构</a></li>
+    <li><a href="#editor">Editor</a></li>
     <li><a href="#节点">节点</a>
       <ul>
         <li><a href="#node">Node</a></li>
@@ -130,6 +131,10 @@
       <ul>
         <li><a href="#path">path</a></li>
         <li><a href="#point">point</a></li>
+      </ul>
+    </li>
+    <li><a href="#选区selection">选区（selection）</a>
+      <ul>
         <li><a href="#range">range</a></li>
         <li><a href="#span">span</a></li>
         <li><a href="#location">location</a></li>
@@ -152,9 +157,13 @@
         <li><a href="#自定义规范化">自定义规范化</a></li>
       </ul>
     </li>
-    <li><a href="#运作流程">运作流程</a></li>
+    <li><a href="#运作流程">运作流程</a>
+      <ul>
+        <li><a href="#执行步骤">执行步骤</a></li>
+        <li><a href="#内部完整流程">内部完整流程</a></li>
+      </ul>
+    </li>
     <li><a href="#transforms">Transforms</a></li>
-    <li><a href="#slate">Slate</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="架构">架构</h2>
@@ -197,8 +206,34 @@
 <li><strong>节点（Node）</strong>：节点容纳了我们能看到的富文本内容，富文本容器也是一个节点，容纳了其他节点。</li>
 <li><strong>选区（Selection）</strong>：当前选中的区域，如果区域的起点和终点重合，那就是一个光标。</li>
 </ul>
-<p>Slate.js数据模型的设计非常的“类DOM”。下面从节点(Node)和选区(Selection)的设计上说明</p>
-<h2 id="节点">节点</h2>
+<h2 id="editor">Editor</h2>
+<p><a href="https://docs.slatejs.org/api/nodes/editor" target="_blank" rel="noopener noreffer ">官方文档链接</a></p>
+<p><code>Editor</code>存储了Slate编辑器的所有状态，并可以通过插件来进行扩展。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Editor</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">children</span>: <span class="kt">Node</span><span class="p">[]</span> <span class="c1">//节点的结构 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">selection</span>: <span class="kt">Range</span> <span class="o">|</span> <span class="kc">null</span><span class="o">/</span> <span class="c1">// 选区
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">operations</span>: <span class="kt">Operation</span><span class="p">[]</span> <span class="c1">//即将执行的操作
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">marks</span>: <span class="kt">Omit</span><span class="p">&lt;</span><span class="nt">Text</span><span class="err">,</span> <span class="err">&#39;</span><span class="na">text</span><span class="err">&#39;</span><span class="p">&gt;</span> <span class="o">|</span> <span class="kc">null</span> <span class="c1">// text的标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Schema-specific node behaviors. 节点行为
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">isInline</span><span class="o">:</span> <span class="p">(</span><span class="nx">element</span>: <span class="kt">Element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">boolean</span> <span class="c1">// 是否为内联节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">isVoid</span><span class="o">:</span> <span class="p">(</span><span class="nx">element</span>: <span class="kt">Element</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">boolean</span> <span class="c1">// 是否为空节点。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">normalizeNode</span><span class="o">:</span> <span class="p">(</span><span class="nx">entry</span>: <span class="kt">NodeEntry</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//进行格式化。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">onChange</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//修改事件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Overrideable core actions.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">addMark</span><span class="o">:</span> <span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">value</span>: <span class="kt">any</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>  <span class="c1">//增加标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">apply</span><span class="o">:</span> <span class="p">(</span><span class="nx">operation</span>: <span class="kt">Operation</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">// 应用操作。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">deleteBackward</span><span class="o">:</span> <span class="p">(</span><span class="nx">unit</span><span class="o">:</span> <span class="s1">&#39;character&#39;</span> <span class="o">|</span> <span class="s1">&#39;word&#39;</span> <span class="o">|</span> <span class="s1">&#39;line&#39;</span> <span class="o">|</span> <span class="s1">&#39;block&#39;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span>  <span class="c1">// 从当前选定的内容向后删除编辑器中的内容。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">deleteForward</span><span class="o">:</span> <span class="p">(</span><span class="nx">unit</span><span class="o">:</span> <span class="s1">&#39;character&#39;</span> <span class="o">|</span> <span class="s1">&#39;word&#39;</span> <span class="o">|</span> <span class="s1">&#39;line&#39;</span> <span class="o">|</span> <span class="s1">&#39;block&#39;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//  从当前选定的内容向钱删除编辑器中的内容。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">deleteFragment</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//删除当前选定内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">insertBreak</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//插入换行符
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">insertFragment</span><span class="o">:</span> <span class="p">(</span><span class="nx">fragment</span>: <span class="kt">Node</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//在当前选定内容除插入一个片段
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">insertNode</span><span class="o">:</span> <span class="p">(</span><span class="nx">node</span>: <span class="kt">Node</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//插入节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">insertText</span><span class="o">:</span> <span class="p">(</span><span class="nx">text</span>: <span class="kt">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//插入文本
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">removeMark</span><span class="o">:</span> <span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span> <span class="c1">//删除标记
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span></code></pre></div><h2 id="节点">节点</h2>
 <p>一个完整的slate节点树：</p>
 <p><img
         class="lazyload"
@@ -219,9 +254,14 @@
 </span></span><span class="line"><span class="cl">      <span class="p">],</span>
 </span></span><span class="line"><span class="cl">    <span class="p">},</span>
 </span></span><span class="line"><span class="cl">  <span class="p">],</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// ...the editor has other properties too.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
-</span></span></code></pre></div><p>slate的节点共有三种类型：</p>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p><strong>slate的节点共有三种类型：</strong></p>
+<ul>
+<li><code>Editor</code>：文档树的根节点。</li>
+<li><code>Element</code>：children属性，可以作为其他Node的父节点</li>
+<li><code>Text</code>：是树的叶子节点，包含文本信息。</li>
+</ul>
+<p>用户可以自行扩展<code>Element</code>和<code>text</code>类型的属性来扩展节点，例如增加<code>type</code>属性表示Node的类型（<code>link</code>,<code>paragraph</code>），增加<code>style</code>属性表示文本的样式（<code>bold</code>,<code>color</code>）等</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Node</span> <span class="o">=</span> <span class="nx">Editor</span> <span class="o">|</span> <span class="nx">Element</span> <span class="o">|</span> <span class="nx">Text</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Editor</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">children</span>:<span class="kt">Node</span><span class="p">[]</span>
@@ -234,14 +274,7 @@
 </span></span><span class="line"><span class="cl">    <span class="nx">text</span>:<span class="kt">string</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="p">[</span><span class="nx">key</span>:<span class="kt">string</span><span class="p">]</span><span class="o">:</span><span class="kt">unknown</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>总结：</p>
-<ul>
-<li><code>Editor</code>类型是文档树的根节点。</li>
-<li><code>Element</code>类型含有children属性，可以作为其他Node的父节点</li>
-<li><code>Text</code>类型是树的叶子节点，包含文本信息。</li>
-</ul>
-<p>用户可以自行扩展<code>Element</code>和<code>text</code>类型的属性来扩展节点，例如增加<code>type</code>属性表示Node的类型（<code>table</code>,<code>select</code>），增加<code>style</code>属性表示文本的样式（<code>bold</code>,<code>color</code>）等</p>
-<h3 id="node">Node</h3>
+</span></span></code></pre></div><h3 id="node">Node</h3>
 <p><img
         class="lazyload"
         src="../../../svg/loading.min.svg"
@@ -250,7 +283,8 @@
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png"
         title="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829214621.png" /></p>
-<p>Node是slate中最基础的抽象。一个 Node 对象含有如下属性：</p>
+<p>Node是slate中最基础的抽象。</p>
+<p>Node对象基本属性属性：</p>
 <ul>
 <li>
 <p>key：节点在当前文档中的索引</p>
@@ -310,7 +344,7 @@
         data-sizes="auto"
         alt="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png"
         title="https://cdn.jsdelivr.net/gh/lxw15337674/PicGo_image/20220829213346.png" /></p>
-<p>Text Model 的基本属性</p>
+<p>Text Model 的基本属性：</p>
 <ul>
 <li>key：节点在当前文档中的索引</li>
 <li>object：节点类型</li>
@@ -322,14 +356,31 @@
 <p>Slate.js 根据 mark 类型的不同，将 Text Node 拆分为了若干 Leaf。每个 Leaf 对象含有这些属性：</p>
 <ul>
 <li>
-<p>text: string：leaf 的文本内容</p>
+<p><code>text: string</code>：leaf 的文本内容。</p>
 </li>
 <li>
-<p>mark: Mark：leaf 被标记上的 mark</p>
+<p><code>mark: Mark</code>：leaf 被标记上的 mark。</p>
 </li>
 </ul>
+<blockquote>
+<p>关于判断Text、Element：</p>
+<p>text属性优先级更高，当同时存在text、children属性时会被判定为Text节点。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">type</span><span class="o">:</span> <span class="s1">&#39;button&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;123&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">children</span><span class="o">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl"><span class="p">},</span>
+</span></span></code></pre></div></blockquote>
 <h2 id="定位">定位</h2>
 <h3 id="path">path</h3>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-b517d7d331da8eb8d351ade004a9a245_720w.jpg"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-b517d7d331da8eb8d351ade004a9a245_720w.jpg, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-b517d7d331da8eb8d351ade004a9a245_720w.jpg 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-b517d7d331da8eb8d351ade004a9a245_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-b517d7d331da8eb8d351ade004a9a245_720w.jpg"
+        title="img" /></p>
 <p>节点路径，相对于根节点的相对位置路径。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * `Path` arrays are a list of indexes that describe a node&#39;s exact position in
@@ -369,6 +420,9 @@
 </span></span><span class="line"><span class="cl">    <span class="p">],</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><h3 id="point">point</h3>
+<blockquote>
+<p><a href="https://docs.slatejs.org/api/locations/point" target="_blank" rel="noopener noreffer "> 官方文档链接</a></p>
+</blockquote>
 <p>定位单一字符的位置。先用<code>path</code>表示字符节点，再用<code>offset</code>表示字符在节点的位置。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * `Point` objects refer to a specific location in a text node in a Slate
@@ -405,7 +459,29 @@
 </span></span><span class="line"><span class="cl">    <span class="p">],</span>
 </span></span><span class="line"><span class="cl">  
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="range">range</h3>
+</span></span></code></pre></div><p>同时提供一些静态方法：</p>
+<ul>
+<li>比较方法</li>
+<li>检查方法</li>
+<li></li>
+</ul>
+<h2 id="选区selection">选区（selection）</h2>
+<p>Slate.js 中的 Selection 遵循了现代浏览器的设计，一个 Selection 对象不再允许含有多个 Range 对象，它含有属性：</p>
+<ul>
+<li><code>anchor</code>：选区起点</li>
+<li><code>focus</code>: 选区终点</li>
+<li><code>isFocused</code>: 当前选区是否被聚焦</li>
+<li><code>marks</code>：当前选区包含的文本格式（有助于我们实现格式刷/清除格式等功能）</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-89c76dddf5818e2144dedbe1246a2486_720w.jpg"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-89c76dddf5818e2144dedbe1246a2486_720w.jpg, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-89c76dddf5818e2144dedbe1246a2486_720w.jpg 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-89c76dddf5818e2144dedbe1246a2486_720w.jpg 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/v2-89c76dddf5818e2144dedbe1246a2486_720w.jpg"
+        title="img" /></p>
+<h3 id="range">range</h3>
 <p>选取区间。分别用<code>anchor</code>， <code>focus</code>选取区间的开始位置和结束位置。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * `Range` objects are a set of points that refer to a specific span of a Slate
@@ -431,7 +507,14 @@
 </span></span><span class="line"><span class="cl">	<span class="p">},</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1">// 表示选取内容为：myname
-</span></span></span></code></pre></div><h3 id="span">span</h3>
+</span></span></span></code></pre></div><p>同时提供一些<a href="https://docs.slatejs.org/api/locations/range#static-methods" target="_blank" rel="noopener noreffer ">静态方法</a>用来扩展选区信息：</p>
+<ul>
+<li><code>end</code> 与 <code>start</code>：如果说 <code>anchor</code>/<code>focus</code> 是 range 的「事实」起终点，那么 <code>start</code>/<code>end</code> 则是 range 的「视觉」起/终点，<code>start</code> 总在 <code>end</code> 之前（或者二者重叠）</li>
+<li><code>isBackward</code> 与 <code>isForward</code>：选区方向是向前还是向后</li>
+<li><code>isCollapsed</code> 与 <code>isExpanded</code>：是否折叠</li>
+<li><code>isSet</code> 与 <code>isUnset</code>：起点终点是否均被设置</li>
+</ul>
+<h3 id="span">span</h3>
 <p>用于表示没有文本的选区区间。例如选取两个图片元素。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="cm">/**
 </span></span></span><span class="line"><span class="cl"><span class="cm"> * The `Span` interface is a low-level way to refer to locations in nodes
@@ -611,15 +694,15 @@
 <p><strong>避免无法满足约束</strong></p>
 <p>应避免自定义的约束，在修正后仍无法满足约束，导致无限循环<code>normalizeNode</code>。</p>
 <h2 id="运作流程">运作流程</h2>
-<p><img
-        class="lazyload"
-        src="../../../svg/loading.min.svg"
-        data-src="../../../images/201393593GX3OuA8NF.png"
-        data-srcset="../../../images/201393593GX3OuA8NF.png, ../../../images/201393593GX3OuA8NF.png 1.5x, ../../../images/201393593GX3OuA8NF.png 2x"
-        data-sizes="auto"
-        alt="/images/201393593GX3OuA8NF.png"
-        title="运作流程图" /></p>
-<p>完整流程：</p>
+<h3 id="执行步骤">执行步骤</h3>
+<ol>
+<li><strong>customCommand</strong></li>
+<li><strong>Transform.xxx(editor, &hellip;)</strong></li>
+<li><strong>editor.apply(operation)</strong></li>
+<li><strong>重新生成 model</strong></li>
+<li><strong>React 渲染</strong></li>
+</ol>
+<h3 id="内部完整流程">内部完整流程</h3>
 <ol>
 <li>通过<code>Transform</code>的api触发编辑器更新，执行多次<code>opertaion</code>。</li>
 <li>第一次的<code>opertaion</code>除了会执行<code>transform</code> 与<code>normalize</code> 之外，也会将 <code>FLUSHING</code> 設為 <code>true</code> ，并将 <code>onChange</code> 的执行以 Promise 的 Micro-Task 包装起来。</li>
@@ -628,39 +711,16 @@
 <li>执行<code>Transform</code> 的 <code>normalize</code>  与 <code>normalizeNode</code> 实现对脏路径的节点规范化，调用<code>Transform</code> 來更新节点以满足约束并重跑一次相同的 Transform 流程。</li>
 <li>完成所有同步更新后，执行Micro-Task的内容将 <code>FLUSHING</code> 设为 <code>false</code> 并触发 <code>onChange</code> 。</li>
 </ol>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/201393593GX3OuA8NF.png"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/201393593GX3OuA8NF.png, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/201393593GX3OuA8NF.png 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/201393593GX3OuA8NF.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/201393593GX3OuA8NF.png"
+        title="201393593GX3OuA8NF" /></p>
 <h2 id="transforms">Transforms</h2>
 <p>一个 <code>transform</code>是多个 <code>operation</code> 组成。一般开发中使用高阶(High-level) 的 <code>Transform</code>api 来替代 低阶（Low-level） 的 <code>operation</code>。</p>
-<h2 id="slate">Slate</h2>
-<p>主流程：</p>
-<ol>
-<li>
-<p><strong>customCommand</strong></p>
-</li>
-<li>
-<p><strong>Transform.xxx(editor, &hellip;)</strong></p>
-</li>
-<li>
-<p><strong>editor.apply(operation)</strong></p>
-</li>
-<li>
-<p><strong>重新生成 model</strong></p>
-</li>
-<li>
-<p><strong>React 渲染</strong></p>
-</li>
-<li>
-<p>用户在编辑器光标所在的 Node 内按键，触发事件。</p>
-</li>
-<li>
-<p>根据按键的键值，分发不同的 Change，如换行、加粗等。</p>
-</li>
-<li>
-<p>Change 修改 State，生成新 State。</p>
-</li>
-<li>
-<p>新 State 经过 Schema 校验后，渲染到编辑器内，按需更新相应的 Node。</p>
-</li>
-</ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -687,7 +747,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.102.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.103.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
         </div>
     </footer></div>
