@@ -5,7 +5,7 @@ set -e
 git status
 
 # 打包。
-hugo -t LoveIt # if using a theme, replace with `hugo -t <YOURTHEME>`
+hugo -t LoveIt
 
 # Add changes to git.
 
