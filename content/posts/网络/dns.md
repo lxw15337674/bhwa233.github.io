@@ -76,3 +76,6 @@ DNS查询分为两种方式：递归查询和迭代查询。
 <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
 ```
 
+
+
+> [为什么 DNS 使用 UDP 协议](https://draveness.me/whys-the-design-dns-udp-tcp/)
