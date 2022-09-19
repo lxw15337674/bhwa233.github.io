@@ -4,11 +4,12 @@ set -e
 
 git status
 
+git pull
+
 # 打包。
 hugo -t LoveIt
 
 # Add changes to git.
-
 git add .
 
 # Commit changes.
