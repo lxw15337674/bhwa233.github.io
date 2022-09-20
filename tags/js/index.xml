@@ -3,7 +3,15 @@
         <title>js - Tag - Bhwa233 blog</title>
         <link>/tags/js/</link>
         <description>js - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</lastBuildDate><atom:link href="/tags/js/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</lastBuildDate><atom:link href="/tags/js/" rel="self" type="application/rss+xml" /><item>
+    <title>JS装饰器（Decorator）</title>
+    <link>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+    <pubDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+    <description><![CDATA[概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob]]></description>
+</item>
+<item>
     <title>js中三类For循环</title>
     <link>/posts/js/for%E5%BE%AA%E7%8E%AF/</link>
     <pubDate>Sat, 03 Sep 2022 15:39:17 &#43;0800</pubDate>

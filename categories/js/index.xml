@@ -3,7 +3,15 @@
         <title>js - Category - Bhwa233 blog</title>
         <link>/categories/js/</link>
         <description>js - Category - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 04 Sep 2022 14:05:12 &#43;0800</lastBuildDate><atom:link href="/categories/js/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</lastBuildDate><atom:link href="/categories/js/" rel="self" type="application/rss+xml" /><item>
+    <title>JS装饰器（Decorator）</title>
+    <link>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+    <pubDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+    <description><![CDATA[概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob]]></description>
+</item>
+<item>
     <title>浅拷贝与深拷贝</title>
     <link>/posts/js/%E6%8B%B7%E8%B4%9D/</link>
     <pubDate>Sun, 04 Sep 2022 14:05:12 &#43;0800</pubDate>

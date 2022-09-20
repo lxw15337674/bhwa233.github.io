@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 04 Sep 2022 16:57:06 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -26,6 +26,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>JS装饰器（Decorator）</title>
+    <link>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
+    <pubDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
+    <description><![CDATA[概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob]]></description>
 </item>
 <item>
     <title>Hook原理</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/float/</guid>
     <description><![CDATA[概念 浮动元素会脱离文档流并向左/向右浮动，直到碰到父元素或者另一个浮动元素。 优点 使文字环绕在图片周围。 当元素浮动后，它有着块级元素的一些性质]]></description>
-</item>
-<item>
-    <title>Base</title>
-    <link>/posts/webpack/base/</link>
-    <pubDate>Sun, 21 Aug 2022 11:29:30 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/webpack/base/</guid>
-    <description><![CDATA[一、webpack的打包原理 识别入口文件 通过逐层识别模块依赖(Commonjs、amd或者es6的import，webpack都会对其进行分]]></description>
 </item>
 </channel>
 </rss>
