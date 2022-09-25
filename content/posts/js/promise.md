@@ -365,40 +365,43 @@ addTask(3000, '4')
 
 ```
 
-### 方法：
+**答案**
 
 根据当前请求数，如果超过限制，就使用新的 promise 来进堵塞后续的请求，把 promise 的 resolve 函数传入一个数组中，然后执行完的请求结束后之前队列最前面的resolve。
 
+promise写法
+
 ```javascript
+function Scheduler() {
+  const queue = []
+  let count = 0
+  const add = (task) => {
+    let res = task
+    if (count >= 2) {
+      res = () => {
+        return new Promise((res) => {
+          queue.push(res)
+        }).then(task)
+      }
+    }
+    count++
+    return res().then(() => {
+      count--
+      if (queue.length) {
+        queue.shift()()
+      }
+    })
+  }
+  return {
+    add
+  }
+}
 
-// promise写法
-// function Scheduler() {
-//   const queue = []
-//   let count = 0
-//   const add = (task) => {
-//     let res = task
-//     if (count >= 2) {
-//       res = () => {
-//         return new Promise((res) => {
-//           queue.push(res)
-//         }).then(task)
-//       }
-//     }
-//     count++
-//     return res().then(() => {
-//       count--
-//       if (queue.length) {
-//         queue.shift()()
-//       }
-//     })
-//   }
-//   return {
-//     add
-//   }
-// }
+```
 
+async 写法
 
-// async 写法
+```javascript
 function Scheduler() {
   const queue = []
   let count = 0
@@ -425,7 +428,7 @@ function Scheduler() {
 
 
 
-### 实现 Promise.retry
+### 重试多次
 
 ```javascript
 const resolveData = () => {
@@ -519,6 +522,141 @@ Promise.retry(resolveData, 3, 100).then(res => {
 }).catch(err => {
   console.log(err);
 })
+```
+
+
+
+### 支持取消的重试
+
+实现一个轮询方法，返回一个取消方法，能够强制中断轮询
+
+当异步方法成功时，通过回调返回结果并且结束轮询；当异步方法失败时，隔一段时间进行重试，且每次重试的时间是上一次的两倍（第一次的重试时间为 1s）。
+
+```javascript
+let count = 0;
+function fakeRequest() {
+  return new Promise((resolve, reject) => {
+    if (++count > 3) {
+      resolve("data");
+    } else {
+      reject(new Error("failed"));
+    }
+  });  
+}
+ 
+function sendWithRetry(fn, onSuccess, onCancel) {
+  // TODO
+ 
+}
+ 
+const cancel = sendWithRetry(
+  fakeRequest,
+  (data) => {
+    console.log("结果：", data);
+  },
+  () => {
+    console.log("被取消了");
+  }
+);
+ 
+setTimeout(() => {
+  cancel(); // 取消、中断轮询
+}, 3000);
+```
+
+
+
+**实现**
+
+Promise写法
+
+```javascript
+
+function sendWithRetry(fn, onSuccess, onCancel) {
+  let delay = 1000
+  let cancel = null
+  let error = null
+  const retry = () => {
+    new Promise((resolve, reject) => {
+      cancel = () => {
+        reject(error)
+        onCancel(error)
+      }
+      fn().then((res) => {
+        onSuccess(res)
+        resolve(res)
+      }).catch((err) 
+               
+               => {
+        error = err
+        setTimeout(() => retry(), delay)
+        delay = delay * 2
+      })
+    })
+  }
+  retry()
+  return function () {
+    return cancel()
+  };
+}
+```
+
+Async写法
+
+```javascript
+let count = 0;
+function fakeRequest() {
+  return new Promise((resolve, reject) => {
+    if (++count > 3) {
+      resolve("data");
+    } else {
+      reject(new Error("failed"));
+    }
+  });
+}
+
+function sendWithRetry(fn, onSuccess, onCancel) {
+  let delay = 1000
+  let cancel = null
+  let error = null
+  const sleep = () => new Promise((res) => setTimeout((res), delay))
+  const retry = async () => {
+    while (true) {
+      cancel = () => {
+        onCancel(error)
+        throw error
+      }
+      try {
+        const res = await fn()
+        onSuccess(res)
+        return
+      } catch (e) {
+        error = e
+        await sleep()
+        delay = delay * 2
+      }
+    }
+  }
+  retry()
+  return function () {
+    return cancel()
+  };
+}
+
+const cancel = sendWithRetry(
+  fakeRequest,
+  (data) => {
+    console.log("结果：", data);
+  },
+  () => {
+    console.log("被取消了");
+  }
+);
+
+setTimeout(() => {
+  cancel(); // 取消、中断轮询
+}, 3000);
+
 ```
 
 
