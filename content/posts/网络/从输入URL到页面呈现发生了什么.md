@@ -97,6 +97,8 @@ typora-root-url: ..\..\static
 
 ## 引用
 
+[输入URL背后的技术步骤](https://lq782655835.github.io/blogs/js/http-base-1.url.html)
+
 [神三元](http://47.98.159.95/my_blog/browser-render/001.html)
 [浏览器层合成与页面渲染优化](https://juejin.im/post/5da52531518825094e373372)
 
