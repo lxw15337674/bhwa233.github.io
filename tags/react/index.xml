@@ -9,7 +9,7 @@
     <pubDate>Sun, 31 Jul 2022 14:11:32 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/react/diff/</guid>
-    <description><![CDATA[本质 diff本身就是上一帧的元素树与当前帧的元素树进行比对。 正常两棵树完全比对的算法复杂度是O(n 3 )。这个开销太过高昂。为了降低算法复杂度]]></description>
+    <description><![CDATA[本质 diff本身就是上一帧的元素树与当前帧的元素树进行比对。 react 正常两棵树完全比对的算法复杂度是O(n 3 )。 将两颗树中所有的节点一一对比需要O]]></description>
 </item>
 </channel>
 </rss>

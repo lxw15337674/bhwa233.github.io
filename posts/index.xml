@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 12 Oct 2022 16:38:06 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -26,6 +26,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>vscode 插件开发踩坑</title>
+    <link>/posts/vscode/note/</link>
+    <pubDate>Wed, 12 Oct 2022 16:38:06 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/vscode/note/</guid>
+    <description><![CDATA[中文翻译文档：https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/ 关于@types/no]]></description>
 </item>
 <item>
     <title>JS装饰器（Decorator）</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/middle/</guid>
     <description><![CDATA[居中 水平居中 行内元素 &lt;div class=&#34;container&#34;&gt; &lt;div&gt; 123 &lt;/div&gt; &lt;/div&gt; &lt;style&gt; .container { text-align: center; } &lt;/style&gt; 块级元素 确定宽度 margin:0 auto width:100px width: 100px; margin-left: calc(50% - 50px); } 不确定宽度同垂直居中 垂直居中 弹性盒 display:flex align-items:center translate position:absolute left:50% top:50% transform:translate(-50%,-50%) 相对定位 position:absolute]]></description>
-</item>
-<item>
-    <title>浮动</title>
-    <link>/posts/css/float/</link>
-    <pubDate>Sun, 21 Aug 2022 12:44:27 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/float/</guid>
-    <description><![CDATA[概念 浮动元素会脱离文档流并向左/向右浮动，直到碰到父元素或者另一个浮动元素。 优点 使文字环绕在图片周围。 当元素浮动后，它有着块级元素的一些性质]]></description>
 </item>
 </channel>
 </rss>
