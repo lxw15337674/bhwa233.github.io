@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 12 Oct 2022 16:38:06 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 27 Oct 2022 18:50:41 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -26,6 +26,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>性能优化之分片</title>
+    <link>/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <pubDate>Thu, 27 Oct 2022 18:50:41 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+    <description><![CDATA[痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化]]></description>
 </item>
 <item>
     <title>vscode 插件开发踩坑</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/css%E9%80%89%E6%8B%A9%E5%99%A8/</guid>
     <description><![CDATA[css 选择器 选择器类型 选择器分为五类： 元素选择器 关系选择器 属性选择器 伪类选择器 伪对象选择器 元素选择器 选择器 名称 描述 * 通配选择器 选择所有的元素 p 元]]></description>
-</item>
-<item>
-    <title>Middle</title>
-    <link>/posts/css/middle/</link>
-    <pubDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/middle/</guid>
-    <description><![CDATA[居中 水平居中 行内元素 &lt;div class=&#34;container&#34;&gt; &lt;div&gt; 123 &lt;/div&gt; &lt;/div&gt; &lt;style&gt; .container { text-align: center; } &lt;/style&gt; 块级元素 确定宽度 margin:0 auto width:100px width: 100px; margin-left: calc(50% - 50px); } 不确定宽度同垂直居中 垂直居中 弹性盒 display:flex align-items:center translate position:absolute left:50% top:50% transform:translate(-50%,-50%) 相对定位 position:absolute]]></description>
 </item>
 </channel>
 </rss>

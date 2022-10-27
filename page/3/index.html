@@ -92,6 +92,11 @@
     </div><main class="main">
                 <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><div class="home-subtitle"><img  class="hi" src="hi.png" /></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="../../posts/typescript/generic/">泛型</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-08-07">2022-08-07</time></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">类型变量，用于传递类型。 写法 function identity&lt;Type&gt;(arg: Type): Type { return arg; } // 箭头函数的泛型必须有extends，否则语法无法识别。 const identity =&lt;T extends {}&gt;(arg: T): T =&gt; { return arg; }; 泛型约束 interface Length{ length:number }</div><div class="post-footer">
+        <a href="../../posts/typescript/generic/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="../../posts/packages/deps/">搞懂各种依赖</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-08-03">2022-08-03</time></span>&nbsp;<span class="post-category">included in <a href="../../categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div><div class="content">dependencies 运行时依赖，生产环境需要的依赖，会被打包的依赖。 devDependencies 开发时依赖，开发环境需要安装的依赖，不会被打包。 peerDependencies 宿主依赖，指定了当前模块在使用前需要安</div><div class="post-footer">
         <a href="../../posts/packages/deps/">Read More</a><div class="post-tags">
@@ -185,11 +190,6 @@
         <a href="../../posts/react/fiber/">Fiber</a>
     </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-07-31">2022-07-31</time></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">一句话总结 React内部实现的一套状态更新机制。将同步的更新变为可中断的异步更新。支持任务不同优先级，可中断与恢复，并且恢复后可以复用之前的</div><div class="post-footer">
         <a href="../../posts/react/fiber/">Read More</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../tags/">Tags</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="../../posts/browser/browerCache/">深入理解浏览器的缓存机制(引用)</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-07-28">2022-07-28</time></span>&nbsp;<span class="post-category">included in <a href="../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk</div><div class="post-footer">
-        <a href="../../posts/browser/browerCache/">Read More</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../tags/">Tags</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
