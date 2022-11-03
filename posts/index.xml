@@ -29,10 +29,10 @@
 </item>
 <item>
     <title>性能优化之分片</title>
-    <link>/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</link>
+    <link>/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%88%86%E7%89%87/</link>
     <pubDate>Thu, 27 Oct 2022 18:50:41 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</guid>
+    <guid>/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%88%86%E7%89%87/</guid>
     <description><![CDATA[痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化]]></description>
 </item>
 <item>
