@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 27 Oct 2022 18:50:41 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>性能监控基础</title>
+    <link>/posts/%E7%9B%91%E6%8E%A7/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80/</link>
+    <pubDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/%E7%9B%91%E6%8E%A7/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80/</guid>
+    <description><![CDATA[性能监控基础 前端应用渲染模型 CSR：Client Side Rendering，客户端（通常是浏览器）渲染； SSR：Server Side Rendering，]]></description>
 </item>
 <item>
     <title>性能优化之分片</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/js/%E6%8B%B7%E8%B4%9D/</guid>
     <description><![CDATA[总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys]]></description>
-</item>
-<item>
-    <title>this指向问题</title>
-    <link>/posts/js/this/</link>
-    <pubDate>Sat, 03 Sep 2022 16:15:11 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/js/this/</guid>
-    <description><![CDATA[总结 this始终指向调用它的那个对象。 场景： 给元素的某个行为绑定方法，当事件行为触发，方法中的this是元素本身。 构造函数体中的this是当]]></description>
 </item>
 </channel>
 </rss>
