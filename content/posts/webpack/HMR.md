@@ -33,7 +33,7 @@ Hot Module Replacement（以下简称 HMR）
 
 1.启动dev-server，webpack开始构建，在编译期间会向 entry 文件注入热更新代码；
 
-2.Client 首次打开后，Server 和 Client 基于Socket建立通讯渠道；
+2.Client 首次打开后，Server 和 Client 基于WebSocket建立通讯渠道；
 
 3.修改文件，Server 端监听文件发送变动，webpack开始编译，直到编译完成会触发"Done"事件；
 
