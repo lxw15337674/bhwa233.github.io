@@ -18,6 +18,14 @@ typora-root-url: ..\..\static
 
 - instanceOf 只能检测引用数据类型
 
+### 总结
+
+|                             | 适用于       | 返回       |
+| --------------------------- | ------------ | ---------- |
+| typeof                      | 基本数据类型 | string     |
+| instanceof                  | 引用数据     | true/false |
+| `Object.prototype.toString` | 都可以       | string     |
+
 ## Object.prototype.toString.call(obj)
 
 ### 原理
@@ -54,15 +62,17 @@ Object.prototype.toString.call(a).split(' ')[1].slice(0,-1).toLowerCase()
 
 基于js底层存储变量数据类型的值（二进制）进行检测
 
-> js 在底层存储变量的时候，会在变量的机器码的低位 1-3 位存储其类型信息
->
-> - 000：对象
-> - 010：浮点数
-> - 100：字符串
-> - 110：布尔
-> - 1：整数
-> - 所有机器码均为 0：null-
-> - −2^30 ：undefined
+| 类型     | typeof 结果                         |             |
+| -------- | ----------------------------------- | ----------- |
+| 基本类型 | undefined                           | "undefined" |
+|          | Boolean                             | "boolean"   |
+|          | Number                              | "number"    |
+|          | String                              | "string"    |
+|          | BigInt (ECMAScript 2020 新增)       | "bigint"    |
+|          | Symbol                              | "symbol"    |
+|          | null                                | "object"    |
+| 引用类型 | Object（Object、Array、Map、Set等） | "object"    |
+|          | Function                            | "function"  |
 
 > 对于原始类型来说，除了 null 都可以调用 typeof 显示正确的类型。null会被检测为object，是js底层的一个bug。
 
@@ -171,32 +181,4 @@ console.log(instance_of({}, Array))//false
 
 
 
-
-
-## constructor
-
-constructor作用和instanceof相似。**但constructor检测 Object与instanceof不一样，还可以处理基本数据类型的检测。**
-
-### 语法
-
-```javascript
-const aa=[1,2];
-console.log(aa.constructor===Array);//true
-console.log(aa.constructor===RegExp);//false
-console.log(aa.constructor===Object);//false
-console.log(aa.constructor===null);// false
-console.log((1).constructor===Number);//true
-```
-
-### 弊端
-
-- null 和 undefined 是无效的对象，因此是不会有 constructor 存在的，这两种类型的数据需要通过其他方式来判断。
-- constructor可以被重写，这样检测出来的结果就是不准确的
-
-```javascript
-function Fn(){}
-Fn.prototype = new Array()
-var f = new Fn
-console.log(f.constructor)//Array
-```
 
