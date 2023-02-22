@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 22 Feb 2023 18:04:37 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>状态管理</title>
+    <link>/posts/react/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</link>
+    <pubDate>Wed, 22 Feb 2023 18:04:37 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/react/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</guid>
+    <description><![CDATA[关于react 的状态管理 Provider + Context（useContext） 一个完整的例子 import React, { createContext, Dispatch, SetStateAction, useState, } from &#39;react&#39;; export interface IState { theme: string; color: string; } interface Props { count: number; setCount: Dispatch&lt;SetStateAction&lt;number&gt;&gt;; } const Context =]]></description>
 </item>
 <item>
     <title>性能监控基础</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/AOP/</guid>
     <description><![CDATA[基本思想 面向切面编程，把一些跟核心业务逻辑无关的功能抽离出来，再通过动态组织的方式掺入业务逻辑模块中。 let func = ()=&gt;{ //业务逻辑 console.log(&#39;func&#39;); } func = func.before(()=&gt;{ console.log(&#39;before&#39;); }).after(()=&gt;{ console.log(&#39;after&#39;); })]]></description>
-</item>
-<item>
-    <title>浅拷贝与深拷贝</title>
-    <link>/posts/js/%E6%8B%B7%E8%B4%9D/</link>
-    <pubDate>Sun, 04 Sep 2022 14:05:12 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/js/%E6%8B%B7%E8%B4%9D/</guid>
-    <description><![CDATA[总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys]]></description>
 </item>
 </channel>
 </rss>
