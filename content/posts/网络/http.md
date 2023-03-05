@@ -111,7 +111,7 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 
 ### 关于队头拥塞
 
-**HTTP/1.1：** 尽管HTTP/1.1长链接可以通过一个TCP连接传输多个请求，但同一时刻只能处理一个请求，当前请求未结束前，其他请求只能处于阻塞状态
+**HTTP/1.1：** 尽管HTTP/1.1长链接可以通过一个TCP连接传输多个请求，但同一时刻只能处理一个请求，当前请求未结束前，其他请求只能处于阻塞状态。
 
 为了解决以上几个问题，HTTP/2一个域名只使用一个TCP⻓连接来传输数据，而且请求直接是并行的、非阻塞的，这就是多路复用。
 
@@ -119,7 +119,7 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 
 **HTTP/2.0**：HTTP2 协议是基于 TCP 的，但是 TCP 本身是无法解决队头拥塞，为什么呢？因为 HTTP2 会把一次传输所有的文件都放在一个 TCP 连接中，只要这个 TCP 中发生一个丢包，连接就必须重新建立，之前所有传输内容进行必须重传，从而造成拥塞。
 
-
+## Http 3.0
 
 
 
@@ -128,8 +128,9 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 [关于http2.0的HTTP 2.0 的二进制帧、流、多路复用](https://juejin.im/post/5c88f2066fb9a049c043e420)
 [HTTP2 详解](https://blog.wangriyu.wang/2018/05-HTTP2.html)
 [http发展史(http0.9、http1.0、http1.1、http2、http3)梳理笔记](https://juejin.im/post/5dbe8eba5188254fe019dabb#heading-9)
-[神三元](http://47.98.159.95/my_blog/http/002.html)
 
 [HTTP协议头部与Keep-Alive](https://www.cnblogs.com/happy-king/p/9603395.html)
 [解读HTTP/2 及 HTTP/3特性](https://github.com/ljianshu/Blog/issues/57)
 [HTTP/1.0、HTTP/1.1、HTTP/2、HTTPS](https://zhuanlan.zhihu.com/p/43787334)
+
+[HTTP/1.1，HTTP/2和HTTP/3的区别 视频讲解](https://www.bilibili.com/video/BV1vv4y1U77y/?buvid=XX7F2E679C472834BFEA30EBF7C2E86E3B0BB&is_story_h5=false&mid=N9gFrUhL925gIojyS36eOA%3D%3D&p=1&plat_id=168&share_from=ugc&share_medium=android&share_plat=android&share_session_id=8a07f717-9646-47ec-afff-58bdbc0445d8&share_source=WEIXIN&share_tag=s_i&timestamp=1677857095&unique_k=90sxO90&up_id=327247876&vd_source=0ab35fe7d5d150155b5838efffedc59d)
