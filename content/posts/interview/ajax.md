@@ -1,7 +1,6 @@
 ---
 title: "原理题"
 date: 2022-09-04T15:24:04+08:00
-draft: true
 tags: [""]
 categories: ["面试"]
 typora-root-url: ..\..\static

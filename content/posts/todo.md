@@ -1,7 +1,6 @@
 ---
 title: "软件架构与个人成长"
 date: 2022-08-12T14:46:10+08:00
-draft: true
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static

@@ -1,7 +1,6 @@
 ---
 title: "算法解法总结"
 date: 2022-08-14T11:12:13+08:00
-draft: true
 tags: ["算法"]
 categories: ["算法"]
 typora-root-url: ..\..\static
@@ -9,7 +8,6 @@ typora-root-url: ..\..\static
 
 
 
-[分类总结](前端该如何准备数据结构和算法？)
 
 ## 双指针
 
