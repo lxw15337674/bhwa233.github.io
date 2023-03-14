@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/react\/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86\/"
-        },"genre": "posts","keywords": "","wordcount":  1256 ,
+        },"genre": "posts","keywords": "","wordcount":  1332 ,
         "url": "\/posts\/react\/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86\/","datePublished": "2023-02-22T18:04:37+08:00","dateModified": "2023-02-22T18:04:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,7 +102,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">状态管理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/react/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>react</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-22">2023-02-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1256 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-22">2023-02-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1332 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -213,7 +213,18 @@
 <ol>
 <li>重复渲染，性能差</li>
 </ol>
-<p>每次修改Context的某个属性，都会导致Provider下的所有组件重新渲染，正常应该只重新渲染有使用那个修改属性的组件。</p>
+<p>当 Context 中的某个属性发生变化时，所有使用该 Context 的子组件都会被重新渲染，即使某些组件可能并未使用到这个属性。</p>
+<blockquote>
+<p>这种问题有两种解决方法：</p>
+<ol>
+<li>
+<p>React.memo 和 shouldComponentUpdate 这两种方式来解决。</p>
+</li>
+<li>
+<p>将一个大型的 Context 拆分成多个小的 Context，可以精细地控制每个 Context 的更新，从而减少整个应用程序的重新渲染次数，提高性能和用户体验。</p>
+</li>
+</ol>
+</blockquote>
 <ol start="2">
 <li>数据变更方法难以维护</li>
 </ol>
