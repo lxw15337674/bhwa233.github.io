@@ -33,7 +33,7 @@
     <pubDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/design/mode/</guid>
-    <description><![CDATA[概念 依赖倒置 依赖倒置原则（DIP）是一种设计原则，它的定义可以总结为以下两点： 高层模块不依赖于低层模块，两者都应该依赖于抽象。 细节依赖于抽象]]></description>
+    <description><![CDATA[通过定义抽象的接口，我们可以将高层应用和具体的底层模块解耦。应用程序不需要关心具体实现细节，而是通过接口来访问底层模块的功能。当需要使用不同]]></description>
 </item>
 <item>
     <title>状态管理</title>
