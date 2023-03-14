@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/react\/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86\/"
-        },"genre": "posts","keywords": "","wordcount":  1156 ,
+        },"genre": "posts","keywords": "","wordcount":  1256 ,
         "url": "\/posts\/react\/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86\/","datePublished": "2023-02-22T18:04:37+08:00","dateModified": "2023-02-22T18:04:37+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -102,7 +102,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">状态管理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/react/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>react</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-22">2023-02-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1156 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-22">2023-02-22</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1256 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -211,7 +211,7 @@
 </ol>
 <p>缺点：</p>
 <ol>
-<li>重复渲染，性能差。</li>
+<li>重复渲染，性能差</li>
 </ol>
 <p>每次修改Context的某个属性，都会导致Provider下的所有组件重新渲染，正常应该只重新渲染有使用那个修改属性的组件。</p>
 <ol start="2">
@@ -219,9 +219,17 @@
 </ol>
 <p>为了保证数据变更方法的可维护性与 action 的不变性，有两种方法但各有问题：使用自定义 hooks，但为了不会重复渲染，每个修改方法需要使用useCallback，需要声明依赖，会造成极大的心智负担。使用useReducer，不支持异步函数、不支持内部的 reducer 互相调用，不支持和其他 state 联动（比如要当参数传进去才可用）。</p>
 <ol start="3">
-<li>context的store只能在react中使用</li>
+<li>使用范围限制</li>
 </ol>
-<p>无法在外部函数使用，例如请求函数中需要store中的属性，不能直接在请求函数中调用，就只能通过react中作为参数传递。</p>
+<p>context的store只能在react中使用，无法在外部函数使用，例如请求函数中需要store中的属性，不能直接在请求函数中调用，就只能通过react中作为参数传递。</p>
+<ol start="4">
+<li>无法处理异步请求。</li>
+</ol>
+<p>对于异步的逻辑，Context API并没有提供任何API，需要自己做封装。</p>
+<ol start="5">
+<li>无法处理数据间的联动</li>
+</ol>
+<p>Context API并没有提供API来生成派生状态，同样也需要自行去封装一些方法来实现。</p>
 <h2 id="zustand">Zustand</h2>
 <p>优点：</p>
 <h3 id="状态共享">状态共享</h3>
