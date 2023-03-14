@@ -3,7 +3,15 @@
         <title>设计模式 - Category - Bhwa233 blog</title>
         <link>/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
         <description>设计模式 - Category - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 21 Aug 2022 16:55:21 &#43;0800</lastBuildDate><atom:link href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</lastBuildDate><atom:link href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>依赖倒置、控制反转，依赖注入</title>
+    <link>/posts/design/mode/</link>
+    <pubDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/design/mode/</guid>
+    <description><![CDATA[概念 依赖倒置 依赖倒置原则（DIP）是一种设计原则，它的定义可以总结为以下两点： 高层模块不依赖于低层模块，两者都应该依赖于抽象。 细节依赖于抽象]]></description>
+</item>
+<item>
     <title>设计模式总结</title>
     <link>/posts/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
     <pubDate>Sun, 21 Aug 2022 16:55:21 &#43;0800</pubDate>

@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 22 Feb 2023 18:04:37 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -26,6 +26,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>依赖倒置、控制反转，依赖注入</title>
+    <link>/posts/design/mode/</link>
+    <pubDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/design/mode/</guid>
+    <description><![CDATA[概念 依赖倒置 依赖倒置原则（DIP）是一种设计原则，它的定义可以总结为以下两点： 高层模块不依赖于低层模块，两者都应该依赖于抽象。 细节依赖于抽象]]></description>
 </item>
 <item>
     <title>状态管理</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/css/src%E5%92%8Chref/</guid>
     <description><![CDATA[href href是Hypertext Reference的简写，表示超文本引用，指向网络资源所在位置。 &lt;a href=&#34;http://www.baidu.com&#34;&gt;&lt;/a&gt; &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;common.css&#34;&gt; src src是source的简写，目的]]></description>
-</item>
-<item>
-    <title>Link标签</title>
-    <link>/posts/css/link%E6%A0%87%E7%AD%BE/</link>
-    <pubDate>Sun, 21 Aug 2022 13:13:13 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/link%E6%A0%87%E7%AD%BE/</guid>
-    <description><![CDATA[概述 link 元素用于链接外部css样式表等其他相关外部资源。 属性 href：指明外部资源文件的路径，即告诉浏览器外部资源的位置 hreflang：说明]]></description>
 </item>
 </channel>
 </rss>

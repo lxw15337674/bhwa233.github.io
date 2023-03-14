@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 22 Feb 2023 18:04:37 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>依赖倒置、控制反转，依赖注入</title>
+    <link>/posts/design/mode/</link>
+    <pubDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/design/mode/</guid>
+    <description><![CDATA[概念 依赖倒置 依赖倒置原则（DIP）是一种设计原则，它的定义可以总结为以下两点： 高层模块不依赖于低层模块，两者都应该依赖于抽象。 细节依赖于抽象]]></description>
 </item>
 <item>
     <title>状态管理</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/react/hook%E5%8E%9F%E7%90%86/</guid>
     <description><![CDATA[作者：宫秋 链接：https://juejin.cn/post/7119102104337121316 来源：稀土掘金 原理 hooks 的实现就是基于 fiber 的，]]></description>
-</item>
-<item>
-    <title>AOP思想</title>
-    <link>/posts/AOP/</link>
-    <pubDate>Sun, 04 Sep 2022 14:52:22 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/AOP/</guid>
-    <description><![CDATA[基本思想 面向切面编程，把一些跟核心业务逻辑无关的功能抽离出来，再通过动态组织的方式掺入业务逻辑模块中。 let func = ()=&gt;{ //业务逻辑 console.log(&#39;func&#39;); } func = func.before(()=&gt;{ console.log(&#39;before&#39;); }).after(()=&gt;{ console.log(&#39;after&#39;); })]]></description>
 </item>
 </channel>
 </rss>
