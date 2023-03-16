@@ -3,7 +3,7 @@
         <title>All Posts - Bhwa233 blog</title>
         <link>/posts/</link>
         <description>All Posts | Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 15 Mar 2023 14:47:44 &#43;0800</lastBuildDate><atom:link href="/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo lovelt的搜索坑</title>
     <link>/posts/hugo/</link>
     <pubDate>Sat, 06 Aug 2022 19:30:28 &#43;0800</pubDate>
@@ -26,6 +26,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>异常监控</title>
+    <link>/posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Wed, 15 Mar 2023 14:47:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[异常类型 JS错误 在 JavaScript 中，Error 是一种标准的内置对象，用于表示运行时错误和异常。Error 对象可以通过 throw 语句抛出，由 try&hellip;catch 语句捕获并处理。 一个]]></description>
 </item>
 <item>
     <title>依赖倒置、控制反转，依赖注入</title>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
     <description><![CDATA[设计模式 设计模式 描述 例子 单例模式 一个类只能构造出唯一实例 vuex 工厂模式 对创建对象逻辑的封装 new 创建实例 观察者模式 当一个对象被修改时，自动通知所有依]]></description>
-</item>
-<item>
-    <title>Src和href</title>
-    <link>/posts/css/src%E5%92%8Chref/</link>
-    <pubDate>Sun, 21 Aug 2022 13:29:51 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/css/src%E5%92%8Chref/</guid>
-    <description><![CDATA[href href是Hypertext Reference的简写，表示超文本引用，指向网络资源所在位置。 &lt;a href=&#34;http://www.baidu.com&#34;&gt;&lt;/a&gt; &lt;link type=&#34;text/css&#34; rel=&#34;stylesheet&#34; href=&#34;common.css&#34;&gt; src src是source的简写，目的]]></description>
 </item>
 </channel>
 </rss>

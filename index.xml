@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 15 Mar 2023 14:47:44 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>异常监控</title>
+    <link>/posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Wed, 15 Mar 2023 14:47:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[异常类型 JS错误 在 JavaScript 中，Error 是一种标准的内置对象，用于表示运行时错误和异常。Error 对象可以通过 throw 语句抛出，由 try&hellip;catch 语句捕获并处理。 一个]]></description>
 </item>
 <item>
     <title>依赖倒置、控制反转，依赖注入</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
     <description><![CDATA[概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob]]></description>
-</item>
-<item>
-    <title>Hook原理</title>
-    <link>/posts/react/hook%E5%8E%9F%E7%90%86/</link>
-    <pubDate>Sun, 04 Sep 2022 16:57:06 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/react/hook%E5%8E%9F%E7%90%86/</guid>
-    <description><![CDATA[作者：宫秋 链接：https://juejin.cn/post/7119102104337121316 来源：稀土掘金 原理 hooks 的实现就是基于 fiber 的，]]></description>
 </item>
 </channel>
 </rss>
