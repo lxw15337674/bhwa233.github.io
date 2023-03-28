@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 15 Mar 2023 14:47:44 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 28 Mar 2023 11:46:48 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>CodeStyle.md</title>
+    <link>/posts/codeStyle/</link>
+    <pubDate>Tue, 28 Mar 2023 11:46:48 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/codeStyle/</guid>
+    <description><![CDATA[Code Style 提前返回 在 function 中经常会遇到变量值为 undefined 的情况，这个时候则需要提前判断并阻止执行，避免一些不必要的分支（无 else），让代码更精炼。 if (userInfo) { // 执]]></description>
 </item>
 <item>
     <title>异常监控</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/vscode/note/</guid>
     <description><![CDATA[中文翻译文档：https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/ 关于@types/no]]></description>
-</item>
-<item>
-    <title>JS装饰器（Decorator）</title>
-    <link>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</link>
-    <pubDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/</guid>
-    <description><![CDATA[概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob]]></description>
 </item>
 </channel>
 </rss>
