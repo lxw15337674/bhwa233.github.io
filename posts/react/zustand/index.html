@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Zustand - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Zustand" />
+<meta property="og:description" content="zustand是一个react的状态管理库，可以替代context、redux使用。 创建Store set用于修改store属性，get获取s" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/react/zustand/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-03-29T15:22:32+08:00" />
+<meta property="article:modified_time" content="2023-03-29T18:35:57+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Zustand"/>
+<meta name="twitter:description" content="zustand是一个react的状态管理库，可以替代context、redux使用。 创建Store set用于修改store属性，get获取s"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/react/zustand/" /><link rel="prev" href="../../../posts/codeStyle/" /><link rel="next" href="../../../posts/richtext/slateApi/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Zustand",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/react\/zustand\/"
+        },"genre": "posts","keywords": "","wordcount":  1903 ,
+        "url": "\/posts\/react\/zustand\/","datePublished": "2023-03-29T15:22:32+08:00","dateModified": "2023-03-29T18:35:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Bhwa233"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Zustand</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-03-29">2023-03-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1903 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建store">创建Store</a></li>
+    <li><a href="#使用store">使用Store</a>
+      <ul>
+        <li><a href="#获取所有state">获取所有state</a></li>
+        <li><a href="#选择单个state">选择单个state</a></li>
+        <li><a href="#组合多个state">组合多个state</a></li>
+        <li><a href="#衍生属性">衍生属性</a></li>
+      </ul>
+    </li>
+    <li><a href="#修改store">修改Store</a>
+      <ul>
+        <li><a href="#覆盖store">覆盖Store</a></li>
+        <li><a href="#异步操作">异步操作</a></li>
+        <li><a href="#在actions中获取state">在actions中获取state</a></li>
+        <li><a href="#瞬时更新针对经常发生的状态更改">瞬时更新（针对经常发生的状态更改）</a></li>
+      </ul>
+    </li>
+    <li><a href="#组件外使用">组件外使用</a>
+      <ul>
+        <li><a href="#获取修改">获取、修改</a></li>
+        <li><a href="#订阅">订阅</a></li>
+      </ul>
+    </li>
+    <li><a href="#脱离react使用">脱离react使用</a></li>
+    <li><a href="#中间件">中间件</a>
+      <ul>
+        <li><a href="#自定义中间件">自定义中间件</a></li>
+        <li><a href="#持久化中间件">持久化中间件</a></li>
+        <li><a href="#immer-中间件">Immer 中间件</a></li>
+        <li><a href="#redux中间件">redux中间件</a></li>
+        <li><a href="#redux-devtools">Redux devtools</a></li>
+      </ul>
+    </li>
+    <li><a href="#react-context">React context</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><strong><a href="https://github.com/pmndrs/zustand" target="_blank" rel="noopener noreffer ">zustand</a>是一个react的状态管理库，可以替代context、redux使用。</strong></p>
+<h2 id="创建store">创建Store</h2>
+<p>set用于修改store属性，get获取store内的其他属性。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Store</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cats</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">doubleBears</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneCat</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBearStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">&lt;</span><span class="nt">Store</span><span class="p">&gt;((</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cats</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">doubleBears</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kr">get</span><span class="p">().</span><span class="nx">bears</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">bears</span>: <span class="kt">state.bears</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneCat</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">cats</span>: <span class="kt">state.cats</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span></code></pre></div><h2 id="使用store">使用Store</h2>
+<h3 id="获取所有state">获取所有state</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 任意 state 发生变化时，都会触发组件的重新渲染
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">BearCounter() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">bears</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;{</span><span class="nx">bears</span><span class="p">}</span> <span class="nx">around</span> <span class="nx">here</span> <span class="p">...&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>这样做的问题是，任意state发生变化时，都会触发组件的重新渲染，这可能会导致性能问题。</p>
+<h3 id="选择单个state">选择单个state</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 只有在 cats 变化时组件才会重新渲染。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">Cat() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">cats</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">cats</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">cats</span><span class="o">:</span> <span class="p">{</span><span class="nx">cats</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>在默认情况下，它使用严格相等（old === new）检测更改。这种检测方式对于基本数据类型的state选择是有效的。</p>
+<h3 id="组合多个state">组合多个state</h3>
+<p>如果需要构件由多个状态组成的引用数据类型（例如object、array），需要使用zustand/shallow提供的浅相等函数来进行浅层差异比较。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 任意 state 发生变化时，都会触发组件的重新渲染
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">Cat() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">cats</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">cats</span>: <span class="kt">state.cats</span> <span class="p">}));</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">cats</span><span class="o">:</span> <span class="p">{</span><span class="nx">cats</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 只有在 cats 变化时组件才会重新渲染。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">function</span> <span class="nx">Cat() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">{</span> <span class="nx">cats</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">cats</span>: <span class="kt">state.cats</span> <span class="p">}),</span> <span class="nx">shallow</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Cats&#34;</span><span class="p">,</span> <span class="nx">cats</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">cats</span><span class="o">:</span> <span class="p">{</span><span class="nx">cats</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>shallow 函数的实现原理是通过遍历对象的每个属性值，如果某个属性值是对象，则递归调用 shallow 函数进行浅层比较，如果是其他类型的值，则使用 <code>Object.is</code> 进行比较。由于 <code>Object.is</code> 比较的是两个值是否相等，包括严格相等和同值相等，因此可以准确地判断值是否发生了变化。</p>
+<p>当然也可以自己自定义比较函数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">treats</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">treats</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">oldTreats</span><span class="p">,</span> <span class="nx">newTreats</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">compare</span><span class="p">(</span><span class="nx">oldTreats</span><span class="p">,</span> <span class="nx">newTreats</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span></code></pre></div><h3 id="衍生属性">衍生属性</h3>
+<ol>
+<li>zustand 用了类似 redux selector 的方法，实现相应的状态派生。</li>
+<li>可以实现只有监听的属性变化，才会重新渲染</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">doubleBears</span> <span class="o">=</span> <span class="p">(</span><span class="nx">s</span>: <span class="kt">Store</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">s</span><span class="p">.</span><span class="nx">bears</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">Bear() {</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">(</span><span class="nx">doubleBears</span><span class="p">,</span> <span class="nx">shallow</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">Bear</span><span class="o">:</span><span class="p">{</span><span class="nx">count</span><span class="p">}&lt;/</span><span class="nt">h1</span><span class="p">&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="修改store">修改Store</h2>
+<h3 id="覆盖store">覆盖Store</h3>
+<p>set 函数有一个默认为 false 的第二个参数。如果设置为 true，它会<strong>替换</strong>整个store而不是merge state。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBearStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">&lt;</span><span class="nt">Store</span><span class="p">&gt;((</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">cats</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">doubleBears</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kr">get</span><span class="p">().</span><span class="nx">bears</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">bears</span>: <span class="kt">state.bears</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})),</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneCat</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">set</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">cats</span>: <span class="kt">state.cats</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">      <span class="kc">true</span> <span class="c1">// 修改后只剩下 store 中只有 cats
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span></code></pre></div><h3 id="异步操作">异步操作</h3>
+<p>调用set。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBearStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">&lt;</span><span class="nt">Store</span><span class="p">&gt;((</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">getBears</span><span class="o">:</span> <span class="p">(</span><span class="nx">n</span>: <span class="kt">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setTimeout</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">set</span><span class="p">({</span> <span class="nx">bears</span>: <span class="kt">n</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span> <span class="mi">2000</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span></code></pre></div><h3 id="在actions中获取state">在actions中获取state</h3>
+<ol>
+<li>通过回调函数</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBearStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">&lt;</span><span class="nt">Store</span><span class="p">&gt;((</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kr">set</span><span class="p">(</span><span class="nx">state</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">bears</span>: <span class="kt">state.bears</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">})),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span></code></pre></div><ol start="2">
+<li>通过get获取</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBearStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">&lt;</span><span class="nt">Store</span><span class="p">&gt;((</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kr">set</span><span class="p">({</span> <span class="nx">bears</span>: <span class="kt">get</span><span class="p">().</span><span class="nx">bears</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}));</span>
+</span></span></code></pre></div><h3 id="瞬时更新针对经常发生的状态更改">瞬时更新（针对经常发生的状态更改）</h3>
+<p>如果需要改变状态，而不期望重新渲染可以考虑使用订阅功能来实现，最好与useEffect结合使用，在卸载时自动取消订阅。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useScratchStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="kr">set</span> <span class="o">=&gt;</span> <span class="p">({</span> <span class="nx">scratches</span>: <span class="kt">0</span><span class="p">,</span> <span class="p">...</span> <span class="p">}))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Component</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">scratchRef</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="nx">useScratchStore</span><span class="p">.</span><span class="nx">getState</span><span class="p">().</span><span class="nx">scratches</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// Connect to the store on mount, disconnect on unmount, catch state-changes in a reference
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">useScratchStore</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">state</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">scratchRef</span><span class="p">.</span><span class="nx">current</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">scratches</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">),</span> <span class="p">[])</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span></code></pre></div><h2 id="组件外使用">组件外使用</h2>
+<h3 id="获取修改">获取、修改</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 获取state
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">bears</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">.</span><span class="nx">getState</span><span class="p">().</span><span class="nx">bears</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 修改state
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">useBearStore</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">bears</span>: <span class="kt">1</span> <span class="p">})</span>
+</span></span></code></pre></div><h3 id="订阅">订阅</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 监听所有更改，在每次更改时同步触发
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">unSub</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 取消订阅
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">unSub</span><span class="p">()</span>
+</span></span></code></pre></div><p>如果需要选择订阅，需要使用<code>subscribeWithSelector</code>中间件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="nx">subscribe</span><span class="p">(</span><span class="nx">selector</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">options</span><span class="o">?:</span> <span class="p">{</span> <span class="nx">equalityFn</span><span class="p">,</span> <span class="nx">fireImmediately</span> <span class="p">})</span><span class="o">:</span> <span class="nx">Unsubscribe</span>
+</span></span></code></pre></div><p>举例</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">subscribeWithSelector</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand/middleware&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">create</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">interface</span> <span class="nx">Store</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bears</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBearStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">subscribeWithSelector</span><span class="p">&lt;</span><span class="nt">Store</span><span class="p">&gt;((</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bears</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">addOneBear</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kr">set</span><span class="p">({</span> <span class="nx">bears</span>: <span class="kt">get</span><span class="p">().</span><span class="nx">bears</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 监听bear的变化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">unsub</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">bears</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">bears</span><span class="p">,</span> <span class="nx">previousBears</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">bears</span><span class="p">,</span> <span class="nx">previousBears</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 支持可选的比较函数。
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">unsub2</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">state</span><span class="p">.</span><span class="nx">bear</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">fur</span><span class="p">],</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">equalityFn</span>: <span class="kt">shallow</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 立即订阅并触发（执行）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">unsub3</span> <span class="o">=</span> <span class="nx">useBearStore</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">bear</span><span class="p">,</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fireImmediately</span>: <span class="kt">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span></code></pre></div><h2 id="脱离react使用">脱离react使用</h2>
+<p>Zustand核心可以在没有React依赖的情况下导入和使用。唯一的区别是create函数不返回hook，而是API。</p>
+<pre tabindex="0"><code>import { createStore } from &#39;zustand/vanilla&#39;
+
+const store = createStore(() =&gt; ({ ... }))
+const { getState, setState, subscribe } = store
+
+export default store
+</code></pre><p>你可以使用自v4版本起提供的useStore钩子来使用Vanilla Store。</p>
+<pre tabindex="0"><code>import { useStore } from &#39;zustand&#39;
+import { vanillaStore } from &#39;./vanillaStore&#39;
+
+const useBoundStore = (selector) =&gt; useStore(vanillaStore, selector)
+</code></pre><h2 id="中间件">中间件</h2>
+<h3 id="自定义中间件">自定义中间件</h3>
+<p>可以扩展zustand功能</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// Log every time state is changed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">log</span> <span class="o">=</span> <span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">,</span> <span class="nx">api</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">config</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;  applying&#39;</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">set</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;  new state&#39;</span><span class="p">,</span> <span class="kr">get</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">get</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">api</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBeeStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">log</span><span class="p">((</span><span class="kr">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bees</span>: <span class="kt">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">setBees</span><span class="o">:</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="kr">set</span><span class="p">({</span> <span class="nx">bees</span>: <span class="kt">input</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="持久化中间件">持久化中间件</h3>
+<p>可以根据需要来持久化state</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">create</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">persist</span><span class="p">,</span> <span class="nx">createJSONStorage</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand/middleware&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useFishStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">persist</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="kr">set</span><span class="p">,</span> <span class="kr">get</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">fishes</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">addAFish</span><span class="o">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kr">set</span><span class="p">({</span> <span class="nx">fishes</span>: <span class="kt">get</span><span class="p">().</span><span class="nx">fishes</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;food-storage&#39;</span><span class="p">,</span> <span class="c1">// unique name
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="nx">storage</span>: <span class="kt">createJSONStorage</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="nx">sessionStorage</span><span class="p">),</span> <span class="c1">// (optional) by default, &#39;localStorage&#39; is used
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><p><a href="https://github.com/pmndrs/zustand/blob/main/docs/integrations/persisting-store-data.md" target="_blank" rel="noopener noreffer ">See the full documentation for this middleware.</a></p>
+<h3 id="immer-中间件">Immer 中间件</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">create</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">immer</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand/middleware/immer&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useBeeStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">immer</span><span class="p">((</span><span class="kr">set</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">bees</span>: <span class="kt">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">addBees</span><span class="o">:</span> <span class="p">(</span><span class="nx">by</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="kr">set</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">state</span><span class="p">.</span><span class="nx">bees</span> <span class="o">+=</span> <span class="nx">by</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}))</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span></code></pre></div><h3 id="redux中间件">redux中间件</h3>
+<p>使用类redux写法</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">create</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">redux</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand/middleware&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">types</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">increase</span><span class="o">:</span> <span class="s1">&#39;INCREASE&#39;</span><span class="p">,</span> <span class="nx">decrease</span><span class="o">:</span> <span class="s1">&#39;DECREASE&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">reducer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="p">{</span> <span class="kr">type</span><span class="p">,</span> <span class="nx">by</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">switch</span> <span class="p">(</span><span class="kr">type</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">types.increase</span>:
+</span></span><span class="line"><span class="cl">      <span class="kt">return</span> <span class="p">{</span> <span class="nx">grumpiness</span>: <span class="kt">state.grumpiness</span> <span class="o">+</span> <span class="nx">by</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="nx">types.decrease</span>:
+</span></span><span class="line"><span class="cl">      <span class="kt">return</span> <span class="p">{</span> <span class="nx">grumpiness</span>: <span class="kt">state.grumpiness</span> <span class="o">-</span> <span class="nx">by</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useGrumpyStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="nx">redux</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">initialState</span><span class="p">))</span>
+</span></span></code></pre></div><h3 id="redux-devtools">Redux devtools</h3>
+<p>可以支持在redux detools中调试</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">devtools</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand/middleware&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Usage with a plain action store, it will log actions as &#34;setState&#34;
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">usePlainStore1</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="nx">devtools</span><span class="p">(</span><span class="nx">store</span><span class="p">),</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">store</span>: <span class="kt">storeName1</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">usePlainStore2</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="nx">devtools</span><span class="p">(</span><span class="nx">store</span><span class="p">),</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">store</span>: <span class="kt">storeName2</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Usage with a redux store, it will log full action types
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">useReduxStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="nx">devtools</span><span class="p">(</span><span class="nx">redux</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">initialState</span><span class="p">)),</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">store</span>: <span class="kt">storeName3</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">useReduxStore</span> <span class="o">=</span> <span class="nx">create</span><span class="p">(</span><span class="nx">devtools</span><span class="p">(</span><span class="nx">redux</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">initialState</span><span class="p">)),</span> <span class="p">{</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">store</span>: <span class="kt">storeName4</span> <span class="p">})</span>
+</span></span></code></pre></div><h2 id="react-context">React context</h2>
+<p>使用 create 创建的 store 本身不需要Context。但在某些情况下，您可能希望使用context进行依赖注入，可以参考例子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createContext</span><span class="p">,</span> <span class="nx">useContext</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;react&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">createStore</span><span class="p">,</span> <span class="nx">useStore</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;zustand&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">createStore</span><span class="p">(...)</span> <span class="c1">// vanilla store without hooks
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">StoreContext</span> <span class="o">=</span> <span class="nx">createContext</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">App</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">StoreContext.Provider</span> <span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">StoreContext.Provider</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">Component</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">StoreContext</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">slice</span> <span class="o">=</span> <span class="nx">useStore</span><span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="nx">selector</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-03-29</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/react/zustand/" data-title="Zustand" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/react/zustand/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/react/zustand/" data-title="Zustand"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/react/zustand/" data-title="Zustand"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/react/zustand/" data-title="Zustand"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/">Tags</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../../posts/codeStyle/" class="prev" rel="prev" title="CodeStyle.md"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>CodeStyle.md</a>
+            <a href="../../../posts/richtext/slateApi/" class="next" rel="next" title="Slate transform API 详细说明">Slate transform API 详细说明<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
+</html>
