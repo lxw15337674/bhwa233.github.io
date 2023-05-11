@@ -110,8 +110,6 @@ function Bear() {
 }
 ```
 
-
-
 ## 修改Store
 
 ### 覆盖Store
@@ -288,20 +286,30 @@ const useBoundStore = (selector) => useStore(vanillaStore, selector)
 
 ### 自定义中间件
 
-可以扩展zustand功能
+可以扩展zustand功能。一个完整例子：
 
 ```typescript
 // Log every time state is changed
-const log = (config) => (set, get, api) =>
-  config(
+import { StateCreator } from 'zustand';
+
+type LogImpl = <T>(
+  storeInitializer: StateCreator<T, [], []>,
+) => StateCreator<T, [], []>;
+
+// Log every time state is changed
+const log: LogImpl = config => (set, get, api) => {
+  console.log(api);
+  return config(
     (...args) => {
-      console.log('  applying', args)
-      set(...args)
-      console.log('  new state', get())
+      console.log('  applying', args);
+      set(...args);
+      console.log('  new state', get());
     },
     get,
-    api
-  )
+    api,
+  );
+};
+export default log;
 
 const useBeeStore = create(
   log((set) => ({
