@@ -3,7 +3,7 @@
         <title>Bhwa233 blog</title>
         <link>/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 11 May 2023 14:49:27 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 18 May 2023 15:02:01 &#43;0800</lastBuildDate>
             <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Hugo lovelt的搜索坑</title>
@@ -28,6 +28,14 @@
     <author>Bhwa233</author>
     <guid>/posts/richtext/slateApi/</guid>
     <description><![CDATA[通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:]]></description>
+</item>
+<item>
+    <title>拖拽组件[todo]</title>
+    <link>/posts/react/drag/</link>
+    <pubDate>Thu, 18 May 2023 15:02:01 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/react/drag/</guid>
+    <description><![CDATA[react-beautiful-dnd： 只支持单向拖拽，不能同时支持横纵向拖拽。 已经停止维护，在react18的严格模式无法运行。]]></description>
 </item>
 <item>
     <title>保留小数位-toFixed的坑</title>
@@ -76,14 +84,6 @@
     <author>Bhwa233</author>
     <guid>/posts/react/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/</guid>
     <description><![CDATA[关于react 的状态管理 Provider + Context（useContext） 一个完整的例子 import React, { createContext, Dispatch, SetStateAction, useState, } from &#39;react&#39;; export interface IState { theme: string; color: string; } interface Props { count: number; setCount: Dispatch&lt;SetStateAction&lt;number&gt;&gt;; } const Context =]]></description>
-</item>
-<item>
-    <title>性能监控基础</title>
-    <link>/posts/%E7%9B%91%E6%8E%A7/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80/</link>
-    <pubDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/%E7%9B%91%E6%8E%A7/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80/</guid>
-    <description><![CDATA[性能监控基础 前端应用渲染模型 CSR：Client Side Rendering，客户端（通常是浏览器）渲染； SSR：Server Side Rendering，]]></description>
 </item>
 </channel>
 </rss>
