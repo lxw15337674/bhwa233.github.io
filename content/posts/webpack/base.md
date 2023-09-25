@@ -15,5 +15,3 @@ typora-root-url: ..\..\static
 4. 最终形成打包后的代码
 
 
-
-[Webpack原理浅析](https://aotu.io/notes/2020/07/17/webpack-analize/)
