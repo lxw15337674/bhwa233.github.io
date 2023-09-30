@@ -674,3 +674,5 @@ setTimeout(() => {
 [要就来45道Promise面试题一次爽到底](https://juejin.cn/post/6844904077537574919)
 
 [由一道bilibili面试题看Promise异步执行机制](https://github.com/sisterAn/blog/issues/86)
+
+[Promise](https://sunchang612.github.io/blog/javascript/basics/promise.html#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8)

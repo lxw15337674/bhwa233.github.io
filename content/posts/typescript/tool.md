@@ -5,7 +5,6 @@ draft: false
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
-weight: 2
 ---
 
 ## 高级类型

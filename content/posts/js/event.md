@@ -3,6 +3,7 @@ title: "鼠标、键盘事件"
 date: 2022-07-31T16:08:26+08:00
 draft: false
 tags: [""]
+weight: 2
 categories: ["笔记"]
 typora-root-url: ..\..\static
 ---
