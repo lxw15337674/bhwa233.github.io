@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/http/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-26T23:10:17+08:00" />
-<meta property="article:modified_time" content="2022-07-26T23:59:51+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-09-30T23:51:51+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Http"/>
 <meta name="twitter:description" content="概念 HTTP是一种超文本传输协议（Hypertext Transfer Protocol)，HTTP是一个基于TCP实现的应用层协议。一个两点之间传输数据的约"/>
@@ -28,7 +28,7 @@
             "@type": "WebPage",
             "@id": "\/posts\/http\/"
         },"genre": "posts","keywords": "","wordcount":  1724 ,
-        "url": "\/posts\/http\/","datePublished": "2022-07-26T23:10:17+08:00","dateModified": "2022-07-26T23:59:51+08:00","publisher": {
+        "url": "\/posts\/http\/","datePublished": "2022-07-26T23:10:17+08:00","dateModified": "2023-09-30T23:51:51+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -111,9 +111,8 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#概念">概念</a>
       <ul>
-        <li><a href="#概念">概念</a></li>
         <li><a href="#组成">组成</a></li>
         <li><a href="#特点">特点</a></li>
         <li><a href="#缺点">缺点</a></li>
@@ -135,7 +134,7 @@
     <li><a href="#引用">引用</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h3 id="概念">概念</h3>
+            </div><div class="content" id="content"><h2 id="概念">概念</h2>
 <p>HTTP是一种<code>超文本传输协议（Hypertext Transfer Protocol)</code>，HTTP是一个基于TCP实现的应用层协议。一个两点之间传输数据的约定和规范。</p>
 <h3 id="组成">组成</h3>
 <p>分为三部分，超文本、传输、协议</p>
@@ -226,20 +225,18 @@
 </ol>
 <h2 id="http-20">http 2.0</h2>
 <h3 id="特性">特性</h3>
-<blockquote>
-<p>多路复用（即一个tcp/ip连接可以并发请求多个资源）<br>
-头部压缩（http头部压缩，减少体积）<br>
-二进制分帧（在应用层跟传送层之间增加了一个二进制分帧层，将数据切分为数据帧，改进传输性能，实现低延迟和高吞吐量）<br>
-服务器端推送（即SSE，服务端可以对客户端的一个请求发出多个响应，可以主动通知客户端）<br>
-请求优先级（如果流被赋予了优先级，它就会基于这个优先级来处理，由服务器决定需要多少资源来处理该请求。）</p>
-</blockquote>
+<ol>
+<li>多路复用（即一个tcp/ip连接可以并发请求多个资源）</li>
+<li>头部压缩（http头部压缩，减少体积）</li>
+<li>二进制分帧（在应用层跟传送层之间增加了一个二进制分帧层，将数据切分为数据帧，改进传输性能，实现低延迟和高吞吐量）</li>
+<li>服务器端推送（即SSE，服务端可以对客户端的一个请求发出多个响应，可以主动通知客户端）</li>
+<li>请求优先级（如果流被赋予了优先级，它就会基于这个优先级来处理，由服务器决定需要多少资源来处理该请求。）</li>
+</ol>
 <h3 id="与http11不同点">与http1.1不同点</h3>
-<blockquote>
 <ul>
 <li>http1.1中，一个TCP请求可以发送多个请求，但只能按顺序一个一个请求。如果想并发多个请求，必须使用多个 TCP/ip链接，且浏览器为了控制资源，还会对单个域名有 6-8个的TCP链接请求限制。</li>
 <li>http2.0中，只要一个tcp请求可以并发请求多个资源，分割成更小的帧请求，速度明显提升。</li>
 </ul>
-</blockquote>
 <h2 id="引用">引用</h2>
 <p><a href="https://juejin.im/post/5c88f2066fb9a049c043e420" target="_blank" rel="noopener noreffer ">关于http2.0的HTTP 2.0 的二进制帧、流、多路复用</a>
 <a href="https://blog.wangriyu.wang/2018/05-HTTP2.html" target="_blank" rel="noopener noreffer ">HTTP2 详解</a>
@@ -252,7 +249,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-07-26</span>
+                <span>Updated on 2023-09-30</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>

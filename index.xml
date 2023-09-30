@@ -14,12 +14,12 @@
     <description><![CDATA[lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库]]></description>
 </item>
 <item>
-    <title>Typescript语法</title>
-    <link>/posts/typescript/tool/</link>
-    <pubDate>Fri, 01 Jul 2022 17:42:18 &#43;0800</pubDate>
+    <title>鼠标、键盘事件</title>
+    <link>/posts/js/event/</link>
+    <pubDate>Sun, 31 Jul 2022 16:08:26 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/typescript/tool/</guid>
-    <description><![CDATA[高级类型 字面量类型（literal types） 值作为类型。 type foo = &#34;Hello&#34; // foo 的类型就是&#34;hello&#34;,而不是string类型。 foo =&#34;hello&#34;]]></description>
+    <guid>/posts/js/event/</guid>
+    <description><![CDATA[由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件]]></description>
 </item>
 <item>
     <title>Slate transform API 详细说明</title>
