@@ -17,7 +17,7 @@
     <pubDate>Sun, 04 Sep 2022 14:05:12 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/js/%E6%8B%B7%E8%B4%9D/</guid>
-    <description><![CDATA[总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys]]></description>
+    <description><![CDATA[总结 浅拷贝 基本类型：拷贝值 引用类型：拷贝对象引用。 深拷贝 基本类型：拷贝值 引用类型：会创建一个新的引用，将之前的对象完整的拷贝一份出来，并添加]]></description>
 </item>
 </channel>
 </rss>
