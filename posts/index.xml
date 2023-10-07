@@ -140,6 +140,14 @@
     <description><![CDATA[总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys]]></description>
 </item>
 <item>
+    <title>三次握手、四次挥手.md</title>
+    <link>/posts/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</link>
+    <pubDate>Sun, 04 Sep 2022 12:13:08 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/</guid>
+    <description><![CDATA[一句话总结 使用 TCP 协议建立连接需要经过三次握手（three-way handshake），确保客户端与服务端知道对方可以收到信息。 三步可以类比：]]></description>
+</item>
+<item>
     <title>this指向问题</title>
     <link>/posts/js/this/</link>
     <pubDate>Sat, 03 Sep 2022 16:15:11 &#43;0800</pubDate>
@@ -154,14 +162,6 @@
     <author>Bhwa233</author>
     <guid>/posts/js/for%E5%BE%AA%E7%8E%AF/</guid>
     <description><![CDATA[总结 性能对比： for 与 while 基础 var 循环的时候，两者性能差不多 let arr = new Array(9999999).fill(0); console.time(&#39;for&#39;) for(var i = 0; i &lt; arr.length; i++) {} console.timeEnd(&#39;for&#39;) // for: 8.13818359375 ms console.time(&#39;while&#39;) var i = 0; while(i &lt; arr.length) { i++; } console.timeEnd(&#39;while&#39;) // while: 8.020751953125 ms var 没有块级作用域]]></description>
-</item>
-<item>
-    <title>js的继承</title>
-    <link>/posts/js/%E7%BB%A7%E6%89%BF/</link>
-    <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/posts/js/%E7%BB%A7%E6%89%BF/</guid>
-    <description><![CDATA[原型链继承 原理 让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性]]></description>
 </item>
 </channel>
 </rss>
