@@ -28,22 +28,6 @@
     <description><![CDATA[]]></description>
 </item>
 <item>
-    <title>tcp</title>
-    <link>/tags/tcp/</link>
-    <pubDate>Sun, 04 Sep 2022 12:13:08 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/tcp/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>udp</title>
-    <link>/tags/udp/</link>
-    <pubDate>Sun, 04 Sep 2022 12:13:08 &#43;0800</pubDate>
-    <author>Bhwa233</author>
-    <guid>/tags/udp/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
     <title>javascript</title>
     <link>/tags/javascript/</link>
     <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
@@ -81,6 +65,22 @@
     <pubDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/tags/css/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>算法</title>
+    <link>/tags/%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Sun, 14 Aug 2022 11:12:13 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>slate</title>
+    <link>/tags/slate/</link>
+    <pubDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/slate/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
