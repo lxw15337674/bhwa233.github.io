@@ -63,10 +63,10 @@
 </item>
 <item>
     <title>异常监控</title>
-    <link>/posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/</link>
+    <link>/posts/monitor/js%E9%94%99%E8%AF%AF/</link>
     <pubDate>Wed, 15 Mar 2023 14:47:44 &#43;0800</pubDate>
     <author>Bhwa233</author>
-    <guid>/posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/</guid>
+    <guid>/posts/monitor/js%E9%94%99%E8%AF%AF/</guid>
     <description><![CDATA[异常类型 JS错误 在 JavaScript 中，Error 是一种标准的内置对象，用于表示运行时错误和异常。Error 对象可以通过 throw 语句抛出，由 try&hellip;catch 语句捕获并处理。 一个]]></description>
 </item>
 <item>
