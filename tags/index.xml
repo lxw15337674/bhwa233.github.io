@@ -3,5 +3,85 @@
         <title>Tags - Tag - Bhwa233 blog</title>
         <link>/tags/</link>
         <description>Tags - Tag - Bhwa233 blog</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="/tags/" rel="self" type="application/rss+xml" /></channel>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</lastBuildDate><atom:link href="/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>性能</title>
+    <link>/tags/%E6%80%A7%E8%83%BD/</link>
+    <pubDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/%E6%80%A7%E8%83%BD/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>监控</title>
+    <link>/tags/%E7%9B%91%E6%8E%A7/</link>
+    <pubDate>Wed, 16 Nov 2022 11:51:57 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/%E7%9B%91%E6%8E%A7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>js</title>
+    <link>/tags/js/</link>
+    <pubDate>Mon, 19 Sep 2022 15:09:32 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/js/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>javascript</title>
+    <link>/tags/javascript/</link>
+    <pubDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/javascript/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>slate.js</title>
+    <link>/tags/slate.js/</link>
+    <pubDate>Tue, 23 Aug 2022 09:31:25 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/slate.js/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>设计模式</title>
+    <link>/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Sun, 21 Aug 2022 16:55:21 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>html</title>
+    <link>/tags/html/</link>
+    <pubDate>Sun, 21 Aug 2022 13:29:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/html/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>css</title>
+    <link>/tags/css/</link>
+    <pubDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/css/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>算法</title>
+    <link>/tags/%E7%AE%97%E6%B3%95/</link>
+    <pubDate>Sun, 14 Aug 2022 11:12:13 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/%E7%AE%97%E6%B3%95/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>slate</title>
+    <link>/tags/slate/</link>
+    <pubDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/tags/slate/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

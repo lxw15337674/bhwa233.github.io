@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>react hook - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="react hook" />
+<meta property="og:description" content="Hooks之前的复用方式 mixins 缺点： 方法与属性难以追溯，因为可能存在不同的mixins里。 多个 Mixin 之间可能产生冲突,重名的属性与方法会被覆盖。 渲染" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/react/hook/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-16T18:04:37+08:00" />
+<meta property="article:modified_time" content="2022-09-04T21:57:19+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="react hook"/>
+<meta name="twitter:description" content="Hooks之前的复用方式 mixins 缺点： 方法与属性难以追溯，因为可能存在不同的mixins里。 多个 Mixin 之间可能产生冲突,重名的属性与方法会被覆盖。 渲染"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/react/hook/" /><link rel="prev" href="../../../posts/typescript/decorators/" /><link rel="next" href="../../../posts/js/promise/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "react hook",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/react\/hook\/"
+        },"genre": "posts","keywords": "","wordcount":  2479 ,
+        "url": "\/posts\/react\/hook\/","datePublished": "2022-08-16T18:04:37+08:00","dateModified": "2022-09-04T21:57:19+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Bhwa233"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">react hook</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-16">2022-08-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2479 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#hooks之前的复用方式">Hooks之前的复用方式</a>
+      <ul>
+        <li><a href="#mixins">mixins</a></li>
+        <li><a href="#渲染属性render-props">渲染属性（render Props)</a></li>
+        <li><a href="#高阶组件">高阶组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#hooks">Hooks</a>
+      <ul>
+        <li><a href="#诞生原因">诞生原因</a></li>
+        <li><a href="#基本原理">基本原理</a></li>
+        <li><a href="#优点">优点</a></li>
+        <li><a href="#缺点">缺点</a></li>
+        <li><a href="#为什么不能条件语句中声明hooks">为什么不能条件语句中，声明<code>hooks</code></a></li>
+        <li><a href="#闭包陷阱">闭包陷阱</a></li>
+        <li><a href="#对比vue-hooks">对比Vue Hooks</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="hooks之前的复用方式">Hooks之前的复用方式</h2>
+<h3 id="mixins">mixins</h3>
+<p>缺点：</p>
+<ol>
+<li>
+<p>方法与属性难以追溯，因为可能存在不同的mixins里。</p>
+</li>
+<li>
+<p>多个 Mixin 之间可能产生冲突,重名的属性与方法会被覆盖。</p>
+</li>
+</ol>
+<h3 id="渲染属性render-props">渲染属性（render Props)</h3>
+<p>将渲染内容作为props的属性传给需要动态渲染的组件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">Cat</span> <span class="kr">from</span> <span class="s1">&#39;components/cat&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">DataProvider</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">target</span><span class="o">:</span> <span class="s1">&#39;Zac&#39;</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">render() {</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">)}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">DataProvider</span> <span class="na">render</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">Cat</span> <span class="na">target</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">.</span><span class="nx">target</span><span class="p">}</span> <span class="p">/&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">)}/&gt;</span>
+</span></span></code></pre></div><h3 id="高阶组件">高阶组件</h3>
+<p>一个函数接受一个组件作为参数，经过加工，返回一个新的组件。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">withUser</span> <span class="o">=</span> <span class="nx">WrappedComponent</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&#34;user&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="p">&lt;</span><span class="nt">WrappedComponent</span> <span class="na">user</span><span class="o">=</span><span class="p">{</span><span class="nx">user</span><span class="p">}</span> <span class="p">{</span><span class="na">...props</span><span class="p">}</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">UserPage</span> <span class="o">=</span> <span class="nx">props</span> <span class="o">=&gt;</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;user-container&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">My</span> <span class="nx">name</span> <span class="k">is</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">user</span><span class="p">}</span><span class="o">!</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">export</span> <span class="k">default</span> <span class="nx">withUser</span><span class="p">(</span><span class="nx">UserPage</span><span class="p">);</span>
+</span></span></code></pre></div><p>优点：</p>
+<ul>
+<li>HOC通过外层组件通过 Props 影响内层组件的状态，而不是直接改变其 State不存在冲突和互相干扰,这就降低了耦合度</li>
+<li>不同于 Mixin 的打平+合并，HOC 具有天然的层级结构（组件树结构），这又降低了复杂度</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>
+<p>会产生多余的层级嵌套。</p>
+</li>
+<li>
+<p>如果高阶组件多次嵌套,没有使用命名空间的话会产生冲突,然后覆盖老属性</p>
+</li>
+</ul>
+<h2 id="hooks">Hooks</h2>
+<h3 id="诞生原因">诞生原因</h3>
+<ol>
+<li>
+<p>复用一个有状态的组件很困难。</p>
+</li>
+<li>
+<p>生命周期钩子函数里的逻辑很难抽离。</p>
+<p>希望一个函数只做一件事情，但我们的生命周期钩子函数里通常同时做了很多事情。比如我们需要在<code>componentDidMount</code>中发起ajax请求获取数据，绑定一些事件监听等等。同时，有时候我们还需要在<code>componentDidUpdate</code>做一遍同样的事情。当项目变复杂后，这一块的代码也变得不那么直观。</p>
+</li>
+<li>
+<p>classes的this指向问题。</p>
+<p>为了保证this的指向正确，经常写<code>bind</code>将this指向当前组件。</p>
+</li>
+</ol>
+<h3 id="基本原理">基本原理</h3>
+<p>在 fiber 节点的 memorizedState 属性存放一个链表，链表节点和 hook 一一对应，每个 hook 都在各自对应的节点上存取数据。</p>
+<p>useEffect、useMomo、useCallback 等都有 deps 的参数，实现的时候会对比新旧两次的 deps，如果变了才会重新执行传入的函数。所以 undefined、null 每次都会执行，[] 只会执行一次，[state] 在 state 变了才会再次执行。</p>
+<h3 id="优点">优点</h3>
+<ul>
+<li>
+<p>简洁: React Hooks解决了HOC和Render Props的嵌套问题,更加简洁</p>
+</li>
+<li>
+<p>解耦: React Hooks可以更方便地把 UI 和状态分离,做到更彻底的解耦</p>
+</li>
+<li>
+<p>组合: Hooks 中可以引用另外的 Hooks形成新的Hooks,组合变化万千</p>
+</li>
+<li>
+<p>函数友好: React Hooks为函数组件而生,从而解决了类组件的几大问题:</p>
+<ul>
+<li>this 指向容易错误</li>
+<li>分割在不同声明周期中的逻辑使得代码难以理解和维护</li>
+<li>代码复用成本高（高阶组件容易使代码量剧增）</li>
+</ul>
+</li>
+</ul>
+<h3 id="缺点">缺点</h3>
+<ul>
+<li>
+<p>写法上有限制（不能出现在条件、循环中）。</p>
+</li>
+<li>
+<p>破坏了PureComponent、React.memo浅比较的性能优化效果（为了取最新的props和state，每次render()都要重新创建事件处函数）</p>
+</li>
+<li>
+<p>在闭包场景可能会引用到旧的state、props值</p>
+</li>
+<li>
+<p>React.memo并不能完全替代shouldComponentUpdate（因为拿不到 state change，只针对 props change）</p>
+</li>
+</ul>
+<h3 id="为什么不能条件语句中声明hooks">为什么不能条件语句中，声明<code>hooks</code></h3>
+<p>因为一旦在条件语句中声明<code>hooks</code>，在下一次函数组件更新，<code>hooks</code>链表结构，将会被破坏，<code>current</code>树的<code>memoizedState</code>缓存<code>hooks</code>信息，和当前<code>workInProgress</code>不一致，如果涉及到读取<code>state</code>等操作，就会发生异常。</p>
+<p><img
+        class="lazyload"
+        src="../../../svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp"
+        data-srcset="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp 1.5x, https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/lxw15337674/PicGo_image/main/54a38675154a483885a3c5c9a80f360e%7Etplv-k3u1fbpfcp-zoom-in-crop-mark%3A3024%3A0%3A0%3A0.awebp"
+        title="hoo11.jpg" /></p>
+<h3 id="闭包陷阱">闭包陷阱</h3>
+<p><strong>当我们更新状态的时候，React会重新渲染组件。每一次渲染都能拿到独立的count 状态，这个状态值是函数中的一个常量。每一次调用引起的渲染中，它包含的count值独立于其他渲染（闭包）</strong></p>
+<p>在诸如 的钩子中使用了某个状态<code>useEffect</code>，但它并没有添加到<code>deps</code>数组中，这样即使状态发生变化，回调函数也不会重新执行，它仍然是指旧值。</p>
+<h3 id="对比vue-hooks">对比Vue Hooks</h3>
+<blockquote>
+<p>引用：https://juejin.cn/post/6844903877574295560#heading-2</p>
+</blockquote>
+<p>Vue Hooks优势</p>
+<ol>
+<li><strong>Vue 的代码使用更符合 JS 直觉。</strong></li>
+</ol>
+<p>这句话直截了当戳中了 JS 软肋，JS 并非是针对 Immutable 设计的语言，所以 Mutable 写法非常自然，而 Immutable 的写法就比较别扭。</p>
+<p>当 Hooks 要更新值时，Vue 只要用等于号赋值即可，而 React Hooks 需要调用赋值函数，<strong>当对象类型复杂时，还需借助第三方库才能保证进行了正确的 Immutable 更新。</strong></p>
+<ol start="2">
+<li><strong>对 Hooks 使用顺序无要求，而且可以放在条件语句里。</strong></li>
+</ol>
+<p>对 React Hooks 而言，调用必须放在最前面，而且不能被包含在条件语句里，这是因为 React Hooks 采用下标方式寻找状态，一旦位置不对或者 Hooks 放在了条件中，就无法正确找到对应位置的值。</p>
+<p>而 Vue Function API 中的 Hooks 可以放在任意位置、任意命名、被条件语句任意包裹的，因为其并不会触发 <code>setup</code> 的更新，只在需要的时候更新自己的引用值即可，而 Template 的重渲染则完全继承 Vue 2.0 的依赖收集机制，它不管值来自哪里，只要用到的值变了，就可以重新渲染了。</p>
+<ol start="3">
+<li><strong>不会再每次渲染重复调用，减少 GC 压力。</strong></li>
+</ol>
+<p>这确实是 React Hooks 的一个问题，所有 Hooks 都在渲染闭包中执行，每次重渲染都有一定性能压力，而且频繁的渲染会带来许多闭包，虽然可以依赖 GC 机制回收，但会给 GC 带来不小的压力。</p>
+<p>而 Vue Hooks 只有一个引用，所以存储的内容就非常精简，也就是占用内存小，而且当值变化时，也不会重新触发 <code>setup</code> 的执行，所以确实不会造成 GC 压力。</p>
+<ol start="4">
+<li><strong>必须要总包裹 <code>useCallback</code> 函数确保不让子元素频繁重渲染。</strong></li>
+</ol>
+<p>React Hooks 有一个问题，就是完全依赖 Immutable 属性。<strong>而在 Function Component 内部创建函数时，每次都会创建一个全新的对象，这个对象如果传给子组件，必然导致子组件无法做性能优化。</strong> 因此 React 采取了 <code>useCallback</code> 作为优化方案：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fn</span> <span class="o">=</span> <span class="nx">useCallback</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="cm">/* .. */</span><span class="p">,</span> <span class="p">[])</span>
+</span></span></code></pre></div><p>只有当第二个依赖参数变化时才返回新引用。但第二个依赖参数需要 lint 工具确保依赖总是正确的（关于为何要对依赖诚实，感兴趣可以移步 <a href="https://link.juejin.cn?target=https%3A%2F%2Fgithub.com%2Fdt-fe%2Fweekly%2Fblob%2Fv2%2F104.%E7%B2%BE%E8%AF%BB%E3%80%8AFunction%20Component%20%E5%85%A5%E9%97%A8%E3%80%8B.md%23%E6%B0%B8%E8%BF%9C%E5%AF%B9%E4%BE%9D%E8%B5%96%E9%A1%B9%E8%AF%9A%E5%AE%9E" target="_blank" rel="noopener noreffer ">精读《Function Component 入门》 - 永远对依赖诚实</a>）。</p>
+<p>回到 Vue 3.0，由于 <code>setup</code> 仅执行一次，因此函数本身只会创建一次，不存在多实例问题，不需要 <code>useCallback</code> 的概念，更不需要使用 <a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Feslint-plugin-react-hooks" target="_blank" rel="noopener noreffer ">lint 插件</a> 保证依赖书写正确，这对开发者是实实在在的友好。</p>
+<ol start="5">
+<li><strong>不需要使用 <code>useEffect</code> <code>useMemo</code> 等进行性能优化，所有性能优化都是自动的。</strong></li>
+</ol>
+<p>这也是实在话，毕竟 Mutable + 依赖自动收集就可以做到最小粒度的精确更新，根本不会触发不必要的 Rerender，因此 <code>useMemo</code> 这个概念也不需要了。</p>
+<p>而 <code>useEffect</code> 也需要传递第二个参数 “依赖项”，在 Vue 中根本不需要传递 “依赖项”，所以也不会存在用户不小心传错的问题，更不需要像 React 写一个 lint 插件保证依赖的正确性。</p>
+<blockquote>
+<p>参考：</p>
+<p><a href="https://juejin.cn/post/6844903815762673671" target="_blank" rel="noopener noreffer ">【React深入】从Mixin到HOC再到Hook</a></p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-09-04</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/react/hook/" data-title="react hook" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/react/hook/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/react/hook/" data-title="react hook"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/react/hook/" data-title="react hook"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/react/hook/" data-title="react hook"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/">Tags</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../../posts/typescript/decorators/" class="prev" rel="prev" title="Decorators"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Decorators</a>
+            <a href="../../../posts/js/promise/" class="next" rel="next" title="Promise">Promise<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
+</html>

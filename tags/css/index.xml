@@ -1,0 +1,39 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>css - Tag - Bhwa233 blog</title>
+        <link>/tags/css/</link>
+        <description>css - Tag - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</lastBuildDate><atom:link href="/tags/css/" rel="self" type="application/rss+xml" /><item>
+    <title>Middle</title>
+    <link>/posts/css/middle/</link>
+    <pubDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/middle/</guid>
+    <description><![CDATA[居中 水平居中 行内元素 &lt;div class=&#34;container&#34;&gt; &lt;div&gt; 123 &lt;/div&gt; &lt;/div&gt; &lt;style&gt; .container { text-align: center; } &lt;/style&gt; 块级元素 确定宽度 margin:0 auto width:100px width: 100px; margin-left: calc(50% - 50px); } 不确定宽度同垂直居中 垂直居中 弹性盒 display:flex align-items:center translate position:absolute left:50% top:50% transform:translate(-50%,-50%) 相对定位 position:absolute]]></description>
+</item>
+<item>
+    <title>浮动</title>
+    <link>/posts/css/float/</link>
+    <pubDate>Sun, 21 Aug 2022 12:44:27 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/float/</guid>
+    <description><![CDATA[概念 浮动元素会脱离文档流并向左/向右浮动，直到碰到父元素或者另一个浮动元素。 优点 使文字环绕在图片周围。 当元素浮动后，它有着块级元素的一些性质]]></description>
+</item>
+<item>
+    <title>元素分类</title>
+    <link>/posts/css/element/</link>
+    <pubDate>Mon, 08 Aug 2022 15:52:11 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/element/</guid>
+    <description><![CDATA[行内元素 特征 不会独占一行。 不会自动换行。 设置宽高无效。margin仅能设置左右，上下无效，padding设置上下左右有效， 常见元素 &lt;a]]></description>
+</item>
+<item>
+    <title>关于元素隐藏</title>
+    <link>/posts/css/display/</link>
+    <pubDate>Mon, 25 Jul 2022 23:56:58 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/css/display/</guid>
+    <description><![CDATA[常用的隐藏方法： opacity ：0 display :none visibility :hidden 设置 fixed 并设置足够大负距离的 left top 使其“隐藏” 用层叠关系 z-index 把元素叠在最底下使其“隐藏”。 前三种方法的一些区别 opacity: 0 visibility:]]></description>
+</item>
+</channel>
+</rss>

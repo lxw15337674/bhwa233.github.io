@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>JS装饰器（Decorator） - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="JS装饰器（Decorator）" />
+<meta property="og:description" content="概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-19T15:09:32+08:00" />
+<meta property="article:modified_time" content="2022-09-19T15:09:32+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS装饰器（Decorator）"/>
+<meta name="twitter:description" content="概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../../../apple-touch-icon.png"><link rel="mask-icon" href="../../../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../../../site.webmanifest"><link rel="canonical" href="../../../posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" /><link rel="prev" href="../../../posts/react/hook%E5%8E%9F%E7%90%86/" /><link rel="next" href="../../../posts/vscode/note/" /><link rel="stylesheet" href="../../../css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "JS装饰器（Decorator）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/js\/%E8%A3%85%E9%A5%B0%E5%99%A8\/"
+        },"genre": "posts","keywords": "js","wordcount":  1672 ,
+        "url": "\/posts\/js\/%E8%A3%85%E9%A5%B0%E5%99%A8\/","datePublished": "2022-09-19T15:09:32+08:00","dateModified": "2022-09-19T15:09:32+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Bhwa233"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../../../" title="Bhwa233 blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../../../posts/"> 文章 </a><a class="menu-item" href="../../../tags/"> 标签 </a><a class="menu-item" href="../../../categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../../../" title="Bhwa233 blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="../../../posts/" title="">文章</a><a class="menu-item" href="../../../tags/" title="">标签</a><a class="menu-item" href="../../../categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">JS装饰器（Decorator）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/js/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>js</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-19">2022-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1672 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#概念">概念</a></li>
+    <li><a href="#执行">执行</a>
+      <ul>
+        <li><a href="#时机">时机</a></li>
+        <li><a href="#执行顺序">执行顺序</a></li>
+      </ul>
+    </li>
+    <li><a href="#用法">用法</a>
+      <ul>
+        <li><a href="#类装饰器">类装饰器</a></li>
+        <li><a href="#类属性装饰器">类属性装饰器</a></li>
+        <li><a href="#类方法访问器装饰器">类方法/访问器装饰器</a></li>
+        <li><a href="#类参数装饰器">类参数装饰器</a></li>
+        <li><a href="#装饰器工厂">装饰器工厂</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="概念">概念</h2>
+<p>装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Object.defineProperty 的语法糖，参数也与 Object.defineProperty相同，即：</p>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>目标对象</td>
+</tr>
+<tr>
+<td>name</td>
+<td>属性名</td>
+</tr>
+<tr>
+<td>descriptor</td>
+<td>针对该属性的描述符</td>
+</tr>
+</tbody>
+</table>
+<p>可以被应用在：</p>
+<ol>
+<li>类</li>
+<li>类属性</li>
+<li>类方法</li>
+<li>类访问器</li>
+<li>类方法的参数</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="c1">// 类装饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">@classDecorator</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Bird</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// 属性装饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">@propertyDecorator</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">// 方法装饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">@methodDecorator</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">fly</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 参数装饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">@parameterDecorator</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">meters</span>: <span class="kt">number</span>
+</span></span><span class="line"><span class="cl">  <span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">// 访问器装饰器
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">@accessorDecorator</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">get</span> <span class="nx">egg() {</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="执行">执行</h2>
+<h3 id="时机">时机</h3>
+<p>装饰器只在解释执行时应用一次，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">C</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;apply decorator&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">C</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@f</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">A</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// output: apply decorator
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 即便没有使用类A，也会打印`apply decorator`
+</span></span></span></code></pre></div><h3 id="执行顺序">执行顺序</h3>
+<p>对于属性/方法/访问器装饰器而言，执行顺序取决于声明它们的顺序。</p>
+<p>而对于参数装饰器来说执行顺序是相反的， 最后一个参数的装饰器会最先被执行。</p>
+<p>当多个装饰器应用于一个声明上，将由上至下依次对装饰器表达式求值，求值的结果会被当作函数，由下至上依次调用.</p>
+<p>依次为：</p>
+<ol>
+<li>从上往下，谁先写谁执行。</li>
+<li>先实例属性，后静态属性。</li>
+<li>先参数装饰器再方法装饰器，而且会在一起执行。</li>
+<li>最后类装饰器。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">key</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kt">any</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;evaluate: &#34;</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;call: &#34;</span><span class="p">,</span> <span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Class Decorator&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">C</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Static Property&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">static</span> <span class="nx">prop?</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Static Method&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">static</span> <span class="nx">method</span><span class="p">(</span><span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Static Method Parameter&#34;</span><span class="p">)</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">constructor</span><span class="p">(</span><span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Constructor Parameter&#34;</span><span class="p">)</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Instance Method Outer &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Instance Method Inner &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">method</span><span class="p">(</span><span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Instance Method Parameter&#34;</span><span class="p">)</span> <span class="nx">foo</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kd">@f</span><span class="p">(</span><span class="s2">&#34;Instance Property&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">prop?</span>: <span class="kt">number</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Instance Method Outer 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Instance Method Inner 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Instance Method Parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Instance Method Parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Instance Method Inner 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Instance Method Outer 
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Instance Property
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Instance Property
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Static Property
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Static Property
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Static Method
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Static Method Parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Static Method Parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Static Method
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Class Decorator
+</span></span></span><span class="line"><span class="cl"><span class="c1">// evaluate:  Constructor Parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Constructor Parameter
+</span></span></span><span class="line"><span class="cl"><span class="c1">// call:  Class Decorator
+</span></span></span></code></pre></div><h2 id="用法">用法</h2>
+<h3 id="类装饰器">类装饰器</h3>
+<h4 id="类型">类型</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">ClassDecorator</span> <span class="o">=</span> <span class="p">&lt;</span><span class="nt">TFunction</span> <span class="na">extends</span> <span class="na">Function</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">(</span><span class="nx">target</span>: <span class="kt">TFunction</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">TFunction</span> <span class="o">|</span> <span class="k">void</span><span class="p">;</span>
+</span></span></code></pre></div><h4 id="参数">参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>类的构造器</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回">返回</h4>
+<p>如果类装饰器返回了一个值，她将会被用来代替原有的类构造器的声明。</p>
+<h4 id="应用场景">应用场景</h4>
+<p>类装饰器适合用于继承一个现有类并添加一些属性和方法。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Consturctor</span> <span class="o">=</span> <span class="p">{</span> <span class="k">new</span> <span class="p">(...</span><span class="nx">args</span>: <span class="kt">any</span><span class="p">[])</span><span class="o">:</span> <span class="kt">any</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">toString</span><span class="p">&lt;</span><span class="nt">T</span> <span class="na">extends</span> <span class="na">Consturctor</span><span class="p">&gt;(</span><span class="nx">BaseClass</span>: <span class="kt">T</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kr">class</span> <span class="kr">extends</span> <span class="nx">BaseClass</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">toString() {</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@toString</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">C</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">public</span> <span class="nx">foo</span> <span class="o">=</span> <span class="s2">&#34;foo&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">public</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">24</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">new</span> <span class="nx">C</span><span class="p">().</span><span class="nx">toString</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// -&gt; {&#34;foo&#34;:&#34;foo&#34;,&#34;num&#34;:24}
+</span></span></span></code></pre></div><h3 id="类属性装饰器">类属性装饰器</h3>
+<h4 id="参数-1">参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>对于静态成员来说是类的构造器，对于实例成员来说是类的原型链。</td>
+</tr>
+<tr>
+<td>name</td>
+<td>属性名</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回-1">返回</h4>
+<p>返回值会被忽略</p>
+<h4 id="应用场景-1">应用场景</h4>
+<ul>
+<li>收集信息</li>
+<li>给类添加额外的方法和属性</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">observable</span><span class="p">(</span><span class="nx">target</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">key</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">let</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">target</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">Reflect</span><span class="p">.</span><span class="nx">defineProperty</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">get</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;拦截到正在获取属性：&#39;</span> <span class="o">+</span> <span class="nx">key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nx">val</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">set</span><span class="p">(</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`prev:</span><span class="si">${</span><span class="nx">val</span><span class="si">}</span><span class="sb">,next:</span><span class="si">${</span><span class="nx">next</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">val</span> <span class="o">=</span> <span class="nx">next</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">C</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">@observable</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">foo</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">// prev: undefined, next: -1
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="kd">@observable</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">bar</span> <span class="o">=</span> <span class="s2">&#34;bar&#34;</span><span class="p">;</span> <span class="c1">// prev: undefined, next: bar
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">C</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">c</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// -&gt; prev: -1, next: 100
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">c</span><span class="p">.</span><span class="nx">foo</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.14</span><span class="p">;</span> <span class="c1">// -&gt; prev: 100, next: -3.14
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">c</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="s2">&#34;baz&#34;</span><span class="p">;</span> <span class="c1">// -&gt; prev: bar, next: baz
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">c</span><span class="p">.</span><span class="nx">bar</span> <span class="o">=</span> <span class="s2">&#34;sing&#34;</span><span class="p">;</span> <span class="c1">// -&gt; prev: baz, next: sing
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">bar</span><span class="p">);</span> <span class="c1">// -&gt; 拦截到正在获取属性：bar
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">foo</span><span class="p">);</span> <span class="c1">// -&gt; 拦截到正在获取属性：foo
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="c1">// 不会输出，只有target[key]的情况下，defineProperty才会拦截到
+</span></span></span></code></pre></div><h3 id="类方法访问器装饰器">类方法/访问器装饰器</h3>
+<h4 id="参数-2">参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>对于静态成员来说是类的构造器，对于实例成员来说是类的原型链。</td>
+</tr>
+<tr>
+<td>propertyKey</td>
+<td>属性名称</td>
+</tr>
+<tr>
+<td>descriptor</td>
+<td>属性的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor" target="_blank" rel="noopener noreffer ">描述器</a>。</td>
+</tr>
+</tbody>
+</table>
+<p>访问器装饰器唯一的区别在于描述器：</p>
+<p>方法装饰器的描述器的key为：</p>
+<ul>
+<li><code>value</code></li>
+<li><code>writable</code></li>
+<li><code>enumerable</code></li>
+<li><code>configurable</code></li>
+</ul>
+<p>访问器装饰器的描述器的key为：</p>
+<ul>
+<li><code>get</code></li>
+<li><code>set</code></li>
+<li><code>enumerable</code></li>
+<li><code>configurable</code></li>
+</ul>
+<h4 id="返回值">返回值</h4>
+<p>如果返回了值，它会被用于替代属性的描述器。</p>
+<h4 id="应用场景-2">应用场景</h4>
+<p>方法装饰器不同于属性装饰器的地方在于<code>descriptor</code>参数。 通过这个参数可以修改方法原本的实现，添加一些共用逻辑。</p>
+<p>例如：</p>
+<ol>
+<li>增加消除繁琐的try/catch块，装饰器内统一输出函数日志。</li>
+<li>校验参数或返回值类型</li>
+</ol>
+<p>以打印输入与输出举例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">logger</span><span class="p">(</span><span class="nx">target</span>: <span class="kt">any</span><span class="p">,</span> <span class="nx">propertyKey</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">descriptor</span>: <span class="kt">PropertyDescriptor</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">original</span> <span class="o">=</span> <span class="nx">descriptor</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">descriptor</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;params: &#39;</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">original</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;result: &#39;</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">C</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">@logger</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">add</span><span class="p">(</span><span class="nx">x</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">C</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="nx">c</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// -&gt; params: 1, 2
+</span></span></span><span class="line"><span class="cl"><span class="c1">// -&gt; result: 3
+</span></span></span></code></pre></div><h3 id="类参数装饰器">类参数装饰器</h3>
+<h4 id="类型-1">类型</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">ParameterDecorator</span> <span class="o">=</span> <span class="p">(</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">target</span>: <span class="kt">Object</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">propertyKey</span>: <span class="kt">string</span> <span class="o">|</span> <span class="kt">symbol</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">parameterIndex</span>: <span class="kt">number</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+</span></span></code></pre></div><h4 id="参数-3">参数</h4>
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>对于静态成员来说是类的构造器，对于实例成员来说是类的原型链。</td>
+</tr>
+<tr>
+<td>name</td>
+<td>属性的名称(注意是方法的名称，而不是参数的名称)。</td>
+</tr>
+<tr>
+<td>index</td>
+<td>参数在方法中所处的位置的下标。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="返回-2">返回</h4>
+<p>返回的值将会被忽略。</p>
+<h4 id="应用场景-3">应用场景</h4>
+<p>只能做一些参数的记录，不能更改参数相关的任何内容，（除非配合<code>reflect-metadata</code>），一般需要配合其他的装饰器使用。例如配合方法装饰器进行运行时的参数检查。</p>
+<h3 id="装饰器工厂">装饰器工厂</h3>
+<p>如果想要传递参数，使装饰器变成类似工厂函数，只需要在装饰器函数内部再函数一个函数即可，如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">addAge</span><span class="p">(</span><span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kd">function</span> <span class="p">(</span><span class="kr">constructor</span><span class="o">:</span> <span class="nb">Function</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">constructor</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">@addAge</span><span class="p">(</span><span class="s1">&#39;bhwa233&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="kr">class</span> <span class="nx">Person</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">person</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span> <span class="c1">//bhwa233
+</span></span></span></code></pre></div><blockquote>
+<p>参考链接：</p>
+<p><a href="https://www.typescriptlang.org/docs/handbook/decorators.html#handbook-content" target="_blank" rel="noopener noreffer ">typescript官方文档中的Decorators </a></p>
+<p><a href="https://saul-mirone.github.io/zh-hans/a-complete-guide-to-typescript-decorator/" target="_blank" rel="noopener noreffer ">TypeScript装饰器完全指南</a></p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-09-19</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="../../../posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" data-title="JS装饰器（Decorator）" data-hashtags="js"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="../../../posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" data-hashtag="js"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="../../../posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" data-title="JS装饰器（Decorator）"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="../../../posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" data-title="JS装饰器（Decorator）"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.0.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="../../../posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/" data-title="JS装饰器（Decorator）"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="../../../tags/js/">js</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="../../../">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../../../posts/react/hook%E5%8E%9F%E7%90%86/" class="prev" rel="prev" title="Hook原理"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Hook原理</a>
+            <a href="../../../posts/vscode/note/" class="next" rel="next" title="vscode 插件开发踩坑">vscode 插件开发踩坑<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Bhwa233 blog","id-2":"Bhwa233 blog"},"search":{"algoliaAppID":"3PD6QAJMYD","algoliaIndex":"myblog","algoliaSearchKey":"3ba845b841c5db686f7d02a3fd6c89ca","highlightTag":"em","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="../../../js/theme.min.js"></script></body>
+</html>

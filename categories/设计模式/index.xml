@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>设计模式 - Category - Bhwa233 blog</title>
+        <link>/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+        <description>设计模式 - Category - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</lastBuildDate><atom:link href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="self" type="application/rss+xml" /><item>
+    <title>依赖倒置、控制反转，依赖注入</title>
+    <link>/posts/design/mode/</link>
+    <pubDate>Tue, 14 Mar 2023 17:31:12 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/design/mode/</guid>
+    <description><![CDATA[通过定义抽象的接口，我们可以将高层应用和具体的底层模块解耦。应用程序不需要关心具体实现细节，而是通过接口来访问底层模块的功能。当需要使用不同]]></description>
+</item>
+<item>
+    <title>设计模式总结</title>
+    <link>/posts/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+    <pubDate>Sun, 21 Aug 2022 16:55:21 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/design/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+    <description><![CDATA[设计模式 设计模式 描述 例子 单例模式 一个类只能构造出唯一实例 vuex 工厂模式 对创建对象逻辑的封装 new 创建实例 观察者模式 当一个对象被修改时，自动通知所有依]]></description>
+</item>
+</channel>
+</rss>

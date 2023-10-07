@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>monorepo - Tag - Bhwa233 blog</title>
+        <link>/tags/monorepo/</link>
+        <description>monorepo - Tag - Bhwa233 blog</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 03 Aug 2022 16:36:02 &#43;0800</lastBuildDate><atom:link href="/tags/monorepo/" rel="self" type="application/rss+xml" /><item>
+    <title>monorepo总结</title>
+    <link>/posts/monorepo/base/</link>
+    <pubDate>Wed, 03 Aug 2022 16:36:02 &#43;0800</pubDate>
+    <author>Bhwa233</author>
+    <guid>/posts/monorepo/base/</guid>
+    <description><![CDATA[基本概念 monorepo是一种项目管理方式， 就是将多个项目放在一个仓库里。相反的是MultiRepo模式，即每个项目对应一个单独的仓库。 MultiRepo 缺]]></description>
+</item>
+</channel>
+</rss>

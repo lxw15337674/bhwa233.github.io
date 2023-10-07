@@ -90,7 +90,125 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><div class="home-subtitle"><img  class="hi" src="hi.png" /></div></div>
-</div></div>
+<article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/hugo/">Hugo lovelt的搜索坑</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-08-06">2022-08-06</time></span>&nbsp;<span class="post-category">included in <a href="./categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div><div class="content">lovelt主题的搜索，提供了Lunr.js 、algolia, 两个搜索引擎，但是都很麻烦。 首先lunr简单，但不支持中文检索，中文分词依赖库</div><div class="post-footer">
+        <a href="./posts/hugo/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/hugo/">hugo</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/event/">鼠标、键盘事件</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-07-31">2022-07-31</time></span>&nbsp;<span class="post-category">included in <a href="./categories/%E7%AC%94%E8%AE%B0/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>笔记</a></span></div><div class="content">由于开发富文本中遇到中文输入法输入等问题，所以总结一下。 键盘事件 触发顺序 普通输入 keydown -&gt;keypress -&gt; input-&gt;change-&gt; keyup 输入法输入 输入时 keydown -&gt;CompositionStart-&gt;CompositionUpdate -&gt; input-&gt;change-&gt;onCompositionEnd -&gt;keyup 普通事件 在keyup 事件</div><div class="post-footer">
+        <a href="./posts/js/event/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/richtext/slateApi/">Slate transform API 详细说明</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-08-13">2022-08-13</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">通用配置 NodeOptions interface NodeOptions { at?: Location; // 需要操作的节点，默认为选区。 match?: NodeMatch&lt;T&gt;; // 自定义匹配方法。 // 指明Editor.nodes(),以哪种模式遍历slate node tree // &#39;all&#39;:</div><div class="post-footer">
+        <a href="./posts/richtext/slateApi/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/slate/">slate</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/react/drag/">拖拽组件[todo]</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-18">2023-05-18</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">react-beautiful-dnd： 只支持单向拖拽，不能同时支持横纵向拖拽。 已经停止维护，在react18的严格模式无法运行。</div><div class="post-footer">
+        <a href="./posts/react/drag/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/toFixed/">保留小数位-toFixed的坑</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-05-11">2023-05-11</time></span>&nbsp;<span class="post-category">included in <a href="./categories/js/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>js</a></span></div><div class="content">背景 开发过程中，遇到 需要对小数进行四舍五入的需求：首先想到的是 Number.toFixed(pre) 这个 API 的使用。 问题 预期的四舍五入结果： 65967.005.toFixed(2) // 65967.01 12859.005.toFixed(2) // 12859.01 控制台实际输出的结果： 65967.005.toFixed(2) //</div><div class="post-footer">
+        <a href="./posts/js/toFixed/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/react/zustand/">Zustand</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-03-29">2023-03-29</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">zustand是一个react的状态管理库，可以替代context、redux使用。 创建Store set用于修改store属性，get获取s</div><div class="post-footer">
+        <a href="./posts/react/zustand/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/codeStyle/">CodeStyle.md</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-03-28">2023-03-28</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">Code Style 提前返回 在 function 中经常会遇到变量值为 undefined 的情况，这个时候则需要提前判断并阻止执行，避免一些不必要的分支（无 else），让代码更精炼。 if (userInfo) { // 执</div><div class="post-footer">
+        <a href="./posts/codeStyle/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/">异常监控</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-03-15">2023-03-15</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">异常类型 JS错误 在 JavaScript 中，Error 是一种标准的内置对象，用于表示运行时错误和异常。Error 对象可以通过 throw 语句抛出，由 try&hellip;catch 语句捕获并处理。 一个</div><div class="post-footer">
+        <a href="./posts/%E7%9B%91%E6%8E%A7/js%E9%94%99%E8%AF%AF/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/design/mode/">依赖倒置、控制反转，依赖注入</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-03-14">2023-03-14</time></span>&nbsp;<span class="post-category">included in <a href="./categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>设计模式</a></span></div><div class="content">通过定义抽象的接口，我们可以将高层应用和具体的底层模块解耦。应用程序不需要关心具体实现细节，而是通过接口来访问底层模块的功能。当需要使用不同</div><div class="post-footer">
+        <a href="./posts/design/mode/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/react/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/">状态管理</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2023-02-22">2023-02-22</time></span>&nbsp;<span class="post-category">included in <a href="./categories/react/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>react</a></span></div><div class="content">关于react 的状态管理 Provider + Context（useContext） 一个完整的例子 import React, { createContext, Dispatch, SetStateAction, useState, } from &#39;react&#39;; export interface IState { theme: string; color: string; } interface Props { count: number; setCount: Dispatch&lt;SetStateAction&lt;number&gt;&gt;; } const Context =</div><div class="post-footer">
+        <a href="./posts/react/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/%E7%9B%91%E6%8E%A7/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80/">性能监控基础</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-11-16">2022-11-16</time></span>&nbsp;<span class="post-category">included in <a href="./categories/%E5%89%8D%E7%AB%AF/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>前端</a></span></div><div class="content">性能监控基础 前端应用渲染模型 CSR：Client Side Rendering，客户端（通常是浏览器）渲染； SSR：Server Side Rendering，</div><div class="post-footer">
+        <a href="./posts/%E7%9B%91%E6%8E%A7/%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7%E5%9F%BA%E7%A1%80/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/%E7%9B%91%E6%8E%A7/">监控</a>,&nbsp;<a href="./tags/%E6%80%A7%E8%83%BD/">性能</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%88%86%E7%89%87/">性能优化之分片</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-10-27">2022-10-27</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化</div><div class="post-footer">
+        <a href="./posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%88%86%E7%89%87/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/vscode/note/">vscode 插件开发踩坑</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-10-12">2022-10-12</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">中文翻译文档：https://liiked.github.io/VS-Code-Extension-Doc-ZH/#/ 关于@types/no</div><div class="post-footer">
+        <a href="./posts/vscode/note/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/">JS装饰器（Decorator）</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-19">2022-09-19</time></span>&nbsp;<span class="post-category">included in <a href="./categories/js/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>js</a></span></div><div class="content">概念 装饰器是 ES7 的一个新语法，在Typescript已经支持。作用就是**对一些对象进行装饰后返回一个被包装过的对象。**装饰器本质是基于Ob</div><div class="post-footer">
+        <a href="./posts/js/%E8%A3%85%E9%A5%B0%E5%99%A8/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/js/">js</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/react/hook%E5%8E%9F%E7%90%86/">Hook原理</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-04">2022-09-04</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">作者：宫秋 链接：https://juejin.cn/post/7119102104337121316 来源：稀土掘金 原理 hooks 的实现就是基于 fiber 的，</div><div class="post-footer">
+        <a href="./posts/react/hook%E5%8E%9F%E7%90%86/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/AOP/">AOP思想</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-04">2022-09-04</time></span>&nbsp;<span class="post-category">included in <a href="./categories/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>手撕代码</a>&nbsp;<a href="./categories/javascript/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>javascript</a></span></div><div class="content">基本思想 面向切面编程，把一些跟核心业务逻辑无关的功能抽离出来，再通过动态组织的方式掺入业务逻辑模块中。 let func = ()=&gt;{ //业务逻辑 console.log(&#39;func&#39;); } func = func.before(()=&gt;{ console.log(&#39;before&#39;); }).after(()=&gt;{ console.log(&#39;after&#39;); })</div><div class="post-footer">
+        <a href="./posts/AOP/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/%E6%8B%B7%E8%B4%9D/">浅拷贝与深拷贝</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-04">2022-09-04</time></span>&nbsp;<span class="post-category">included in <a href="./categories/%E6%89%8B%E6%92%95%E4%BB%A3%E7%A0%81/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>手撕代码</a>&nbsp;<a href="./categories/js/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>js</a></span></div><div class="content">总结 浅拷贝：只拷贝了栈内存 深拷贝：拷贝栈内存和堆内存。 浅拷贝 手写， 用for in遍历，但不支持Symbol属性的处理。 用Object.keys</div><div class="post-footer">
+        <a href="./posts/js/%E6%8B%B7%E8%B4%9D/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/this/">this指向问题</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-03">2022-09-03</time></span>&nbsp;<span class="post-category">included in <a href="./categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div><div class="content">总结 this始终指向调用它的那个对象。 场景： 给元素的某个行为绑定方法，当事件行为触发，方法中的this是元素本身。 构造函数体中的this是当</div><div class="post-footer">
+        <a href="./posts/js/this/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/">Tags</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/for%E5%BE%AA%E7%8E%AF/">js中三类For循环</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-09-03">2022-09-03</time></span>&nbsp;<span class="post-category">included in <a href="./categories/js/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>js</a></span></div><div class="content">总结 性能对比： for 与 while 基础 var 循环的时候，两者性能差不多 let arr = new Array(9999999).fill(0); console.time(&#39;for&#39;) for(var i = 0; i &lt; arr.length; i++) {} console.timeEnd(&#39;for&#39;) // for: 8.13818359375 ms console.time(&#39;while&#39;) var i = 0; while(i &lt; arr.length) { i++; } console.timeEnd(&#39;while&#39;) // while: 8.020751953125 ms var 没有块级作用域</div><div class="post-footer">
+        <a href="./posts/js/for%E5%BE%AA%E7%8E%AF/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/js/">js</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="./posts/js/%E7%BB%A7%E6%89%BF/">js的继承</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-08-27">2022-08-27</time></span>&nbsp;<span class="post-category">included in <a href="./categories/javascript/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>javascript</a>&nbsp;<a href="./categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>基础</a></span></div><div class="content">原型链继承 原理 让子类的原型对象指向父类实例，当子类实例找不到对应的属性和方法时，就会往它的原型对象，也就是父类实例上找，从而实现对父类的属性</div><div class="post-footer">
+        <a href="./posts/js/%E7%BB%A7%E6%89%BF/">Read More</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="./tags/javascript/">javascript</a></div></div>
+</article><ul class="pagination"><li class="page-item active">
+                    <span class="page-link">
+                        <a href="./">1</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="./page/2/">2</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="./page/3/">3</a>
+                    </span>
+                </li><li class="page-item ">
+                    <span class="page-link" aria-hidden="true">&hellip;</span>
+                </li><li class="page-item ">
+                    <span class="page-link">
+                        <a href="./page/5/">5</a>
+                    </span>
+                </li></ul></div></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
