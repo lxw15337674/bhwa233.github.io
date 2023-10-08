@@ -38,3 +38,6 @@ ES6新增的通信方法，没有使用XMLHttpRequest对象。
 - fetch不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时控制并不能阻止请求过程继续在后台运行，造成了流量的浪费
 - fetch没有办法原生监测请求的进度，而XHR可以
 
+
+
+

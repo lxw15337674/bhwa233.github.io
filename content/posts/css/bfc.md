@@ -29,7 +29,7 @@ BFC是一个隔离的独立容器，内部的元素与外界的元素互不干�
 
 ## 概念
 
-BFC，也就是块格式化上下文（Block Formatting Context）它属于上述定位方案的普通流，BFC 就相当于一个隔离的独立容器，内部的元素与外界的元素互不干扰。它不会影响外部的布局，外部的布局也不会影响到它。
+BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。 　　　
 
 ## 形成条件
 
@@ -51,8 +51,8 @@ BFC，也就是块格式化上下文（Block Formatting Context）它属于上�
 ## 使用场景
 
 - 解决边距重叠问题
-- BFC 不与 float 元素重叠
 - 清除浮动（父级元素会计算浮动元素的高度）
+- 防止margin重叠
 
 ## 应用场景
 

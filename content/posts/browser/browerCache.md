@@ -9,6 +9,18 @@ typora-root-url: ..\..\static
 
 > 原文：https://www.jianshu.com/p/54cc04190252
 
+## 总结
+
+- 浏览器端缓存分为200 from cache和304 not modified
+- HTTP协议中Cache-Control 和 Expires可以用来设置新鲜度的限值，前者是HTTP1.1中新增的响应头，后者是HTTP1.0中的响应头。
+- max-age（单位为s）而Expires指定的是具体的过期日期而不是秒数
+- Cache-Control和Expires同时使用的话，Cache-Control会覆盖Expires
+- 客户端不用关心ETag值如何产生，只要服务在资源状态发生变更的情况下将ETag值发送给它就行
+- Apache默认通过FileEtag中FileEtag INode Mtime Size的配置自动生成ETag(当然也可以通过用户自定义的方式)。
+- ETag常与If-None-Match或者If-Match一起，由客户端通过HTTP头信息(包括ETag值)发送给服务端处理。
+- Last-Modified常与If-Modified-Since一起由客户端将Last-Modified值包括在HTTP头信息中发给服务端进行处理。
+- 有些文档资源周期性的被重写，但实际内容没有改变。此时文件元数据中会显示文件最近的修改日期与If-Modified-Since不相同，导致不必要的响应。
+
 |                | 优先级 | 持久化 | 命中规则 | 作用范围                |
 | -------------- | ------ | ------ | -------- | ----------------------- |
 | Memory Cache   | 1      | No     | URL      | Navigation              |
