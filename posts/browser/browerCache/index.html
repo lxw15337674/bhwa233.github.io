@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>深入理解浏览器的缓存机制(引用) - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="深入理解浏览器的缓存机制(引用)" />
-<meta property="og:description" content="原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk" />
+<meta property="og:description" content="原文：https://www.jianshu.com/p/54cc04190252 总结 浏览器端缓存分为200 from cache和304 not modified HTTP" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/browerCache/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-28T23:28:42+08:00" />
-<meta property="article:modified_time" content="2022-09-03T18:08:59+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-10-08T23:11:32+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入理解浏览器的缓存机制(引用)"/>
-<meta name="twitter:description" content="原文：https://www.jianshu.com/p/54cc04190252 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义 Host Disk"/>
+<meta name="twitter:description" content="原文：https://www.jianshu.com/p/54cc04190252 总结 浏览器端缓存分为200 from cache和304 not modified HTTP"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
@@ -27,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/browerCache\/"
-        },"genre": "posts","keywords": "","wordcount":  6217 ,
-        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2022-09-03T18:08:59+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  6725 ,
+        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2023-10-08T23:11:32+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,8 +101,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">深入理解浏览器的缓存机制(引用)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6217 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;13 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6725 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;14 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -110,6 +110,7 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
+    <li><a href="#总结">总结</a></li>
     <li><a href="#memory-cache">Memory Cache</a></li>
     <li><a href="#service-worker">Service Worker</a></li>
     <li><a href="#disk-cache">Disk Cache</a></li>
@@ -143,6 +144,18 @@
             </div><div class="content" id="content"><blockquote>
 <p>原文：https://www.jianshu.com/p/54cc04190252</p>
 </blockquote>
+<h2 id="总结">总结</h2>
+<ul>
+<li>浏览器端缓存分为200 from cache和304 not modified</li>
+<li>HTTP协议中Cache-Control 和 Expires可以用来设置新鲜度的限值，前者是HTTP1.1中新增的响应头，后者是HTTP1.0中的响应头。</li>
+<li>max-age（单位为s）而Expires指定的是具体的过期日期而不是秒数</li>
+<li>Cache-Control和Expires同时使用的话，Cache-Control会覆盖Expires</li>
+<li>客户端不用关心ETag值如何产生，只要服务在资源状态发生变更的情况下将ETag值发送给它就行</li>
+<li>Apache默认通过FileEtag中FileEtag INode Mtime Size的配置自动生成ETag(当然也可以通过用户自定义的方式)。</li>
+<li>ETag常与If-None-Match或者If-Match一起，由客户端通过HTTP头信息(包括ETag值)发送给服务端处理。</li>
+<li>Last-Modified常与If-Modified-Since一起由客户端将Last-Modified值包括在HTTP头信息中发给服务端进行处理。</li>
+<li>有些文档资源周期性的被重写，但实际内容没有改变。此时文件元数据中会显示文件最近的修改日期与If-Modified-Since不相同，导致不必要的响应。</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -394,7 +407,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-09-03</span>
+                <span>Updated on 2023-10-08</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
