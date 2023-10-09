@@ -1,5 +1,5 @@
 ---
-title: "Middle"
+title: "居中"
 date: 2022-08-21T12:50:51+08:00
 draft: false
 tags: ["css"]
@@ -7,7 +7,6 @@ categories: ["css"]
 typora-root-url: ..\..\static
 ---
 
-# 居中
 
 ![image](/images/50374866-75bc1200-062f-11e9-8f19-e044ad460927.png)
 

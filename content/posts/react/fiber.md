@@ -11,6 +11,8 @@ typora-root-url: ..\..\static
 
 `React`内部实现的一套状态更新机制。将**同步的更新**变为**可中断的异步更新**。支持任务不同`优先级`，可中断与恢复，并且恢复后可以复用之前的`中间状态`。
 
+> 旧的模式，用的vdom递归渲染也是可以中断的，但无法恢复，因为不知道父节点是哪个
+
 ### 背景
 
 react-fiber 产生的根本原因，是大量的同步计算任务阻塞了浏览器的 UI 渲染。
@@ -122,11 +124,30 @@ function FiberNode(
 
 在`update`时，`Reconciler`将`JSX`与`Fiber节点`保存的数据对比，生成组件对应的`Fiber节点`，并根据对比结果为`Fiber节点`打上`标记`。
 
+## Fiber 的主要工作流程
 
+1. `ReactDOM.render()` 引导 React 启动或调用 `setState()` 的时候开始创建或更新 Fiber 树。
+2. 从根节点开始遍历 Fiber Node Tree， 并且构建 workInProgress Tree（reconciliation 阶段）。
+   - 本阶段可以暂停、终止、和重启，会导致 react 相关生命周期重复执行。
+   - React 会生成两棵树，一棵是代表当前状态的 current tree，一棵是待更新的 workInProgress tree。
+   - 遍历 current tree，重用或更新 Fiber Node 到 workInProgress tree，workInProgress tree 完成后会替换 current tree。
+   - 每更新一个节点，同时生成该节点对应的 Effect List。
+   - 为每个节点创建更新任务。
+3. 将创建的更新任务加入任务队列，等待调度。
+   - 调度由 scheduler 模块完成，其核心职责是执行回调。
+   - scheduler 模块实现了跨平台兼容的 requestIdleCallback。
+   - 每处理完一个 Fiber Node 的更新，可以中断、挂起，或恢复。
+4. 根据 Effect List 更新 DOM （commit 阶段）。
+   - React 会遍历 Effect List 将所有变更一次性更新到 DOM 上。
+   - 这一阶段的工作会导致用户可见的变化。因此该过程不可中断，必须一直执行直到更新完成。
 
 
 
 >资料：
 >
 >[React技术揭秘](https://react.iamkasong.com/)
+>
+>
+>
+>https://zhuanlan.zhihu.com/p/424967867
 

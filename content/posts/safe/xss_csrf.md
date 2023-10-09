@@ -54,6 +54,8 @@ CSRF即Cross-site request forgery(跨站请求伪造)。CSRF攻击主要是利�
 
   验证来源站点：通过请求头的Origin和Referer，其中，Origin只包含域名信息，而Referer包含了具体的 URL 路径。来确定请求是否是合法的源。但都可以伪造。
 
+- 增加验证码输入
+
 - 在请求地址中添加token 并验证。
 
   使用CSRF Token进行验证，首先，浏览器向服务器发送请求时，服务器生成一个字符串，将其植入到返回的页面中。

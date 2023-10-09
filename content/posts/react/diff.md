@@ -99,8 +99,6 @@ vue的列表比对，采用从两端到中间的比对方式，而react则采用
 
 vue比对节点，当节点元素类型相同，但是className不同，认为是不同类型元素，删除重建，而react会认为是同类型节点，只是修改节点属性
 
-
-
 react只比较节点类型和key
 
 ```js
@@ -136,8 +134,8 @@ function sameVnode (a, b) {
 
 
 
-
-
 > 资料
 >
 > [个人理解Vue和React区别](https://lq782655835.github.io/blogs/vue/diff-vue-vs-react.html#%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3vue%E5%92%8Creact%E5%8C%BA%E5%88%AB)
+>
+> [React Diff 算法核心](https://xyy94813.gitbook.io/x-note/fe/react/react-diff-algorithm)
