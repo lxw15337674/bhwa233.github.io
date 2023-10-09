@@ -4,12 +4,12 @@
         <link>/categories/css/</link>
         <description>css - Category - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</lastBuildDate><atom:link href="/categories/css/" rel="self" type="application/rss+xml" /><item>
-    <title>Middle</title>
+    <title>居中</title>
     <link>/posts/css/middle/</link>
     <pubDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</pubDate>
     <author>Bhwa233</author>
     <guid>/posts/css/middle/</guid>
-    <description><![CDATA[居中 水平居中 行内元素 &lt;div class=&#34;container&#34;&gt; &lt;div&gt; 123 &lt;/div&gt; &lt;/div&gt; &lt;style&gt; .container { text-align: center; } &lt;/style&gt; 块级元素 确定宽度 margin:0 auto width:100px width: 100px; margin-left: calc(50% - 50px); } 不确定宽度同垂直居中 垂直居中 弹性盒 display:flex align-items:center translate position:absolute left:50% top:50% transform:translate(-50%,-50%) 相对定位 position:absolute]]></description>
+    <description><![CDATA[水平居中 行内元素 &lt;div class=&#34;container&#34;&gt; &lt;div&gt; 123 &lt;/div&gt; &lt;/div&gt; &lt;style&gt; .container { text-align: center; } &lt;/style&gt; 块级元素 确定宽度 margin:0 auto width:100px width: 100px; margin-left: calc(50% - 50px); } 不确定宽度同垂直居中 垂直居中 弹性盒 display:flex align-items:center translate position:absolute left:50% top:50% transform:translate(-50%,-50%) 相对定位 position:absolute top/right/bottom/left:0 margin:auto]]></description>
 </item>
 <item>
     <title>浮动</title>

@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/js/closure/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-02T23:47:44+08:00" />
-<meta property="article:modified_time" content="2023-09-27T21:17:07+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-10-09T23:13:36+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="闭包"/>
 <meta name="twitter:description" content="概念 函数中的函数，闭包是指引用了外部函数作用域变量的函数， 可以粗暴的理解为：相当于将外部变量保留下来，就是一个独立的作用域，外部不可见，作为"/>
@@ -27,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/js\/closure\/"
-        },"genre": "posts","keywords": "","wordcount":  580 ,
-        "url": "\/posts\/js\/closure\/","datePublished": "2022-08-02T23:47:44+08:00","dateModified": "2023-09-27T21:17:07+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  650 ,
+        "url": "\/posts\/js\/closure\/","datePublished": "2022-08-02T23:47:44+08:00","dateModified": "2023-10-09T23:13:36+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,7 +101,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">闭包</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;580 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;650 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -115,6 +115,7 @@
     <li><a href="#形成条件">形成条件</a></li>
     <li><a href="#为什么使用闭包">为什么使用闭包</a></li>
     <li><a href="#产生原因">产生原因</a></li>
+    <li><a href="#优点">优点</a></li>
     <li><a href="#缺点">缺点</a></li>
     <li><a href="#作用">作用</a></li>
     <li><a href="#应用场景">应用场景</a></li>
@@ -124,6 +125,7 @@
             </div><div class="content" id="content"><h2 id="概念">概念</h2>
 <p><strong>函数中的函数</strong>，闭包是指引用了外部函数作用域变量的函数，</p>
 <p>可以粗暴的理解为：相当于将外部变量保留下来，就是一个独立的作用域，外部不可见，作为自己函数使用。</p>
+<p>原理：<strong>通过引用变量从而阻止该变量被垃圾回收的机制</strong></p>
 <h2 id="例子">例子</h2>
 <pre tabindex="0"><code>function a(){
 	var b = 1;
@@ -159,7 +161,12 @@ console.log(e());
 }
 var x = f1();
 x();
-</code></pre><h2 id="缺点">缺点</h2>
+</code></pre><h2 id="优点">优点</h2>
+<ol>
+<li>封装私有属性和私有方法，加强封装性，可以达到对变量的保护作用。</li>
+<li>更好的组织代码，比如模块化</li>
+</ol>
+<h2 id="缺点">缺点</h2>
 <ol>
 <li>引起内存泄漏。</li>
 <li>闭包的this指向的是window。</li>
@@ -209,7 +216,7 @@ x();
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-09-27</span>
+                <span>Updated on 2023-10-09</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
