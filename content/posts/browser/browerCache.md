@@ -1,5 +1,5 @@
 ---
-title: "深入理解浏览器的缓存机制(引用)"
+title: "深入理解浏览器的缓存机制"
 date: 2022-07-28T23:28:42+08:00
 draft: false
 tags: [""]
@@ -10,16 +10,6 @@ typora-root-url: ..\..\static
 > 原文：https://www.jianshu.com/p/54cc04190252
 
 ## 总结
-
-- 浏览器端缓存分为200 from cache和304 not modified
-- HTTP协议中Cache-Control 和 Expires可以用来设置新鲜度的限值，前者是HTTP1.1中新增的响应头，后者是HTTP1.0中的响应头。
-- max-age（单位为s）而Expires指定的是具体的过期日期而不是秒数
-- Cache-Control和Expires同时使用的话，Cache-Control会覆盖Expires
-- 客户端不用关心ETag值如何产生，只要服务在资源状态发生变更的情况下将ETag值发送给它就行
-- Apache默认通过FileEtag中FileEtag INode Mtime Size的配置自动生成ETag(当然也可以通过用户自定义的方式)。
-- ETag常与If-None-Match或者If-Match一起，由客户端通过HTTP头信息(包括ETag值)发送给服务端处理。
-- Last-Modified常与If-Modified-Since一起由客户端将Last-Modified值包括在HTTP头信息中发给服务端进行处理。
-- 有些文档资源周期性的被重写，但实际内容没有改变。此时文件元数据中会显示文件最近的修改日期与If-Modified-Since不相同，导致不必要的响应。
 
 |                | 优先级 | 持久化 | 命中规则 | 作用范围                |
 | -------------- | ------ | ------ | -------- | ----------------------- |
@@ -117,13 +107,17 @@ Cache-Control 可以在请求头或者响应头中设置，并且可以组合使
 
 
 
-**public**：**所有内容都将被缓存（客户端和代理服务器都可缓存）**。具体来说响应可被任何中间节点缓存，如 Browser <-- proxy1 <--  proxy2 <-- Server，中间的proxy可以缓存资源，比如下次再请求同一资源proxy1直接把自己缓存的东西给 Browser 而不再向proxy2要。
+### 可缓存性
 
-**private**：**所有内容只有客户端可以缓存**，Cache-Control的默认取值。具体来说，表示中间节点不允许缓存，对于Browser <-- proxy1 <--  proxy2 <-- Server，proxy 会老老实实把Server 返回的数据发送给proxy1,自己不缓存任何数据。当下次Browser再次请求时proxy会做好请求转发而不是自作主张给自己缓存的数据。
+**public**：表明响应可以被任何对象缓存。
 
-**no-cache**：客户端缓存内容，是否使用缓存则需要经过协商缓存来验证决定。表示不使用 Cache-Control的缓存控制方式做前置验证，而是使用 Etag 或者Last-Modified字段来控制缓存。**需要注意的是，no-cache这个名字有一点误导。设置了no-cache之后，并不是说浏览器就不再缓存数据，只是浏览器在使用缓存数据时，需要先确认一下数据是否还跟服务器保持一致。**
+**private**：表明响应只能被单个用户缓存，不能作为共享缓存（代理服务器不能缓存它）
 
-**no-store**：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存
+**no-cache**：在发布缓存副本之前，强制要求缓存把请求提交给原始服务器进行验证 (协商缓存验证)。
+
+**no-store**：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存。即使服务器下发了缓存相关头，浏览器也会忽略任何和缓存相关的信息，发送请求不会携带相关头，直接去请求最新的数据。
+
+### 到期/期限性
 
 **max-age**：max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效
 
@@ -132,6 +126,16 @@ Cache-Control 可以在请求头或者响应头中设置，并且可以组合使
 **max-stale**：能容忍的最大过期时间。max-stale指令标示了客户端愿意接收一个已经过期了的响应。如果指定了max-stale的值，则最大容忍时间为对应的秒数。如果没有指定，那么说明浏览器愿意接收任何age的响应（age表示响应由源站生成或确认的时间与当前时间的差值）。
 
 **min-fresh**：能够容忍的最小新鲜度。min-fresh标示了客户端不愿意接受新鲜度不多于当前的age加上min-fresh设定的时间之和的响应。
+
+### 重新验证和重新加载性
+
+**must-revalidate**：一旦资源过期（比如已经超过`max-age`），在成功向原始服务器验证之前，缓存不能用该资源响应后续请求。
+
+**proxy-revalidate**，用在缓存服务器中，指定缓存服务器过期后，必须向源服务器重新请求，不能直接使用本地缓存。
+
+
+
+
 
 ![img](https:////upload-images.jianshu.io/upload_images/3174701-3fa81f5e9efac5af?imageMogr2/auto-orient/strip|imageView2/2/w/820/format/webp)
 
@@ -236,6 +240,18 @@ Last-Modified的时间单位是秒，如果某个文件在1秒内改变了多次
 - 打开网页，地址栏输入地址： 查找 disk cache 中是否有匹配。如有则使用；如没有则发送网络请求。
 - 普通刷新 (F5)：因为 TAB 并没有关闭，因此 memory cache 是可用的，会被优先使用(如果匹配的话)。其次才是 disk cache。
 - 强制刷新 (Ctrl + F5)：浏览器不使用缓存，因此发送的请求头部均带有 `Cache-control: no-cache`(为了兼容，还带了 `Pragma: no-cache`),服务器直接返回 200 和最新内容。
+
+## 浏览器缓存
+
+通过 Cache-Control 以及 max-age 设置，达到长缓存的效果。
+
+启动服务器 node server.js，在 localhost:8888 打开，查看network，当设置 max-age 后，刷新页面，浏览器直接从缓存中进行读取，不去要再向服务器请求，达到缓存静态资源的目的。
+
+**存在的问题**，服务端修改返回内容，客户端没有加载新的内容，因为请求 url 没变，浏览器会直接从缓存读取，不需要经过服务端验证，导致静态资源更新后，没有及时更新到客户端。
+
+**解决方案**，打包静态资源时，根据内容进行 hash 计算，生成文件名的 hash 码。内容变，hash 码变，请求资源 url 变，浏览器重新请求加载资源，达到更新缓存的目的。
+
+
 
 ## 参考文章
 

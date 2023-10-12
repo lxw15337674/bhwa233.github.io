@@ -87,7 +87,6 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 
 ## 引用
 
-[关于http2.0的HTTP 2.0 的二进制帧、流、多路复用](https://juejin.im/post/5c88f2066fb9a049c043e420)
 [HTTP2 详解](https://blog.wangriyu.wang/2018/05-HTTP2.html)
 [http发展史(http0.9、http1.0、http1.1、http2、http3)梳理笔记](https://juejin.im/post/5dbe8eba5188254fe019dabb#heading-9)
 [神三元](http://47.98.159.95/my_blog/http/002.html)
@@ -95,3 +94,4 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 [HTTP协议头部与Keep-Alive](https://www.cnblogs.com/happy-king/p/9603395.html)
 [解读HTTP/2 及 HTTP/3特性](https://github.com/ljianshu/Blog/issues/57)
 [HTTP/1.0、HTTP/1.1、HTTP/2、HTTPS](https://zhuanlan.zhihu.com/p/43787334)
+[HTTP/2.0 Header Compression](https://kiosk007.top/post/http-2-0-header-compression/)
