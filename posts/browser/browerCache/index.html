@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/browerCache/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-28T23:28:42+08:00" />
-<meta property="article:modified_time" content="2023-10-12T22:05:42+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-10-14T22:59:23+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入理解浏览器的缓存机制"/>
 <meta name="twitter:description" content="原文：https://www.jianshu.com/p/54cc04190252 总结 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义"/>
@@ -27,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/browerCache\/"
-        },"genre": "posts","keywords": "","wordcount":  6319 ,
-        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2023-10-12T22:05:42+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  6310 ,
+        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2023-10-14T22:59:23+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,7 +101,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">深入理解浏览器的缓存机制</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6319 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6310 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;13 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -268,10 +268,10 @@
         alt="https:////upload-images.jianshu.io/upload_images/3174701-8ff981603cdfded0?imageMogr2/auto-orient/strip|imageView2/2/w/562/format/webp"
         title="img" /></p>
 <h3 id="可缓存性">可缓存性</h3>
-<p><strong>public</strong>：表明响应可以被任何对象缓存。</p>
-<p><strong>private</strong>：表明响应只能被单个用户缓存，不能作为共享缓存（代理服务器不能缓存它）</p>
-<p><strong>no-cache</strong>：在发布缓存副本之前，强制要求缓存把请求提交给原始服务器进行验证 (协商缓存验证)。</p>
-<p><strong>no-store</strong>：所有内容都不会被缓存，即不使用强制缓存，也不使用协商缓存。即使服务器下发了缓存相关头，浏览器也会忽略任何和缓存相关的信息，发送请求不会携带相关头，直接去请求最新的数据。</p>
+<p><strong>public</strong>：客户端和代理服务器都可以缓存。因为一个请求可能要经过不同的<code>代理服务器</code>最后才到达目标服务器，那么结果就是不仅仅浏览器可以缓存数据，中间的任何代理节点都可以进行缓存。</p>
+<p><strong>private</strong>：只有浏览器能缓存了，中间的代理服务器不能缓存。</p>
+<p><strong>no-cache</strong>：跳过当前的强缓存，发送HTTP请求，即直接进入<code>协商缓存阶段</code>。</p>
+<p><strong>no-store</strong>：不进行任何形式的缓存，即不使用强制缓存，也不使用协商缓存。</p>
 <h3 id="到期期限性">到期/期限性</h3>
 <p><strong>max-age</strong>：max-age=xxx (xxx is numeric)表示缓存内容将在xxx秒后失效</p>
 <p><strong>s-maxage</strong>（单位为s)：同max-age作用一样，只在代理服务器中生效（比如CDN缓存）。比如当s-maxage=60时，在这60秒中，即使更新了CDN的内容，浏览器也不会进行请求。max-age用于普通缓存，而s-maxage用于代理缓存。<strong>s-maxage的优先级高于max-age</strong>。如果存在s-maxage，则会覆盖掉max-age和Expires header。</p>
@@ -410,7 +410,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-10-12</span>
+                <span>Updated on 2023-10-14</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
