@@ -85,13 +85,20 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 - http1.1中，一个TCP请求可以发送多个请求，但只能按顺序一个一个请求。如果想并发多个请求，必须使用多个 TCP/ip链接，且浏览器为了控制资源，还会对单个域名有 6-8个的TCP链接请求限制。 
 - http2.0中，只要一个tcp请求可以并发请求多个资源，分割成更小的帧请求，速度明显提升。
 
+#### HTTP 队头阻塞
+
+我们之前讨论了 HTTP 队头阻塞的问题，其根本原因在于HTTP 基于`请求-响应`的模型，在同一个 TCP 长连接中，前面的请求没有得到响应，后面的请求就会被阻塞。
+
+后面我们又讨论到用**并发连接**和**域名分片**的方式来解决这个问题，但这并没有真正从 HTTP 本身的层面解决问题，只是增加了 TCP 连接，分摊风险而已。而且这么做也有弊端，多条 TCP 连接会竞争**有限的带宽**，让真正优先级高的请求不能优先处理。
+
+### 队头阻塞
+
+而 HTTP/2 便从 HTTP 协议本身解决了`队头阻塞`问题。注意，这里并不是指的`TCP队头阻塞`，而是`HTTP队头阻塞`，两者并不是一回事。TCP 的队头阻塞是在`数据包`层面，单位是`数据包`，前一个报文没有收到便不会将后面收到的报文上传给 HTTP，而HTTP 的队头阻塞是在 `HTTP 请求-响应`层面，前一个请求没处理完，后面的请求就要阻塞住。两者所在的层次不一样。
+
 ## 引用
 
 [HTTP2 详解](https://blog.wangriyu.wang/2018/05-HTTP2.html)
 [http发展史(http0.9、http1.0、http1.1、http2、http3)梳理笔记](https://juejin.im/post/5dbe8eba5188254fe019dabb#heading-9)
-[神三元](http://47.98.159.95/my_blog/http/002.html)
-
-[HTTP协议头部与Keep-Alive](https://www.cnblogs.com/happy-king/p/9603395.html)
+[神三元](https://juejin.cn/post/6844904100035821575?searchId=20231013115515F559743DFC1DDABF7607l)
 [解读HTTP/2 及 HTTP/3特性](https://github.com/ljianshu/Blog/issues/57)
-[HTTP/1.0、HTTP/1.1、HTTP/2、HTTPS](https://zhuanlan.zhihu.com/p/43787334)
 [HTTP/2.0 Header Compression](https://kiosk007.top/post/http-2-0-header-compression/)
