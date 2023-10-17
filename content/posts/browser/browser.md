@@ -71,3 +71,7 @@ typora-root-url: ..\..\static
 > 详解
 >
 > [JavaScript与浏览器 - 线程与引擎](https://lq782655835.github.io/blogs/js/http-base-2.browser.html)
+>
+> [从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理](https://segmentfault.com/a/1190000012925872)
+>
+> [[浏览器工作原理与实践]](https://blog.poetries.top/browser-working-principle/guide/part1/lesson01.html#%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B)

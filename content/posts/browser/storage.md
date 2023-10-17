@@ -63,3 +63,8 @@ Cookie原本用于解决HTTP无状态性导致的状态管理不足，一般只�
 ### 应用场景
 1.存储base64的图片。
 
+
+
+## 详细
+
+https://zhuanlan.zhihu.com/p/505031430

@@ -98,7 +98,11 @@ HTTP是一种`超文本传输协议（Hypertext Transfer Protocol)`，HTTP是一
 ## 引用
 
 [HTTP2 详解](https://blog.wangriyu.wang/2018/05-HTTP2.html)
+
 [http发展史(http0.9、http1.0、http1.1、http2、http3)梳理笔记](https://juejin.im/post/5dbe8eba5188254fe019dabb#heading-9)
+
 [神三元](https://juejin.cn/post/6844904100035821575?searchId=20231013115515F559743DFC1DDABF7607l)
+
 [解读HTTP/2 及 HTTP/3特性](https://github.com/ljianshu/Blog/issues/57)
+
 [HTTP/2.0 Header Compression](https://kiosk007.top/post/http-2-0-header-compression/)

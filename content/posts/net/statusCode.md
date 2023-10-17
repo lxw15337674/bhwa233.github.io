@@ -75,3 +75,4 @@ typora-root-url: ..\..\static
 
 https://tool.oschina.net/commons?type=5
 
+https://shanyue.tech/post/http-status.html#_307-temporary-redirect
