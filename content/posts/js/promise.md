@@ -661,7 +661,9 @@ setTimeout(() => {
 
 
 
+### Promise的then的第二个参数和catch的区别
 
+如果在then的第一个函数里抛出了异常，后面的catch能捕获到，而then的第二个函数捕获不到：then的第二个参数本来就是用来处理上一层状态为失败的
 
 
 
