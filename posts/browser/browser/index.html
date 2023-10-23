@@ -9,7 +9,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/browser/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-02T17:30:41+08:00" />
-<meta property="article:modified_time" content="2023-10-17T08:53:59+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-10-23T22:38:58+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多进程的浏览器"/>
 <meta name="twitter:description" content="一个浏览器是多进程，1 个浏览器（Browser）主进程、1 个 GPU 进程、1 个网络（NetWork Service）进程、多个渲染进程和多个插件进程"/>
@@ -27,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/browser\/"
-        },"genre": "posts","keywords": "","wordcount":  1675 ,
-        "url": "\/posts\/browser\/browser\/","datePublished": "2022-08-02T17:30:41+08:00","dateModified": "2023-10-17T08:53:59+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  2200 ,
+        "url": "\/posts\/browser\/browser\/","datePublished": "2022-08-02T17:30:41+08:00","dateModified": "2023-10-23T22:38:58+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,8 +101,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">多进程的浏览器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1675 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;2200 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;5 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -115,6 +115,7 @@
     <li><a href="#面试题">面试题</a>
       <ul>
         <li><a href="#打开一个页面会有多少个进程">打开一个页面会有多少个进程？</a></li>
+        <li><a href="#浏览器的网络进程与渲染进程中的http异步请求线程之间的分工有什么不同他们之间的有怎么样的联系httpssegmentfaultcomq1010000043813132"><a href="https://segmentfault.com/q/1010000043813132">浏览器的网络进程与渲染进程中的http异步请求线程之间的分工有什么不同，他们之间的有怎么样的联系？</a></a></li>
       </ul>
     </li>
   </ul>
@@ -152,7 +153,7 @@
 <ul>
 <li>该线程负责处理 JavaScript脚本，执行代码。</li>
 <li>也是主要负责执行准备好待执行的事件，即定时器计数结束，或者异步请求成功并正确返回时，将依次进入任务队列，等待 JS引擎线程的执行。</li>
-<li>当然，该线程与 GUI渲染线程互斥，当 JS引擎线程执行 JavaScript脚本时间过长，将导致页面渲染的阻塞。</li>
+<li>该线程与 GUI渲染线程互斥，当 JS引擎线程执行 JavaScript脚本时间过长，将导致页面渲染的阻塞。</li>
 </ul>
 </li>
 <li>事件触发线程
@@ -169,7 +170,7 @@
 </li>
 <li>异步http请求线程
 <ul>
-<li>每个http请求都会新开一个线程请求。</li>
+<li>每个http请求都会新开一个线程请求，等待网络请求完毕后，将回调函数再放入事件队列中。再由JavaScript引擎执行。</li>
 <li>负责执行异步请求一类的函数的线程，如： Promise，axios，ajax等。</li>
 </ul>
 </li>
@@ -196,6 +197,23 @@
 <li><code>网络进程</code>：主要负责页面的网络资源加载，之前是作为一个模块运行在浏览器进程里面的，直至最近才独立出来，成为一个单独的进程。</li>
 <li><code>插件进程</code>：主要是负责插件的运行，因插件易崩溃，所以需要通过插件进程来隔离，以保证插件进程崩溃不会对浏览器和页面造成影响。</li>
 </ul>
+<h3 id="浏览器的网络进程与渲染进程中的http异步请求线程之间的分工有什么不同他们之间的有怎么样的联系httpssegmentfaultcomq1010000043813132"><a href="https://segmentfault.com/q/1010000043813132" target="_blank" rel="noopener noreffer ">浏览器的网络进程与渲染进程中的http异步请求线程之间的分工有什么不同，他们之间的有怎么样的联系？</a></h3>
+<p>浏览器网络进程与渲染进程中的HTTP异步请求线程之间的主要区别和联系如下:</p>
+<p>区别:</p>
+<ul>
+<li>网络进程负责与外部网络通信,处理所有HTTP请求和响应。</li>
+<li>渲染进程内包含多个浏览器上下文,每个上下文拥有独立的JavaScript运行时环境。</li>
+<li>渲染进程中的异步请求线程由JavaScript API发起,但实际请求还是由网络进程处理。</li>
+</ul>
+<p>联系:</p>
+<ul>
+<li>异步请求通过JavaScript API发起,但实质上还是由网络进程来发送和处理请求。</li>
+<li>网络进程在接收到请求后,会立即返回一个返回值给请求发起的JavaScript线程。</li>
+<li>当请求完成后,网络进程会将结果通知给渲染进程的专用线程。</li>
+<li>专用线程收到结果后,会通知对应的JavaScript线程,触发回调函数继续运行。</li>
+<li>这样JavaScript可以看起来是异步执行,但实际上请求还是由网络进程同步处理的。</li>
+</ul>
+<p>总之,网络进程负责真实网络通信,渲染进程的异步请求线程通过JavaScript API与网络进程交互,目的是伪装为异步,但实际上仍由网络进程同步处理。两者通过进程间通信紧密配合。</p>
 <blockquote>
 <p>详解</p>
 <p><a href="https://lq782655835.github.io/blogs/js/http-base-2.browser.html" target="_blank" rel="noopener noreffer ">JavaScript与浏览器 - 线程与引擎</a></p>
@@ -206,7 +224,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-10-17</span>
+                <span>Updated on 2023-10-23</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
