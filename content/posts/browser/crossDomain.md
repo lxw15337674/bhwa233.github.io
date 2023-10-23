@@ -75,3 +75,5 @@ WebSocket不受跨域限制。
 https://juejin.im/post/5c23993de51d457b8c1f4ee1#comment
 
 http://182.92.151.65/docs/%E6%B5%8F%E8%A7%88%E5%99%A8/%E8%B7%A8%E5%9F%9F
+
+[CORS 为什么要区分“简单请求”和“预检请求”](https://tie.pub/2019/09/why-cors-preflighted-requests/)
