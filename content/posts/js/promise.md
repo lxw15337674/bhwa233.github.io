@@ -11,6 +11,21 @@ typora-root-url: ..\..\static
 
 用于解决异步操作结束后的方法执行问题。
 
+## 原理
+Promise是JavaScript中用于处理异步操作的一种机制，它提供了一种更优雅、可靠的方式来处理异步编程。Promise的实现原理可以通过以下几个关键点来解释：
+
+构造函数：Promise构造函数接受一个执行器函数（executor），在构造函数被调用时立即执行该函数。执行器函数接受两个参数，分别是resolve和reject，它们是两个函数，用于处理Promise的状态。
+
+状态管理：Promise具有三种状态：pending（进行中）、fulfilled（已完成）和rejected（已拒绝）。初始状态为pending，执行器函数中的resolve函数将Promise状态从pending变为fulfilled，而reject函数将Promise状态从pending变为rejected。一旦状态发生变化，就不能再次改变。
+
+then方法：Promise实例具有一个then方法，它接受两个回调函数作为参数，分别是onFulfilled和onRejected。当Promise状态变为fulfilled时，会调用onFulfilled回调函数；当Promise状态变为rejected时，会调用onRejected回调函数。then方法返回一个新的Promise实例，使得可以进行链式调用。
+
+链式调用：then方法返回的新Promise实例可以通过返回一个新的值或另一个Promise实例来传递结果。这种机制允许在多个异步操作之间进行串联，形成更复杂的异步流程。
+
+错误处理：Promise提供了catch方法用于处理异常情况。catch方法是then方法的一个特殊形式，用于捕获Promise链中的任何拒绝（rejected）状态，并执行相应的错误处理逻辑。
+
+异步执行：Promise的执行是异步的，它会将执行器函数中的代码放入任务队列中，在主线程空闲时执行。这样可以避免阻塞主线程，提高应用的响应性能。
+
 ## 诞生原因
 
 最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操作中。导致会无限嵌套，也就是回掉地狱，影响代码可读性。例如`asyncfn1(asyncfn2(asyncfn3()))`。
