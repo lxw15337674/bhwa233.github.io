@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Promise - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="Promise" />
-<meta property="og:description" content="一句话总结Promise 用于解决异步操作结束后的方法执行问题。 诞生原因 最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操" />
+<meta property="og:description" content="一句话总结Promise 用于解决异步操作结束后的方法执行问题。 原理 Promise是JavaScript中用于处理异步操作的一种机制，它提供了" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/js/promise/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-18T11:02:44+08:00" />
-<meta property="article:modified_time" content="2023-10-19T23:50:13+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-10-25T12:33:56+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Promise"/>
-<meta name="twitter:description" content="一句话总结Promise 用于解决异步操作结束后的方法执行问题。 诞生原因 最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操"/>
+<meta name="twitter:description" content="一句话总结Promise 用于解决异步操作结束后的方法执行问题。 原理 Promise是JavaScript中用于处理异步操作的一种机制，它提供了"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
@@ -27,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/js\/promise\/"
-        },"genre": "posts","keywords": "","wordcount":  3621 ,
-        "url": "\/posts\/js\/promise\/","datePublished": "2022-08-18T11:02:44+08:00","dateModified": "2023-10-19T23:50:13+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  4423 ,
+        "url": "\/posts\/js\/promise\/","datePublished": "2022-08-18T11:02:44+08:00","dateModified": "2023-10-25T12:33:56+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,8 +101,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Promise</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-18">2022-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3621 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-18">2022-08-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;4423 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;9 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
@@ -111,8 +111,9 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#一句话总结promise">一句话总结Promise</a></li>
-    <li><a href="#诞生原因">诞生原因</a></li>
     <li><a href="#原理">原理</a></li>
+    <li><a href="#诞生原因">诞生原因</a></li>
+    <li><a href="#原理-1">原理</a></li>
     <li><a href="#特点">特点</a></li>
     <li><a href="#流程">流程</a></li>
     <li><a href="#缺点">缺点</a></li>
@@ -137,9 +138,17 @@
 </nav></div>
             </div><div class="content" id="content"><h2 id="一句话总结promise">一句话总结Promise</h2>
 <p>用于解决异步操作结束后的方法执行问题。</p>
+<h2 id="原理">原理</h2>
+<p>Promise是JavaScript中用于处理异步操作的一种机制，它提供了一种更优雅、可靠的方式来处理异步编程。Promise的实现原理可以通过以下几个关键点来解释：</p>
+<p>构造函数：Promise构造函数接受一个执行器函数（executor），在构造函数被调用时立即执行该函数。执行器函数接受两个参数，分别是resolve和reject，它们是两个函数，用于处理Promise的状态。</p>
+<p>状态管理：Promise具有三种状态：pending（进行中）、fulfilled（已完成）和rejected（已拒绝）。初始状态为pending，执行器函数中的resolve函数将Promise状态从pending变为fulfilled，而reject函数将Promise状态从pending变为rejected。一旦状态发生变化，就不能再次改变。</p>
+<p>then方法：Promise实例具有一个then方法，它接受两个回调函数作为参数，分别是onFulfilled和onRejected。当Promise状态变为fulfilled时，会调用onFulfilled回调函数；当Promise状态变为rejected时，会调用onRejected回调函数。then方法返回一个新的Promise实例，使得可以进行链式调用。</p>
+<p>链式调用：then方法返回的新Promise实例可以通过返回一个新的值或另一个Promise实例来传递结果。这种机制允许在多个异步操作之间进行串联，形成更复杂的异步流程。</p>
+<p>错误处理：Promise提供了catch方法用于处理异常情况。catch方法是then方法的一个特殊形式，用于捕获Promise链中的任何拒绝（rejected）状态，并执行相应的错误处理逻辑。</p>
+<p>异步执行：Promise的执行是异步的，它会将执行器函数中的代码放入任务队列中，在主线程空闲时执行。这样可以避免阻塞主线程，提高应用的响应性能。</p>
 <h2 id="诞生原因">诞生原因</h2>
 <p>最开始解决异步函数的方法是回调函数，将要执行的函数作为参数，传入异步操作中。导致会无限嵌套，也就是回掉地狱，影响代码可读性。例如<code>asyncfn1(asyncfn2(asyncfn3()))</code>。</p>
-<h2 id="原理">原理</h2>
+<h2 id="原理-1">原理</h2>
 <p>通过观察者模式，将要执行的函数放入一个队列里，在异步函数执行结束后执行这个队列。</p>
 <h2 id="特点">特点</h2>
 <ul>
@@ -704,7 +713,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-10-19</span>
+                <span>Updated on 2023-10-25</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
