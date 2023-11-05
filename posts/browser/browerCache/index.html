@@ -9,7 +9,8 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/browser/browerCache/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-28T23:28:42+08:00" />
-<meta property="article:modified_time" content="2023-10-14T22:59:23+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-11-05T20:43:21+08:00" /><meta property="og:site_name" content="My cool site" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入理解浏览器的缓存机制"/>
 <meta name="twitter:description" content="原文：https://www.jianshu.com/p/54cc04190252 总结 优先级 持久化 命中规则 作用范围 Memory Cache 1 No URL Navigation Service Worker 2 Yes 自定义"/>
@@ -27,8 +28,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/browser\/browerCache\/"
-        },"genre": "posts","keywords": "","wordcount":  6310 ,
-        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2023-10-14T22:59:23+08:00","publisher": {
+        },"genre": "posts","keywords": "","wordcount":  6381 ,
+        "url": "\/posts\/browser\/browerCache\/","datePublished": "2022-07-28T23:28:42+08:00","dateModified": "2023-11-05T20:43:21+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -101,7 +102,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">深入理解浏览器的缓存机制</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6310 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;6381 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;13 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -190,6 +191,11 @@
 </tr>
 </tbody>
 </table>
+<p><a href="https://github.com/xy-sea/blog/blob/main/markdown/%e4%b8%80%e6%96%87%e5%bd%bb%e5%ba%95%e5%bc%84%e6%87%82%e6%b5%8f%e8%a7%88%e5%99%a8%e7%bc%93%e5%ad%98%ef%bc%8c%e5%8f%aa%e9%9c%80%e5%8a%a8%e6%89%8b%e6%93%8d%e4%bd%9c%e4%b8%80%e6%ac%a1.md#%e5%89%8d%e7%ab%af%e5%b8%b8%e7%94%a8%e7%9a%84%e7%bc%93%e5%ad%98%e6%96%b9%e6%a1%88" target="_blank" rel="noopener noreffer ">前端常用的缓存方案</a>：</p>
+<p>强缓存与协商缓存相结合的方案</p>
+<p>1）HTML 文档配置协商缓存；</p>
+<p>2）JS、CSS、图片等资源配置强缓存</p>
+<p>此方案的好处：当项目版本更新时，可以获取最新的页面；若版本未变化，可继续复用之前的缓存资源；既很好利用了浏览器缓存，又解决了页面版本更新的问题</p>
 <h2 id="memory-cache">Memory Cache</h2>
 <p>Memory Cache 也就是内存中的缓存，主要包含的是当前中页面中已经抓取到的资源,例如页面上已经下载的样式、脚本、图片等。读取内存中的数据肯定比磁盘快,内存缓存虽然读取高效，可是缓存持续性很短，会随着进程的释放而释放。 <strong>一旦我们关闭 Tab 页面，内存中的缓存也就被释放了</strong>。</p>
 <p>**那么既然内存缓存这么高效，我们是不是能让数据都存放在内存中呢？**这是不可能的。计算机中的内存一定比硬盘容量小得多，操作系统需要精打细算内存的使用，所以能让我们使用的内存必然不多。</p>
@@ -397,20 +403,15 @@
 <p><strong>解决方案</strong>，打包静态资源时，根据内容进行 hash 计算，生成文件名的 hash 码。内容变，hash 码变，请求资源 url 变，浏览器重新请求加载资源，达到更新缓存的目的。</p>
 <h2 id="参考文章">参考文章</h2>
 <ul>
-<li><a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.alloyteam.com%2F2016%2F03%2Fdiscussion-on-web-caching%2F" target="_blank" rel="noopener noreffer ">浅谈web缓存</a></li>
-<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fsweetamily.github.io%2F2018%2F11%2F06%2Fweb%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%2F" target="_blank" rel="noopener noreffer ">web缓存机制</a></li>
 <li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMjM5MTA1MjAxMQ%3D%3D%26mid%3D2651228395%26idx%3D1%26sn%3Ddcf7e3bd518f1e189ce17eaed94c27bb%26chksm%3Dbd49516f8a3ed879221bf28bf68ac00c4733a6048c54ea90e75a9e2315a262c2d66fb29a4a34%26mpshare%3D1%26scene%3D1%26srcid%3D0419jU32MPcOkcBWJJVdgj2J%23rd" target="_blank" rel="noopener noreffer ">彻底理解浏览器的缓存机制</a></li>
-<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjuejin.im%2Fbook%2F5bdc715fe51d454e755f75ef%2Fsection%2F5c024ecbf265da616a476638" target="_blank" rel="noopener noreffer ">前端面试之道</a></li>
-<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjuejin.im%2Fpost%2F5c22ee806fb9a049fb43b2c5%3Futm_source%3Dgold_browser_extension" target="_blank" rel="noopener noreffer ">一文读懂前端缓存</a></li>
-<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fcalendar.perfplanet.com%2F2016%2Fa-tale-of-four-caches%2F" target="_blank" rel="noopener noreffer ">A Tale of Four Caches</a></li>
-<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fjakearchibald.com%2F2017%2Fh2-push-tougher-than-i-thought%2F" target="_blank" rel="noopener noreffer ">HTTP/2 push is tougher than I thought</a></li>
-<li><a href="https://links.jianshu.com/go?to=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F28113197" target="_blank" rel="noopener noreffer ">设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2</a></li>
+<li><a href="https://juejin.cn/post/6844903747357769742?utm_source=gold_browser_extension" target="_blank" rel="noopener noreffer ">一文读懂前端缓存</a></li>
+<li><a href="https://github.com/xy-sea/blog/blob/main/markdown/%E4%B8%80%E6%96%87%E5%BD%BB%E5%BA%95%E5%BC%84%E6%87%82%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%EF%BC%8C%E5%8F%AA%E9%9C%80%E5%8A%A8%E6%89%8B%E6%93%8D%E4%BD%9C%E4%B8%80%E6%AC%A1.md" target="_blank" rel="noopener noreffer ">一文彻底弄懂浏览器缓存，只需动手操作一次.</a></li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-10-14</span>
+                <span>Updated on 2023-11-05</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -432,7 +433,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.119.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.120.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
         </div>
     </footer></div>
