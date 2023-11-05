@@ -18,6 +18,16 @@ typora-root-url: ..\..\static
 | Disk Cache     | 3      | Yes    | HTTP语义 | Cros Sessions and Sites |
 | PUSH Cache     | 4      | No     | HTTP语义 | HTTP/2 session          |
 
+[前端常用的缓存方案](https://github.com/xy-sea/blog/blob/main/markdown/一文彻底弄懂浏览器缓存，只需动手操作一次.md#前端常用的缓存方案)：
+
+强缓存与协商缓存相结合的方案
+
+1）HTML 文档配置协商缓存；
+
+2）JS、CSS、图片等资源配置强缓存
+
+此方案的好处：当项目版本更新时，可以获取最新的页面；若版本未变化，可继续复用之前的缓存资源；既很好利用了浏览器缓存，又解决了页面版本更新的问题
+
 ## Memory Cache
 
 Memory Cache 也就是内存中的缓存，主要包含的是当前中页面中已经抓取到的资源,例如页面上已经下载的样式、脚本、图片等。读取内存中的数据肯定比磁盘快,内存缓存虽然读取高效，可是缓存持续性很短，会随着进程的释放而释放。 **一旦我们关闭 Tab 页面，内存中的缓存也就被释放了**。
@@ -255,14 +265,6 @@ Last-Modified的时间单位是秒，如果某个文件在1秒内改变了多次
 
 ## 参考文章
 
-- [浅谈web缓存](https://links.jianshu.com/go?to=http%3A%2F%2Fwww.alloyteam.com%2F2016%2F03%2Fdiscussion-on-web-caching%2F)
-- [web缓存机制](https://links.jianshu.com/go?to=https%3A%2F%2Fsweetamily.github.io%2F2018%2F11%2F06%2Fweb%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%2F)
 - [彻底理解浏览器的缓存机制](https://links.jianshu.com/go?to=https%3A%2F%2Fmp.weixin.qq.com%2Fs%3F__biz%3DMjM5MTA1MjAxMQ%3D%3D%26mid%3D2651228395%26idx%3D1%26sn%3Ddcf7e3bd518f1e189ce17eaed94c27bb%26chksm%3Dbd49516f8a3ed879221bf28bf68ac00c4733a6048c54ea90e75a9e2315a262c2d66fb29a4a34%26mpshare%3D1%26scene%3D1%26srcid%3D0419jU32MPcOkcBWJJVdgj2J%23rd)
-- [前端面试之道](https://links.jianshu.com/go?to=https%3A%2F%2Fjuejin.im%2Fbook%2F5bdc715fe51d454e755f75ef%2Fsection%2F5c024ecbf265da616a476638)
-- [一文读懂前端缓存](https://links.jianshu.com/go?to=https%3A%2F%2Fjuejin.im%2Fpost%2F5c22ee806fb9a049fb43b2c5%3Futm_source%3Dgold_browser_extension)
-- [A Tale of Four Caches](https://links.jianshu.com/go?to=https%3A%2F%2Fcalendar.perfplanet.com%2F2016%2Fa-tale-of-four-caches%2F)
-- [HTTP/2 push is tougher than I thought](https://links.jianshu.com/go?to=https%3A%2F%2Fjakearchibald.com%2F2017%2Fh2-push-tougher-than-i-thought%2F)
-- [设计一个无懈可击的浏览器缓存方案：关于思路，细节，ServiceWorker，以及HTTP/2](https://links.jianshu.com/go?to=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F28113197)
-
-
-
+- [一文读懂前端缓存](https://juejin.cn/post/6844903747357769742?utm_source=gold_browser_extension)
+- [一文彻底弄懂浏览器缓存，只需动手操作一次.](https://github.com/xy-sea/blog/blob/main/markdown/%E4%B8%80%E6%96%87%E5%BD%BB%E5%BA%95%E5%BC%84%E6%87%82%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98%EF%BC%8C%E5%8F%AA%E9%9C%80%E5%8A%A8%E6%89%8B%E6%93%8D%E4%BD%9C%E4%B8%80%E6%AC%A1.md)
