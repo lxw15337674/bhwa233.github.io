@@ -7,7 +7,7 @@ git status
 git pull
 
 # 打包。
-hugo -t LoveIt
+# hugo -t LoveIt
 
 # Add changes to git.
 git add .
