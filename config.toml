@@ -74,11 +74,10 @@ disablePathToLower = true
       avatarURL = ""
       # title shown in home page (HTML format is supported)
       # 主页显示的网站标题 (支持 HTML 格式)
-      title = "
-      <a href="https://notion-next-plum-chi.vercel.app/">新博客地址跳转</a>"
+      title = "<img src="https://github.com/lxw15337674/lxw15337674.github.io/blob/main/static/images/hi.png" alt="图片">"
       # subtitle shown in home page (HTML format is supported)
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = ''
+      subtitle = ' <a href="https://notion-next-plum-chi.vercel.app/">新博客地址跳转</a>'
       # whether to use typeit animation for subtitle
       # 是否为副标题显示打字机动画
       typeit = false
