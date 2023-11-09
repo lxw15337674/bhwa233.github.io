@@ -71,7 +71,7 @@ disablePathToLower = true
       gravatarEmail = ""
       # URL of avatar shown in home page
       # 主页显示头像的 URL
-      avatarURL = "/images/hi.png"
+      avatarURL = "https://github.com/lxw15337674/lxw15337674.github.io/blob/main/static/images/hi.png"
       # title shown in home page (HTML format is supported)
       # 主页显示的网站标题 (支持 HTML 格式)
       title = ""
@@ -102,7 +102,7 @@ disablePathToLower = true
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # 标题名称
-      name = "Bhwa233 过时blog"
+      name = "Bhwa233 blog"
       # LoveIt 新增 | 0.2.5 是否为标题显示打字机动画
       typeit = true
 [params.section]
