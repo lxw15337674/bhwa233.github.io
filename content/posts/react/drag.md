@@ -1,7 +1,7 @@
 ---
 title: "拖拽组件[todo]"
 date: 2023-05-18T15:02:01+08:00
-draft: false
+draft: true
 tags: [""]
 categories: [""]
 typora-root-url: ..\..\static
