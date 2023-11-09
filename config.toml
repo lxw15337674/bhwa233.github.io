@@ -77,7 +77,7 @@ disablePathToLower = true
       title = ""
       # subtitle shown in home page (HTML format is supported)
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = '<a href="https://notion-next-plum-chi.vercel.app/">新博客地址</a>'
+      subtitle = '<a href="https://notion-next-plum-chi.vercel.app/">新博客地址跳转</a>'
       # whether to use typeit animation for subtitle
       # 是否为副标题显示打字机动画
       typeit = false
@@ -102,7 +102,7 @@ disablePathToLower = true
     # LoveIt 新增 | 0.2.0 页面头部导航栏标题配置
     [params.header.title]
       # 标题名称
-      name = "Bhwa233 blog"
+      name = "Bhwa233 过时blog"
       # LoveIt 新增 | 0.2.5 是否为标题显示打字机动画
       typeit = true
 [params.section]
