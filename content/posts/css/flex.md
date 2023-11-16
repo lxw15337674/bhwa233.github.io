@@ -76,6 +76,6 @@ flex-basis: auto; // 设置了宽度跟宽度走，没设置宽度跟内容实�
 ## 引用
 
 [Flex 布局教程：语法篇](http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html)
-
+[flex:1和flex:auto](https://juejin.cn/post/7061196914741477383#heading-10)
 
 
