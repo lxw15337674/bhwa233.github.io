@@ -9,10 +9,9 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/packages/module/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-28T21:17:45+08:00" />
-<meta property="article:modified_time" content="2022-09-02T18:58:48+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:modified_time" content="2023-12-08T17:24:33+08:00" /><meta property="og:site_name" content="My cool site" />
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="前端模块化输出"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="前端模块化输出"/>
 <meta name="twitter:description" content="模块化主要是用来抽离公共代码，隔离作用域，避免变量冲突等。 无模块化 CommonJS规范 AMD规范 CMD规范 ES6模块化 适用 服务端 浏览器端 浏览"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
@@ -28,8 +27,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "\/posts\/packages\/module\/"
-        },"genre": "posts","keywords": "js","wordcount":  3079 ,
-        "url": "\/posts\/packages\/module\/","datePublished": "2022-07-28T21:17:45+08:00","dateModified": "2022-09-02T18:58:48+08:00","publisher": {
+        },"genre": "posts","keywords": "js","wordcount":  3129 ,
+        "url": "\/posts\/packages\/module\/","datePublished": "2022-07-28T21:17:45+08:00","dateModified": "2023-12-08T17:24:33+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -102,7 +101,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">前端模块化输出</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/lxw15337674" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Bhwa233</a></span>&nbsp;<span class="post-category">included in <a href="../../../categories/js/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>js</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3079 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-28">2022-07-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3129 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;7 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -374,9 +373,9 @@ import { stat, exists, readFile } from &#39;fs&#39;;
 <p>CommonJS 是一种模块规范，最初被应用于 Nodejs，成为 Nodejs 的模块规范。<br>
 在 ES6 出来之前，前端也实现了一套相同的模块规范 (例如: AMD)，用来对前端模块进行管理。自 ES6 起，引入了一套新的 ES6 Module 规范，在语言标准的层面上实现了模块功能，有望成为浏览器和服务器通用的模块解决方案。但目前浏览器对 ES6 Module 兼容还不太好，我们平时在 Webpack 中使用的 export 和 import，会经过 Babel 转换为 CommonJS 规范。</p>
 <ul>
-<li>CommonJS 是运行时加载，ES6 模块是编译时输出接口。所以前者支持动态导入。</li>
-<li>CommonJs 是同步导入，因为用于服务端，文件都在本地。而后者是异步导入，因为用于浏览器。</li>
-<li>CommonJS 是值拷贝（深拷贝），就算导出的值变了，导入的值也不会改变，如果想要更新至，必须重新导入一次。ES6 采用实时绑定（浅拷贝），导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化。</li>
+<li>CommonJS 是运行时加载，ES6 模块是静态加载。所以前者支持动态导入。</li>
+<li>CommonJs 是同步加载模块，因为用于服务端，文件都在本地。而后者是异步导入，因为用于浏览器。同步加载：所谓同步加载就是加载资源或者模块的过程会阻塞后续代码的执行；异步加载：不会阻塞后续代码的执行；</li>
+<li>CommonJS 是值拷贝（深拷贝），就算导出的值变了，导入的值也不会改变，如果想要更新至，必须重新导入一次。ES6 采用值引用（浅拷贝），导入导出的值都指向同一个内存地址，所以导入值会跟随导出值变化。</li>
 <li>CommonJs 是动态语法可以写在判断里，ES6 Module 静态语法只能写在顶层</li>
 <li>CommonJs 的 this 是当前模块，ES6 Module的 this 是 undefined</li>
 </ul>
@@ -386,7 +385,7 @@ import { stat, exists, readFile } from &#39;fs&#39;;
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-09-02</span>
+                <span>Updated on 2023-12-08</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -408,7 +407,7 @@ import { stat, exists, readFile } from &#39;fs&#39;;
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.120.4">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
         </div>
     </footer></div>
