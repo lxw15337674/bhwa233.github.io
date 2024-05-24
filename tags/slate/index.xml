@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>slate - Tag - Bhwa233 blog</title>
+        <title>Slate - Tag - Bhwa233 blog</title>
         <link>/tags/slate/</link>
-        <description>slate - Tag - Bhwa233 blog</description>
+        <description>Slate - Tag - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 13 Aug 2022 16:04:44 &#43;0800</lastBuildDate><atom:link href="/tags/slate/" rel="self" type="application/rss+xml" /><item>
     <title>Slate transform API 详细说明</title>
     <link>/posts/richtext/slateApi/</link>

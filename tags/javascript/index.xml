@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>javascript - Tag - Bhwa233 blog</title>
+        <title>Javascript - Tag - Bhwa233 blog</title>
         <link>/tags/javascript/</link>
-        <description>javascript - Tag - Bhwa233 blog</description>
+        <description>Javascript - Tag - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sat, 27 Aug 2022 17:05:53 &#43;0800</lastBuildDate><atom:link href="/tags/javascript/" rel="self" type="application/rss+xml" /><item>
     <title>js的继承</title>
     <link>/posts/js/%E7%BB%A7%E6%89%BF/</link>

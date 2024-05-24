@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>npm - Tag - Bhwa233 blog</title>
+        <title>Npm - Tag - Bhwa233 blog</title>
         <link>/tags/npm/</link>
-        <description>npm - Tag - Bhwa233 blog</description>
+        <description>Npm - Tag - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 06 Jul 2022 15:29:43 &#43;0800</lastBuildDate><atom:link href="/tags/npm/" rel="self" type="application/rss+xml" /><item>
     <title>npm 语义版本控制</title>
     <link>/posts/packages/AboutVersion/</link>

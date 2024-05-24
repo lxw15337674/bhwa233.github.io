@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>css - Category - Bhwa233 blog</title>
+        <title>Css - Category - Bhwa233 blog</title>
         <link>/categories/css/</link>
-        <description>css - Category - Bhwa233 blog</description>
+        <description>Css - Category - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 21 Aug 2022 12:50:51 &#43;0800</lastBuildDate><atom:link href="/categories/css/" rel="self" type="application/rss+xml" /><item>
     <title>居中</title>
     <link>/posts/css/middle/</link>

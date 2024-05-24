@@ -4,15 +4,19 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>性能优化之分片 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="性能优化之分片" />
-<meta property="og:description" content="痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%88%86%E7%89%87/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-10-27T18:50:41+08:00" />
-<meta property="article:modified_time" content="2022-10-27T18:50:41+08:00" /><meta property="og:site_name" content="My cool site" />
+        <title>性能优化之分片 - Bhwa233 blog</title><meta name="Description" content="This is my cool site"><meta property="og:url" content="/posts/js/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E4%B9%8B%E5%88%86%E7%89%87/">
+  <meta property="og:site_name" content="Bhwa233 blog">
+  <meta property="og:title" content="性能优化之分片">
+  <meta property="og:description" content="痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-10-27T18:50:41+08:00">
+    <meta property="article:modified_time" content="2022-10-27T18:50:41+08:00">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="性能优化之分片"/>
-<meta name="twitter:description" content="痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="性能优化之分片">
+  <meta name="twitter:description" content="痛点 在进行耗时长的任务时，如果同步执行，会造成页面卡顿。比如js进行复杂的运算，页面渲染大量的DOM节点。在这种情况可以通过分片的思想来优化">
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon-32x32.png">
@@ -297,7 +301,7 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.121.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.126.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/lxw15337674" target="_blank">Bhwa233</a></span></div>
         </div>
     </footer></div>

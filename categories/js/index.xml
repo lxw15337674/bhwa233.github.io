@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>js - Category - Bhwa233 blog</title>
+        <title>Js - Category - Bhwa233 blog</title>
         <link>/categories/js/</link>
-        <description>js - Category - Bhwa233 blog</description>
+        <description>Js - Category - Bhwa233 blog</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 11 May 2023 14:49:27 &#43;0800</lastBuildDate><atom:link href="/categories/js/" rel="self" type="application/rss+xml" /><item>
     <title>保留小数位-toFixed的坑</title>
     <link>/posts/js/toFixed/</link>
